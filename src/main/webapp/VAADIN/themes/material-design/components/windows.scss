@@ -1,0 +1,81 @@
+/*
+The MD spec states that a dialog's title should have a bottom padding of 20px,
+and a top padding of 24px. However, the spec only reserves a height of 16px for
+the title which has a line-height of 28px. Thus, we need to offset 12px, i.e.
+6px at the top, and 6px at the bottom.
+*/
+$md-window-title-pad-bottom: 14px;
+$md-window-title-pad-left: 24px;
+$md-window-title-pad-right: 24px;
+$md-window-title-pad-top: 18px;
+$md-window-border-radius: 2px;
+
+$md-window-light-bg-color: white;
+$md-window-dark-bg-color: $md-grey-800;
+
+$md-window-height-max: calc(100% - 48px);
+$md-window-width-max: calc(100% - 48px);
+
+$md-modalitycurtain-bg: rgba(0, 0, 0, 0.48);
+
+
+@mixin windows {
+  @include md-window(md-window-dark, $md-primary-light, $md-dividers-light, $md-window-dark-bg-color);
+  @include md-window(md-window-light, $md-primary-dark, $md-dividers-dark, $md-window-light-bg-color);
+
+  .v-modalitycurtain {
+    background-color: $md-modalitycurtain-bg;
+  }
+
+  // No header style
+  .md-window-noheader {
+    .v-window-outerheader {
+      display: none;
+    }
+  }
+}
+
+
+@mixin md-window($primaryStyleName, $primary-color, $dividers-color, $bg-color) {
+  .#{$primaryStyleName} {
+    @include md-elevation-24dp;
+    animation: fade-in-animate-in 200ms ease-out;
+    background-color: $bg-color;
+    border-radius: $md-window-border-radius;
+    display: flex;
+    flex-direction: column;
+    max-height: $md-window-height-max;
+    max-width: $md-window-width-max;
+
+    // Magic!
+    &[class*="animate-out"] {
+      animation: fade-out-animate-out 200ms ease-out;
+    }
+
+    .popupContent,
+    .v-window-wrap,
+    .v-scrollable,
+    .v-window-contents {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .v-window-outerheader {
+      padding: $md-window-title-pad-top $md-window-title-pad-right $md-window-title-pad-bottom $md-window-title-pad-left;
+    }
+
+    .v-window-header {
+      @include md-title-font($primary-color);
+    }
+
+    // Scrollable adds a bottom border to the header
+    &.md-window-scrollable {
+      .v-window-outerheader {
+        box-shadow: inset 0 -1px 0 0 $dividers-color;
+      }
+    }
+  }
+
+
+}

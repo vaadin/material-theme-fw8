@@ -1,0 +1,124 @@
+@mixin escalator($primary-style-name, $bg-color) {
+
+  .#{$primary-style-name} {
+    position: relative;
+  }
+
+  .#{$primary-style-name}-scroller {
+    box-sizing: border-box;
+    outline: none;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .#{$primary-style-name}-scroller-horizontal {
+    bottom: 0;
+    left: 0;
+    overflow-y: hidden;
+    right: 0;
+  }
+
+  .#{$primary-style-name}-scroller-vertical {
+    bottom: 0;
+    overflow-x: hidden;
+    right: 0;
+    top: 0;
+  }
+
+  .#{$primary-style-name}-tablewrapper {
+    box-sizing: border-box;
+    overflow: hidden;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .#{$primary-style-name}-tablewrapper > table {
+    border-spacing: 0;
+    table-layout: fixed;
+    width: inherit;
+  }
+
+  .#{$primary-style-name}-header-deco,
+  .#{$primary-style-name}-footer-deco {
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+  }
+
+  .#{$primary-style-name}-horizontal-scrollbar-deco {
+    bottom: 0;
+    box-sizing: border-box;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  .#{$primary-style-name}-header,
+  .#{$primary-style-name}-body,
+  .#{$primary-style-name}-footer {
+    position: absolute;
+    left: 0;
+    width: inherit;
+    z-index: 10;
+  }
+
+  .#{$primary-style-name}-header,
+  .#{$primary-style-name}-header-deco {
+    top: 0;
+  }
+
+  .#{$primary-style-name}-footer,
+  .#{$primary-style-name}-footer-deco {
+    bottom: 0;
+  }
+
+  .#{$primary-style-name}-body {
+    top: 0;
+    touch-action: none;
+    z-index: 0;
+
+    .#{$primary-style-name}-row {
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .#{$primary-style-name}-row {
+    display: block;
+
+    > td,
+    > th {
+      background-color: $bg-color;
+    }
+  }
+
+  .#{$primary-style-name}-row {
+    width: inherit;
+  }
+
+  .#{$primary-style-name}-cell {
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .#{$primary-style-name}-cell.frozen {
+    position: relative;
+    z-index: 1;
+  }
+
+  .#{$primary-style-name}-spacer {
+    background-color: $bg-color;
+    display: block;
+    position: absolute;
+
+    > td {
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

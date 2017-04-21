@@ -1,0 +1,29 @@
+@mixin borders {
+  // Dark theme uses dividers that are "light".
+  .border-top-dark {
+    box-shadow: inset 0 1px 0 0 $md-dividers-light;
+  }
+  .border-right-dark {
+    box-shadow: inset -1px 0 0 0 $md-dividers-light;
+  }
+  .border-bottom-dark {
+    box-shadow: inset 0 -1px 0 0 $md-dividers-light;
+  }
+  .border-left-dark {
+    box-shadow: inset 1px 0 0 0 $md-dividers-light;
+  }
+
+  // Light theme uses dividers that are "dark".
+  .border-top-light {
+    box-shadow: inset 0 1px 0 0 $md-dividers-dark;
+  }
+  .border-right-light {
+    box-shadow: inset -1px 0 0 0 $md-dividers-dark;
+  }
+  .border-bottom-light {
+    box-shadow: inset 0 -1px 0 0 $md-dividers-dark;
+  }
+  .border-left-light {
+    box-shadow: inset 1px 0 0 0 $md-dividers-dark;
+  }
+}

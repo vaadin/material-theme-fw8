@@ -1,0 +1,344 @@
+@import "escalator.scss";
+
+$md-dt-hover-bg-color: $md-grey-200;
+$md-dt-selection-bg-color: $md-grey-100;
+
+$md-dt-header-height: $md-u7;
+$md-dt-row-height: $md-u6;
+
+// Sorting
+$md-dt-sortable-icon-color: $md-secondary-dark;
+$md-dt-sorted-color: $md-primary-dark;
+$md-dt-sort-icon-size: $md-u2;
+
+// Check boxes
+// For positioning purposes; the check box icon size remains the same.
+$md-dt-checkbox-size: 18px;
+
+
+@mixin grid {
+  @include escalator($primary-style-name: v-grid, $bg-color: white);
+
+  .v-grid {
+    outline: none;
+  }
+
+
+  // Selection checkboxes
+  .v-grid-select-all-checkbox,
+  .v-grid-selection-checkbox {
+    @include md-grid-checkbox($md-secondary-dark,
+                              $md-cb-light-checked-color,
+                              $md-cb-light-ripple-color-on,
+                              $md-cb-light-ripple-color-off,
+                              $md-cb-light-ripple-size);
+    display: flex;
+    justify-content: center;
+    width: $md-dt-checkbox-size;
+  }
+
+
+  // Column drag and drop elements
+  .v-grid .header-drag-table {
+    border-spacing: 0;
+    position: relative;
+    table-layout: fixed;
+    width: inherit;
+
+    .v-grid-header {
+      position: absolute;
+
+      > .v-grid-cell {
+        z-index: 30000;
+      }
+
+      > .v-grid-drop-marker {
+        position: absolute;
+        width: $md-u1;
+      }
+    }
+  }
+
+
+  // Sidebar
+  .v-grid-sidebar.v-contextmenu {
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5;
+
+    &.v-grid-sidebar-popup {
+      right: auto;
+    }
+
+    .v-grid-sidebar-button {
+      cursor: pointer;
+      outline: none;
+      text-align: right;
+      line-height: 1;
+
+      &[disabled] {
+        cursor: default;
+      }
+
+      &::after {
+        display: block;
+        content: "?";
+      }
+    }
+
+    &.open {
+      .v-grid-sidebar-button {
+        width: 100%;
+
+        &::after {
+          content: "?";
+        }
+      }
+    }
+
+    .v-grid-sidebar-content {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+
+
+  // Common cell styles
+  .v-grid-cell {
+    @include md-table-row-font($md-primary-dark);
+    align-items: center;
+    box-shadow: inset 0 -1px 0 0 $md-dividers-dark;
+    display: flex;
+    height: $md-dt-row-height;
+    padding: 0 12px;
+    text-overflow: ellipsis;
+
+    &:first-child {
+      padding-left: 24px;
+    }
+
+    &:last-child {
+      padding-right: 24px;
+    }
+  }
+
+
+  // Rows
+  .v-grid-editor-cells.frozen > div {
+    @include md-elevation-4dp;
+  }
+
+  .v-grid-row:hover > td {
+    background-color: $md-dt-hover-bg-color;
+  }
+
+  .v-grid-row-selected > td {
+    background-color: $md-dt-selection-bg-color;
+  }
+
+
+  // Header
+  .v-grid-header {
+    th {
+      @include md-table-header-font($md-secondary-dark);
+      align-items: center;
+      box-shadow: inset 0 -1px 0 0 $md-dividers-dark;
+      display: flex;
+      height: $md-dt-header-height;
+      padding: 0 12px;
+      position: relative;
+      text-align: left;
+
+      &:first-child {
+        padding-left: $md-u3;
+      }
+
+      &:last-child {
+        padding-right: $md-u4;
+      }
+
+    }
+
+    .sortable {
+      cursor: pointer;
+
+      &::after {
+        @include md-cubic-std;
+        content: "\e5db";
+        font-family: "MaterialIcons";
+        font-size: $md-dt-sort-icon-size;
+        left: 12px;
+        opacity: 0;
+        position: absolute;
+        top: ($md-dt-header-height - $md-dt-sort-icon-size)/2;
+
+      }
+
+      &:not(.sort-desc):not(.sort-asc):hover {
+        &::after {
+          color: $md-dt-sortable-icon-color;
+          opacity: 1;
+        }
+
+        .v-grid-column-header-content {
+          margin-left: $md-dt-sort-icon-size + $md-u1;
+        }
+      }
+    }
+
+    .sort-asc,
+    .sort-desc {
+      color: $md-dt-sorted-color;
+
+      &::after {
+        opacity: 1;
+      }
+
+      .v-grid-column-header-content {
+        margin-left: $md-dt-sort-icon-size + $md-u1;
+      }
+    }
+
+    .sort-desc::after {
+      transform: rotateZ(180deg);
+    }
+  }
+
+  .v-grid-column-resize-handle {
+    bottom: 0;
+    cursor: col-resize;
+    position: absolute;
+    right: -$md-u1;
+    top: 0;
+    user-select: none;
+    width: $md-u1;
+    z-index: 10;
+  }
+
+  .v-grid-column-resize-simple-indicator {
+    left: $md-u1;
+    position: absolute;
+    top: 0px;
+    user-select: none;
+    width: $md-u1;
+    z-index: 9001;
+  }
+
+
+  // Header and footer
+  .v-grid-header,
+  .v-grid-footer {
+    .v-grid-cell {
+      overflow: visible;
+    }
+  }
+
+  .v-grid-column-header-content,
+  .v-grid-column-footer-content {
+    @include md-cubic-std;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+
+  // Editor
+  .v-grid-editor {
+    @include md-elevation-4dp;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 20;
+
+    // Unbuffered footer needs to be 100% width to display correctly
+    &.unbuffered {
+      .v-grid-editor-footer {
+        width: 100%;
+      }
+    }
+  }
+
+  .v-grid-editor-cells {
+    position: relative;
+    white-space: nowrap;
+
+    &.frozen {
+      z-index: 2;
+    }
+
+    > div {
+      box-sizing: border-box;
+
+      &.not-editable.v-grid-cell {
+        float: none;
+      }
+    }
+
+    .error::before {
+      content: "";
+      display: block;
+      height: 0;
+      position: absolute;
+      border-top: $md-u1 solid $md-red-500;
+      width: 0;
+    }
+
+    .error,
+    .error > input {
+      background-color: $md-red-500;
+    }
+  }
+
+  .v-grid-editor-footer {
+    display: table;
+    height: $md-u6;
+  }
+
+  .v-grid-editor-message,
+  .v-grid-editor-buttons {
+    display: table-cell;
+    white-space: nowrap;
+  }
+
+  .v-grid-editor-message {
+    position: relative;
+    width: 100%;
+
+    > div {
+      overflow: hidden;
+      position: absolute;
+      text-overflow: ellipsis;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  .v-grid-spacer > td {
+    display: block;
+    padding: 0;
+  }
+
+  .v-grid-spacer-deco-container {
+    position: relative;
+    top: 0;
+    z-index: 5;
+  }
+
+  .v-grid-spacer-deco {
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+  }
+
+
+  // Renderers
+  .v-grid-cell > .v-progressbar {
+    width: 100%;
+  }
+}

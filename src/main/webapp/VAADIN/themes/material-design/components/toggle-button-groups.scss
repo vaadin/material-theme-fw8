@@ -1,0 +1,41 @@
+$md-togglebtn-height: 32px;
+$md-togglebtn-width: 48px;
+$md-togglebtn-active-color: $md-primary-dark;
+$md-togglebtn-active-bg-color: $md-dividers-dark;
+$md-togglebtn-inactive-color: $md-secondary-dark;
+
+@mixin toggle-button-groups {
+  .md-togglebtn-group {
+    display: inline-block;
+
+    > *:first-child {
+      border-bottom-left-radius: $md-btn-border-radius;
+      border-top-left-radius: $md-btn-border-radius;
+    }
+    > *:last-child {
+      border-bottom-right-radius: $md-btn-border-radius;
+      border-top-right-radius: $md-btn-border-radius;
+    }
+  }
+
+  .md-togglebtn {
+    @include md-cubic-std;
+    align-items: center;
+    color: $md-togglebtn-inactive-color;
+    cursor: pointer;
+    display: inline-flex;
+    height: $md-togglebtn-height;
+    justify-content: center;
+    width: $md-togglebtn-width;
+
+    &.active {
+      color: $md-togglebtn-active-color;
+      background-color: $md-togglebtn-active-bg-color;
+    }
+
+    * {
+      align-items: center;
+      display: inline-flex;
+    }
+  }
+}

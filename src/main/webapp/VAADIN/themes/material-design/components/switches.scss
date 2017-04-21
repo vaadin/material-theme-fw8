@@ -1,0 +1,214 @@
+$md-switch-label-padding-left: $md-u4;
+$md-switch-width: 40px;
+$md-switch-transition-duration: 0.2s;
+
+// Thumb
+$md-switch-thumb-size: 20px;
+$md-switch-thumb-top: ($md-subheader-line-height - $md-switch-thumb-size) / 2;
+
+// Track
+$md-switch-track-height: 14px;
+$md-switch-track-width: 34px;
+$md-switch-track-top: ($md-subheader-line-height - $md-switch-track-height) / 2;
+$md-switch-track-left: ($md-switch-width - $md-switch-track-width) / 2;
+
+// Light
+$md-switch-light-checked-color: $md-blue-500;
+$md-switch-light-ripple-color-on: rgba($md-blue-500, 0.1);
+$md-switch-light-ripple-color-off: rgba(0, 0, 0, 0.07);
+$md-switch-light-ripple-size: $md-u6;
+$md-switch-light-thumb-on: $md-blue-500;
+$md-switch-light-thumb-off: $md-grey-50;
+$md-switch-light-thumb-disabled: $md-grey-400;
+$md-switch-light-thumb-disabled-shadow: $md-elevation-1dp;
+$md-switch-light-track-on: rgba($md-blue-500, 0.5);
+$md-switch-light-track-off: $md-disabled-dark;
+$md-switch-light-track-disabled: $md-dividers-dark;
+
+// Dark
+$md-switch-dark-checked-color: $md-blue-500;
+$md-switch-dark-ripple-color-on: rgba($md-blue-500, 0.1);
+$md-switch-dark-ripple-color-off: rgba(255, 255, 255, 0.1);
+$md-switch-dark-ripple-size: $md-u6;
+$md-switch-dark-thumb-on: $md-blue-200;
+$md-switch-dark-thumb-off: $md-grey-400;
+$md-switch-dark-thumb-disabled: $md-grey-800;
+$md-switch-dark-thumb-disabled-shadow: $md-elevation-1dp, inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+$md-switch-dark-track-on: rgba($md-blue-200, 0.5);
+$md-switch-dark-track-off: rgba(255, 255, 255, 0.3);
+$md-switch-dark-track-disabled: rgba(255, 255, 255, 0.1);
+
+@mixin switches {
+  @include switch(md-switch-light,
+                  $md-primary-dark,
+                  $md-secondary-dark,
+                  $md-disabled-dark,
+                  $md-switch-light-thumb-on,
+                  $md-switch-light-thumb-off,
+                  $md-switch-light-thumb-disabled,
+                  $md-switch-light-thumb-disabled-shadow,
+                  $md-switch-light-track-on,
+                  $md-switch-light-track-off,
+                  $md-switch-light-track-disabled,
+                  $md-switch-light-ripple-color-on,
+                  $md-switch-light-ripple-color-off,
+                  $md-switch-light-ripple-size);
+  @include switch(md-switch-dark,
+                  $md-primary-light,
+                  $md-secondary-light,
+                  $md-disabled-light,
+                  $md-switch-dark-thumb-on,
+                  $md-switch-dark-thumb-off,
+                  $md-switch-dark-thumb-disabled,
+                  $md-switch-dark-thumb-disabled-shadow,
+                  $md-switch-dark-track-on,
+                  $md-switch-dark-track-off,
+                  $md-switch-dark-track-disabled,
+                  $md-switch-dark-ripple-color-on,
+                  $md-switch-dark-ripple-color-off,
+                  $md-switch-dark-ripple-size);
+
+}
+
+@mixin switch($primaryStyleName,
+              $primary-color,
+              $secondary-color,
+              $disabled-color,
+              $thumb-on,
+              $thumb-off,
+              $thumb-disabled,
+              $thumb-disabled-shadow,
+              $track-on,
+              $track-off,
+              $track-disabled,
+              $ripple-color-on,
+              $ripple-color-off,
+              $ripple-size) {
+
+  .#{$primaryStyleName} {
+    align-items: flex-start;
+    display: flex;
+    padding: 12px 0;
+    position: relative;
+
+    * {
+      cursor: pointer;
+    }
+
+    &.v-disabled {
+      * {
+        cursor: default;
+      }
+
+      label {
+        color: $disabled-color;
+      }
+
+      input::after {
+
+      }
+    }
+
+    label {
+      @include md-subheader-font($primary-color);
+      display: inline-block;
+      padding-left: $md-icon-size + $md-switch-label-padding-left;
+      position: relative;
+
+      &::after {
+        animation: md-ripple-switch-off 0.8s ease-out;
+        background-color: $ripple-color-off;
+        border-radius: 100%;
+        content: '';
+        display: block;
+        height: $ripple-size;
+        left: 0;
+        margin-left: ($ripple-size - $md-switch-thumb-size)/-2;
+        margin-top: ($ripple-size - $md-subheader-line-height)/-2;
+        position: absolute;
+        top: 0;
+        transform: scale(0);
+        visibility: hidden;
+        width: $ripple-size;
+      }
+    }
+
+    input {
+      display: flex;
+      margin: 0;
+      position: absolute;
+      -webkit-appearance: none;
+      z-index: 1;
+
+      // Track
+      &::before {
+        @include md-cubic-std;
+        background-color: $track-off;
+        border-radius: $md-switch-track-height;
+        box-sizing: border-box;
+        content: "";
+        display: inline-block;
+        height: $md-switch-track-height;
+        left: $md-switch-track-left;
+        position: absolute;
+        top: $md-switch-track-top;
+        width: $md-switch-track-width;
+      }
+
+      // Track
+      &::after {
+        @include md-elevation-1dp;
+        background-color: $thumb-off;
+        border-radius: 100%;
+        content: "";
+        height: $md-switch-thumb-size;
+        left: 0;
+        position: absolute;
+        top: $md-switch-thumb-top;
+        transition: all $md-switch-transition-duration ease-out;
+        width: $md-switch-thumb-size;
+
+      }
+
+      &:checked {
+        &::after {
+          background-color: $thumb-on;
+          left: $md-switch-width / 2;
+        }
+
+        &::before {
+          background-color: $track-on;
+        }
+
+        + label::after {
+          animation: md-ripple-switch-on 0.8s ease-out;
+          background-color: $ripple-color-on;
+        }
+      }
+
+      &:focus {
+        + label::after {
+          visibility: visible;
+        }
+      }
+    }
+
+    &.v-disabled {
+      input {
+        &::after {
+          box-shadow: $thumb-disabled-shadow;
+          background-color: $thumb-disabled;
+        }
+        &::before {
+          background-color: $track-disabled;
+        }
+      }
+      label {
+        color: $disabled-color;
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}

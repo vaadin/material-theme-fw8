@@ -1,0 +1,118 @@
+$md-listitem-single-line-height: 48px;
+$md-listitem-two-line-height: 72px;
+$md-listitem-three-line-height: 88px;
+$md-listitem-icon-size-large: 40px;
+$md-listitem-icon-size-small: 24px;
+
+@mixin list-item {
+  .md-listitem {
+    align-items: center;
+    display: flex;
+
+    &.single-line {
+      height: $md-listitem-single-line-height;
+    }
+
+    &.two-line {
+      height: $md-listitem-two-line-height;
+    }
+
+    &.three-line {
+      height: $md-listitem-three-line-height;
+    }
+
+    &.no-pad {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .md-listitem-content {
+    flex-grow: 1;
+    overflow: hidden;
+
+    .v-label {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .md-listitem-icon {
+    align-items: center;
+    border-radius: 100%;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+
+    .v-label {
+      display: flex;
+    }
+
+    .v-image {
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    &.image {
+      overflow: hidden;
+    }
+  }
+
+  .md-listitem-icon-large {
+    height: $md-listitem-icon-size-large;
+    width: $md-listitem-icon-size-large;
+  }
+
+  .md-listitem-icon-small {
+    height: $md-listitem-icon-size-small;
+    width: $md-listitem-icon-size-small;
+  }
+
+  // Responsive
+  .root {
+    &[width-range~="0-960px"] {
+      .md-listitem:not(.no-pad) {
+        padding-left: $md-gutter-mobile;
+        padding-right: $md-gutter-mobile;
+      }
+      .md-listitem-icon-primary {
+        &.small {
+          margin-right: $md-listitem-icon-small-pad-horizontal-mobile;
+        }
+        &.large {
+          margin-right: $md-listitem-icon-large-pad-horizontal-mobile;
+        }
+      }
+      .md-listitem-icon-secondary {
+        &.small {
+          margin-left: $md-listitem-icon-small-pad-horizontal-mobile;
+        }
+        &.large {
+          margin-left: $md-listitem-icon-large-pad-horizontal-mobile;
+        }
+      }
+    }
+    &[width-range~="961px-"] {
+      .md-listitem:not(.no-pad) {
+        padding-left: $md-gutter-tablet;
+        padding-right: $md-gutter-tablet;
+      }
+      .md-listitem-icon-primary {
+        &.small {
+          margin-right: $md-listitem-icon-small-pad-horizontal-tablet;
+        }
+        &.large {
+          margin-right: $md-listitem-icon-large-pad-horizontal-tablet;
+        }
+      }
+      .md-listitem-icon-secondary {
+        &.small {
+          margin-left: $md-listitem-icon-small-pad-horizontal-tablet;
+        }
+        &.large {
+          margin-left: $md-listitem-icon-large-pad-horizontal-tablet;
+        }
+      }
+    }
+  }
+}

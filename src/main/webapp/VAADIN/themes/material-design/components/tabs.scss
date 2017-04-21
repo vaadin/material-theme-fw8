@@ -1,0 +1,72 @@
+// Common
+$md-tab-height-min: 48px;
+$md-tab-icon-pad-top: 12px;
+$md-tab-icon-pad-bottom: 10px;
+$md-tab-indicator-height: 2px;
+$md-tab-text-pad-bottom: 16px;
+$md-tab-width-min: 72px;
+$md-tab-ripple-size: $md-tab-width-min * 2;
+
+// Light
+$md-tab-light-inactive-color: $md-secondary-dark;
+$md-tab-light-active-color: $md-blue-500;
+$md-tab-light-indicator-color: $md-blue-500;
+$md-tab-light-ripple-color: rgba($md-blue-500, 0.26);
+
+// Dark
+$md-tab-dark-inactive-color: $md-secondary-light;
+$md-tab-dark-active-color: $md-primary-light;
+$md-tab-dark-indicator-color: white;
+$md-tab-dark-ripple-color: rgba(255, 255, 255, 0.3);
+
+
+@mixin tabs {
+  @include md-tab(md-tab-light, $md-tab-light-inactive-color, $md-tab-light-active-color, $md-tab-light-indicator-color, $md-tab-light-ripple-color);
+  @include md-tab(md-tab-dark, $md-tab-dark-inactive-color, $md-tab-dark-active-color, $md-tab-dark-indicator-color, $md-tab-dark-ripple-color);
+}
+
+
+@mixin md-tab($primaryStyleName, $inactive-color, $active-color, $indicator-color, $ripple-color) {
+  .#{$primaryStyleName} {
+    @include md-ripple-btn($ripple-color, $md-tab-ripple-size);
+    @include md-cubic-std;
+    align-items: center;
+    color: $inactive-color;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    min-height: $md-tab-height-min;
+    min-width: $md-tab-width-min;
+    overflow: hidden;
+    position: relative;
+
+    * {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .v-icon {
+      padding-bottom: $md-tab-icon-pad-bottom;
+      padding-top: $md-tab-icon-pad-top;
+
+      + span {
+        &:empty {
+          padding-bottom: max($md-tab-icon-pad-top, $md-tab-icon-pad-bottom) - min($md-tab-icon-pad-top, $md-tab-icon-pad-bottom);
+        }
+        &:not(:empty) {
+          padding-bottom: $md-tab-text-pad-bottom;
+        }
+      }
+    }
+
+    &.selected {
+      box-shadow: inset 0 -$md-tab-indicator-height 0 0 $indicator-color;
+      color: $active-color;
+    }
+  }
+
+  .#{$primaryStyleName}-wrap {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,22 @@
+@mixin datatable-layout {
+  .md-datatable-layout {
+    display: inline-flex;
+  }
+
+  .md-datatable-header {
+    display: inline-flex;
+  }
+
+  .md-datatable-rows {
+    display: inline-flex;
+  }
+
+  .md-datatable-row {
+    display: inline-flex;
+
+    &:not(:last-child) {
+      box-shadow: inset 0 -1px 0 0 $md-dividers-dark;
+    }
+  }
+
+}

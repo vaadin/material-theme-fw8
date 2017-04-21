@@ -1,0 +1,615 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular-webfont.eot');
+    src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Regular-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Italic-webfont.eot');
+    src: url('../fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Italic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Italic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Italic-webfont.svg#RobotoItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold-webfont.eot');
+    src: url('../fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Bold-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Bold-webfont.svg#RobotoBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-BoldItalic-webfont.eot');
+    src: url('../fonts/Roboto-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-BoldItalic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-BoldItalic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-BoldItalic-webfont.svg#RobotoBoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Thin-webfont.eot');
+    src: url('../fonts/Roboto-Thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Thin-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Thin-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Thin-webfont.svg#RobotoThin') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-ThinItalic-webfont.eot');
+    src: url('../fonts/Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-ThinItalic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-ThinItalic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Light-webfont.eot');
+    src: url('../fonts/Roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Light-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Light-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Light-webfont.svg#RobotoLight') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-LightItalic-webfont.eot');
+    src: url('../fonts/Roboto-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-LightItalic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-LightItalic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-LightItalic-webfont.svg#RobotoLightItalic') format('svg');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Medium-webfont.eot');
+    src: url('../fonts/Roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Medium-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Medium-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Medium-webfont.svg#RobotoMedium') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-MediumItalic-webfont.eot');
+    src: url('../fonts/Roboto-MediumItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-MediumItalic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-MediumItalic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-MediumItalic-webfont.svg#RobotoMediumItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "MaterialIcons";
+    src: url("../fonts/MaterialIcons.eot");
+    src: url("../fonts/MaterialIcons.woff2") format("woff2"),
+         url("../fonts/MaterialIcons.woff") format("woff"),
+         url("../fonts/MaterialIcons.ttf") format("truetype");
+}
+
+@mixin MaterialIcons {
+    font-family: "MaterialIcons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+.MaterialIcons {
+    @include MaterialIcons;
+}
+
+
+
+// Font weights
+$md-font-weight-normal: 400;
+$md-font-weight-medium: 500;
+
+// Font sizes, line heights and weights
+$md-menu-font-size: 15px;
+$md-menu-font-weight: $md-font-weight-normal;
+$md-menu-line-height: 20px;
+
+$md-b-font-size: 14px;
+$md-b1-font-weight: $md-font-weight-normal;
+$md-b1-line-height: 20px;
+
+$md-b2-font-weight: $md-font-weight-medium;
+$md-b2-line-height: 24px;
+
+$md-caption-font-size: 12px;
+$md-caption-font-weight: $md-font-weight-normal;
+$md-caption-line-height: 16px;
+
+$md-table-title-font-size: 20px;
+$md-table-title-font-weight: $md-font-weight-normal;
+$md-table-title-line-height: 28px;
+
+$md-table-header-font-size: 12px;
+$md-table-header-font-weight: $md-font-weight-medium;
+$md-table-header-line-height: 16px;
+
+$md-table-row-font-size: 13px;
+$md-table-row-font-weight: $md-font-weight-normal;
+$md-table-row-line-height: 18px;
+
+$md-subheader-font-size: 16px;
+$md-subheader-font-weight: $md-font-weight-normal;
+$md-subheader-line-height: 24px;
+
+$md-title-font-size: 20px;
+$md-title-font-weight: $md-font-weight-medium;
+$md-title-line-height: 28px;
+
+$md-headline-font-size: 24px;
+$md-headline-font-weight: $md-font-weight-normal;
+$md-headline-line-height: 32px;
+
+$md-datepicker-title-font-size: 34px;
+$md-datepicker-title-font-weight: $md-font-weight-medium;
+$md-datepicker-title-line-height: 40px;
+
+$md-tooltip-font-size-tablet: 10px;
+$md-tooltip-font-size-mobile: 14px;
+$md-tooltip-font-weight: $md-font-weight-medium;
+$md-tooltip-line-height-tablet: 16px;
+$md-tooltip-line-height-mobile: 20px;
+
+$md-tab-font-size-tablet: 13px;
+$md-tab-font-size-mobile: 14px;
+$md-tab-font-weight: $md-font-weight-medium;
+$md-tab-line-height: 10px;
+
+
+// Typography
+@mixin typography {
+
+
+    /* DARK */
+
+    // Dark menu
+    .md-menu-dark {
+        @include md-menu-font($md-primary-dark);
+    }
+    .md-menu-secondary-dark {
+        @include md-menu-font($md-secondary-dark);
+    }
+    .md-menu-disabled-dark {
+        @include md-menu-font($md-disabled-dark);
+    }
+
+    // Dark body 1
+    .md-b1-dark {
+        @include md-b1-font($md-primary-dark);
+    }
+    .md-b1-secondary-dark {
+        @include md-b1-font($md-secondary-dark);
+    }
+    .md-b1-disabled-dark {
+        @include md-b1-font($md-disabled-dark);
+    }
+
+    // Dark body 2
+    .md-b2-dark {
+        @include md-b2-font($md-primary-dark);
+    }
+    .md-b2-secondary-dark {
+        @include md-b2-font($md-secondary-dark);
+    }
+    .md-b2-disabled-dark {
+        @include md-b2-font($md-disabled-dark);
+    }
+
+    // Dark caption
+    .md-caption-dark {
+        @include md-caption-font($md-primary-dark);
+    }
+    .md-caption-secondary-dark {
+        @include md-caption-font($md-secondary-dark);
+    }
+    .md-caption-disabled-dark {
+        @include md-caption-font($md-disabled-dark);
+    }
+
+    // Dark subheader
+    .md-subheader-dark {
+        @include md-subheader-font($md-primary-dark);
+    }
+    .md-subheader-secondary-dark {
+        @include md-subheader-font($md-secondary-dark);
+    }
+    .md-subheader-disabled-dark {
+        @include md-subheader-font($md-disabled-dark);
+    }
+
+    // Dark title
+    .md-title-dark {
+        @include md-title-font($md-primary-dark);
+    }
+    .md-title-secondary-dark {
+        @include md-title-font($md-secondary-dark);
+    }
+    .md-title-disabled-dark {
+        @include md-title-font($md-disabled-dark);
+    }
+
+    // Dark table title
+    .md-table-title-dark {
+        @include md-table-title-font($md-primary-dark);
+    }
+    .md-table-title-secondary-dark {
+        @include md-table-title-font($md-secondary-dark);
+    }
+    .md-table-title-disabled-dark {
+        @include md-table-title-font($md-disabled-dark);
+    }
+
+    // Dark table header
+    .md-table-header-dark {
+        @include md-table-header-font($md-primary-dark);
+    }
+    .md-table-header-secondary-dark {
+        @include md-table-header-font($md-secondary-dark);
+    }
+    .md-table-header-disabled-dark {
+        @include md-table-header-font($md-disabled-dark);
+    }
+
+    // Dark table cells
+    .md-table-row-dark {
+      @include md-table-row-font($md-primary-dark);
+    }
+    .md-table-row-secondary-dark {
+      @include md-table-row-font($md-secondary-dark);
+    }
+    .md-table-row-disabled-dark {
+      @include md-table-row-font($md-disabled-dark);
+    }
+
+    // Dark headline
+    .md-headline-dark {
+        @include md-headline-font($md-primary-dark);
+    }
+    .md-headline-secondary-dark {
+        @include md-headline-font($md-secondary-dark);
+    }
+    .md-headline-disabled-dark {
+        @include md-headline-font($md-disabled-dark);
+    }
+
+    // Dark date picker title
+    .md-datepicker-title-dark {
+        @include md-datepicker-title-font($md-primary-dark);
+    }
+    .md-datepicker-title-secondary-dark {
+        @include md-datepicker-title-font($md-secondary-dark);
+    }
+    .md-datepicker-title-disabled-dark {
+        @include md-datepicker-title-font($md-disabled-dark);
+    }
+
+    // Headline
+    .md-headline-dark {
+      @include md-headline-font($md-primary-dark);
+    }
+    .md-headline-secondary-dark {
+      @include md-headline-font($md-secondary-dark);
+    }
+    .md-headline-disabled-dark {
+      @include md-headline-font($md-disabled-dark);
+    }
+
+
+
+    /* LIGHT */
+
+    // Light menu
+    .md-menu-light {
+        @include md-menu-font($md-primary-light);
+    }
+    .md-menu-secondary-light {
+        @include md-menu-font($md-secondary-light);
+    }
+    .md-menu-disabled-light {
+        @include md-menu-font($md-disabled-light);
+    }
+
+    // Light body 1
+    .md-b1-light {
+        @include md-b1-font($md-primary-light);
+    }
+    .md-b1-secondary-light {
+        @include md-b1-font($md-secondary-light);
+    }
+    .md-b1-disabled-light {
+        @include md-b1-font($md-disabled-light);
+    }
+
+    // Light body 2
+    .md-b2-light {
+        @include md-b2-font($md-primary-light);
+    }
+    .md-b2-secondary-light {
+        @include md-b2-font($md-secondary-light);
+    }
+    .md-b2-disabled-light {
+        @include md-b2-font($md-disabled-light);
+    }
+
+    // Light caption
+    .md-caption-light {
+        @include md-caption-font($md-primary-light);
+    }
+    .md-caption-secondary-light {
+        @include md-caption-font($md-secondary-light);
+    }
+    .md-caption-disabled-light {
+        @include md-caption-font($md-disabled-light);
+    }
+
+    // Light subheader
+    .md-subheader-light {
+        @include md-subheader-font($md-primary-light);
+    }
+    .md-subheader-secondary-light {
+        @include md-subheader-font($md-secondary-light);
+    }
+    .md-subheader-disabled-light {
+        @include md-subheader-font($md-disabled-light);
+    }
+
+    // Light title
+    .md-title-light {
+        @include md-title-font($md-primary-light);
+    }
+    .md-title-secondary-light {
+        @include md-title-font($md-secondary-light);
+    }
+    .md-title-disabled-light {
+        @include md-title-font($md-disabled-light);
+    }
+
+    // Light table title
+    .md-table-title-light {
+        @include md-table-title-font($md-primary-light);
+    }
+    .md-table-title-secondary-light {
+        @include md-table-title-font($md-secondary-light);
+    }
+    .md-table-title-disabled-light {
+        @include md-table-title-font($md-disabled-light);
+    }
+
+    // Light table header
+    .md-table-header-light {
+        @include md-table-header-font($md-primary-light);
+    }
+    .md-table-header-secondary-light {
+        @include md-table-header-font($md-secondary-light);
+    }
+    .md-table-header-disabled-light {
+        @include md-table-header-font($md-disabled-light);
+    }
+
+    // Light table cells
+    .md-table-row-light {
+      @include md-table-row-font($md-primary-light);
+    }
+    .md-table-row-secondary-light {
+      @include md-table-row-font($md-secondary-light);
+    }
+    .md-table-row-disabled-light {
+      @include md-table-row-font($md-disabled-light);
+    }
+
+    // Light headline
+    .md-headline-light {
+        @include md-headline-font($md-primary-light);
+    }
+    .md-headline-secondary-light {
+        @include md-headline-font($md-secondary-light);
+    }
+    .md-headline-disabled-light {
+        @include md-headline-font($md-disabled-light);
+    }
+
+    // Light date picker title
+    .md-datepicker-title-light {
+        @include md-datepicker-title-font($md-primary-light);
+    }
+    .md-datepicker-title-secondary-light {
+        @include md-datepicker-title-font($md-secondary-light);
+    }
+    .md-datepicker-title-disabled-light {
+        @include md-datepicker-title-font($md-disabled-light);
+    }
+
+    // Headline
+    .md-headline-light {
+      @include md-headline-font($md-primary-light);
+    }
+    .md-headline-secondary-light {
+      @include md-headline-font($md-secondary-light);
+    }
+    .md-headline-disabled-light {
+      @include md-headline-font($md-disabled-light);
+    }
+}
+
+
+
+
+@mixin md-menu-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-menu-font-size;
+    font-weight: $md-menu-font-weight;
+    line-height: $md-menu-line-height;
+}
+
+
+@mixin md-b1-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-b-font-size;
+    font-weight: $md-b1-font-weight;
+    line-height: $md-b1-line-height;
+}
+
+@mixin md-b2-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-b-font-size;
+    font-weight: $md-b2-font-weight;
+    line-height: $md-b2-line-height;
+}
+
+
+@mixin md-caption-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-caption-font-size;
+    font-weight: $md-caption-font-weight;
+    line-height: $md-caption-line-height;
+}
+
+
+@mixin md-table-title-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-table-title-font-size;
+    font-weight: $md-table-title-font-weight;
+    line-height: $md-table-title-line-height;
+}
+
+
+@mixin md-table-header-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-table-header-font-size;
+    font-weight: $md-table-header-font-weight;
+    line-height: $md-table-header-line-height;
+}
+
+
+@mixin md-table-row-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-table-row-font-size;
+    font-weight: $md-table-row-font-weight;
+    line-height: $md-table-row-line-height;
+}
+
+
+@mixin md-subheader-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-subheader-font-size;
+    font-weight: $md-subheader-font-weight;
+    line-height: $md-subheader-line-height;
+}
+
+
+@mixin md-title-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-title-font-size;
+    font-weight: $md-title-font-weight;
+    line-height: $md-title-line-height;
+}
+
+
+@mixin md-headline-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-headline-font-size;
+    font-weight: $md-headline-font-weight;
+    line-height: $md-headline-line-height;
+}
+
+
+@mixin md-datepicker-title-font($color: null) {
+    @if $color != null {
+      color: $color;
+    }
+    font-size: $md-datepicker-title-font-size;
+    font-weight: $md-datepicker-title-font-weight;
+    line-height: $md-datepicker-title-line-height;
+}
+
+
+@mixin md-tooltip-font($color: null, $mobile: false) {
+    @if $color != null {
+      color: $color;
+    }
+    font-weight: $md-tooltip-font-weight;
+    @if $mobile == true {
+      font-size: $md-tooltip-font-size-mobile;
+      line-height: $md-tooltip-line-height-mobile;
+    } @else {
+      font-size: $md-tooltip-font-size-tablet;
+      line-height: $md-tooltip-line-height-tablet;
+    }
+}
+
+
+@mixin md-tab-font($color: null, $mobile: false) {
+    @if $color != null {
+      color: $color;
+    }
+
+    @if $mobile == true {
+      font-size: $md-tab-font-size-mobile;
+    } @else {
+      font-size: $md-tab-font-size-tablet;
+    }
+
+    font-weight: $md-tab-font-weight;
+    line-height: $md-tab-line-height;
+    text-transform: uppercase;
+}

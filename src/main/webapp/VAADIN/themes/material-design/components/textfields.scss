@@ -1,0 +1,168 @@
+$md-textfield-height: 32px;
+
+// Text field paddings
+$md-textfield-pad-bottom: 8px;
+$md-textfield-pad-top: 32px;
+$md-textfield-floatinglabel-disabled-pad-top: 8px;
+
+// Focus and error colors
+$md-textfield-light-focus-color: $md-blue-a700;
+$md-textfield-light-error-color: $md-red-a400;
+$md-textfield-light-line-color: rgba(0, 0, 0, 0.42);
+$md-textfield-dark-focus-color: $md-blue-a200;
+$md-textfield-dark-error-color: $md-red-a400;
+$md-textfield-dark-line-color: rgba(255, 255, 255, 0.7);
+
+// Floating label positions
+$md-textfield-floatinglabel-top: 16px;
+$md-textfield-restinglabel-top: $md-textfield-pad-top + ($md-textfield-height - $md-subheader-line-height)/2;
+$md-textfield-floatinglabel-disabled-restinglabel-top: $md-textfield-floatinglabel-disabled-pad-top + ($md-textfield-height - $md-subheader-line-height)/2;
+
+// Helper label padding
+$md-textfield-helper-pad-vertical: 6px;
+
+// Icon
+$md-textfield-icon-pad-right: 16px;
+$md-textfield-icon-top: $md-textfield-pad-top + ($md-textfield-height - $md-subheader-line-height)/2;;
+$md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disabled-pad-top + ($md-textfield-height - $md-subheader-line-height)/2;;
+
+
+@mixin textfields {
+  @include md-textfield(md-textfield-dark, $md-primary-light, $md-secondary-light, $md-textfield-dark-line-color, $md-textfield-dark-focus-color, $md-textfield-dark-error-color);
+  @include md-textfield(md-textfield-light, $md-primary-dark, $md-secondary-dark, $md-textfield-light-line-color, $md-textfield-light-focus-color, $md-textfield-light-error-color);
+}
+
+
+@mixin md-textfield($primaryStyleName, $primary-color, $secondary-color, $line-color, $focus-color, $error-color) {
+  .#{$primaryStyleName} {
+    display: flex;
+    flex-direction: column;
+    padding-top: $md-textfield-pad-top;
+    position: relative;
+
+    * {
+      @include md-cubic-std;
+    }
+
+    .v-caption {
+      display: none;
+    }
+
+    .v-textfield {
+      width: 100%;
+    }
+
+    &.float-disabled {
+      padding-top: $md-textfield-floatinglabel-disabled-pad-top;
+
+      .#{$primaryStyleName}-label,
+      .#{$primaryStyleName}-icon {
+        top: $md-textfield-floatinglabel-disabled-restinglabel-top;
+      }
+    }
+
+    &.with-icon {
+      padding-left: $md-icon-size + $md-textfield-icon-pad-right;
+    }
+
+    &.focus {
+      .#{$primaryStyleName}-label,
+      .#{$primaryStyleName}-icon {
+        color: $focus-color;
+      }
+    }
+
+    &.error {
+      .#{$primaryStyleName}-label,
+      .#{$primaryStyleName}-icon,
+      .#{$primaryStyleName}-helper {
+        color: $error-color;
+      }
+    }
+  }
+
+  // Floating label
+  .#{$primaryStyleName}-label {
+    @include md-caption-font($secondary-color);
+    pointer-events: none;
+    position: absolute;
+    top: $md-textfield-floatinglabel-top;
+    white-space: nowrap;
+
+    &.fade {
+      opacity: 0;
+    }
+
+    &.hint {
+      @include md-subheader-font($secondary-color);
+      top: $md-textfield-restinglabel-top;
+    }
+  }
+
+
+  // Icon
+  .#{$primaryStyleName}-icon {
+    align-items: center;
+    color: $secondary-color;
+    display: flex;
+    left: 0;
+    position: absolute;
+    top: $md-textfield-icon-top;
+  }
+
+
+  // Input field
+  .#{$primaryStyleName}-input {
+    @include md-subheader-font($primary-color);
+    background: none;
+    border: none;
+    box-shadow: inset 0 -1px 0 $line-color;
+    height: $md-textfield-height;
+    padding: 0;
+    text-overflow: ellipsis;
+    outline: none;
+
+    &:hover {
+      box-shadow: inset 0 -1px 0 $primary-color,
+                        0 1px  0 $primary-color;
+    }
+
+    &:focus,
+    &.#{$primaryStyleName}-input-focus {
+      box-shadow: inset 0 -1px 0 $focus-color,
+                        0 1px  0 $focus-color;
+    }
+
+    &.v-readonly {
+      box-shadow: none;
+    }
+
+    &.#{$primaryStyleName}-input-error {
+      box-shadow: inset 0 -1px 0 $error-color,
+                        0 1px  0 $error-color;
+    }
+
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder,
+    &:-moz-placeholder {
+      @include md-subheader-font($secondary-color);
+      letter-spacing: normal;
+      word-spacing: normal;
+    }
+  }
+
+
+  // Helper label
+  .#{$primaryStyleName}-helper {
+    @include md-caption-font($secondary-color);
+
+    &:empty {
+      padding: 0 0 $md-textfield-pad-bottom 0;
+    }
+
+    &:not(:empty) {
+      padding: $md-textfield-helper-pad-vertical 0;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@mixin tabsheet {
+  @include md-tabsheet(md-tabsheet-light, $md-tab-light-inactive-color, $md-tab-light-active-color, $md-tab-light-indicator-color, $md-tab-light-ripple-color);
+  @include md-tabsheet(md-tabsheet-dark, $md-tab-dark-inactive-color, $md-tab-dark-active-color, $md-tab-dark-indicator-color, $md-tab-dark-ripple-color);
+}
+
+
+@mixin md-tabsheet($primaryStyleName, $inactive-color, $active-color, $indicator-color, $ripple-color) {
+  .#{$primaryStyleName} {
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 0;
+    }
+
+    .v-caption {
+      align-items: center;
+      color: $inactive-color;
+      display: flex;
+      flex-direction: column;
+      width: auto !important;
+    }
+
+    .v-icon {
+      padding-bottom: $md-tab-icon-pad-bottom;
+      padding-top: $md-tab-icon-pad-top;
+
+      + div {
+        padding-bottom: $md-tab-text-pad-bottom;
+      }
+    }
+
+    .v-captiontext {
+
+    }
+
+    .v-tabsheet-tabitemcell {
+      @include md-ripple-btn($ripple-color, $md-tab-ripple-size);
+      overflow: hidden;
+    }
+
+    .v-tabsheet-tabitem {
+      @include md-cubic-std;
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      min-height: $md-tab-height-min;
+      min-width: $md-tab-width-min;
+    }
+
+    .v-tabsheet-tabitem-selected {
+      box-shadow: inset 0 -$md-tab-indicator-height 0 0 $indicator-color;
+
+      .v-caption {
+        color: $active-color;
+      }
+    }
+  }
+}

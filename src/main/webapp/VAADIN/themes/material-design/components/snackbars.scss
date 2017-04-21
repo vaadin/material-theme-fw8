@@ -1,0 +1,70 @@
+$md-snackbar-bg-color: #323232;
+$md-snackbar-border-radius: 2px;
+$md-snackbar-height-min: 48px;
+$md-snackbar-pad-horizontal: 24px;
+$md-snackbar-width-max: 568px;
+$md-snackbar-width-min: 288px;
+
+$md-snackbar-left-align-offset: 24px;
+$md-snackbar-right-align-offset: 24px;
+
+@mixin snackbars {
+  .v-Notification {
+    @include md-elevation-6dp;
+    @include md-b1-font($md-primary-light);
+    align-items: center;
+    background-color: $md-snackbar-bg-color;
+    border-radius: $md-snackbar-border-radius;
+    cursor: pointer;
+    display: inline-flex;
+    max-width: $md-snackbar-width-max;
+    min-height: $md-snackbar-height-min;
+    min-width: $md-snackbar-width-min;
+    padding: ($md-snackbar-height-min - $md-b1-line-height) / 2 $md-snackbar-pad-horizontal;
+
+    * {
+      // align-items: center;
+      display: inline-flex;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: inherit;
+      font-weight: inherit;
+      margin: 0;
+    }
+
+    .v-assistive-device-only {
+      display: none;
+    }
+
+    .gwt-HTML {
+      align-items: baseline;
+      flex-direction: column;
+    }
+  }
+
+  .v-Notification-description u {
+    margin: 0 4px;
+  }
+
+  .v-position-bottom {
+    animation: slide-in-animate-in 150ms ease-out;
+    bottom: 0;
+
+    &[class*="animate-out"] {
+      animation: slide-out-animate-out 150ms ease-out;
+    }
+  }
+
+  .v-position-right {
+    bottom: $md-snackbar-right-align-offset;
+    right: $md-snackbar-right-align-offset;
+  }
+
+  .v-position-left {
+    bottom: $md-snackbar-left-align-offset;
+    left: $md-snackbar-left-align-offset;
+  }
+
+}

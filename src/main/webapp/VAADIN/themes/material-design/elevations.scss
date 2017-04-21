@@ -1,0 +1,55 @@
+$md-elevation-1dp: 0 0   1px 0 rgba(0, 0, 0, 0.12),
+                   0 1px 1px 0 rgba(0, 0, 0, 0.24);
+
+$md-elevation-2dp: 0 0   2px 0 rgba(0, 0, 0, 0.12),
+                   0 2px 2px 0 rgba(0, 0, 0, 0.24);
+
+$md-elevation-4dp: 0 0   4px 0 rgba(0, 0, 0, 0.12),
+                   0 4px 4px 0 rgba(0, 0, 0, 0.24);
+
+$md-elevation-6dp: 0 0   6px 0 rgba(0, 0, 0, 0.12),
+                   0 6px 6px 0 rgba(0, 0, 0, 0.24);
+
+$md-elevation-8dp: 0 0   8px 0 rgba(0,0,0,0.12),
+                   0 8px 8px 0 rgba(0,0,0,0.24);
+
+$md-elevation-16dp: 0 0    16px 0 rgba(0, 0, 0, 0.18),
+                    0 16px 16px 0 rgba(0, 0, 0, 0.24);
+
+$md-elevation-24dp: 0 15px 12px 0 rgba(0, 0, 0, 0.22),
+                    0 19px 38px 0 rgba(0, 0, 0, 0.30);
+
+@mixin elevations {
+}
+
+@mixin md-elevation-1dp {
+  box-shadow: $md-elevation-1dp;
+}
+
+@mixin md-elevation-2dp {
+  box-shadow: $md-elevation-2dp;
+}
+
+@mixin md-elevation-3dp {
+
+}
+
+@mixin md-elevation-4dp {
+  box-shadow: $md-elevation-4dp;
+}
+
+@mixin md-elevation-6dp {
+  box-shadow: $md-elevation-6dp;
+}
+
+@mixin md-elevation-8dp {
+  box-shadow: $md-elevation-8dp;
+}
+
+@mixin md-elevation-16dp {
+  box-shadow: $md-elevation-16dp;
+}
+
+@mixin md-elevation-24dp {
+  box-shadow: $md-elevation-24dp;
+}

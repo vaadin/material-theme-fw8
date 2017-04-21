@@ -1,0 +1,78 @@
+// Common
+$md-raisedbtn-pad-horizontal: 16px;
+$md-raisedbtn-ripple-size: 160px;
+$md-raisedbtn-ripple-duration: 1.6s;
+$md-raisedbtn-width-min: 88px;
+
+// Raised light
+$md-raisedbtn-light-font-color: $md-blue-500;
+$md-raisedbtn-light-bg-color: $md-primary-light;
+$md-raisedbtn-light-focus-bg-color: $md-grey-100;
+$md-raisedbtn-light-ripple-color: $md-grey-300;
+$md-raisedbtn-light-disabled-font-color: rgba(0, 0, 0, 0.26);
+$md-raisedbtn-light-disabled-bg-color: rgba(0, 0, 0, 0.12);
+
+// Raised dark
+$md-raisedbtn-dark-font-color: $md-primary-light;
+$md-raisedbtn-dark-bg-color: $md-blue-500;
+$md-raisedbtn-dark-focus-bg-color: $md-blue-600;
+$md-raisedbtn-dark-ripple-color: $md-blue-700;
+$md-raisedbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3);
+$md-raisedbtn-dark-disabled-bg-color: rgba(255, 255, 255, 0.12);
+
+
+@mixin raised-buttons {
+  .md-raisedbtn-light {
+    @include md-raisedbtn($md-raisedbtn-light-font-color,
+                       $md-raisedbtn-light-bg-color,
+                       $md-raisedbtn-light-focus-bg-color,
+                       $md-raisedbtn-light-disabled-font-color,
+                       $md-raisedbtn-light-disabled-bg-color,
+                       $md-raisedbtn-light-ripple-color,
+                       $md-raisedbtn-ripple-size);
+  }
+
+  .md-raisedbtn-dark {
+    @include md-raisedbtn($md-raisedbtn-dark-font-color,
+                       $md-raisedbtn-dark-bg-color,
+                       $md-raisedbtn-dark-focus-bg-color,
+                       $md-raisedbtn-dark-disabled-font-color,
+                       $md-raisedbtn-dark-disabled-bg-color,
+                       $md-raisedbtn-dark-ripple-color,
+                       $md-raisedbtn-ripple-size);
+  }
+}
+
+
+@mixin md-raisedbtn($font-color, $bg-color, $focus-bg-color, $disabled-font-color, $disabled-bg-color, $ripple-color, $ripple-size) {
+  @include md-b2-font($font-color);
+  @include md-cubic-std;
+  @include md-elevation-2dp;
+  @include md-ripple-btn($ripple-color, $ripple-size, $md-raisedbtn-ripple-duration);
+  align-items: center;
+  background-color: $bg-color;
+  border-radius: $md-btn-border-radius;
+  cursor: pointer;
+  display: inline-flex;
+  height: $md-btn-height;
+  justify-content: center;
+  min-width: $md-raisedbtn-width-min;
+  overflow: hidden;
+  padding: 0 $md-raisedbtn-pad-horizontal;
+  text-transform: uppercase;
+
+  &:focus {
+    background-color: $focus-bg-color;
+  }
+
+  &:active {
+    @include md-elevation-8dp;
+  }
+
+  &.v-disabled {
+    background-color: $disabled-bg-color;
+    box-shadow: none;
+    color: $disabled-font-color;
+    cursor: default;
+  }
+}

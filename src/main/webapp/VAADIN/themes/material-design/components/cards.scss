@@ -1,0 +1,12 @@
+$md-card-border-radius: 2px;
+$md-card-bg-color: white;
+
+@mixin cards {
+
+  .card {
+    @include md-elevation-2dp;
+    background-color: $md-card-bg-color;
+    border-radius: $md-card-border-radius;
+  }
+
+}

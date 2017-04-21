@@ -1,0 +1,25 @@
+@import "material-design.scss";
+@import "addons.scss";
+@import "components/tooltips.scss";
+
+body {
+  background-color: $md-grey-50;
+  font-family: 'Roboto', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.v-generated-body {
+  overflow: hidden;
+}
+
+
+// Have to import here, since it's outside the .material-design scope.
+@include tooltips;
+
+
+.material-design {
+  @include addons;
+  @include material-design;
+}

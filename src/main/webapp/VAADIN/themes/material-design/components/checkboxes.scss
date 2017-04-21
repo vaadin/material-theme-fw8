@@ -1,0 +1,189 @@
+$md-cb-label-pad-left: $md-u4;
+
+$md-cb-light-checked-color: $md-blue-500;
+$md-cb-light-ripple-color-on: rgba($md-blue-500, 0.1);
+$md-cb-light-ripple-color-off: rgba(0, 0, 0, 0.07);
+$md-cb-light-ripple-size: $md-u6;
+$md-cb-light-disabled-opacity: 0.26;
+
+$md-cb-dark-checked-color: $md-blue-500;
+$md-cb-dark-ripple-color-on: rgba($md-blue-500, 0.09);
+$md-cb-dark-ripple-color-off: rgba(255, 255, 255, 0.1);
+$md-cb-dark-ripple-size: $md-u6;
+$md-cb-dark-disabled-opacity: 0.3;
+
+
+@mixin checkboxes {
+  @include md-checkbox(md-checkbox-light,
+                       $md-primary-dark,
+                       $md-secondary-dark,
+                       $md-disabled-dark,
+                       $md-cb-light-disabled-opacity,
+                       $md-cb-light-checked-color,
+                       $md-cb-light-ripple-color-on,
+                       $md-cb-light-ripple-color-off,
+                       $md-cb-light-ripple-size);
+  @include md-checkbox(md-checkbox-dark,
+                       $md-primary-light,
+                       $md-secondary-light,
+                       $md-disabled-light,
+                       $md-cb-dark-disabled-opacity,
+                       $md-cb-dark-checked-color,
+                       $md-cb-dark-ripple-color-on,
+                       $md-cb-dark-ripple-color-off,
+                       $md-cb-dark-ripple-size);
+}
+
+
+@mixin md-checkbox($primaryStyleName,
+                   $primary-color,
+                   $secondary-color,
+                   $disabled-color,
+                   $disabled-opacity,
+                   $checked-color,
+                   $ripple-color-on,
+                   $ripple-color-off,
+                   $ripple-size) {
+
+  .#{$primaryStyleName} {
+    align-items: flex-start;
+    display: flex;
+    padding: 12px 0;
+    position: relative;
+
+    * {
+      cursor: pointer;
+    }
+
+    &.v-disabled {
+      * {
+        cursor: default;
+      }
+
+      label {
+        color: $disabled-color;
+      }
+
+      input::after {
+        opacity: $disabled-opacity;
+      }
+    }
+
+    label {
+      @include md-subheader-font($primary-color);
+      display: inline-block;
+      position: relative;
+
+      &:not(:empty) {
+        padding-left: $md-icon-size + $md-cb-label-pad-left;
+      }
+
+      // Ripple
+      &::after {
+        animation: md-ripple 0.8s ease-out;
+        background-color: $ripple-color-off;
+        border-radius: 100%;
+        content: '';
+        display: block;
+        height: $ripple-size;
+        left: 0;
+        margin-left: ($ripple-size - $md-icon-size)/-2;
+        margin-top: ($ripple-size - $md-subheader-line-height)/-2;
+        position: absolute;
+        top: 0;
+        transform: scale(0);
+        visibility: hidden;
+        width: $ripple-size;
+      }
+    }
+
+    input {
+      display: flex;
+      margin: 0;
+      position: absolute;
+      -webkit-appearance: none;
+      z-index: 1;
+
+      &::after {
+        @include MaterialIcons;
+        color: $secondary-color;
+        content: "\e835";
+      }
+
+      &:checked {
+        &::after {
+          color: $checked-color;
+          content: "\e834";
+        }
+
+        + label::after {
+          animation-name: md-ripple-copy;
+          background-color: $ripple-color-on;
+        }
+      }
+
+      &:focus {
+        + label::after {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+
+@mixin md-grid-checkbox($secondary-color,
+                        $checked-color,
+                        $ripple-color-on,
+                        $ripple-color-off,
+                        $ripple-size) {
+
+  input {
+    cursor: pointer;
+    display: flex;
+    margin: 0;
+    position: relative;
+    -webkit-appearance: none;
+
+    &::before {
+      animation: md-ripple 0.8s ease-out;
+      background-color: $ripple-color-off;
+      border-radius: 100%;
+      content: '';
+      display: block;
+      height: $ripple-size;
+      left: 0;
+      margin-left: ($ripple-size - $md-icon-size)/-2;
+      margin-top: ($ripple-size - $md-icon-size)/-2;
+      position: absolute;
+      top: 0;
+      transform: scale(0);
+      visibility: hidden;
+      width: $ripple-size;
+    }
+
+    &::after {
+      @include MaterialIcons;
+      color: $secondary-color;
+      content: "\e835";
+    }
+
+    &:checked {
+      &::before {
+        animation-name: md-ripple-copy;
+        background-color: $ripple-color-on;
+      }
+
+      &::after {
+        color: $checked-color;
+        content: "\e834";
+      }
+    }
+
+    &:focus {
+      &::before {
+        visibility: visible;
+      }
+    }
+  }
+}

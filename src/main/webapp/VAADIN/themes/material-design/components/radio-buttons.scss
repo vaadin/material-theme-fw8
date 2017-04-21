@@ -1,0 +1,128 @@
+$md-radio-btn-label-padding-left: $md-u4;
+
+$md-radio-btn-light-checked-color: $md-blue-500;
+$md-radio-btn-light-ripple-color-on: rgba($md-blue-500, 0.1);
+$md-radio-btn-light-ripple-color-off: rgba(0, 0, 0, 0.07);
+$md-radio-btn-light-ripple-size: $md-u6;
+$md-radio-btn-light-disabled-opacity: 0.26;
+
+$md-radio-btn-dark-checked-color: $md-blue-500;
+$md-radio-btn-dark-ripple-color-on: rgba($md-blue-500, 0.09);
+$md-radio-btn-dark-ripple-color-off: rgba(255, 255, 255, 0.1);
+$md-radio-btn-dark-ripple-size: $md-u6;
+$md-radio-btn-dark-disabled-opacity: 0.3;
+
+@mixin radio-buttons {
+  .md-optiongroup-light {
+    @include md-radio-btn($md-primary-dark,
+                          $md-secondary-dark,
+                          $md-disabled-dark,
+                          $md-radio-btn-light-disabled-opacity,
+                          $md-radio-btn-light-checked-color,
+                          $md-radio-btn-light-ripple-color-on,
+                          $md-radio-btn-light-ripple-color-off,
+                          $md-radio-btn-light-ripple-size);
+  }
+
+  .md-optiongroup-dark {
+    @include md-radio-btn($md-primary-light,
+                          $md-secondary-light,
+                          $md-disabled-light,
+                          $md-radio-btn-dark-disabled-opacity,
+                          $md-radio-btn-dark-checked-color,
+                          $md-radio-btn-dark-ripple-color-on,
+                          $md-radio-btn-dark-ripple-color-off,
+                          $md-radio-btn-dark-ripple-size);
+  }
+}
+
+@mixin md-radio-btn($primary-color,
+                    $secondary-color,
+                    $disabled-color,
+                    $disabled-opacity,
+                    $checked-color,
+                    $ripple-color-on,
+                    $ripple-color-off,
+                    $ripple-size) {
+  * {
+    cursor: pointer;
+  }
+
+  .v-radiobutton {
+    align-items: flex-start;
+    display: flex;
+    padding: 12px 0;
+    position: relative;
+
+    label {
+      @include md-subheader-font($primary-color);
+      display: inline-block;
+      padding-left: $md-icon-size + $md-radio-btn-label-padding-left;
+      position: relative;
+
+      &::after {
+        animation: md-ripple 0.8s ease-out;
+        background-color: $ripple-color-off;
+        border-radius: 100%;
+        content: '';
+        display: block;
+        height: $ripple-size;
+        left: 0;
+        margin-left: ($ripple-size - $md-icon-size)/-2;
+        margin-top: ($ripple-size - $md-subheader-line-height)/-2;
+        position: absolute;
+        top: 0;
+        transform: scale(0);
+        visibility: hidden;
+        width: $ripple-size;
+        z-index: 0;
+      }
+    }
+
+    input {
+      display: flex;
+      margin: 0;
+      position: absolute;
+      -webkit-appearance: none;
+      z-index: 1;
+
+      &::after {
+        @include MaterialIcons;
+        color: $secondary-color;
+        content: "\e836";
+      }
+
+      &:checked {
+        &::after {
+          color: $checked-color;
+          content: "\e837";
+        }
+
+        + label::after {
+          animation-name: md-ripple-copy;
+          background-color: $ripple-color-on;
+        }
+      }
+
+      &:focus {
+        + label::after {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &.v-disabled {
+    * {
+      cursor: default;
+    }
+
+    label {
+      color: $disabled-color;
+    }
+
+    input::after {
+      opacity: $disabled-opacity;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@mixin app-bar {
+  .md-appbar {
+    @include md-elevation-4dp;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+
+    div[role="button"] + div[class*=title] {
+      padding-left: $md-u4;
+    }
+  }
+}

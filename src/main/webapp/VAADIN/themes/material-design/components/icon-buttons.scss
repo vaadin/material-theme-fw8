@@ -1,0 +1,141 @@
+$md-iconbtn-size: 24px;
+$md-iconbtn-ripple-size: 48px;
+
+$md-iconbtn-light-active-color: $md-primary-light;
+$md-iconbtn-light-inactive-color: $md-disabled-light;
+$md-iconbtn-light-focus-bg-color: rgba(255, 255, 255, 0.3);
+
+$md-iconbtn-dark-active-color: $md-primary-dark;
+$md-iconbtn-dark-inactive-color: $md-disabled-dark;
+$md-iconbtn-dark-focus-bg-color: $md-dividers-dark;
+
+$md-iconbtn-color-active-color: $md-red-500;
+$md-iconbtn-color-inactive-color: $md-disabled-dark;
+$md-iconbtn-color-focus-bg-color: rgba($md-red-500, 0.26);
+
+$md-iconbtn-darktheme-active-color: $md-primary-light;
+$md-iconbtn-darktheme-inactive-color: $md-disabled-light;
+$md-iconbtn-darktheme-focus-bg-color: rgba(255, 255, 255, 0.2);
+
+
+@mixin icon-buttons {
+  // Light icon
+  .md-iconbtn-light {
+    @include md-iconbtn($md-iconbtn-light-active-color, $md-iconbtn-light-inactive-color, $md-iconbtn-light-focus-bg-color);
+  }
+  // Dark icon
+  .md-iconbtn-dark {
+    @include md-iconbtn($md-iconbtn-dark-active-color, $md-iconbtn-dark-inactive-color, $md-iconbtn-dark-focus-bg-color);
+  }
+  // Color icon
+  .md-iconbtn-color {
+    @include md-iconbtn($md-iconbtn-color-active-color, $md-iconbtn-color-inactive-color, $md-iconbtn-color-focus-bg-color);
+  }
+  // Dark theme (white)
+  .md-iconbtn-darktheme {
+    @include md-iconbtn($md-iconbtn-darktheme-active-color, $md-iconbtn-darktheme-inactive-color, $md-iconbtn-darktheme-focus-bg-color);
+  }
+
+  // Alternative style
+  .md-iconbtn-light-alt {
+    @include md-iconbtn-alt($md-iconbtn-light-active-color, $md-iconbtn-light-inactive-color, $md-iconbtn-light-focus-bg-color);
+  }
+  .md-iconbtn-dark-alt {
+    @include md-iconbtn-alt($md-iconbtn-dark-active-color, $md-iconbtn-dark-inactive-color, $md-iconbtn-dark-focus-bg-color);
+  }
+  .md-iconbtn-color-alt {
+    @include md-iconbtn-alt($md-iconbtn-color-active-color, $md-iconbtn-color-inactive-color, $md-iconbtn-color-focus-bg-color);
+  }
+  .md-iconbtn-darktheme-alt {
+    @include md-iconbtn-alt($md-iconbtn-darktheme-active-color, $md-iconbtn-darktheme-inactive-color, $md-iconbtn-darktheme-focus-bg-color);
+  }
+}
+
+// According to MD specfication
+@mixin md-iconbtn($active-color, $inactive-color, $focus-bg-color) {
+  @include md-cubic-std;
+  align-items: center;
+  color: $inactive-color;
+  cursor: pointer;
+  display: flex;
+  height: $md-iconbtn-size;
+  position: relative;
+  width: $md-iconbtn-size;
+
+  &.active {
+    color: $active-color;
+  }
+
+  // Focus, active style
+  &:active,
+  &:focus {
+    &::after {
+      transform: scale(1);
+    }
+  }
+
+  &::after {
+    @include md-cubic-std;
+    background-color: $focus-bg-color;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: $md-iconbtn-ripple-size;
+    left: 50%;
+    margin-left: $md-iconbtn-ripple-size/-2;
+    margin-top: $md-iconbtn-ripple-size/-2;
+    position: absolute;
+    top: 50%;
+    transform: scale(0);
+    width: $md-iconbtn-ripple-size;
+    z-index: 0;
+  }
+
+  > * {
+    z-index: 1;
+  }
+
+  // Disabled style
+  &.v-disabled {
+    color: $inactive-color;
+    cursor: default;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  * {
+    align-items: center;
+    display: flex;
+  }
+}
+
+
+// Alternative style
+@mixin md-iconbtn-alt($active-color, $inactive-color, $focus-bg-color) {
+  @include md-ripple-btn($focus-bg-color, $md-iconbtn-ripple-size);
+  @include md-cubic-std;
+  align-items: center;
+  color: $inactive-color;
+  cursor: pointer;
+  display: flex;
+  height: $md-iconbtn-size;
+  position: relative;
+  width: $md-iconbtn-size;
+
+  &.active {
+    color: $active-color;
+  }
+
+  // Disabled style
+  &.v-disabled {
+    color: $inactive-color;
+    cursor: default;
+  }
+
+  * {
+    align-items: center;
+    display: flex;
+  }
+}

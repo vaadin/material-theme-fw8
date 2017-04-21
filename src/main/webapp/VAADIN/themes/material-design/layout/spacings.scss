@@ -1,0 +1,51 @@
+@mixin spacings {
+  .spacing-a-s > * {
+    margin: $md-u1;
+  }
+  .spacing-a-m > * {
+    margin: $md-u2;
+  }
+  .spacing-a-l > * {
+    margin: $md-u3;
+  }
+
+  .spacing-t-s > *:not(:last-child) {
+    margin-top: $md-u1;
+  }
+  .spacing-t-m > *:not(:last-child) {
+    margin-top: $md-u2;
+  }
+  .spacing-t-l > *:not(:last-child) {
+    margin-top: $md-u3;
+  }
+
+  .spacing-r-s > *:not(:last-child) {
+    margin-right: $md-u1;
+  }
+  .spacing-r-m > *:not(:last-child) {
+    margin-right: $md-u2;
+  }
+  .spacing-r-l > *:not(:last-child) {
+    margin-right: $md-u3;
+  }
+
+  .spacing-b-s > *:not(:last-child) {
+    margin-bottom: $md-u1;
+  }
+  .spacing-b-m > *:not(:last-child) {
+    margin-bottom: $md-u2;
+  }
+  .spacing-b-l > *:not(:last-child) {
+    margin-bottom: $md-u3;
+  }
+
+  .spacing-l-s > *:not(:last-child) {
+    margin-left: $md-u1;
+  }
+  .spacing-l-m > *:not(:last-child) {
+    margin-left: $md-u2;
+  }
+  .spacing-l-l > *:not(:last-child) {
+    margin-left: $md-u3;
+  }
+}

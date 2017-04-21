@@ -1,0 +1,11 @@
+@mixin flex-item {
+
+  @for $i from 0 through 10 {
+    .flex-shrink-#{$i} {
+      flex-shrink: $i;
+    }
+    .flex-grow-#{$i} {
+      flex-grow: $i;
+    }
+  }
+}

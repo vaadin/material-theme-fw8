@@ -1,0 +1,30 @@
+@mixin transitions {
+  .md-cubic-std {
+    @include md-cubic-std;
+  }
+  .md-cubic-deceleration {
+    @include md-cubic-deceleration;
+  }
+  .md-cubic-acceleration {
+    @include md-cubic-acceleration;
+  }
+  .md-cubic-sharp {
+    @include md-cubic-sharp;
+  }
+}
+
+@mixin md-cubic-std {
+  transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@mixin md-cubic-deceleration {
+  transition: all 150ms cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+@mixin md-cubic-acceleration {
+  transition: all 150ms cubic-bezier(0.4, 0.0, 1, 1);
+}
+
+@mixin md-cubic-sharp {
+  transition: all 150ms cubic-bezier(0.4, 0.0, 0.6, 1);
+}

@@ -1,0 +1,18 @@
+@mixin nav-icon {
+
+  .nav-icon {
+    @include md-ripple-btn(rgba(255, 255, 255, 0.3), $md-icon-size * 2);
+    align-items: center;
+    color: $md-primary-light;
+    cursor: pointer;
+    display: flex;
+    height: $md-icon-size;
+    width: $md-icon-size;
+
+    * {
+      align-items: center;
+      display: flex;
+    }
+  }
+
+}

@@ -1,0 +1,27 @@
+$md-tooltip-opacity: 0.9;
+$md-tooltip-bg-color: rgba($md-grey-700, $md-tooltip-opacity);
+
+@mixin tooltips {
+
+  .v-tooltip {
+    align-items: center;
+    background-color: $md-tooltip-bg-color;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+
+    * {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    pre {
+      display: inherit;
+      font-family: inherit;
+      white-space: inherit;
+      margin: 0;
+    }
+  }
+
+}

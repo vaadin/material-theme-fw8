@@ -1,0 +1,43 @@
+@mixin effects {
+
+}
+
+@mixin md-ripple-btn($color, $size, $duration: 0.8s) {
+  position: relative;
+  
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &::after {
+    background-color: $color;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: $size;
+    left: 50%;
+    margin-left: $size/-2;
+    margin-top: $size/-2;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: scale(0);
+    visibility: hidden;
+    width: $size;
+  }
+
+  &:not(:active)::after {
+    animation: md-ripple $duration ease-out;
+  }
+
+  &:focus::after {
+    visibility: visible;
+  }
+
+  &.v-disabled {
+    &::after {
+      content: none;
+    }
+  }
+}

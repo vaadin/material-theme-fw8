@@ -1,0 +1,11 @@
+@mixin widths {
+  .max-width-720 {
+    max-width: 720px;
+  }
+  .max-width-1024 {
+    max-width: 1024px;
+  }
+  .max-width-1104 {
+    max-width: 1104px;
+  }
+}

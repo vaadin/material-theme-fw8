@@ -1,0 +1,96 @@
+@mixin animations {
+}
+
+@keyframes md-ripple {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes md-ripple-copy {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes md-ripple-switch-on {
+  0% {
+    left: 0;
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  25% {
+    left: 20px;
+  }
+  100% {
+    left: 20px;
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes md-ripple-switch-off {
+  0% {
+    left: 20px;
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  25% {
+    left: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in-animate-in {
+  0% {
+    opacity: 0;
+  } 100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out-animate-out {
+  0% {
+    opacity: 1;
+  } 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-animate-in {
+  0% {
+    transform: translateY(100%);
+  } 100% {
+    transform: none;
+  }
+}
+
+@keyframes slide-out-animate-out {
+  0% {
+    transform: none;
+  } 100% {
+    transform: translateY(100%);
+  }
+}

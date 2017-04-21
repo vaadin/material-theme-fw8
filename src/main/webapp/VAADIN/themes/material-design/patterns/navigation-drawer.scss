@@ -1,0 +1,76 @@
+@mixin navigation-drawer {
+
+  // Default styles
+  $md-naviitem-color: $md-primary-dark;
+  $md-naviitem-icon-color: $md-secondary-dark;
+  $md-naviitem-icon-pad-right: $md-u4;
+
+  // Selected styles
+  $md-naviitem-selected-color: $md-blue-500;
+  $md-naviitem-selected-icon-color: $md-blue-500;
+  $md-naviitem-selected-bg: transparent;
+
+  // Hover style
+  $md-naviitem-hover-bg: transparent;
+
+  // Ripple effect
+  $md-naviitem-ripple-color: $md-grey-200;
+  $md-naviitem-ripple-size: $md-navidrawer-width-tablet;
+
+
+  .md-navidrawer {
+    @include md-cubic-std;
+    @include md-elevation-16dp;
+    background-color: white;
+    bottom: 0;
+    overflow: auto;
+    padding: $md-u1 0;
+    position: fixed;
+    z-index: 100;
+  }
+
+  .md-naviitem {
+    @include md-b2-font($md-naviitem-color);
+    @include md-ripple-btn($md-naviitem-ripple-color, $md-naviitem-ripple-size);
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: $md-u6;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .md-naviitem-wrap {
+      align-items: center;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .md-naviitem-caption {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .v-icon {
+      color: $md-naviitem-icon-color;
+
+      + .md-naviitem-caption {
+        padding-left: $md-naviitem-icon-pad-right;
+      }
+    }
+
+    &:hover {
+      background-color: $md-naviitem-hover-bg;
+    }
+
+    // Selected item style
+    &.selected {
+      @include md-b2-font($md-naviitem-selected-color);
+      background-color: $md-naviitem-selected-bg;
+
+      .v-icon {
+        color: $md-naviitem-selected-icon-color;
+      }
+    }
+  }
+
+}

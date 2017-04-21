@@ -1,0 +1,22 @@
+$md-menuitem-icon-pad-right-mobile: 24px;
+$md-menuitem-icon-pad-right-tablet: 16px;
+
+@mixin menus {
+  // Combo box popup
+  [class*="input-suggestpopup"] {
+    @include md-elevation-8dp;
+    border-radius: 2px;
+    min-width: $md-menu-width-min;
+
+    table {
+      border-collapse: collapse;
+      min-width: 100%;
+    }
+
+    .gwt-MenuItem {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+    }
+  }
+}

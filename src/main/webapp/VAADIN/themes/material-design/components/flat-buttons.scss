@@ -1,0 +1,65 @@
+// Common
+$md-flatbtn-pad-horizontal: 8px;
+$md-flatbtn-ripple-duration: 1.6s;
+$md-flatbtn-ripple-size: 160px;
+$md-flatbtn-width-min: 64px;
+
+// Flat light
+$md-flatbtn-light-font-color: $md-blue-500 !default;
+$md-flatbtn-light-focus-bg-color: rgba(153, 153, 153, 0.2);
+$md-flatbtn-light-ripple-color: rgba(153, 153, 153, 0.4);
+$md-flatbtn-light-disabled-font-color: rgba(0, 0, 0, 0.26);
+
+// Flat dark
+$md-flatbtn-dark-font-color: $md-primary-light;
+$md-flatbtn-dark-focus-bg-color: rgba(204, 204, 204, 0.125);
+$md-flatbtn-dark-ripple-color: rgba(204, 204, 204, 0.25);
+$md-flatbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3);
+
+
+@mixin flat-buttons {
+  .md-flatbtn-light {
+    @include md-flatbtn($md-flatbtn-light-font-color,
+                     $md-flatbtn-light-focus-bg-color,
+                     $md-flatbtn-light-disabled-font-color,
+                     $md-flatbtn-light-ripple-color,
+                     $md-flatbtn-ripple-size);
+  }
+
+  .md-flatbtn-dark {
+    @include md-flatbtn($md-flatbtn-dark-font-color,
+                     $md-flatbtn-dark-focus-bg-color,
+                     $md-flatbtn-dark-disabled-font-color,
+                     $md-flatbtn-dark-ripple-color,
+                     $md-flatbtn-ripple-size);
+
+  }
+}
+
+
+@mixin md-flatbtn($font-color, $focus-bg-color, $disabled-font-color, $ripple-color, $ripple-size) {
+  @include md-b2-font($font-color);
+  @include md-cubic-std;
+  @include md-ripple-btn($ripple-color, $ripple-size, $md-flatbtn-ripple-duration);
+  align-items: center;
+  background: none;
+  border-radius: $md-btn-border-radius;
+  cursor: pointer;
+  display: inline-flex;
+  height: $md-btn-height;
+  justify-content: center;
+  min-width: $md-flatbtn-width-min;
+  overflow: hidden;
+  padding: 0 $md-flatbtn-pad-horizontal;
+  text-transform: uppercase;
+
+  &:focus {
+    background-color: $focus-bg-color;
+  }
+
+  &.v-disabled {
+    background-color: transparent;
+    color: $disabled-font-color;
+    cursor: default;
+  }
+}
