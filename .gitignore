@@ -1,2 +1,6 @@
 target
 .sass-cache
+.idea
+*.iml
+**/output.css
+**/output.css.map
