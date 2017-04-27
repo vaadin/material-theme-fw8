@@ -1,0 +1,237 @@
+$md-textfieldbox-border-radius: 4px;
+$md-textfieldbox-height: 56px;
+$md-textfieldbox-input-height: 36px;
+
+// Text field paddings
+$md-textfieldbox-pad-bottom: 8px;
+$md-textfieldbox-pad-top: $md-textfieldbox-height - $md-textfieldbox-input-height;
+$md-textfieldbox-pad-horizontal: 16px;
+
+// Background colors
+$md-textfieldbox-light-bg-color: rgba(0, 0, 0, 0.06);
+$md-textfieldbox-dark-bg-color: rgba(255, 255, 255, 0.1);
+
+// Hover colors
+$md-textfieldbox-light-hover-bg-color: rgba(0, 0, 0, 0.1);
+$md-textfieldbox-dark-hover-bg-color: rgba(255, 255, 255, 0.16);
+
+// Focus and error colors
+$md-textfieldbox-light-focus-color: $md-blue-a700;
+$md-textfieldbox-light-error-color: $md-red-a400;
+$md-textfieldbox-light-line-color: rgba(0, 0, 0, 0.42);
+$md-textfieldbox-dark-focus-color: $md-blue-a200;
+$md-textfieldbox-dark-error-color: $md-red-a400;
+$md-textfieldbox-dark-line-color: rgba(255, 255, 255, 0.7);
+
+// Disabled colors
+$md-textfieldbox-light-disabled-bg-color: rgba(0, 0, 0, 0.03);
+$md-textfieldbox-light-disabled-color: rgba(0, 0, 0, 0.42);
+$md-textfieldbox-dark-disabled-bg-color: rgba(255, 255, 255, 0.05);
+$md-textfieldbox-dark-disabled-color: $md-disabled-light;
+
+// Floating label positions
+$md-textfieldbox-floatinglabel-top: 8px;
+$md-textfieldbox-restinglabel-top: ($md-textfieldbox-height - $md-subheader-line-height)/2;
+
+// Helper label padding
+$md-textfieldbox-helper-pad-vertical: 6px;
+
+// Icon
+$md-textfieldbox-icon-pad-right: 16px;
+$md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)/2;;
+
+
+@mixin textfieldboxes {
+  @include md-textfieldbox(
+    md-textfieldbox-dark,
+    $md-primary-light,
+    $md-secondary-light,
+    $md-textfieldbox-dark-bg-color,
+    $md-textfieldbox-dark-line-color,
+    $md-textfieldbox-dark-hover-bg-color,
+    $md-textfieldbox-dark-focus-color,
+    $md-textfieldbox-dark-error-color,
+    $md-textfieldbox-dark-disabled-color,
+    $md-textfieldbox-dark-disabled-bg-color
+  );
+  @include md-textfieldbox(
+    md-textfieldbox-light,
+    $md-primary-dark,
+    $md-secondary-dark,
+    $md-textfieldbox-light-bg-color,
+    $md-textfieldbox-light-line-color,
+    $md-textfieldbox-light-hover-bg-color,
+    $md-textfieldbox-light-focus-color,
+    $md-textfieldbox-light-error-color,
+    $md-textfieldbox-light-disabled-color,
+    $md-textfieldbox-light-disabled-bg-color
+  );
+}
+
+
+@mixin md-textfieldbox(
+  $primaryStyleName,
+  $primary-color,
+  $secondary-color,
+  $bg-color,
+  $line-color,
+  $hover-bg-color,
+  $focus-color,
+  $error-color,
+  $disabled-color,
+  $disabled-bg-color) {
+
+  .#{$primaryStyleName} {
+    border-radius: $md-textfieldbox-border-radius;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    * {
+      @include md-cubic-std;
+    }
+
+    .v-caption {
+      display: none;
+    }
+
+    .v-textfield {
+      width: 100%;
+    }
+  }
+
+
+  // Hover style
+  .#{$primaryStyleName}:hover {
+    &::before {
+      background-color: $hover-bg-color;
+    }
+    .#{$primaryStyleName}-input {
+      box-shadow: inset 0 -2px 0 $primary-color;
+    }
+  }
+
+
+  // Focused
+  .#{$primaryStyleName}.focus {
+    .#{$primaryStyleName}-label,
+    .#{$primaryStyleName}-icon {
+      color: $focus-color;
+    }
+    .#{$primaryStyleName}-input {
+      box-shadow: inset 0 -2px 0 $focus-color;
+    }
+  }
+
+
+  // Error style
+  .#{$primaryStyleName}.error {
+    .#{$primaryStyleName}-label,
+    .#{$primaryStyleName}-icon,
+    .#{$primaryStyleName}-helper {
+      color: $error-color;
+    }
+    .#{$primaryStyleName}-input {
+      box-shadow: inset 0 -2px 0 $error-color;
+    }
+  }
+
+
+  // Disabled
+  .#{$primaryStyleName}.v-disabled {
+    &::before {
+      background: $disabled-bg-color;
+    }
+    .#{$primaryStyleName}-label,
+    .#{$primaryStyleName}-icon,
+    .#{$primaryStyleName}-helper {
+      color: $disabled-color;
+    }
+    .#{$primaryStyleName}-input {
+      box-shadow: none;
+      color: $disabled-color;
+    }
+  }
+
+
+  // Floating label
+  .#{$primaryStyleName}-label {
+    @include md-caption-font($secondary-color);
+    left: $md-textfieldbox-pad-horizontal;
+    pointer-events: none;
+    position: absolute;
+    top: $md-textfieldbox-floatinglabel-top;
+    white-space: nowrap;
+  }
+
+  .#{$primaryStyleName}-label-fade {
+    opacity: 0;
+  }
+
+  .#{$primaryStyleName}-label-hint {
+    @include md-subheader-font($secondary-color);
+    top: $md-textfieldbox-restinglabel-top;
+  }
+
+
+  // Icon style
+  .#{$primaryStyleName}-with-icon {
+    padding-left: $md-icon-size + $md-textfieldbox-icon-pad-right;
+  }
+
+  .#{$primaryStyleName}-icon {
+    align-items: center;
+    color: $secondary-color;
+    display: flex;
+    left: 0;
+    position: absolute;
+    top: $md-textfieldbox-icon-top;
+  }
+
+
+  // Input field
+  .#{$primaryStyleName}-input {
+    @include md-subheader-font($primary-color);
+    background-color: $bg-color;
+    border: none;
+    border-radius: $md-textfieldbox-border-radius;
+    box-shadow: inset 0 -2px 0 $line-color;
+    cursor: pointer;
+    height: $md-textfieldbox-height;
+    padding: $md-textfieldbox-pad-top $md-textfieldbox-pad-horizontal 0 $md-textfieldbox-pad-horizontal;
+    text-overflow: ellipsis;
+    outline: none;
+
+    &.v-readonly {
+      box-shadow: none;
+    }
+
+    &.v-disabled {
+      cursor: default;
+    }
+
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder,
+    &:-moz-placeholder {
+      @include md-subheader-font($secondary-color);
+      letter-spacing: normal;
+      word-spacing: normal;
+    }
+  }
+
+
+  // Helper label
+  .#{$primaryStyleName}-helper {
+    @include md-caption-font($secondary-color);
+
+    &:empty {
+      padding: 0 0 $md-textfieldbox-pad-bottom 0;
+    }
+
+    &:not(:empty) {
+      padding: $md-textfieldbox-helper-pad-vertical $md-textfieldbox-pad-horizontal;
+    }
+  }
+
+}

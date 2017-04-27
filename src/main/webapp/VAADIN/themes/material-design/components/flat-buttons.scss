@@ -19,20 +19,23 @@ $md-flatbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3);
 
 @mixin flat-buttons {
   .md-flatbtn-light {
-    @include md-flatbtn($md-flatbtn-light-font-color,
-                     $md-flatbtn-light-focus-bg-color,
-                     $md-flatbtn-light-disabled-font-color,
-                     $md-flatbtn-light-ripple-color,
-                     $md-flatbtn-ripple-size);
+    @include md-flatbtn(
+      $md-flatbtn-light-font-color,
+      $md-flatbtn-light-focus-bg-color,
+      $md-flatbtn-light-disabled-font-color,
+      $md-flatbtn-light-ripple-color,
+      $md-flatbtn-ripple-size
+    );
   }
 
   .md-flatbtn-dark {
-    @include md-flatbtn($md-flatbtn-dark-font-color,
-                     $md-flatbtn-dark-focus-bg-color,
-                     $md-flatbtn-dark-disabled-font-color,
-                     $md-flatbtn-dark-ripple-color,
-                     $md-flatbtn-ripple-size);
-
+    @include md-flatbtn(
+      $md-flatbtn-dark-font-color,
+      $md-flatbtn-dark-focus-bg-color,
+      $md-flatbtn-dark-disabled-font-color,
+      $md-flatbtn-dark-ripple-color,
+      $md-flatbtn-ripple-size
+    );
   }
 }
 

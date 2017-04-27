@@ -77,6 +77,11 @@ public class Styles {
         public static final String DARK = "md-textfield-dark";
     }
 
+    public static class TextFieldBoxes {
+        public static final String LIGHT = "md-textfieldbox-light";
+        public static final String DARK = "md-textfieldbox-dark";
+    }
+
     public static class ComboBoxes {
         public static final String LIGHT = "md-combobox-light";
         public static final String DARK = "md-combobox-dark";

@@ -4,6 +4,7 @@ import com.vaadin.server.UserError;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.IconGenerator;
 import org.test.components.MDComboBox;
+import org.test.components.MDTextField;
 import org.test.layout.FlexLayout;
 import org.test.layout.Paddings;
 import org.test.layout.Spacings;
@@ -46,77 +47,19 @@ public class MenusView extends CssLayout {
     }
 
     private CssLayout createLightFields() {
-        MDComboBox cb1 = new MDComboBox("Floating label");
+        MDComboBox tf1 = createComboBox("Floating label", null, null, null, true, true);
+        MDComboBox tf2 = createComboBox("Hint text", null, null, null, false, true);
+        MDComboBox tf3 = createComboBox("Floating label with helper", "Helper information goes here!", "Empty value not allowed", null, true, true);
+        MDComboBox tf4 = createComboBox("Hint text with helper", "Helper information goes here!", "Empty value not allowed", null, false, true);
+        MDComboBox tf5 = createComboBox("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, true);
+        MDComboBox tf6 = createComboBox("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, true);
 
-        MDComboBox cb2 = new MDComboBox("Floating label with helper");
-        cb2.setHelper("Helper information goes here!");
-
-        MDComboBox cb3 = new MDComboBox("Hint text");
-        cb3.setFloatingLabelEnabled(false);
-
-        MDComboBox cb4 = new MDComboBox("Hint text with helper");
-        cb4.setHelper("Helper information goes here!");
-        cb4.setFloatingLabelEnabled(false);
-
-        MDComboBox cb5 = new MDComboBox("Floating label with helper");
-        cb5.addValueChangeListener(event -> {
-            if (event.getValue() == null || event.getValue().isEmpty()) {
-                cb5.setComponentError(new UserError("Empty value not allowed"));
-            } else {
-                cb5.setComponentError(null);
-            }
-        });
-        cb5.setComponentError(new UserError("Empty value not allowed"));
-
-        MDComboBox cb6 = new MDComboBox("Hint text with helper");
-        cb6.addValueChangeListener(event -> {
-            if (event.getValue() == null || event.getValue().isEmpty()) {
-                cb6.setComponentError(new UserError("Empty value not allowed"));
-            } else {
-                cb6.setComponentError(null);
-            }
-        });
-        cb6.setFloatingLabelEnabled(false);
-        cb6.setComponentError(new UserError("Empty value not allowed"));
-
-        MDComboBox cb7 = new MDComboBox("Floating label with icon");
-        cb7.setIcon(MaterialIcons.INPUT, true);
-
-        MDComboBox cb8 = new MDComboBox("Hint text with icon");
-        cb8.setFloatingLabelEnabled(false);
-        cb8.setIcon(MaterialIcons.INPUT, true);
-
-        MDComboBox cb9 = new MDComboBox("Floating label with icon and helper");
-        cb9.setHelper("Helper information goes here!");
-        cb9.setIcon(MaterialIcons.INPUT, true);
-        cb9.addValueChangeListener(event -> {
-            if (event.getValue() == null || event.getValue().isEmpty()) {
-                cb9.setComponentError(new UserError("Empty value not allowed"));
-            } else {
-                cb9.setComponentError(null);
-            }
-        });
-        cb9.setComponentError(new UserError("Empty value not allowed"));
-
-        MDComboBox cb10 = new MDComboBox("Hint text with icon and helper");
-        cb10.setHelper("Helper information goes here!");
-        cb10.setIcon(MaterialIcons.INPUT, true);
-        cb10.addValueChangeListener(event -> {
-            if (event.getValue() == null || event.getValue().isEmpty()) {
-                cb10.setComponentError(new UserError("Empty value not allowed"));
-            } else {
-                cb10.setComponentError(null);
-            }
-        });
-        cb10.setComponentError(new UserError("Empty value not allowed"));
-        cb10.setFloatingLabelEnabled(false);
-
-        FlexLayout card = new FlexLayout(cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10);
+        FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5, tf6);
         card.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
         card.addStyleName("card" + " " + Paddings.All.LARGE);
         card.setWidth(100, Unit.PERCENTAGE);
 
-        for (MDComboBox cb : new MDComboBox[]{cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10}) {
+        for (MDComboBox cb : new MDComboBox[]{tf1, tf2, tf3, tf4, tf5, tf6}) {
             cb.getField().setItems(planets);
             cb.getField().setItemIconGenerator(generator);
         }
@@ -125,81 +68,41 @@ public class MenusView extends CssLayout {
     }
 
     private CssLayout createDarkFields() {
-        MDComboBox cb1 = new MDComboBox("Floating label", false);
+        MDComboBox tf1 = createComboBox("Floating label", null, null, null, true, false);
+        MDComboBox tf2 = createComboBox("Hint text", null, null, null, false, false);
+        MDComboBox tf3 = createComboBox("Floating label with helper", "Helper information goes here!", "Empty value not allowed", null, true, false);
+        MDComboBox tf4 = createComboBox("Hint text with helper", "Helper information goes here!", "Empty value not allowed", null, false, false);
+        MDComboBox tf5 = createComboBox("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, false);
+        MDComboBox tf6 = createComboBox("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, false);
 
-        MDComboBox cb2 = new MDComboBox("Floating label with helper", false);
-        cb2.setHelper("Helper information goes here!");
-
-        MDComboBox cb3 = new MDComboBox("Hint text", false);
-        cb3.setFloatingLabelEnabled(false);
-
-        MDComboBox cb4 = new MDComboBox("Hint text with helper", false);
-        cb4.setHelper("Helper information goes here!");
-        cb4.setFloatingLabelEnabled(false);
-
-        MDComboBox cb5 = new MDComboBox("Floating label with helper", false);
-        cb5.addValueChangeListener(event -> {
-            if (event.getValue() == null || event.getValue().isEmpty()) {
-                cb5.setComponentError(new UserError("Empty value not allowed"));
-            } else {
-                cb5.setComponentError(null);
-            }
-        });
-        cb5.setComponentError(new UserError("Empty value not allowed"));
-
-        MDComboBox cb6 = new MDComboBox("Hint text with helper", false);
-        cb6.addValueChangeListener(event -> {
-            if (event.getValue() == null || event.getValue().isEmpty()) {
-                cb6.setComponentError(new UserError("Empty value not allowed"));
-            } else {
-                cb6.setComponentError(null);
-            }
-        });
-        cb6.setFloatingLabelEnabled(false);
-        cb6.setComponentError(new UserError("Empty value not allowed"));
-
-        MDComboBox cb7 = new MDComboBox("Floating label with icon", false);
-        cb7.setIcon(MaterialIcons.INPUT, true);
-
-        MDComboBox cb8 = new MDComboBox("Hint text with icon", false);
-        cb8.setFloatingLabelEnabled(false);
-        cb8.setIcon(MaterialIcons.INPUT, true);
-
-        MDComboBox cb9 = new MDComboBox("Floating label with icon and helper", false);
-        cb9.setHelper("Helper information goes here!");
-        cb9.setIcon(MaterialIcons.INPUT, true);
-        cb9.addValueChangeListener(event -> {
-            if (event.getValue() == null || event.getValue().isEmpty()) {
-                cb9.setComponentError(new UserError("Empty value not allowed"));
-            } else {
-                cb9.setComponentError(null);
-            }
-        });
-        cb9.setComponentError(new UserError("Empty value not allowed"));
-
-        MDComboBox cb10 = new MDComboBox("Hint text with icon and helper", false);
-        cb10.setHelper("Helper information goes here!");
-        cb10.setIcon(MaterialIcons.INPUT, true);
-        cb10.addValueChangeListener(event -> {
-            if (event.getValue() == null || event.getValue().isEmpty()) {
-                cb10.setComponentError(new UserError("Empty value not allowed"));
-            } else {
-                cb10.setComponentError(null);
-            }
-        });
-        cb10.setComponentError(new UserError("Empty value not allowed"));
-        cb10.setFloatingLabelEnabled(false);
-
-        FlexLayout card = new FlexLayout(cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10);
+        FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5, tf6);
         card.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
         card.addStyleName("card" + " " + Paddings.All.LARGE + " " + MaterialColor.GREY_800.getBackgroundColorStyle());
         card.setWidth(100, Unit.PERCENTAGE);
 
-        for (MDComboBox cb : new MDComboBox[]{cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10}) {
+        for (MDComboBox cb : new MDComboBox[]{tf1, tf2, tf3, tf4, tf5, tf6}) {
             cb.getField().setItems(planets);
             cb.getField().setItemIconGenerator(generator);
         }
 
         return card;
+    }
+
+    private MDComboBox createComboBox(String label, String helper, String error, MaterialIcons icon, boolean floating, boolean light) {
+        MDComboBox cb = new MDComboBox(label, light);
+        if (helper != null) cb.setHelper(helper);
+        if (icon != null) cb.setIcon(icon);
+        if (error != null) {
+            cb.addValueChangeListener(event -> {
+                if (event.getValue() == null || event.getValue().isEmpty()) {
+                    cb.setComponentError(new UserError(error));
+                } else {
+                    cb.setComponentError(null);
+                }
+            });
+            cb.setComponentError(new UserError(error));
+        }
+        cb.setFloatingLabelEnabled(floating);
+        return cb;
     }
 }

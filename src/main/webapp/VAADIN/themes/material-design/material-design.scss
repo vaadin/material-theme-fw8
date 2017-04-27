@@ -37,6 +37,7 @@
 @import "components/tabs.scss";
 @import "components/tabsheet.scss";
 @import "components/textfields.scss";
+@import "components/textfieldboxes.scss";
 @import "components/windows.scss";
 
 @import "patterns/navigation-drawer.scss";
@@ -82,6 +83,7 @@ $primary-color: $md-blue-500;
   @include tabs;
   @include tabsheet;
   @include textfields;
+  @include textfieldboxes;
   @include windows;
 
   @include navigation-drawer;
