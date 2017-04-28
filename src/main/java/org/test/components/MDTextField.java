@@ -141,4 +141,14 @@ public class MDTextField extends CssLayout {
     public void setComponentError(ErrorMessage componentError) {
         field.setComponentError(componentError);
     }
+
+    public void setValue(String value) {
+        this.field.setValue(value);
+
+        if (value == null || value.isEmpty()) {
+            this.label.addStyleName("hint");
+        } else {
+            this.label.removeStyleName("hint");
+        }
+    }
 }

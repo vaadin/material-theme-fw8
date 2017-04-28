@@ -42,48 +42,32 @@ public class MenusView extends CssLayout {
         planets.add(VENUS);
         planets.add(EARTH);
 
-        addComponents(createLightFields());
-        addComponents(createDarkFields());
+        addComponents(createFields(true));
+        addComponents(createFields(false));
     }
 
-    private CssLayout createLightFields() {
-        MDComboBox tf1 = createComboBox("Floating label", null, null, null, true, true);
-        MDComboBox tf2 = createComboBox("Hint text", null, null, null, false, true);
-        MDComboBox tf3 = createComboBox("Floating label with helper", "Helper information goes here!", "Empty value not allowed", null, true, true);
-        MDComboBox tf4 = createComboBox("Hint text with helper", "Helper information goes here!", "Empty value not allowed", null, false, true);
-        MDComboBox tf5 = createComboBox("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, true);
-        MDComboBox tf6 = createComboBox("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, true);
+    private CssLayout createFields(boolean light) {
+        MDComboBox tf1 = createComboBox("Floating label", null, null, null, true, light);
+        MDComboBox tf2 = createComboBox("Hint text", null, null, null, false, light);
+        MDComboBox tf3 = createComboBox("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, light);
+        MDComboBox tf4 = createComboBox("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, light);
+        MDComboBox tf5 = createComboBox("Floating label", "Helper information goes here!", "Empty value not allowed", null, true, light);
 
-        FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5, tf6);
-        card.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
-        card.addStyleName("card" + " " + Paddings.All.LARGE);
-        card.setWidth(100, Unit.PERCENTAGE);
-
-        for (MDComboBox cb : new MDComboBox[]{tf1, tf2, tf3, tf4, tf5, tf6}) {
-            cb.getField().setItems(planets);
-            cb.getField().setItemIconGenerator(generator);
+        for (MDComboBox cb : new MDComboBox[]{tf1, tf2, tf3, tf4, tf5}) {
+            cb.setItems(planets);
+            cb.setItemIconGenerator(generator);
         }
 
-        return card;
-    }
+        tf5.setValue(MERCURY);
+        tf5.setEnabled(false);
 
-    private CssLayout createDarkFields() {
-        MDComboBox tf1 = createComboBox("Floating label", null, null, null, true, false);
-        MDComboBox tf2 = createComboBox("Hint text", null, null, null, false, false);
-        MDComboBox tf3 = createComboBox("Floating label with helper", "Helper information goes here!", "Empty value not allowed", null, true, false);
-        MDComboBox tf4 = createComboBox("Hint text with helper", "Helper information goes here!", "Empty value not allowed", null, false, false);
-        MDComboBox tf5 = createComboBox("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, false);
-        MDComboBox tf6 = createComboBox("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, false);
-
-        FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5, tf6);
+        FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5);
         card.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
-        card.addStyleName("card" + " " + Paddings.All.LARGE + " " + MaterialColor.GREY_800.getBackgroundColorStyle());
+        card.addStyleName("card");
+        card.addStyleName(Paddings.All.LARGE);
+        card.addStyleName(Spacings.Bottom.LARGE);
+        if (!light) card.addStyleName(MaterialColor.GREY_800.getBackgroundColorStyle());
         card.setWidth(100, Unit.PERCENTAGE);
-
-        for (MDComboBox cb : new MDComboBox[]{tf1, tf2, tf3, tf4, tf5, tf6}) {
-            cb.getField().setItems(planets);
-            cb.getField().setItemIconGenerator(generator);
-        }
 
         return card;
     }

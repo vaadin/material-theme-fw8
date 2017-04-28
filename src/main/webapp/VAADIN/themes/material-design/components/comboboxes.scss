@@ -13,6 +13,10 @@ $md-combobox-dark-focus-color: $md-blue-a200;
 $md-combobox-dark-error-color: $md-red-a400;
 $md-combobox-dark-line-color: rgba(255, 255, 255, 0.7);
 
+// Disabled colors
+$md-combobox-light-disabled-color: rgba(0, 0, 0, 0.42);
+$md-combobox-dark-disabled-color: $md-disabled-light;
+
 // Floating label positions
 $md-combobox-floatinglabel-top: 16px;
 $md-combobox-restinglabel-top: $md-combobox-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2;
@@ -24,7 +28,7 @@ $md-combobox-helper-pad-vertical: 6px;
 // Icon
 $md-combobox-icon-pad-right: 16px;
 $md-combobox-icon-top: $md-combobox-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2;
-$md-combobox-floatinglabel-disabled-icon-top: $md-combobox-floatinglabel-disabled-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2;;
+$md-combobox-floatinglabel-disabled-icon-top: $md-combobox-floatinglabel-disabled-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2;
 
 // Menu
 $md-menu-light-bg-color: white;
@@ -44,33 +48,41 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4;
 
 
 @mixin comboboxes {
-  @include md-combobox(md-combobox-dark,
-                       $md-primary-light,
-                       $md-secondary-light,
-                       $md-combobox-dark-line-color,
-                       $md-combobox-dark-focus-color,
-                       $md-combobox-dark-error-color,
-                       $md-menu-dark-bg-color,
-                       $md-menuitem-dark-selected-bg-color);
-  @include md-combobox(md-combobox-light,
-                       $md-primary-dark,
-                       $md-secondary-dark,
-                       $md-combobox-light-line-color,
-                       $md-combobox-light-focus-color,
-                       $md-combobox-light-error-color,
-                       $md-menu-light-bg-color,
-                       $md-menuitem-light-selected-bg-color);
+  @include md-combobox(
+    md-combobox-dark,
+    $md-primary-light,
+    $md-secondary-light,
+    $md-combobox-dark-line-color,
+    $md-combobox-dark-focus-color,
+    $md-combobox-dark-error-color,
+    $md-combobox-dark-disabled-color,
+    $md-menu-dark-bg-color,
+    $md-menuitem-dark-selected-bg-color
+  );
+  @include md-combobox(
+    md-combobox-light,
+    $md-primary-dark,
+    $md-secondary-dark,
+    $md-combobox-light-line-color,
+    $md-combobox-light-focus-color,
+    $md-combobox-light-error-color,
+    $md-combobox-light-disabled-color,
+    $md-menu-light-bg-color,
+    $md-menuitem-light-selected-bg-color
+  );
 }
 
 
-@mixin md-combobox($primaryStyleName,
-                   $primary-color,
-                   $secondary-color,
-                   $line-color,
-                   $focus-color,
-                   $error-color,
-                   $menu-bg-color,
-                   $menuitem-selected-bg-color) {
+@mixin md-combobox(
+  $primaryStyleName,
+  $primary-color,
+  $secondary-color,
+  $line-color,
+  $focus-color,
+  $error-color,
+  $disabled-color,
+  $menu-bg-color,
+  $menuitem-selected-bg-color) {
 
   .#{$primaryStyleName} {
     @include md-cubic-std;
@@ -94,14 +106,14 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4;
 
 
   // Hover
-  .#{$primaryStyleName}:hover .#{$primaryStyleName}-input-input {
+  .#{$primaryStyleName}-input-input:hover {
     box-shadow: inset 0 -1px 0 $primary-color,
                       0 1px  0 $primary-color;
   }
 
 
   // Focused
-  .#{$primaryStyleName}.focus {
+  .#{$primaryStyleName}-focus {
     .#{$primaryStyleName}-label,
     .#{$primaryStyleName}-icon {
       color: $focus-color;
@@ -114,7 +126,7 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4;
 
 
   // Error style
-  .#{$primaryStyleName}.error {
+  .#{$primaryStyleName}-error {
     .#{$primaryStyleName}-label,
     .#{$primaryStyleName}-icon,
     .#{$primaryStyleName}-helper {
@@ -123,6 +135,28 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4;
     .#{$primaryStyleName}-input-input {
       box-shadow: inset 0 -1px 0 $error-color,
                         0 1px  0 $error-color;
+    }
+  }
+
+
+  // Disabled
+  .#{$primaryStyleName}.v-disabled {
+    .#{$primaryStyleName}-label,
+    .#{$primaryStyleName}-icon,
+    .#{$primaryStyleName}-helper {
+      color: $disabled-color;
+    }
+    .#{$primaryStyleName}-input-button {
+      display: none;
+    }
+    .#{$primaryStyleName}-input-input {
+      background-image: linear-gradient(to right, $line-color 50%, transparent 0%);
+      background-position: bottom;
+      background-repeat: repeat-x;
+      background-size: 4px 1px;
+      box-shadow: none;
+      color: $disabled-color;
+      cursor: default;
     }
   }
 
@@ -186,6 +220,7 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4;
     background: none;
     border: none;
     box-shadow: inset 0 -1px 0 $line-color;
+    cursor: pointer;
     height: $md-combobox-input-height;
     padding: 0;
     text-overflow: ellipsis;

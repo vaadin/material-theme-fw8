@@ -18,24 +18,26 @@ public class TextFieldsView extends CssLayout {
     public TextFieldsView() {
         addStyleName(Spacings.Bottom.LARGE);
         addStyleName(Spacings.Right.LARGE);
-
-        addComponents(createLightFields());
-        addComponents(createDarkFields());
-
+        addComponents(createFields(true));
+        addComponents(createFields(false));
     }
 
-    private CssLayout createLightFields() {
-        MDTextField tf1 = createTextField("Floating label", null, null, null, true, true);
-        MDTextField tf2 = createTextField("Hint text", null, null, null, false, true);
-        MDTextField tf3 = createTextField("Floating label with helper", "Helper information goes here!", "Empty value not allowed", null, true, true);
-        MDTextField tf4 = createTextField("Hint text with helper", "Helper information goes here!", "Empty value not allowed", null, false, true);
-        MDTextField tf5 = createTextField("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, true);
-        MDTextField tf6 = createTextField("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, true);
+    private CssLayout createFields(boolean light) {
+        MDTextField tf1 = createTextField("Floating label", null, null, null, true, light);
+        MDTextField tf2 = createTextField("Hint text", null, null, null, false, light);
 
-        MDTextFieldBox tf7 = createTextFieldBox("Text field box", "Helper information goes here!", "Empty value not allowed", null, true, true);
-        MDTextFieldBox tf8 = createTextFieldBox("Disabled text field box", "Helper information goes here!", "Empty value not allowed", null, true, true);
-        tf8.setValue("Input");
-        tf8.setValue("");
+        MDTextField tf3 = createTextField("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, light);
+        MDTextField tf4 = createTextField("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, light);
+
+        MDTextField tf5 = createTextField("Floating label", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, light);
+        tf5.setValue("Disabled");
+        tf5.setEnabled(false);
+
+        MDTextFieldBox tf6 = createTextFieldBox("Text field box", "Helper information goes here!", "Empty value not allowed", null, light);
+        MDTextFieldBox tf7 = createTextFieldBox("Text field box", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, light);
+
+        MDTextFieldBox tf8 = createTextFieldBox("Floating label", "Helper information goes here!", "Empty value not allowed", null, light);
+        tf8.setValue("Disabled");
         tf8.setEnabled(false);
 
         FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8);
@@ -43,30 +45,7 @@ public class TextFieldsView extends CssLayout {
         card.addStyleName("card");
         card.addStyleName(Paddings.All.LARGE);
         card.addStyleName(Spacings.Bottom.LARGE);
-        card.setWidth(100, Unit.PERCENTAGE);
-
-        return card;
-    }
-
-    private CssLayout createDarkFields() {
-        MDTextField tf1 = createTextField("Floating label", null, null, null, true, false);
-        MDTextField tf2 = createTextField("Hint text", null, null, null, false, false);
-        MDTextField tf3 = createTextField("Floating label with helper", "Helper information goes here!", "Empty value not allowed", null, true, false);
-        MDTextField tf4 = createTextField("Hint text with helper", "Helper information goes here!", "Empty value not allowed", null, false, false);
-        MDTextField tf5 = createTextField("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, false);
-        MDTextField tf6 = createTextField("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, false);
-
-        MDTextFieldBox tf7 = createTextFieldBox("Text field box", "Helper information goes here!", "Empty value not allowed", null, true, false);
-        MDTextFieldBox tf8 = createTextFieldBox("Label", "Helper information goes here!", null, null, true, false);
-        tf8.setValue("Input");
-        tf8.setEnabled(false);
-
-        FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8);
-        card.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
-        card.addStyleName("card");
-        card.addStyleName(Paddings.All.LARGE);
-        card.addStyleName(Spacings.Bottom.LARGE);
-        card.addStyleName(MaterialColor.GREY_900.getBackgroundColorStyle());
+        if (!light) card.addStyleName(MaterialColor.GREY_900.getBackgroundColorStyle());
         card.setWidth(100, Unit.PERCENTAGE);
 
         return card;
@@ -90,7 +69,7 @@ public class TextFieldsView extends CssLayout {
         return tf;
     }
 
-    private MDTextFieldBox createTextFieldBox(String label, String helper, String error, MaterialIcons icon, boolean floating, boolean light) {
+    private MDTextFieldBox createTextFieldBox(String label, String helper, String error, MaterialIcons icon, boolean light) {
         MDTextFieldBox tf = new MDTextFieldBox(label, light);
         if (helper != null) tf.setHelper(helper);
         if (icon != null) tf.setIcon(icon);

@@ -7,9 +7,12 @@ import com.vaadin.shared.Registration;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.IconGenerator;
 import com.vaadin.ui.Label;
 import org.test.style.MaterialIcons;
 import org.test.style.Styles;
+
+import java.util.Collection;
 
 /**
  * Created by jonte on 15/03/2017.
@@ -55,23 +58,12 @@ public class MDComboBox extends CssLayout {
         this.field.setPrimaryStyleName(primaryStyleName + "-input");
         this.field.addFocusListener(event -> {
             addStyleName("focus");
-            if (floatingLabelEnabled) {
-                this.label.removeStyleName("hint");
-            } else {
-                this.label.addStyleName("fade");
-            }
-
+            this.label.removeStyleName("hint");
         });
         this.field.addBlurListener(event -> {
             removeStyleName("focus");
-            if (floatingLabelEnabled) {
-                if (field.getValue() == null) {
-                    this.label.addStyleName("hint");
-                }
-            } else {
-                if (field.getValue() == null) {
-                    this.label.removeStyleName("fade");
-                }
+            if (field.getValue() == null) {
+                this.label.addStyleName("hint");
             }
         });
         this.field.addValueChangeListener(event -> {
@@ -157,8 +149,30 @@ public class MDComboBox extends CssLayout {
         field.setComponentError(componentError);
     }
 
-    public void setItems(Object items) {
+    public void setItems(Collection items) {
         this.field.setItems(items);
+    }
+
+    public void setValue(Object value) {
+        this.field.setValue(value);
+        if (value == null) {
+            this.label.addStyleName("hint");
+        } else {
+            this.label.removeStyleName("hint");
+        }
+    }
+
+    public void setSelectedItem(Object item) {
+        this.field.setSelectedItem(item);
+        if (item == null) {
+            this.label.addStyleName("hint");
+        } else {
+            this.label.removeStyleName("hint");
+        }
+    }
+
+    public void setItemIconGenerator(IconGenerator itemIconGenerator) {
+        this.field.setItemIconGenerator(itemIconGenerator);
     }
 
 }

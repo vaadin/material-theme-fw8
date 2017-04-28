@@ -38,7 +38,7 @@ $md-textfieldbox-helper-pad-vertical: 6px;
 
 // Icon
 $md-textfieldbox-icon-pad-right: 16px;
-$md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)/2;;
+$md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)/2;
 
 
 @mixin textfieldboxes {
@@ -102,18 +102,14 @@ $md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)
 
 
   // Hover style
-  .#{$primaryStyleName}:hover {
-    &::before {
-      background-color: $hover-bg-color;
-    }
-    .#{$primaryStyleName}-input {
-      box-shadow: inset 0 -2px 0 $primary-color;
-    }
+  .#{$primaryStyleName}-input:hover {
+    background-color: $hover-bg-color;
+    box-shadow: inset 0 -2px 0 $primary-color;
   }
 
 
   // Focused
-  .#{$primaryStyleName}.focus {
+  .#{$primaryStyleName}-focus {
     .#{$primaryStyleName}-label,
     .#{$primaryStyleName}-icon {
       color: $focus-color;
@@ -125,7 +121,7 @@ $md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)
 
 
   // Error style
-  .#{$primaryStyleName}.error {
+  .#{$primaryStyleName}-error {
     .#{$primaryStyleName}-label,
     .#{$primaryStyleName}-icon,
     .#{$primaryStyleName}-helper {
@@ -139,17 +135,16 @@ $md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)
 
   // Disabled
   .#{$primaryStyleName}.v-disabled {
-    &::before {
-      background: $disabled-bg-color;
-    }
     .#{$primaryStyleName}-label,
     .#{$primaryStyleName}-icon,
     .#{$primaryStyleName}-helper {
       color: $disabled-color;
     }
     .#{$primaryStyleName}-input {
+      background-color: $disabled-bg-color;
       box-shadow: none;
       color: $disabled-color;
+      cursor: default;
     }
   }
 
@@ -157,7 +152,7 @@ $md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)
   // Floating label
   .#{$primaryStyleName}-label {
     @include md-caption-font($secondary-color);
-    left: $md-textfieldbox-pad-horizontal;
+    margin-left: $md-textfieldbox-pad-horizontal;
     pointer-events: none;
     position: absolute;
     top: $md-textfieldbox-floatinglabel-top;
@@ -204,10 +199,6 @@ $md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)
 
     &.v-readonly {
       box-shadow: none;
-    }
-
-    &.v-disabled {
-      cursor: default;
     }
 
     &::-webkit-input-placeholder,

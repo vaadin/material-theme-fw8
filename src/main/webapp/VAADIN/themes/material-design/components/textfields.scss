@@ -13,6 +13,10 @@ $md-textfield-dark-focus-color: $md-blue-a200;
 $md-textfield-dark-error-color: $md-red-a400;
 $md-textfield-dark-line-color: rgba(255, 255, 255, 0.7);
 
+// Disabled colors
+$md-textfield-light-disabled-color: rgba(0, 0, 0, 0.42);
+$md-textfield-dark-disabled-color: $md-disabled-light;
+
 // Floating label positions
 $md-textfield-floatinglabel-top: 16px;
 $md-textfield-restinglabel-top: $md-textfield-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2;
@@ -24,16 +28,40 @@ $md-textfield-helper-pad-vertical: 6px;
 // Icon
 $md-textfield-icon-pad-right: 16px;
 $md-textfield-icon-top: $md-textfield-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2;
-$md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disabled-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2;;
+$md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disabled-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2;
 
 
 @mixin textfields {
-  @include md-textfield(md-textfield-dark, $md-primary-light, $md-secondary-light, $md-textfield-dark-line-color, $md-textfield-dark-focus-color, $md-textfield-dark-error-color);
-  @include md-textfield(md-textfield-light, $md-primary-dark, $md-secondary-dark, $md-textfield-light-line-color, $md-textfield-light-focus-color, $md-textfield-light-error-color);
+  @include md-textfield(
+    md-textfield-dark,
+    $md-primary-light,
+    $md-secondary-light,
+    $md-textfield-dark-line-color,
+    $md-textfield-dark-focus-color,
+    $md-textfield-dark-error-color,
+    $md-textfield-dark-disabled-color
+  );
+  @include md-textfield(
+    md-textfield-light,
+    $md-primary-dark,
+    $md-secondary-dark,
+    $md-textfield-light-line-color,
+    $md-textfield-light-focus-color,
+    $md-textfield-light-error-color,
+    $md-textfield-light-disabled-color
+  );
 }
 
 
-@mixin md-textfield($primaryStyleName, $primary-color, $secondary-color, $line-color, $focus-color, $error-color) {
+@mixin md-textfield(
+  $primaryStyleName,
+  $primary-color,
+  $secondary-color,
+  $line-color,
+  $focus-color,
+  $error-color,
+  $disabled-color) {
+
   .#{$primaryStyleName} {
     display: flex;
     flex-direction: column;
@@ -55,14 +83,14 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
 
 
   // Hover style
-  .#{$primaryStyleName}:hover .#{$primaryStyleName}-input {
+  .#{$primaryStyleName}-input:hover {
     box-shadow: inset 0 -1px 0 $primary-color,
                       0 1px  0 $primary-color;
   }
 
 
   // Focused
-  .#{$primaryStyleName}.focus {
+  .#{$primaryStyleName}-focus {
     .#{$primaryStyleName}-label,
     .#{$primaryStyleName}-icon {
       color: $focus-color;
@@ -75,7 +103,7 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
 
 
   // Error style
-  .#{$primaryStyleName}.error {
+  .#{$primaryStyleName}-error {
     .#{$primaryStyleName}-label,
     .#{$primaryStyleName}-icon,
     .#{$primaryStyleName}-helper {
@@ -84,6 +112,25 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
     .#{$primaryStyleName}-input {
       box-shadow: inset 0 -1px 0 $error-color,
                         0 1px  0 $error-color;
+    }
+  }
+
+
+  // Disabled
+  .#{$primaryStyleName}.v-disabled {
+    .#{$primaryStyleName}-label,
+    .#{$primaryStyleName}-icon,
+    .#{$primaryStyleName}-helper {
+      color: $disabled-color;
+    }
+    .#{$primaryStyleName}-input {
+      background-image: linear-gradient(to right, $line-color 50%, transparent 0%);
+      background-position: bottom;
+      background-repeat: repeat-x;
+      background-size: 4px 1px;
+      box-shadow: none;
+      color: $disabled-color;
+      cursor: default;
     }
   }
 
@@ -137,6 +184,7 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
     background: none;
     border: none;
     box-shadow: inset 0 -1px 0 $line-color;
+    cursor: pointer;
     height: $md-textfield-input-height;
     padding: 0;
     text-overflow: ellipsis;
