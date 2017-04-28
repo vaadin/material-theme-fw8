@@ -22,6 +22,7 @@ public class MDTextFieldBox extends CssLayout {
 
     private Label label = new Label();
     private Label icon = new Label();
+    private CssLayout ripple = new CssLayout();
     private TextField field = new TextField() {
         @Override
         public void setComponentError(ErrorMessage componentError) {
@@ -50,6 +51,8 @@ public class MDTextFieldBox extends CssLayout {
         this.icon.setContentMode(ContentMode.HTML);
         this.icon.setVisible(false);
 
+        this.ripple.setPrimaryStyleName(primaryStyleName + "-ripple");
+
         this.field.setPrimaryStyleName(primaryStyleName + "-input");
         this.field.addFocusListener(event -> {
             addStyleName("focus");
@@ -65,7 +68,7 @@ public class MDTextFieldBox extends CssLayout {
         this.helper.setPrimaryStyleName(primaryStyleName + "-helper");
         this.helper.setWidthUndefined();
 
-        addComponents(this.label, icon, field, this.helper);
+        addComponents(this.label, icon, field, ripple, this.helper);
     }
 
     public TextField getField() {

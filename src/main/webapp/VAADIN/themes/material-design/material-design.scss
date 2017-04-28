@@ -99,6 +99,7 @@ $primary-color: $md-blue-500;
 
   input, textarea, select, button {
     font-family: 'Roboto';
+    -webkit-appearance: none;
   }
 
   .content {

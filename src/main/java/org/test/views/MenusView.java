@@ -66,7 +66,7 @@ public class MenusView extends CssLayout {
         card.addStyleName("card");
         card.addStyleName(Paddings.All.LARGE);
         card.addStyleName(Spacings.Bottom.LARGE);
-        if (!light) card.addStyleName(MaterialColor.GREY_800.getBackgroundColorStyle());
+        if (!light) card.addStyleName(MaterialColor.GREY_900.getBackgroundColorStyle());
         card.setWidth(100, Unit.PERCENTAGE);
 
         return card;
