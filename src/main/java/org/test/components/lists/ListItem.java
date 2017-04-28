@@ -1,6 +1,8 @@
-package org.test.components;
+package org.test.components.lists;
 
+import com.vaadin.event.LayoutEvents;
 import com.vaadin.server.ThemeResource;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
@@ -49,9 +51,9 @@ public abstract class ListItem extends CssLayout {
     private void initIconSecondary() {
         iconSecondary.setPrimaryStyleName("md-listitem-icon");
         iconSecondary.addStyleName("secondary");
-        setPrimaryIconSize(IconSize.SMALL);
-        setPrimaryIconFontColor(MaterialColor.DARK_SECONDARY);
-        setPrimaryIconVisible(false);
+        setSecondaryIconSize(IconSize.SMALL);
+        setSecondaryIconFontColor(MaterialColor.DARK_SECONDARY);
+        setSecondaryIconVisible(false);
     }
 
     public void setPrimaryIconVisible(boolean visible) {
@@ -62,6 +64,7 @@ public abstract class ListItem extends CssLayout {
         iconSecondary.setVisible(visible);
     }
 
+
     public void setPrimaryIconFontColor(MaterialColor fontColor) {
         iconPrimary.setFontColor(fontColor);
     }
@@ -69,6 +72,7 @@ public abstract class ListItem extends CssLayout {
     public void setSecondaryIconFontColor(MaterialColor fontColor) {
         iconSecondary.setFontColor(fontColor);
     }
+
 
     public void setPrimaryIconBackgroundColor(MaterialColor backgroundColor) {
         iconPrimary.setBackgroundColor(backgroundColor);
@@ -78,6 +82,7 @@ public abstract class ListItem extends CssLayout {
         iconSecondary.setBackgroundColor(backgroundColor);
     }
 
+
     public void setPrimaryIcon(MaterialIcons icon) {
         iconPrimary.setIcon(icon);
     }
@@ -85,6 +90,7 @@ public abstract class ListItem extends CssLayout {
     public void setSecondaryIcon(MaterialIcons icon) {
         iconSecondary.setIcon(icon);
     }
+
 
     public void setPrimaryIcon(ThemeResource image) {
         iconPrimary.setIcon(image);
@@ -94,6 +100,12 @@ public abstract class ListItem extends CssLayout {
         iconSecondary.setIcon(image);
     }
 
+
+    public ListItemIcon getPrimaryIcon() { return iconPrimary; }
+
+    public ListItemIcon getSecondaryIcon() { return iconSecondary; }
+
+
     public void setPrimaryIconSize(IconSize size) {
         iconPrimary.setSize(size);
     }
@@ -102,7 +114,20 @@ public abstract class ListItem extends CssLayout {
         iconSecondary.setSize(size);
     }
 
+
+    public void addPrimaryActionListener(LayoutEvents.LayoutClickListener listener) {
+        addStyleName("clickable");
+        addLayoutClickListener(listener);
+    }
+
+    public void addSecondaryActionListener(LayoutEvents.LayoutClickListener listener) {
+        iconSecondary.addStyleName("clickable");
+        iconSecondary.addLayoutClickListener(listener);
+    }
+
+
     public abstract void setTheme(boolean lightTheme);
+
 
     public enum IconSize {
         SMALL("small"),
