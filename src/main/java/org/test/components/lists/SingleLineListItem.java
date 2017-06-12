@@ -29,7 +29,7 @@ public class SingleLineListItem extends ListItem {
     }
 
     public SingleLineListItem(Component component, String primaryText) {
-        this(primaryText,true);
+        this(primaryText, true);
     }
 
     public SingleLineListItem(Component component, String primaryText, boolean verticalPadding) {

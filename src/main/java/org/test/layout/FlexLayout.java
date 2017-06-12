@@ -3,12 +3,113 @@ package org.test.layout;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
 
-import java.util.Arrays;
-
 /**
  * Created by jonte on 17/03/2017.
  */
 public class FlexLayout extends CssLayout {
+
+    private AlignContent alignContent;
+    private AlignItems alignItems;
+    private AlignSelf alignSelf;
+    private FlexDirection flexDirection;
+    private FlexWrap flexWrap;
+    private JustifyContent justifyContent;
+    private Overflow overflow;
+
+    public FlexLayout(Component... components) {
+        setPrimaryStyleName("flexlayout");
+        addComponents(components);
+    }
+
+    public FlexLayout(FlexDirection flexDirection, Component... components) {
+        setPrimaryStyleName("flexlayout");
+        addComponents(components);
+        setFlexDirection(flexDirection);
+    }
+
+    public AlignContent getAlignContent() {
+        return alignContent;
+    }
+
+    public void setAlignContent(AlignContent alignContent) {
+        this.alignContent = alignContent;
+        for (AlignContent value : AlignContent.values()) {
+            removeStyleName(value.getStyleName());
+        }
+        addStyleName(this.alignContent.getStyleName());
+    }
+
+    public AlignItems getAlignItems() {
+        return alignItems;
+    }
+
+    public void setAlignItems(AlignItems alignItems) {
+        this.alignItems = alignItems;
+        for (AlignItems value : AlignItems.values()) {
+            removeStyleName(value.getStyleName());
+        }
+        addStyleName(this.alignItems.getStyleName());
+    }
+
+    public AlignSelf getAlignSelf() {
+        return alignSelf;
+    }
+
+    public void setAlignSelf(AlignSelf alignSelf) {
+        this.alignSelf = alignSelf;
+        for (AlignSelf value : AlignSelf.values()) {
+            removeStyleName(value.getStyleName());
+        }
+        addStyleName(this.alignSelf.getStyleName());
+    }
+
+    public FlexDirection getFlexDirection() {
+        return flexDirection;
+    }
+
+    public void setFlexDirection(FlexDirection flexDirection) {
+        this.flexDirection = flexDirection;
+        for (FlexDirection value : FlexDirection.values()) {
+            removeStyleName(value.getStyleName());
+        }
+        addStyleName(this.flexDirection.getStyleName());
+    }
+
+    public FlexWrap getFlexWrap() {
+        return flexWrap;
+    }
+
+    public void setFlexWrap(FlexWrap flexWrap) {
+        this.flexWrap = flexWrap;
+        for (FlexWrap value : FlexWrap.values()) {
+            removeStyleName(value.getStyleName());
+        }
+        addStyleName(this.flexWrap.getStyleName());
+    }
+
+    public JustifyContent getJustifyContent() {
+        return justifyContent;
+    }
+
+    public void setJustifyContent(JustifyContent justifyContent) {
+        this.justifyContent = justifyContent;
+        for (JustifyContent value : JustifyContent.values()) {
+            removeStyleName(value.getStyleName());
+        }
+        addStyleName(this.justifyContent.getStyleName());
+    }
+
+    public Overflow getOverflow() {
+        return overflow;
+    }
+
+    public void setOverflow(Overflow overflow) {
+        this.overflow = overflow;
+        for (Overflow value : Overflow.values()) {
+            removeStyleName(value.getStyleName());
+        }
+        addStyleName(this.overflow.getStyleName());
+    }
 
     public enum AlignContent {
         CENTER("align-content-center"),
@@ -132,109 +233,6 @@ public class FlexLayout extends CssLayout {
         public String getStyleName() {
             return styleName;
         }
-    }
-
-    private AlignContent alignContent;
-    private AlignItems alignItems;
-    private AlignSelf alignSelf;
-    private FlexDirection flexDirection;
-    private FlexWrap flexWrap;
-    private JustifyContent justifyContent;
-    private Overflow overflow;
-
-    public FlexLayout(Component... components) {
-        setPrimaryStyleName("flexlayout");
-        addComponents(components);
-    }
-
-    public FlexLayout(FlexDirection flexDirection, Component... components) {
-        setPrimaryStyleName("flexlayout");
-        addComponents(components);
-        setFlexDirection(flexDirection);
-    }
-
-    public AlignContent getAlignContent() {
-        return alignContent;
-    }
-
-    public void setAlignContent(AlignContent alignContent) {
-        this.alignContent = alignContent;
-        for (AlignContent value : AlignContent.values()) {
-            removeStyleName(value.getStyleName());
-        }
-        addStyleName(this.alignContent.getStyleName());
-    }
-
-    public AlignItems getAlignItems() {
-        return alignItems;
-    }
-
-    public void setAlignSelf(AlignSelf alignSelf) {
-        this.alignSelf = alignSelf;
-        for (AlignSelf value : AlignSelf.values()) {
-            removeStyleName(value.getStyleName());
-        }
-        addStyleName(this.alignSelf.getStyleName());
-    }
-
-    public AlignSelf getAlignSelf() {
-        return alignSelf;
-    }
-
-    public void setAlignItems(AlignItems alignItems) {
-        this.alignItems = alignItems;
-        for (AlignItems value : AlignItems.values()) {
-            removeStyleName(value.getStyleName());
-        }
-        addStyleName(this.alignItems.getStyleName());
-    }
-
-    public FlexDirection getFlexDirection() {
-        return flexDirection;
-    }
-
-    public void setFlexDirection(FlexDirection flexDirection) {
-        this.flexDirection = flexDirection;
-        for (FlexDirection value : FlexDirection.values()) {
-            removeStyleName(value.getStyleName());
-        }
-        addStyleName(this.flexDirection.getStyleName());
-    }
-
-    public FlexWrap getFlexWrap() {
-        return flexWrap;
-    }
-
-    public void setFlexWrap(FlexWrap flexWrap) {
-        this.flexWrap = flexWrap;
-        for (FlexWrap value : FlexWrap.values()) {
-            removeStyleName(value.getStyleName());
-        }
-        addStyleName(this.flexWrap.getStyleName());
-    }
-
-    public JustifyContent getJustifyContent() {
-        return justifyContent;
-    }
-
-    public void setJustifyContent(JustifyContent justifyContent) {
-        this.justifyContent = justifyContent;
-        for (JustifyContent value : JustifyContent.values()) {
-            removeStyleName(value.getStyleName());
-        }
-        addStyleName(this.justifyContent.getStyleName());
-    }
-
-    public Overflow getOverflow() {
-        return overflow;
-    }
-
-    public void setOverflow(Overflow overflow) {
-        this.overflow = overflow;
-        for (Overflow value : Overflow.values()) {
-            removeStyleName(value.getStyleName());
-        }
-        addStyleName(this.overflow.getStyleName());
     }
 
 }

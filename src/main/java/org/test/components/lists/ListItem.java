@@ -2,7 +2,6 @@ package org.test.components.lists;
 
 import com.vaadin.event.LayoutEvents;
 import com.vaadin.server.ThemeResource;
-import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
@@ -91,20 +90,21 @@ public abstract class ListItem extends CssLayout {
         iconSecondary.setIcon(icon);
     }
 
+    public ListItemIcon getPrimaryIcon() {
+        return iconPrimary;
+    }
 
     public void setPrimaryIcon(ThemeResource image) {
         iconPrimary.setIcon(image);
     }
 
+    public ListItemIcon getSecondaryIcon() {
+        return iconSecondary;
+    }
+
     public void setSecondaryIcon(ThemeResource image) {
         iconSecondary.setIcon(image);
     }
-
-
-    public ListItemIcon getPrimaryIcon() { return iconPrimary; }
-
-    public ListItemIcon getSecondaryIcon() { return iconSecondary; }
-
 
     public void setPrimaryIconSize(IconSize size) {
         iconPrimary.setSize(size);

@@ -5,17 +5,21 @@ $md-combobox-pad-bottom: 8px;
 $md-combobox-pad-top: 28px;
 $md-combobox-floatinglabel-disabled-pad-top: 8px;
 
-// Focus and error colors
+// Focus colors
 $md-combobox-light-focus-color: $md-blue-a700;
-$md-combobox-light-error-color: $md-red-a400;
-$md-combobox-light-line-color: rgba(0, 0, 0, 0.42);
 $md-combobox-dark-focus-color: $md-blue-a200;
+
+// Error colors
+$md-combobox-light-error-color: $md-red-a400;
 $md-combobox-dark-error-color: $md-red-a400;
-$md-combobox-dark-line-color: rgba(255, 255, 255, 0.7);
 
 // Disabled colors
 $md-combobox-light-disabled-color: rgba(0, 0, 0, 0.42);
 $md-combobox-dark-disabled-color: $md-disabled-light;
+
+// Line colors
+$md-combobox-light-line-color: rgba(0, 0, 0, 0.42);
+$md-combobox-dark-line-color: rgba(255, 255, 255, 0.7);
 
 // Floating label positions
 $md-combobox-floatinglabel-top: 16px;
@@ -219,7 +223,9 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4;
     @include md-subheader-font($primary-color);
     background: none;
     border: none;
-    box-shadow: inset 0 -1px 0 $line-color;
+    // For transition purposes
+    box-shadow: inset 0 -1px 0 $line-color,
+                      0 1px  0 transparent;
     cursor: pointer;
     height: $md-combobox-input-height;
     padding: 0;

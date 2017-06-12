@@ -6,6 +6,16 @@ package org.test;
 public class Mixin {
 
     private String name;
+    private String parameters;
+    private String description;
+
+    public Mixin(String name,
+                 String parameters,
+                 String description) {
+        this.name = name;
+        this.parameters = parameters;
+        this.description = description;
+    }
 
     public String getName() {
         return name;
@@ -30,18 +40,6 @@ public class Mixin {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    private String parameters;
-    private String description;
-
-    public Mixin(String name,
-                 String parameters,
-                 String description) {
-        this.name = name;
-        this.parameters = parameters;
-        this.description = description;
-    }
-
 
 
 }

@@ -4,7 +4,6 @@ import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.TabSheet;
 import org.test.components.Tabs;
 import org.test.layout.FlexLayout;
-import org.test.layout.Margins;
 import org.test.layout.Paddings;
 import org.test.layout.Spacings;
 import org.test.style.MaterialColor;

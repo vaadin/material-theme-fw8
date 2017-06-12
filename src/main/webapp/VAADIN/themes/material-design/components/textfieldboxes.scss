@@ -15,19 +15,23 @@ $md-textfieldbox-dark-bg-color: rgba(255, 255, 255, 0.1);
 $md-textfieldbox-light-hover-bg-color: rgba(0, 0, 0, 0.1);
 $md-textfieldbox-dark-hover-bg-color: rgba(255, 255, 255, 0.16);
 
-// Focus and error colors
+// Focus colors
 $md-textfieldbox-light-focus-color: $md-blue-a700;
-$md-textfieldbox-light-error-color: $md-red-a400;
-$md-textfieldbox-light-line-color: rgba(0, 0, 0, 0.42);
 $md-textfieldbox-dark-focus-color: $md-blue-a200;
+
+// Error colors
+$md-textfieldbox-light-error-color: $md-red-a400;
 $md-textfieldbox-dark-error-color: $md-red-a400;
-$md-textfieldbox-dark-line-color: rgba(255, 255, 255, 0.7);
 
 // Disabled colors
 $md-textfieldbox-light-disabled-bg-color: rgba(0, 0, 0, 0.03);
 $md-textfieldbox-light-disabled-color: rgba(0, 0, 0, 0.42);
 $md-textfieldbox-dark-disabled-bg-color: rgba(255, 255, 255, 0.05);
 $md-textfieldbox-dark-disabled-color: $md-disabled-light;
+
+// Line colors
+$md-textfieldbox-light-line-color: rgba(0, 0, 0, 0.42);
+$md-textfieldbox-dark-line-color: rgba(255, 255, 255, 0.7);
 
 // Floating label positions
 $md-textfieldbox-floatinglabel-top: 8px;

@@ -4,7 +4,6 @@ import com.vaadin.server.UserError;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.IconGenerator;
 import org.test.components.MDComboBox;
-import org.test.components.MDTextField;
 import org.test.layout.FlexLayout;
 import org.test.layout.Paddings;
 import org.test.layout.Spacings;

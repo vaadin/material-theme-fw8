@@ -5,17 +5,21 @@ $md-textfield-pad-bottom: 8px;
 $md-textfield-pad-top: 28px;
 $md-textfield-floatinglabel-disabled-pad-top: 8px;
 
-// Focus and error colors
+// Focus colors
 $md-textfield-light-focus-color: $md-blue-a700;
-$md-textfield-light-error-color: $md-red-a400;
-$md-textfield-light-line-color: rgba(0, 0, 0, 0.42);
 $md-textfield-dark-focus-color: $md-blue-a200;
+
+// Error colors
+$md-textfield-light-error-color: $md-red-a400;
 $md-textfield-dark-error-color: $md-red-a400;
-$md-textfield-dark-line-color: rgba(255, 255, 255, 0.7);
 
 // Disabled colors
 $md-textfield-light-disabled-color: rgba(0, 0, 0, 0.42);
 $md-textfield-dark-disabled-color: $md-disabled-light;
+
+// Line colors
+$md-textfield-light-line-color: rgba(0, 0, 0, 0.42);
+$md-textfield-dark-line-color: rgba(255, 255, 255, 0.7);
 
 // Floating label positions
 $md-textfield-floatinglabel-top: 16px;
@@ -183,7 +187,9 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
     @include md-subheader-font($primary-color);
     background: none;
     border: none;
-    box-shadow: inset 0 -1px 0 $line-color;
+    // For transition purposes
+    box-shadow: inset 0 -1px 0 $line-color,
+                      0 1px  0 transparent;
     cursor: pointer;
     height: $md-textfield-input-height;
     padding: 0;

@@ -22,11 +22,11 @@ public class NavigationItem extends Button {
         setCaption(caption);
     }
 
-    public void setView(Component view) {
-        this.view = view;
-    }
-
     public Component getView() {
         return view;
+    }
+
+    public void setView(Component view) {
+        this.view = view;
     }
 }

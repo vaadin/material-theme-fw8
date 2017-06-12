@@ -31,7 +31,7 @@ public class TypographyView extends FlexLayout {
         card.addStyleName("card" + " " + Paddings.All.LARGE);
         if (!lightTheme) card.addStyleName(MaterialColor.GREY_800.getBackgroundColorStyle());
 
-        String[] styles = lightTheme ? new String[] {
+        String[] styles = lightTheme ? new String[]{
                 Typography.Dark.Body1.PRIMARY, Typography.Dark.Body1.SECONDARY, Typography.Dark.Body1.DISABLED,
                 Typography.Dark.Body2.PRIMARY, Typography.Dark.Body2.SECONDARY, Typography.Dark.Body2.DISABLED,
                 Typography.Dark.Caption.PRIMARY, Typography.Dark.Caption.SECONDARY, Typography.Dark.Caption.DISABLED,
@@ -43,7 +43,7 @@ public class TypographyView extends FlexLayout {
                 Typography.Dark.Table.Header.PRIMARY, Typography.Dark.Table.Header.SECONDARY, Typography.Dark.Table.Header.DISABLED,
                 Typography.Dark.Table.Row.PRIMARY, Typography.Dark.Table.Row.SECONDARY, Typography.Dark.Table.Row.DISABLED,
                 Typography.Dark.Title.PRIMARY, Typography.Dark.Title.SECONDARY, Typography.Dark.Title.DISABLED
-        } : new String[] {
+        } : new String[]{
                 Typography.Light.Body1.PRIMARY, Typography.Light.Body1.SECONDARY, Typography.Light.Body1.DISABLED,
                 Typography.Light.Body2.PRIMARY, Typography.Light.Body2.SECONDARY, Typography.Light.Body2.DISABLED,
                 Typography.Light.Caption.PRIMARY, Typography.Light.Caption.SECONDARY, Typography.Light.Caption.DISABLED,

@@ -47,10 +47,12 @@ public class Styles {
             public static final String LIGHT = "md-tab-light";
             public static final String DARK = "md-tab-dark";
         }
+
         public static class Icon {
             public static final String LIGHT = "md-tab-light";
             public static final String DARK = "md-tab-dark";
         }
+
         public static class IconText {
             public static final String LIGHT = "md-tab-light";
             public static final String DARK = "md-tab-dark ";
@@ -99,7 +101,6 @@ public class Styles {
         public static final String SCROLLABLE = "md-window-scrollable";
         public static final String NO_HEADER = "md-window-noheader";
     }
-
 
 
 }

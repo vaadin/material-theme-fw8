@@ -11,8 +11,6 @@ import com.vaadin.ui.TextField;
 import org.test.style.MaterialIcons;
 import org.test.style.Styles;
 
-import java.util.Objects;
-
 /**
  * Created by jonte on 15/03/2017.
  */
@@ -23,6 +21,8 @@ public class MDTextFieldBox extends CssLayout {
     private Label label = new Label();
     private Label icon = new Label();
     private CssLayout ripple = new CssLayout();
+    private Label helper = new Label();
+    private String helperText;
     private TextField field = new TextField() {
         @Override
         public void setComponentError(ErrorMessage componentError) {
@@ -30,9 +30,6 @@ public class MDTextFieldBox extends CssLayout {
             setError(componentError == null ? null : ((AbstractErrorMessage) componentError).getMessage());
         }
     };
-    private Label helper = new Label();
-
-    private String helperText;
 
     public MDTextFieldBox(String label) {
         this(label, true);
@@ -75,12 +72,16 @@ public class MDTextFieldBox extends CssLayout {
         return field;
     }
 
+    public String getLabel() {
+        return label.getValue();
+    }
+
     public void setLabel(String label) {
         this.label.setValue(label);
     }
 
-    public String getLabel() {
-        return label.getValue();
+    public String getHelper() {
+        return this.helper.getValue();
     }
 
     public void setHelper(String text) {
@@ -88,10 +89,6 @@ public class MDTextFieldBox extends CssLayout {
 
         removeStyleName("error");
         this.helper.setValue(helperText);
-    }
-
-    public String getHelper() {
-        return this.helper.getValue();
     }
 
     public void setError(String text) {

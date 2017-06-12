@@ -25,6 +25,9 @@ public class MDComboBox extends CssLayout {
 
     private Label label = new Label();
     private Label icon = new Label();
+    private Label helper = new Label();
+    private boolean floatingLabelEnabled;
+    private String helperText;
     private ComboBox field = new ComboBox() {
         @Override
         public void setComponentError(ErrorMessage componentError) {
@@ -32,10 +35,6 @@ public class MDComboBox extends CssLayout {
             setError(componentError == null ? null : ((AbstractErrorMessage) componentError).getMessage());
         }
     };
-    private Label helper = new Label();
-
-    private boolean floatingLabelEnabled;
-    private String helperText;
 
     public MDComboBox(String label) {
         this(label, true);
@@ -81,12 +80,16 @@ public class MDComboBox extends CssLayout {
         return field;
     }
 
+    public String getLabel() {
+        return label.getValue();
+    }
+
     public void setLabel(String label) {
         this.label.setValue(label);
     }
 
-    public String getLabel() {
-        return label.getValue();
+    public String getHelper() {
+        return this.helper.getValue();
     }
 
     public void setHelper(String text) {
@@ -94,10 +97,6 @@ public class MDComboBox extends CssLayout {
 
         removeStyleName("error");
         this.helper.setValue(helperText);
-    }
-
-    public String getHelper() {
-        return this.helper.getValue();
     }
 
     public void setError(String text) {

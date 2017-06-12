@@ -3,7 +3,6 @@ package org.test.components.dialogs;
 import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Window;
 import org.test.layout.*;
 import org.test.style.Styles;

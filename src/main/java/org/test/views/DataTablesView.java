@@ -1,7 +1,9 @@
 package org.test.views;
 
-import com.vaadin.ui.*;
-import org.test.*;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Grid;
+import org.test.Dessert;
 import org.test.components.DataTableHeader;
 import org.test.layout.FlexLayout;
 import org.test.layout.Margins;

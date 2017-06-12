@@ -16,7 +16,9 @@ public class Tabs extends FlexLayout {
     private final boolean lightTheme;
     private ArrayList<Button> buttons = new ArrayList<Button>();
 
-    public Tabs(boolean lightTheme) { this.lightTheme = lightTheme; }
+    public Tabs(boolean lightTheme) {
+        this.lightTheme = lightTheme;
+    }
 
     public Button addTab(MaterialIcons icon, String text) {
         Button button = new Button(text);

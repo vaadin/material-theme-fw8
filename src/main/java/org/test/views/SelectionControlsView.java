@@ -1,8 +1,5 @@
 package org.test.views;
 
-import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.RadioButtonGroup;
 import org.test.components.MDCheckBox;
 import org.test.components.MDSwitch;
@@ -35,9 +32,9 @@ public class SelectionControlsView extends FlexLayout {
         light1.addStyleName("card " + Paddings.All.LARGE);
 
 
-        MDCheckBox cb4 = new MDCheckBox("Dark On",false);
-        MDCheckBox cb5 = new MDCheckBox("Dark Off",false);
-        MDCheckBox cb6 = new MDCheckBox("Dark Disabled",false);
+        MDCheckBox cb4 = new MDCheckBox("Dark On", false);
+        MDCheckBox cb5 = new MDCheckBox("Dark Off", false);
+        MDCheckBox cb6 = new MDCheckBox("Dark Disabled", false);
         cb6.setEnabled(false);
 
         FlexLayout dark1 = new FlexLayout(cb4, cb5, cb6);
@@ -84,9 +81,9 @@ public class SelectionControlsView extends FlexLayout {
         light3.addStyleName("card " + Paddings.All.LARGE);
 
 
-        MDSwitch sw4 = new MDSwitch("Dark On",false);
-        MDSwitch sw5 = new MDSwitch("Dark Off",false);
-        MDSwitch sw6 = new MDSwitch("Dark Disabled",false);
+        MDSwitch sw4 = new MDSwitch("Dark On", false);
+        MDSwitch sw5 = new MDSwitch("Dark Off", false);
+        MDSwitch sw6 = new MDSwitch("Dark Disabled", false);
         sw6.setEnabled(false);
 
         FlexLayout dark3 = new FlexLayout(sw4, sw5, sw6);

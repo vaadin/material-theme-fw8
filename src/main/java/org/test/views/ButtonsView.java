@@ -8,7 +8,10 @@ import org.test.Mixin;
 import org.test.components.*;
 import org.test.components.lists.TwoLineListItem;
 import org.test.layout.*;
-import org.test.style.*;
+import org.test.style.MaterialColor;
+import org.test.style.MaterialIcons;
+import org.test.style.Styles;
+import org.test.style.Typography;
 
 /**
  * Created by jonte on 14/03/2017.
@@ -198,10 +201,10 @@ public class ButtonsView extends FlexLayout {
         it12.setEnabled(false);
 
         FlexLayout layout = new FlexLayout(
-            createIconToggleLayout(MaterialColor.BLUE_500, it1, it2, it3),
-            createIconToggleLayout(MaterialColor.TEAL_500, it4, it5, it6),
-            createIconToggleLayout(MaterialColor.GREY_200, it7, it8, it9),
-            createIconToggleLayout(MaterialColor.GREY_800, it10, it11, it12)
+                createIconToggleLayout(MaterialColor.BLUE_500, it1, it2, it3),
+                createIconToggleLayout(MaterialColor.TEAL_500, it4, it5, it6),
+                createIconToggleLayout(MaterialColor.GREY_200, it7, it8, it9),
+                createIconToggleLayout(MaterialColor.GREY_800, it10, it11, it12)
         );
         layout.setAlignItems(AlignItems.BASELINE);
         layout.setFlexWrap(FlexWrap.WRAP);

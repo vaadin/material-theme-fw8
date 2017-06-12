@@ -10,6 +10,27 @@ public class Dessert {
     private Double fat;
     private Integer carbs;
     private Double protein;
+    private Integer sodium;
+    private Integer calcium;
+    private Integer iron;
+
+    public Dessert(String name,
+                   Integer calories,
+                   Double fat,
+                   Integer carbs,
+                   Double protein,
+                   Integer sodium,
+                   Integer calcium,
+                   Integer iron) {
+        this.name = name;
+        this.calories = calories;
+        this.fat = fat;
+        this.carbs = carbs;
+        this.protein = protein;
+        this.sodium = sodium;
+        this.calcium = calcium;
+        this.iron = iron;
+    }
 
     public String getName() {
         return name;
@@ -72,28 +93,6 @@ public class Dessert {
     }
 
     public void setIron(Integer iron) {
-        this.iron = iron;
-    }
-
-    private Integer sodium;
-    private Integer calcium;
-    private Integer iron;
-
-    public Dessert(String name,
-                   Integer calories,
-                   Double fat,
-                   Integer carbs,
-                   Double protein,
-                   Integer sodium,
-                   Integer calcium,
-                   Integer iron) {
-        this.name = name;
-        this.calories = calories;
-        this.fat = fat;
-        this.carbs = carbs;
-        this.protein = protein;
-        this.sodium = sodium;
-        this.calcium = calcium;
         this.iron = iron;
     }
 
