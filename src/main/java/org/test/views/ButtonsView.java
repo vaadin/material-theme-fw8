@@ -6,6 +6,7 @@ import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Label;
 import org.test.Mixin;
 import org.test.components.*;
+import org.test.components.lists.TwoLineListItem;
 import org.test.layout.*;
 import org.test.style.*;
 

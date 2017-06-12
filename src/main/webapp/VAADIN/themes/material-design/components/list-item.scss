@@ -25,6 +25,10 @@ $md-listitem-icon-size-small: 24px;
       padding-left: 0;
       padding-right: 0;
     }
+
+    &.clickable {
+      cursor: pointer;
+    }
   }
 
   .md-listitem-content {
@@ -55,6 +59,10 @@ $md-listitem-icon-size-small: 24px;
 
     &.image {
       overflow: hidden;
+    }
+
+    &.clickable {
+      cursor: pointer;
     }
   }
 

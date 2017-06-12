@@ -11,15 +11,18 @@ import com.vaadin.ui.TextField;
 import org.test.style.MaterialIcons;
 import org.test.style.Styles;
 
+import java.util.Objects;
+
 /**
  * Created by jonte on 15/03/2017.
  */
-public class MDTextField extends CssLayout {
+public class MDTextFieldBox extends CssLayout {
 
     private static final long serialVersionUID = 1L;
 
     private Label label = new Label();
     private Label icon = new Label();
+    private CssLayout ripple = new CssLayout();
     private TextField field = new TextField() {
         @Override
         public void setComponentError(ErrorMessage componentError) {
@@ -29,17 +32,15 @@ public class MDTextField extends CssLayout {
     };
     private Label helper = new Label();
 
-    private boolean floatingLabelEnabled;
     private String helperText;
 
-    public MDTextField(String label) {
+    public MDTextFieldBox(String label) {
         this(label, true);
     }
 
-    public MDTextField(String label, boolean light) {
-        String primaryStyleName = light ? Styles.TextFields.LIGHT : Styles.TextFields.DARK;
+    public MDTextFieldBox(String label, boolean light) {
+        String primaryStyleName = light ? Styles.TextFieldBoxes.LIGHT : Styles.TextFieldBoxes.DARK;
         setPrimaryStyleName(primaryStyleName);
-        setFloatingLabelEnabled(true);
 
         this.label.setValue(label);
         this.label.setPrimaryStyleName(primaryStyleName + "-label");
@@ -50,33 +51,24 @@ public class MDTextField extends CssLayout {
         this.icon.setContentMode(ContentMode.HTML);
         this.icon.setVisible(false);
 
+        this.ripple.setPrimaryStyleName(primaryStyleName + "-ripple");
+
         this.field.setPrimaryStyleName(primaryStyleName + "-input");
         this.field.addFocusListener(event -> {
             addStyleName("focus");
-            if (floatingLabelEnabled) {
-                this.label.removeStyleName("hint");
-            } else {
-                this.label.addStyleName("fade");
-            }
-
+            this.label.removeStyleName("hint");
         });
         this.field.addBlurListener(event -> {
             removeStyleName("focus");
-            if (floatingLabelEnabled) {
-                if (field.getValue().isEmpty()) {
-                    this.label.addStyleName("hint");
-                }
-            } else {
-                if (field.getValue().isEmpty()) {
-                    this.label.removeStyleName("fade");
-                }
+            if (field.getValue().isEmpty()) {
+                this.label.addStyleName("hint");
             }
         });
 
         this.helper.setPrimaryStyleName(primaryStyleName + "-helper");
         this.helper.setWidthUndefined();
 
-        addComponents(this.label, icon, field, this.helper);
+        addComponents(this.label, icon, field, ripple, this.helper);
     }
 
     public TextField getField() {
@@ -112,16 +104,6 @@ public class MDTextField extends CssLayout {
         }
     }
 
-    public void setFloatingLabelEnabled(boolean enabled) {
-        this.floatingLabelEnabled = enabled;
-
-        if (enabled) {
-            removeStyleName("float-disabled");
-        } else {
-            addStyleName("float-disabled");
-        }
-    }
-
     public void setIcon(MaterialIcons icon) {
         if (icon == null) {
             this.icon.setVisible(false);
@@ -151,4 +133,5 @@ public class MDTextField extends CssLayout {
             this.label.removeStyleName("hint");
         }
     }
+
 }

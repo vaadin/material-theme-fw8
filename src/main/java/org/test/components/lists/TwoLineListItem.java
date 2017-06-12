@@ -1,14 +1,10 @@
-package org.test.components;
+package org.test.components.lists;
 
 import com.vaadin.server.Resource;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Label;
-import org.test.layout.FlexLayout;
 import org.test.style.Typography;
-
-import static org.test.layout.FlexLayout.FlexDirection.COLUMN;
 
 /**
  * Created by jonte on 03/04/2017.

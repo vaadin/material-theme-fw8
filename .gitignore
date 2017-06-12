@@ -4,3 +4,7 @@ target
 *.iml
 **/output.css
 **/output.css.map
+*.class
+.project
+.settings
+.classpath
