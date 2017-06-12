@@ -17,8 +17,12 @@
     .v-caption {
       align-items: center;
       color: $inactive-color;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      min-height: $md-tab-height-min;
+      min-width: $md-tab-width-min;
       width: auto !important;
     }
 
@@ -42,11 +46,6 @@
 
     .v-tabsheet-tabitem {
       @include md-cubic-std;
-      align-items: center;
-      cursor: pointer;
-      display: flex;
-      min-height: $md-tab-height-min;
-      min-width: $md-tab-width-min;
     }
 
     .v-tabsheet-tabitem-selected {
@@ -54,6 +53,33 @@
 
       .v-caption {
         color: $active-color;
+      }
+    }
+  }
+}
+
+
+// Responsive
+.root {
+  &[width-range~="0-960px"] {
+    .md-tabsheet-light,
+    .md-tabsheet-dark {
+      .v-caption {
+        padding: 0 $md-tab-pad-horizontal-mobile;
+      }
+      .v-captiontext {
+        @include md-tab-font(null, true);
+      }
+    }
+  }
+  &[width-range~="961px-"] {
+    .md-tabsheet-light,
+    .md-tabsheet-dark {
+      .v-caption {
+        padding: 0 $md-tab-pad-horizontal-tablet;
+      }
+      .v-captiontext {
+        @include md-tab-font(null, false);
       }
     }
   }

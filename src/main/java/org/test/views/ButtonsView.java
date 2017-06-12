@@ -255,8 +255,8 @@ public class ButtonsView extends FlexLayout {
         MDDataTableLayout dt = new MDDataTableLayout();
         dt.setHeaders("Name", "Information");
         dt.addItem(prefix + "-active-color", createVariableLayout(ACTIVE_FONT_COLOR, TYPE_COLOR, theme));
-        dt.addItem(prefix + "-light-inactive-color", createVariableLayout(INACTIVE_FONT_COLOR, TYPE_COLOR, theme));
-        dt.addItem(prefix + "-light-focus-bg-color", createVariableLayout(FOCUSED_BACKGROUND_COLOR, TYPE_COLOR, theme));
+        dt.addItem(prefix + "-inactive-color", createVariableLayout(INACTIVE_FONT_COLOR, TYPE_COLOR, theme));
+        dt.addItem(prefix + "-focus-bg-color", createVariableLayout(FOCUSED_BACKGROUND_COLOR, TYPE_COLOR, theme));
         dt.setColumnWidth(0, 40, Unit.PERCENTAGE);
         dt.setColumnWidth(1, 60, Unit.PERCENTAGE);
         dt.addStyleName(Margins.Bottom.LARGE);

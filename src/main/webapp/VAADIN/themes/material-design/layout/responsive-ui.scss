@@ -41,16 +41,6 @@
         @include md-tab-font(null, true);
         padding: 0 $md-tab-pad-horizontal-mobile;
       }
-
-      .md-tabsheet-light,
-      .md-tabsheet-dark {
-        .v-tabsheet-tabitem {
-          padding: 0 $md-tab-pad-horizontal-mobile;
-        }
-        .v-captiontext {
-          @include md-tab-font(null, true);
-        }
-      }
     }
 
 
@@ -95,16 +85,6 @@
       .md-tab-icontext-dark {
         @include md-tab-font(null, false);
         padding: 0 $md-tab-pad-horizontal-tablet;
-      }
-
-      .md-tabsheet-light,
-      .md-tabsheet-dark {
-        .v-tabsheet-tabitem {
-          padding: 0 $md-tab-pad-horizontal-tablet;
-        }
-        .v-captiontext {
-          @include md-tab-font(null, false);
-        }
       }
     }
   }
