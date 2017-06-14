@@ -1,0 +1,141 @@
+$md-icontoggle-size: 24px;
+$md-icontoggle-ripple-size: 48px;
+
+$md-icontoggle-light-active-color: $md-primary-light;
+$md-icontoggle-light-inactive-color: $md-disabled-light;
+$md-icontoggle-light-focus-bg-color: rgba(255, 255, 255, 0.3);
+
+$md-icontoggle-dark-active-color: $md-primary-dark;
+$md-icontoggle-dark-inactive-color: $md-disabled-dark;
+$md-icontoggle-dark-focus-bg-color: $md-dividers-dark;
+
+$md-icontoggle-color-active-color: $md-red-500;
+$md-icontoggle-color-inactive-color: $md-disabled-dark;
+$md-icontoggle-color-focus-bg-color: rgba($md-red-500, 0.26);
+
+$md-icontoggle-darktheme-active-color: $md-primary-light;
+$md-icontoggle-darktheme-inactive-color: $md-disabled-light;
+$md-icontoggle-darktheme-focus-bg-color: rgba(255, 255, 255, 0.2);
+
+
+@mixin icon-toggles {
+  // Light icon toggle
+  .md-icontoggle-light {
+    @include md-icontoggle($md-icontoggle-light-active-color, $md-icontoggle-light-inactive-color, $md-icontoggle-light-focus-bg-color);
+  }
+  // Dark icon toggle
+  .md-icontoggle-dark {
+    @include md-icontoggle($md-icontoggle-dark-active-color, $md-icontoggle-dark-inactive-color, $md-icontoggle-dark-focus-bg-color);
+  }
+  // Color icon toggle
+  .md-icontoggle-color {
+    @include md-icontoggle($md-icontoggle-color-active-color, $md-icontoggle-color-inactive-color, $md-icontoggle-color-focus-bg-color);
+  }
+  // Dark theme (white) toggle
+  .md-icontoggle-darktheme {
+    @include md-icontoggle($md-icontoggle-darktheme-active-color, $md-icontoggle-darktheme-inactive-color, $md-icontoggle-darktheme-focus-bg-color);
+  }
+
+  // Alternative style
+  .md-icontoggle-light-alt {
+    @include md-icontoggle-alt($md-icontoggle-light-active-color, $md-icontoggle-light-inactive-color, $md-icontoggle-light-focus-bg-color);
+  }
+  .md-icontoggle-dark-alt {
+    @include md-icontoggle-alt($md-icontoggle-dark-active-color, $md-icontoggle-dark-inactive-color, $md-icontoggle-dark-focus-bg-color);
+  }
+  .md-icontoggle-color-alt {
+    @include md-icontoggle-alt($md-icontoggle-color-active-color, $md-icontoggle-color-inactive-color, $md-icontoggle-color-focus-bg-color);
+  }
+  .md-icontoggle-darktheme-alt {
+    @include md-icontoggle-alt($md-icontoggle-darktheme-active-color, $md-icontoggle-darktheme-inactive-color, $md-icontoggle-darktheme-focus-bg-color);
+  }
+}
+
+// According to MD specfication
+@mixin md-icontoggle($active-color, $inactive-color, $focus-bg-color) {
+  @include md-cubic-std;
+  align-items: center;
+  color: $active-color;
+  cursor: pointer;
+  display: flex;
+  height: $md-icontoggle-size;
+  position: relative;
+  width: $md-icontoggle-size;
+
+  &.inactive {
+    color: $inactive-color;
+  }
+
+  // Focus, active style
+  &:active,
+  &:focus {
+    &::after {
+      transform: scale(1);
+    }
+  }
+
+  &::after {
+    @include md-cubic-std;
+    background-color: $focus-bg-color;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: $md-icontoggle-ripple-size;
+    left: 50%;
+    margin-left: $md-icontoggle-ripple-size/-2;
+    margin-top: $md-icontoggle-ripple-size/-2;
+    position: absolute;
+    top: 50%;
+    transform: scale(0);
+    width: $md-icontoggle-ripple-size;
+    z-index: 0;
+  }
+
+  > * {
+    z-index: 1;
+  }
+
+  // Disabled style
+  &.v-disabled {
+    color: $inactive-color;
+    cursor: default;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  * {
+    align-items: center;
+    display: flex;
+  }
+}
+
+
+// Alternative style
+@mixin md-icontoggle-alt($active-color, $inactive-color, $focus-bg-color) {
+  @include md-ripple-btn($focus-bg-color, $md-icontoggle-ripple-size);
+  @include md-cubic-std;
+  align-items: center;
+  color: $active-color;
+  cursor: pointer;
+  display: flex;
+  height: $md-icontoggle-size;
+  position: relative;
+  width: $md-icontoggle-size;
+
+  &.inactive {
+    color: $inactive-color;
+  }
+
+  // Disabled style
+  &.v-disabled {
+    color: $inactive-color;
+    cursor: default;
+  }
+
+  * {
+    align-items: center;
+    display: flex;
+  }
+}

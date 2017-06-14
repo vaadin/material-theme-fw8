@@ -22,11 +22,11 @@ public class ButtonsView extends FlexLayout {
     public static final String TYPE_PX = "px";
     public static final String TYPE_SEC = "s, ms";
 
-    public static final String ICON_TOGGLES = "Icon toggles";
-    public static final String ICON_TOGGLES_LIGHT = "Icon toggles (light icon)";
-    public static final String ICON_TOGGLES_DARK = "Icon toggles (dark icon)";
-    public static final String ICON_TOGGLES_COLOR = "Icon toggles (color icon)";
-    public static final String ICON_TOGGLES_DARKTHEME = "Icon toggles (dark theme)";
+    public static final String ICON_TOGGLES = "IconToggles toggles";
+    public static final String ICON_TOGGLES_LIGHT = "IconToggles toggles (light icon)";
+    public static final String ICON_TOGGLES_DARK = "IconToggles toggles (dark icon)";
+    public static final String ICON_TOGGLES_COLOR = "IconToggles toggles (color icon)";
+    public static final String ICON_TOGGLES_DARKTHEME = "IconToggles toggles (dark theme)";
 
     public static final String TOGGLE_BUTTONS = "Toggle buttons";
 
@@ -144,14 +144,14 @@ public class ButtonsView extends FlexLayout {
         iconToggles.addComponent(createInfoText(LOREM_IPSUM));
         iconToggles.addComponent(createIconToggles());
         iconToggles.addComponent(createSubheader(STYLE_NAMES));
-        iconToggles.addComponent(createStyleNameItem(MaterialColor.BLUE_500, "Styles.Buttons.Icon.LIGHT", Styles.Buttons.Icon.LIGHT, false));
-        iconToggles.addComponent(createStyleNameItem(MaterialColor.BLUE_500, "Styles.Buttons.Icon.LIGHT_ALT", Styles.Buttons.Icon.LIGHT_ALT, false));
-        iconToggles.addComponent(createStyleNameItem(MaterialColor.TEAL_500, "Styles.Buttons.Icon.DARK", Styles.Buttons.Icon.DARK, false));
-        iconToggles.addComponent(createStyleNameItem(MaterialColor.TEAL_500, "Styles.Buttons.Icon.DARK_ALT", Styles.Buttons.Icon.DARK_ALT, false));
-        iconToggles.addComponent(createStyleNameItem(MaterialColor.RED_500, "Styles.Buttons.Icon.COLOR", Styles.Buttons.Icon.COLOR, false));
-        iconToggles.addComponent(createStyleNameItem(MaterialColor.RED_500, "Styles.Buttons.Icon.COLOR_ALT", Styles.Buttons.Icon.COLOR_ALT, false));
-        iconToggles.addComponent(createStyleNameItem(MaterialColor.GREY_800, "Styles.Buttons.Icon.DARK_THEME", Styles.Buttons.Icon.DARK_THEME, false));
-        iconToggles.addComponent(createStyleNameItem(MaterialColor.GREY_800, "Styles.Buttons.Icon.DARK_THEME_ALT", Styles.Buttons.Icon.DARK_THEME_ALT, true));
+        iconToggles.addComponent(createStyleNameItem(MaterialColor.BLUE_500, "Styles.Buttons.IconToggles.LIGHT", Styles.Buttons.IconToggles.LIGHT, false));
+        iconToggles.addComponent(createStyleNameItem(MaterialColor.BLUE_500, "Styles.Buttons.IconToggles.LIGHT_ALT", Styles.Buttons.IconToggles.LIGHT_ALT, false));
+        iconToggles.addComponent(createStyleNameItem(MaterialColor.TEAL_500, "Styles.Buttons.IconToggles.DARK", Styles.Buttons.IconToggles.DARK, false));
+        iconToggles.addComponent(createStyleNameItem(MaterialColor.TEAL_500, "Styles.Buttons.IconToggles.DARK_ALT", Styles.Buttons.IconToggles.DARK_ALT, false));
+        iconToggles.addComponent(createStyleNameItem(MaterialColor.RED_500, "Styles.Buttons.IconToggles.COLOR", Styles.Buttons.IconToggles.COLOR, false));
+        iconToggles.addComponent(createStyleNameItem(MaterialColor.RED_500, "Styles.Buttons.IconToggles.COLOR_ALT", Styles.Buttons.IconToggles.COLOR_ALT, false));
+        iconToggles.addComponent(createStyleNameItem(MaterialColor.GREY_800, "Styles.Buttons.IconToggles.DARK_THEME", Styles.Buttons.IconToggles.DARK_THEME, false));
+        iconToggles.addComponent(createStyleNameItem(MaterialColor.GREY_800, "Styles.Buttons.IconToggles.DARK_THEME_ALT", Styles.Buttons.IconToggles.DARK_THEME_ALT, true));
         iconToggles.addComponent(createSubheader(COMMON_VARIABLES));
         iconToggles.addComponent(createIconToggleVariables());
         iconToggles.addComponent(createSubheader("Light icon variables"));
@@ -176,28 +176,28 @@ public class ButtonsView extends FlexLayout {
     }
 
     private Component createIconToggles() {
-        IconToggle it1 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.LIGHT);
-        IconToggle it2 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.LIGHT_ALT);
-        IconToggle it3 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.LIGHT);
-        it1.toggle();
+        IconToggle it1 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.LIGHT);
+        IconToggle it2 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.LIGHT_ALT);
+        IconToggle it3 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.LIGHT);
+        it2.setActive(false);
         it3.setEnabled(false);
 
-        IconToggle it4 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.DARK);
-        IconToggle it5 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.DARK_ALT);
-        IconToggle it6 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.DARK);
-        it4.toggle();
+        IconToggle it4 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.DARK);
+        IconToggle it5 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.DARK_ALT);
+        IconToggle it6 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.DARK);
+        it5.setActive(false);
         it6.setEnabled(false);
 
-        IconToggle it7 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.COLOR);
-        IconToggle it8 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.COLOR_ALT);
-        IconToggle it9 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.COLOR);
-        it7.toggle();
+        IconToggle it7 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.COLOR);
+        IconToggle it8 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.COLOR_ALT);
+        IconToggle it9 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.COLOR);
+        it8.setActive(false);
         it9.setEnabled(false);
 
-        IconToggle it10 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.DARK_THEME);
-        IconToggle it11 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.DARK_THEME_ALT);
-        IconToggle it12 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.Icon.DARK_THEME);
-        it10.toggle();
+        IconToggle it10 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.DARK_THEME);
+        IconToggle it11 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.DARK_THEME_ALT);
+        IconToggle it12 = new IconToggle(MaterialIcons.FAVORITE, Styles.Buttons.IconToggles.DARK_THEME);
+        it11.setActive(false);
         it12.setEnabled(false);
 
         FlexLayout layout = new FlexLayout(
@@ -240,16 +240,16 @@ public class ButtonsView extends FlexLayout {
         String prefix = "";
 
         if (theme.equals(ICON_TOGGLES_LIGHT)) {
-            prefix = Styles.Buttons.Icon.LIGHT;
+            prefix = Styles.Buttons.IconToggles.LIGHT;
         }
         if (theme.equals(ICON_TOGGLES_DARK)) {
-            prefix = Styles.Buttons.Icon.DARK;
+            prefix = Styles.Buttons.IconToggles.DARK;
         }
         if (theme.equals(ICON_TOGGLES_COLOR)) {
-            prefix = Styles.Buttons.Icon.COLOR;
+            prefix = Styles.Buttons.IconToggles.COLOR;
         }
         if (theme.equals(ICON_TOGGLES_DARKTHEME)) {
-            prefix = Styles.Buttons.Icon.DARK_THEME;
+            prefix = Styles.Buttons.IconToggles.DARK_THEME;
         }
 
         MDDataTableLayout dt = new MDDataTableLayout();

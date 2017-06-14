@@ -286,7 +286,6 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4;
   // Popup menu
   .#{$primaryStyleName}-input-suggestpopup {
     background-color: $menu-bg-color;
-    margin: $md-u1 0 !important;
     z-index: 999;
 
     .v-icon {

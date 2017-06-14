@@ -36,14 +36,11 @@ public class DataTableHeader extends FlexLayout {
         this.titleLabel.addStyleName(Typography.Dark.Table.Title.PRIMARY);
         this.titleLabel.setWidth(100, Unit.PERCENTAGE);
 
-        filter = new Button(MaterialIcons.FILTER_LIST);
-        filter.setPrimaryStyleName(Styles.Buttons.Icon.DARK_ALT);
+        filter = new IconButton(MaterialIcons.FILTER_LIST,false);
 
-        more = new Button(MaterialIcons.MORE_VERT);
-        more.setPrimaryStyleName(Styles.Buttons.Icon.DARK_ALT);
+        more = new IconButton(MaterialIcons.MORE_VERT,false);
 
-        delete = new Button(MaterialIcons.DELETE);
-        delete.setPrimaryStyleName(Styles.Buttons.Icon.DARK_ALT);
+        delete = new IconButton(MaterialIcons.DELETE,false);
         delete.setVisible(false);
 
         addComponents(this.titleLabel, filter, delete, more);

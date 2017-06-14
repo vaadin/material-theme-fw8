@@ -8,7 +8,7 @@ import com.vaadin.ui.Button;
  */
 public class IconToggle extends Button {
 
-    public static final String ACTIVE = "active";
+    public static final String INACTIVE = "inactive";
 
     public IconToggle(Resource icon, String primaryStyleName) {
         setIcon(icon);
@@ -17,18 +17,12 @@ public class IconToggle extends Button {
     }
 
     public void toggle() {
-        if (getStyleName().contains(ACTIVE)) {
-            hide();
-        } else {
-            show();
-        }
+        setActive(getStyleName().contains(INACTIVE));
     }
 
-    public void show() {
-        addStyleName(ACTIVE);
+    public void setActive(boolean active) {
+        if (active) removeStyleName(INACTIVE);
+        else addStyleName(INACTIVE);
     }
 
-    public void hide() {
-        removeStyleName(ACTIVE);
-    }
 }

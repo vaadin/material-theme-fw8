@@ -29,16 +29,22 @@ public class Styles {
             public static final String GROUP = "md-togglebtn-group";
         }
 
-        // Icons
-        public static class Icon {
+        // Icon buttons
+        public static class IconButtons {
             public static final String LIGHT = "md-iconbtn-light";
-            public static final String LIGHT_ALT = "md-iconbtn-light-alt";
             public static final String DARK = "md-iconbtn-dark";
-            public static final String DARK_ALT = "md-iconbtn-dark-alt";
-            public static final String COLOR = "md-iconbtn-color";
-            public static final String COLOR_ALT = "md-iconbtn-color-alt";
-            public static final String DARK_THEME = "md-iconbtn-darktheme";
-            public static final String DARK_THEME_ALT = "md-iconbtn-darktheme-alt";
+        }
+
+        // Icon toggles
+        public static class IconToggles {
+            public static final String LIGHT = "md-icontoggle-light";
+            public static final String LIGHT_ALT = "md-icontoggle-light-alt";
+            public static final String DARK = "md-icontoggle-dark";
+            public static final String DARK_ALT = "md-icontoggle-dark-alt";
+            public static final String COLOR = "md-icontoggle-color";
+            public static final String COLOR_ALT = "md-icontoggle-color-alt";
+            public static final String DARK_THEME = "md-icontoggle-darktheme";
+            public static final String DARK_THEME_ALT = "md-icontoggle-darktheme-alt";
         }
     }
 
