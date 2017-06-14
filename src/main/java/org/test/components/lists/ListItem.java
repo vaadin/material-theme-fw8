@@ -97,7 +97,10 @@ public abstract class ListItem extends CssLayout {
 
     public void setPrimaryCheckBox(MDCheckbox checkbox) {
         iconPrimary.setCheckBox(checkbox);
-        addPrimaryActionListener(e -> checkbox.setValue(!checkbox.getValue()));
+        addPrimaryActionListener((LayoutEvents.LayoutClickListener) e -> {
+            if (getSecondaryIcon() == null || e.getChildComponent() == null || !e.getChildComponent().equals(getSecondaryIcon()))
+                checkbox.setValue(!checkbox.getValue());
+        });
     }
 
     public ListItemIcon getPrimaryIcon() {
