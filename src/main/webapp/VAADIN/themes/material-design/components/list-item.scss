@@ -37,6 +37,7 @@ $md-listitem-icon-size-small: 24px;
 
     .v-label {
       text-overflow: ellipsis;
+      overflow: hidden;
       white-space: nowrap;
     }
   }

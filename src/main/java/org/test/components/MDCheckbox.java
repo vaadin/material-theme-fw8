@@ -6,21 +6,21 @@ import org.test.style.Styles;
 /**
  * Created by jonte on 28/04/2017.
  */
-public class MDCheckBox extends CheckBox {
-    public MDCheckBox() {
+public class MDCheckbox extends CheckBox {
+    public MDCheckbox() {
         initTheme(true);
     }
 
-    public MDCheckBox(boolean light) {
+    public MDCheckbox(boolean light) {
         initTheme(light);
     }
 
-    public MDCheckBox(String caption) {
+    public MDCheckbox(String caption) {
         super(caption);
         initTheme(true);
     }
 
-    public MDCheckBox(String caption, boolean light) {
+    public MDCheckbox(String caption, boolean light) {
         super(caption);
         initTheme(light);
     }

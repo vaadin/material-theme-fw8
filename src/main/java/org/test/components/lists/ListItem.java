@@ -5,6 +5,7 @@ import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
+import org.test.components.MDCheckbox;
 import org.test.style.MaterialColor;
 import org.test.style.MaterialIcons;
 
@@ -86,32 +87,39 @@ public abstract class ListItem extends CssLayout {
         iconPrimary.setIcon(icon);
     }
 
-    public void setSecondaryIcon(MaterialIcons icon) {
-        iconSecondary.setIcon(icon);
-    }
-
-    public ListItemIcon getPrimaryIcon() {
-        return iconPrimary;
-    }
-
     public void setPrimaryIcon(ThemeResource image) {
         iconPrimary.setIcon(image);
-    }
-
-    public ListItemIcon getSecondaryIcon() {
-        return iconSecondary;
-    }
-
-    public void setSecondaryIcon(ThemeResource image) {
-        iconSecondary.setIcon(image);
     }
 
     public void setPrimaryIconSize(IconSize size) {
         iconPrimary.setSize(size);
     }
 
+    public void setPrimaryCheckBox(MDCheckbox checkbox) {
+        iconPrimary.setCheckBox(checkbox);
+        addPrimaryActionListener(e -> checkbox.setValue(!checkbox.getValue()));
+    }
+
+    public ListItemIcon getPrimaryIcon() {
+        return iconPrimary;
+    }
+
+    public void setSecondaryIcon(MaterialIcons icon) {
+        iconSecondary.setIcon(icon);
+    }
+
+    public void setSecondaryIcon(ThemeResource image) {
+        iconSecondary.setIcon(image);
+    }
+
     public void setSecondaryIconSize(IconSize size) {
         iconSecondary.setSize(size);
+    }
+
+    public void setSecondaryCheckBox(MDCheckbox checkbox) { iconSecondary.setCheckBox(checkbox); }
+
+    public ListItemIcon getSecondaryIcon() {
+        return iconSecondary;
     }
 
 
@@ -179,6 +187,13 @@ public abstract class ListItem extends CssLayout {
             addStyleName("image");
             removeAllComponents();
             addComponent(new Image(null, image));
+            setVisible(true);
+        }
+
+        public void setCheckBox(MDCheckbox checkBox) {
+            removeStyleName("image");
+            removeAllComponents();
+            addComponent(checkBox);
             setVisible(true);
         }
 

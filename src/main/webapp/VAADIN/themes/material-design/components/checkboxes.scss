@@ -1,5 +1,7 @@
 $md-cb-label-pad-left: $md-u4;
 
+$md-cb-min-height: 48px;
+
 $md-cb-light-checked-color: $md-blue-500;
 $md-cb-light-ripple-color-on: rgba($md-blue-500, 0.1);
 $md-cb-light-ripple-color-off: rgba(0, 0, 0, 0.07);
@@ -48,7 +50,9 @@ $md-cb-dark-disabled-opacity: 0.3;
   .#{$primaryStyleName} {
     align-items: flex-start;
     display: flex;
-    padding: 12px 0;
+    min-height: $md-cb-min-height;
+    min-width: $md-icon-size;
+    padding: ($md-cb-min-height - $md-icon-size)/2 0;
     position: relative;
 
     * {
