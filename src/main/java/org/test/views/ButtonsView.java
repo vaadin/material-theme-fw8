@@ -22,11 +22,11 @@ public class ButtonsView extends FlexLayout {
     public static final String TYPE_PX = "px";
     public static final String TYPE_SEC = "s, ms";
 
-    public static final String ICON_TOGGLES = "IconToggles toggles";
-    public static final String ICON_TOGGLES_LIGHT = "IconToggles toggles (light icon)";
-    public static final String ICON_TOGGLES_DARK = "IconToggles toggles (dark icon)";
-    public static final String ICON_TOGGLES_COLOR = "IconToggles toggles (color icon)";
-    public static final String ICON_TOGGLES_DARKTHEME = "IconToggles toggles (dark theme)";
+    public static final String ICON_TOGGLES = "Icon toggles";
+    public static final String ICON_TOGGLES_LIGHT = "Icon toggles (light icon)";
+    public static final String ICON_TOGGLES_DARK = "Icon toggles (dark icon)";
+    public static final String ICON_TOGGLES_COLOR = "Icon toggles (color icon)";
+    public static final String ICON_TOGGLES_DARKTHEME = "Icon toggles (dark theme)";
 
     public static final String TOGGLE_BUTTONS = "Toggle buttons";
 
