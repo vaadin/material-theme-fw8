@@ -16,7 +16,8 @@ import static com.vaadin.shared.ui.ContentMode.HTML;
  */
 public abstract class ListItem extends CssLayout {
 
-    protected CssLayout content;
+    protected CssLayout content = new CssLayout();
+    protected CssLayout actionPrimary = new CssLayout();
     protected ListItemIcon iconPrimary = new ListItemIcon();
     protected ListItemIcon iconSecondary = new ListItemIcon();
 
@@ -36,8 +37,8 @@ public abstract class ListItem extends CssLayout {
     }
 
     private void initContent() {
-        content = new CssLayout();
         content.setPrimaryStyleName("md-listitem-content");
+        actionPrimary.setPrimaryStyleName("md-listitem-primary");
     }
 
     private void initIconPrimary() {
@@ -55,6 +56,7 @@ public abstract class ListItem extends CssLayout {
         setSecondaryIconFontColor(MaterialColor.DARK_SECONDARY);
         setSecondaryIconVisible(false);
     }
+
 
     public void setPrimaryIconVisible(boolean visible) {
         iconPrimary.setVisible(visible);
@@ -75,19 +77,23 @@ public abstract class ListItem extends CssLayout {
 
 
     public void setPrimaryIconBackgroundColor(MaterialColor backgroundColor) {
+        setPrimaryIconVisible(true);
         iconPrimary.setBackgroundColor(backgroundColor);
     }
 
     public void setSecondaryIconBackgroundColor(MaterialColor backgroundColor) {
+        setSecondaryIconVisible(true);
         iconSecondary.setBackgroundColor(backgroundColor);
     }
 
 
     public void setPrimaryIcon(MaterialIcons icon) {
+        iconPrimary.setVisible(true);
         iconPrimary.setIcon(icon);
     }
 
     public void setPrimaryIcon(ThemeResource image) {
+        iconPrimary.setVisible(true);
         iconPrimary.setIcon(image);
     }
 
@@ -96,11 +102,9 @@ public abstract class ListItem extends CssLayout {
     }
 
     public void setPrimaryCheckBox(MDCheckbox checkbox) {
+        iconPrimary.setVisible(true);
         iconPrimary.setCheckBox(checkbox);
-        addPrimaryActionListener((LayoutEvents.LayoutClickListener) e -> {
-            if (getSecondaryIcon() == null || e.getChildComponent() == null || !e.getChildComponent().equals(getSecondaryIcon()))
-                checkbox.setValue(!checkbox.getValue());
-        });
+        addPrimaryActionListener((LayoutEvents.LayoutClickListener) e -> checkbox.setValue(!checkbox.getValue()));
     }
 
     public ListItemIcon getPrimaryIcon() {
@@ -108,10 +112,12 @@ public abstract class ListItem extends CssLayout {
     }
 
     public void setSecondaryIcon(MaterialIcons icon) {
+        setSecondaryIconVisible(true);
         iconSecondary.setIcon(icon);
     }
 
     public void setSecondaryIcon(ThemeResource image) {
+        setSecondaryIconVisible(true);
         iconSecondary.setIcon(image);
     }
 
@@ -119,7 +125,11 @@ public abstract class ListItem extends CssLayout {
         iconSecondary.setSize(size);
     }
 
-    public void setSecondaryCheckBox(MDCheckbox checkbox) { iconSecondary.setCheckBox(checkbox); }
+    public void setSecondaryCheckBox(MDCheckbox checkbox) {
+        setSecondaryIconVisible(true);
+        iconSecondary.setCheckBox(checkbox);
+        addSecondaryActionListener((LayoutEvents.LayoutClickListener) e -> checkbox.setValue(!checkbox.getValue()));
+    }
 
     public ListItemIcon getSecondaryIcon() {
         return iconSecondary;
@@ -127,8 +137,8 @@ public abstract class ListItem extends CssLayout {
 
 
     public void addPrimaryActionListener(LayoutEvents.LayoutClickListener listener) {
-        addStyleName("clickable");
-        addLayoutClickListener(listener);
+        actionPrimary.addStyleName("clickable");
+        actionPrimary.addLayoutClickListener(listener);
     }
 
     public void addSecondaryActionListener(LayoutEvents.LayoutClickListener listener) {
@@ -166,14 +176,12 @@ public abstract class ListItem extends CssLayout {
         }
 
         public void setFontColor(MaterialColor fontColor) {
-            setVisible(true);
             if (this.fontColor != null) removeStyleName(this.fontColor.getFontColorStyle());
             this.fontColor = fontColor;
             addStyleName(this.fontColor.getFontColorStyle());
         }
 
         public void setBackgroundColor(MaterialColor backgroundColor) {
-            setVisible(true);
             if (this.backgroundColor != null) removeStyleName(this.backgroundColor.getBackgroundColorStyle());
             this.backgroundColor = backgroundColor;
             addStyleName(this.backgroundColor.getBackgroundColorStyle());
@@ -183,21 +191,18 @@ public abstract class ListItem extends CssLayout {
             removeStyleName("image");
             removeAllComponents();
             addComponent(new Label(icon.getHtml(), HTML));
-            setVisible(true);
         }
 
         public void setIcon(ThemeResource image) {
             addStyleName("image");
             removeAllComponents();
             addComponent(new Image(null, image));
-            setVisible(true);
         }
 
         public void setCheckBox(MDCheckbox checkBox) {
             removeStyleName("image");
             removeAllComponents();
             addComponent(checkBox);
-            setVisible(true);
         }
 
         public void setSize(IconSize size) {

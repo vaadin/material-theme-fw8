@@ -39,6 +39,8 @@ public class Metrics {
 
     public static class List {
         public static int SINGLE_LINE_HEIGHT = 48;
+        public static int SINGLE_LINE_WITH_AVATAR_HEIGHT = 56;
+
         public static int TWO_LINE_HEIGHT = 72;
 
         public static int ICON_SIZE_LARGE = 40;

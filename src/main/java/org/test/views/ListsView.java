@@ -78,11 +78,7 @@ public class ListsView extends FlexLayout {
         if (iconSecondaryFontColor) item.setSecondaryIconFontColor(randomEnum(MaterialColor.class));
         if (iconSecondaryBackgroundColor) item.setSecondaryIconBackgroundColor(randomEnum(MaterialColor.class));
 
-        item.addPrimaryActionListener((LayoutEvents.LayoutClickListener) e -> {
-            if (item.getSecondaryIcon() == null || e.getChildComponent() == null || !e.getChildComponent().equals(item.getSecondaryIcon()))
-                createNotification("Primary action clicked");
-        });
-
+        item.addPrimaryActionListener((LayoutEvents.LayoutClickListener) e -> createNotification("Primary action clicked"));
         item.addSecondaryActionListener((LayoutEvents.LayoutClickListener) e -> createNotification("Secondary action clicked"));
 
         return item;

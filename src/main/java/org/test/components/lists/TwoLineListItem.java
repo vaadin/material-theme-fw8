@@ -4,7 +4,9 @@ import com.vaadin.server.Resource;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
+import org.test.layout.Metrics;
 import org.test.style.Typography;
+
 
 /**
  * Created by jonte on 03/04/2017.
@@ -17,6 +19,7 @@ public class TwoLineListItem extends ListItem {
     public TwoLineListItem(String primaryText, String secondaryText, boolean verticalPadding) {
         super(verticalPadding);
         addStyleName("two-line");
+        setHeight(Metrics.List.TWO_LINE_HEIGHT, Unit.PIXELS);
 
         primary = new Label(primaryText, ContentMode.HTML);
         primary.addStyleName(Typography.Dark.Subheader.PRIMARY);
@@ -25,7 +28,10 @@ public class TwoLineListItem extends ListItem {
         secondary.addStyleName(Typography.Dark.Body1.SECONDARY);
 
         content.addComponents(primary, secondary);
-        addComponents(iconPrimary, content, iconSecondary);
+
+        actionPrimary.addComponents(iconPrimary, content);
+        
+        addComponents(actionPrimary, iconSecondary);
     }
 
 

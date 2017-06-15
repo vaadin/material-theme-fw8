@@ -108,4 +108,8 @@ $primary-color: $md-blue-500;
     justify-content: center;
     overflow: auto;
   }
+
+  .clickable {
+    cursor: pointer;
+  }
 }
