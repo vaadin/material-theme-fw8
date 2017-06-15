@@ -30,7 +30,7 @@ public class TwoLineListItem extends ListItem {
         content.addComponents(primary, secondary);
 
         actionPrimary.addComponents(iconPrimary, content);
-        
+
         addComponents(actionPrimary, iconSecondary);
     }
 

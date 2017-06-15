@@ -58,26 +58,14 @@ public class SingleLineListItem extends ListItem {
     }
 
     @Override
-    public void setPrimaryIcon(MaterialIcons icon) {
-        super.setPrimaryIcon(icon);
-        setHeight(SINGLE_LINE_HEIGHT, Unit.PIXELS);
+    public void setPrimaryIconSize(IconSize size) {
+        super.setPrimaryIconSize(size);
+        setHeight((size.equals(IconSize.LARGE)) ? SINGLE_LINE_WITH_AVATAR_HEIGHT : SINGLE_LINE_HEIGHT, Unit.PIXELS);
     }
 
     @Override
-    public void setPrimaryIcon(ThemeResource image) {
-        super.setPrimaryIcon(image);
-        setHeight(SINGLE_LINE_WITH_AVATAR_HEIGHT, Unit.PIXELS);
-    }
-
-    @Override
-    public void setSecondaryIcon(MaterialIcons icon) {
-        super.setSecondaryIcon(icon);
-        setHeight(SINGLE_LINE_HEIGHT, Unit.PIXELS);
-    }
-
-    @Override
-    public void setSecondaryIcon(ThemeResource image) {
-        super.setSecondaryIcon(image);
-        setHeight(SINGLE_LINE_WITH_AVATAR_HEIGHT, Unit.PIXELS);
+    public void setSecondaryIconSize(IconSize size) {
+        super.setSecondaryIconSize(size);
+        setHeight((size.equals(IconSize.LARGE)) ? SINGLE_LINE_WITH_AVATAR_HEIGHT : SINGLE_LINE_HEIGHT, Unit.PIXELS);
     }
 }
