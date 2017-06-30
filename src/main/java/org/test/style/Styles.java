@@ -108,5 +108,15 @@ public class Styles {
         public static final String NO_HEADER = "md-window-noheader";
     }
 
+    public static class Elevations {
+        public static final String ELEVATION_1 = "md-elevation-1";
+        public static final String ELEVATION_2 = "md-elevation-2";
+        public static final String ELEVATION_4 = "md-elevation-4";
+        public static final String ELEVATION_6 = "md-elevation-6";
+        public static final String ELEVATION_8 = "md-elevation-8";
+        public static final String ELEVATION_16 = "md-elevation-16";
+        public static final String ELEVATION_24 = "md-elevation-24";
+    }
+
 
 }

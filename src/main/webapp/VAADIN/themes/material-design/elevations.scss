@@ -30,10 +30,6 @@ $md-elevation-24dp: 0 15px 12px 0 rgba(0, 0, 0, 0.22),
   box-shadow: $md-elevation-2dp;
 }
 
-@mixin md-elevation-3dp {
-
-}
-
 @mixin md-elevation-4dp {
   box-shadow: $md-elevation-4dp;
 }
@@ -52,4 +48,32 @@ $md-elevation-24dp: 0 15px 12px 0 rgba(0, 0, 0, 0.22),
 
 @mixin md-elevation-24dp {
   box-shadow: $md-elevation-24dp;
+}
+
+.md-elevation-1 {
+  @include md-elevation-1dp;
+}
+
+.md-elevation-2 {
+  @include md-elevation-2dp;
+}
+
+.md-elevation-4 {
+  @include md-elevation-4dp;
+}
+
+.md-elevation-6 {
+  @include md-elevation-6dp;
+}
+
+.md-elevation-8 {
+  @include md-elevation-8dp;
+}
+
+.md-elevation-16 {
+  @include md-elevation-16dp;
+}
+
+.md-elevation-24 {
+  @include md-elevation-24dp;
 }

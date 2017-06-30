@@ -57,12 +57,23 @@ public class MDComboBox extends CssLayout {
         this.field.setPrimaryStyleName(primaryStyleName + "-input");
         this.field.addFocusListener(event -> {
             addStyleName("focus");
-            this.label.removeStyleName("hint");
+            if (floatingLabelEnabled) {
+                this.label.removeStyleName("hint");
+            } else {
+                this.label.addStyleName("fade");
+            }
+
         });
         this.field.addBlurListener(event -> {
             removeStyleName("focus");
-            if (field.getValue() == null) {
-                this.label.addStyleName("hint");
+            if (floatingLabelEnabled) {
+                if (field.getValue() == null) {
+                    this.label.addStyleName("hint");
+                }
+            } else {
+                if (field.getValue() == null) {
+                    this.label.removeStyleName("fade");
+                }
             }
         });
         this.field.addValueChangeListener(event -> {

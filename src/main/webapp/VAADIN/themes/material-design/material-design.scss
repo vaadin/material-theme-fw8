@@ -12,6 +12,7 @@
 @import "layout/borders.scss";
 @import "layout/flex-item.scss";
 @import "layout/flex-layout.scss";
+@import "layout/heights.scss";
 @import "layout/margins.scss";
 @import "layout/metrics.scss";
 @import "layout/nav-icon.scss";
@@ -60,6 +61,7 @@ $primary-color: $md-blue-500;
   @include borders;
   @include flex-item;
   @include flex-layout;
+  @include heights;
   @include margins;
   @include nav-icon;
   @include paddings;

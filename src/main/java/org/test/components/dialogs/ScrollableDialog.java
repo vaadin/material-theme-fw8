@@ -45,6 +45,7 @@ public class ScrollableDialog extends Window {
 
         // Content wrapper
         content = new FlexLayout(FlexLayout.FlexDirection.COLUMN, scrollableLayout, footer);
+        content.addStyleName(MaxHeights.MH_FULL);
         setContent(content);
     }
 
