@@ -9,6 +9,25 @@
   .pad-a-l {
     padding: $md-u3;
   }
+  .pad-a-xl {
+    padding: $md-u4;
+  }
+  .pad-a-xxl {
+    padding: $md-u5;
+  }
+  .pad-a-xxxl {
+    padding: $md-u6;
+  }
+  .pad-a-xxxxl {
+    padding: $md-u7;
+  }
+  .pad-a-xxxxxl {
+    padding: $md-u8;
+  }
+  .pad-a-xxxxxxl {
+    padding: $md-u9;
+  }
+
 
   // Horizontal
   .pad-h-s {
@@ -22,6 +41,30 @@
   .pad-h-l {
     padding-left: $md-u3;
     padding-right: $md-u3;
+  }
+  .pad-h-xl {
+    padding-left: $md-u4;
+    padding-right: $md-u4;
+  }
+  .pad-h-xxl {
+    padding-left: $md-u5;
+    padding-right: $md-u5;
+  }
+  .pad-h-xxxl {
+    padding-left: $md-u6;
+    padding-right: $md-u6;
+  }
+  .pad-h-xxxxl {
+    padding-left: $md-u7;
+    padding-right: $md-u7;
+  }
+  .pad-h-xxxxxl {
+    padding-left: $md-u8;
+    padding-right: $md-u8;
+  }
+  .pad-h-xxxxxxl {
+    padding-left: $md-u9;
+    padding-right: $md-u9;
   }
 
   // Vertical
@@ -37,6 +80,31 @@
     padding-top: $md-u3;
     padding-bottom: $md-u3;
   }
+  .pad-v-xl {
+    padding-top: $md-u4;
+    padding-bottom: $md-u4;
+  }
+  .pad-v-xxl {
+    padding-top: $md-u5;
+    padding-bottom: $md-u5;
+  }
+  .pad-v-xxxl {
+    padding-top: $md-u6;
+    padding-bottom: $md-u6;
+  }
+  .pad-v-xxxxl {
+    padding-top: $md-u7;
+    padding-bottom: $md-u7;
+  }
+  .pad-v-xxxxxl {
+    padding-top: $md-u8;
+    padding-bottom: $md-u8;
+  }
+  .pad-v-xxxxxxl {
+    padding-top: $md-u9;
+    padding-bottom: $md-u9;
+  }
+
   // Table padding
   .pad-v-t {
     padding-bottom: ($md-dt-row-height - $md-table-row-line-height) / 2;
@@ -52,6 +120,24 @@
   }
   .pad-t-l {
     padding-top: $md-u3;
+  }
+  .pad-t-xl {
+    padding-top: $md-u4;
+  }
+  .pad-t-xxl {
+    padding-top: $md-u5;
+  }
+  .pad-t-xxxl {
+    padding-top: $md-u6;
+  }
+  .pad-t-xxxxl {
+    padding-top: $md-u7;
+  }
+  .pad-t-xxxxxl {
+    padding-top: $md-u8;
+  }
+  .pad-t-xxxxxxl {
+    padding-top: $md-u9;
   }
 
   // Right
@@ -74,6 +160,24 @@
   }
   .pad-b-l {
     padding-bottom: $md-u3;
+  }
+  .pad-b-xl {
+    padding-bottom: $md-u4;
+  }
+  .pad-b-xxl {
+    padding-bottom: $md-u5;
+  }
+  .pad-b-xxxl {
+    padding-bottom: $md-u6;
+  }
+  .pad-b-xxxxl {
+    padding-bottom: $md-u7;
+  }
+  .pad-b-xxxxxl {
+    padding-bottom: $md-u8;
+  }
+  .pad-b-xxxxxxl {
+    padding-bottom: $md-u9;
   }
 
   // Left

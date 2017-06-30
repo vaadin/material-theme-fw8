@@ -8,6 +8,7 @@ import com.vaadin.ui.CssLayout;
  */
 public class FlexLayout extends CssLayout {
 
+    public static final String FLEXLAYOUT = "flexlayout";
     private AlignContent alignContent;
     private AlignItems alignItems;
     private AlignSelf alignSelf;
@@ -17,12 +18,12 @@ public class FlexLayout extends CssLayout {
     private Overflow overflow;
 
     public FlexLayout(Component... components) {
-        setPrimaryStyleName("flexlayout");
+        setPrimaryStyleName(FLEXLAYOUT);
         addComponents(components);
     }
 
     public FlexLayout(FlexDirection flexDirection, Component... components) {
-        setPrimaryStyleName("flexlayout");
+        setPrimaryStyleName(FLEXLAYOUT);
         addComponents(components);
         setFlexDirection(flexDirection);
     }
