@@ -35,6 +35,11 @@ public class Styles {
             public static final String DARK = "md-iconbtn-dark";
         }
 
+        public static class RaisedIconButtons {
+            public static final String LIGHT = "md-raisediconbtn-light";
+            public static final String DARK = "md-raisediconbtn-dark";
+        }
+
         // Icon toggles
         public static class IconToggles {
             public static final String LIGHT = "md-icontoggle-light";
