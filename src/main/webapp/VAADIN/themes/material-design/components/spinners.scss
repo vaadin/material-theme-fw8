@@ -1,0 +1,35 @@
+@mixin spinners {
+  .v-progressbar {
+    animation: rotate-360 500ms infinite linear;
+    border-color: $md-red-500;
+    border-radius: 100%;
+    border-right-color: $md-red-50;
+    border-style: solid;
+    border-top-color: $md-red-50;
+    pointer-events: none;
+
+    &.small {
+      border-width: 2px;
+      height: $md-u3;
+      width: $md-u3;
+    }
+
+    &.medium {
+      border-width: 3px;
+      height: $md-u6;
+      width: $md-u6;
+    }
+
+    &.large {
+      border-width: 4px;
+      height: $md-u12;
+      width: $md-u12;
+    }
+  }
+}
+
+@keyframes rotate-360 {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -34,6 +34,7 @@
 @import "components/menus.scss";
 @import "components/radio-buttons.scss";
 @import "components/snackbars.scss";
+@import "components/spinners.scss";
 @import "components/switches.scss";
 @import "components/tabs.scss";
 @import "components/tabsheet.scss";
@@ -81,6 +82,7 @@ $primary-color: $md-blue-500;
   @include menus;
   @include radio-buttons;
   @include snackbars;
+  @include spinners;
   @include switches;
   @include tabs;
   @include tabsheet;
