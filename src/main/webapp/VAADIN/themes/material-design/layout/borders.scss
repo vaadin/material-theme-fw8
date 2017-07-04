@@ -26,4 +26,8 @@
   .border-left-light {
     box-shadow: inset 1px 0 0 0 $md-dividers-dark;
   }
+
+  .border-radius-full {
+    border-radius: 100%;
+  }
 }
