@@ -947,4 +947,21 @@ public enum MaterialIcons implements FontIcon {
                 + ";</span>";
     }
 
+    public String getHtml(Size size) {
+        String value = "medium";
+        if (size.equals(SMALL)) {
+            value = "small";
+        }
+        if (size.equals(LARGE)) {
+            value = "large";
+        }
+        return "<span class=\"v-icon " + value + " " + FONT_FAMILY + "\">&#x" + Integer.toHexString(codepoint) + ";</span>";
+
+    }
+
+    public enum Size {
+        SMALL, MEDIUM, LARGE
+    }
+
+
 }
