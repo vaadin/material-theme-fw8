@@ -1,12 +1,10 @@
 package org.test.components.lists;
 
 import com.vaadin.server.Resource;
-import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import org.test.layout.Metrics;
-import org.test.style.MaterialIcons;
 import org.test.style.Typography;
 
 import static org.test.layout.Metrics.List.SINGLE_LINE_HEIGHT;

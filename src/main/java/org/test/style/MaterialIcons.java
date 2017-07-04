@@ -2,6 +2,9 @@ package org.test.style;
 
 import com.vaadin.server.FontIcon;
 
+import static org.test.style.MaterialIcons.Size.LARGE;
+import static org.test.style.MaterialIcons.Size.SMALL;
+
 public enum MaterialIcons implements FontIcon {
 
     THREE_D_ROTATION(0xE84D), AC_UNIT(0xEB3B), ACCESS_ALARM(0xE190), ACCESS_ALARMS(0xE191), ACCESS_TIME(

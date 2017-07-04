@@ -92,11 +92,6 @@ public abstract class ListItem extends CssLayout {
         iconPrimary.setIcon(icon);
     }
 
-    public void setPrimaryIcon(ThemeResource image) {
-        iconPrimary.setVisible(true);
-        iconPrimary.setIcon(image);
-    }
-
     public void setPrimaryIconSize(IconSize size) {
         iconPrimary.setSize(size);
     }
@@ -111,14 +106,14 @@ public abstract class ListItem extends CssLayout {
         return iconPrimary;
     }
 
+    public void setPrimaryIcon(ThemeResource image) {
+        iconPrimary.setVisible(true);
+        iconPrimary.setIcon(image);
+    }
+
     public void setSecondaryIcon(MaterialIcons icon) {
         setSecondaryIconVisible(true);
         iconSecondary.setIcon(icon);
-    }
-
-    public void setSecondaryIcon(ThemeResource image) {
-        setSecondaryIconVisible(true);
-        iconSecondary.setIcon(image);
     }
 
     public void setSecondaryIconSize(IconSize size) {
@@ -135,6 +130,10 @@ public abstract class ListItem extends CssLayout {
         return iconSecondary;
     }
 
+    public void setSecondaryIcon(ThemeResource image) {
+        setSecondaryIconVisible(true);
+        iconSecondary.setIcon(image);
+    }
 
     public void addPrimaryActionListener(LayoutEvents.LayoutClickListener listener) {
         actionPrimary.addStyleName("clickable");

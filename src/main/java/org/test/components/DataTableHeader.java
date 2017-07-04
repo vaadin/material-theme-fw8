@@ -11,7 +11,6 @@ import org.test.layout.Spacings;
 import org.test.motion.Transitions;
 import org.test.style.MaterialColor;
 import org.test.style.MaterialIcons;
-import org.test.style.Styles;
 import org.test.style.Typography;
 
 /**
@@ -36,11 +35,11 @@ public class DataTableHeader extends FlexLayout {
         this.titleLabel.addStyleName(Typography.Dark.Table.Title.PRIMARY);
         this.titleLabel.setWidth(100, Unit.PERCENTAGE);
 
-        filter = new IconButton(MaterialIcons.FILTER_LIST,false);
+        filter = new IconButton(MaterialIcons.FILTER_LIST, false);
 
-        more = new IconButton(MaterialIcons.MORE_VERT,false);
+        more = new IconButton(MaterialIcons.MORE_VERT, false);
 
-        delete = new IconButton(MaterialIcons.DELETE,false);
+        delete = new IconButton(MaterialIcons.DELETE, false);
         delete.setVisible(false);
 
         addComponents(this.titleLabel, filter, delete, more);
