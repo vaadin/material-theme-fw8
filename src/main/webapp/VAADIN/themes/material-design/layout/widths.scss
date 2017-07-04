@@ -1,4 +1,7 @@
 @mixin widths {
+  .max-width-400 {
+    max-width: 400px;
+  }
   .max-width-720 {
     max-width: 720px;
   }
