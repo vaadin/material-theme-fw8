@@ -123,5 +123,9 @@ public class Styles {
         public static final String ELEVATION_24 = "md-elevation-24";
     }
 
+    public static class Misc {
+        public static final String BORDER_RADIUS_FULL = "border-radius-full";
+    }
+
 
 }
