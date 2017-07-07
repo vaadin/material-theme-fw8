@@ -53,12 +53,23 @@ public class MyUI extends UI {
         content.addComponent(card);
     }
 
+    private class NavigationItemWithComponent extends NavigationItem{
+        private final Component component;
+        NavigationItemWithComponent(Resource icon, String caption, Component component){
+            super(icon, caption);
+            this.component = component;
+        }
+        Component getComponent(){
+            return component;
+        }
+    }
+
     private void addNavItem(Resource icon, String caption, Component view) {
-        final NavigationItem item = new NavigationItem(icon, caption, view);
+        final NavigationItemWithComponent item = new NavigationItemWithComponent(icon, caption, view);
         item.addClickListener(event -> {
             navigationDrawer.selectNavigationItem(item);
             content.removeAllComponents();
-            content.addComponent(item.getView());
+            content.addComponent(item.getComponent());
         });
         navigationDrawer.addNavigationItem(item);
     }

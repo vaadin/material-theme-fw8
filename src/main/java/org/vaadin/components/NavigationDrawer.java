@@ -43,7 +43,11 @@ public class NavigationDrawer extends CssLayout {
     }
 
     public void selectNavigationItem(NavigationItem item) {
-        if (!items.contains(item)) return;
+        int index = items.indexOf(item);
+        if (index == -1) {
+            return;
+        }
+        item = items.get(index); // make sure we get the shown one, even when an equal item is passed in for reference.
 
         for (NavigationItem navigationItem : items) {
             navigationItem.removeStyleName(SELECTED);
