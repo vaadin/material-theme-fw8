@@ -1,0 +1,82 @@
+// Common
+$md-raisediconbtn-pad-horizontal: 0px;
+$md-raisediconbtn-ripple-size: 160px;
+$md-raisediconbtn-ripple-duration: 1.6s;
+$md-raisediconbtn-width: 36px;
+
+// Raised light
+$md-raisediconbtn-light-font-color: $md-blue-500;
+$md-raisediconbtn-light-bg-color: $md-primary-light;
+$md-raisediconbtn-light-focus-bg-color: $md-grey-100;
+$md-raisediconbtn-light-ripple-color: $md-grey-300;
+$md-raisediconbtn-light-disabled-font-color: rgba(0, 0, 0, 0.26);
+$md-raisediconbtn-light-disabled-bg-color: rgba(0, 0, 0, 0.12);
+
+// Raised dark
+$md-raisediconbtn-dark-font-color: $md-primary-light;
+$md-raisediconbtn-dark-bg-color: $md-red-500;
+$md-raisediconbtn-dark-focus-bg-color: $md-red-600;
+$md-raisediconbtn-dark-ripple-color: $md-red-700;
+$md-raisediconbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3);
+$md-raisediconbtn-dark-disabled-bg-color: rgba(255, 255, 255, 0.12);
+
+
+@mixin raised-icon-buttons {
+  .md-raisediconbtn-light {
+    @include md-raisediconbtn($md-raisediconbtn-light-font-color,
+                       $md-raisediconbtn-light-bg-color,
+                       $md-raisediconbtn-light-focus-bg-color,
+                       $md-raisediconbtn-light-disabled-font-color,
+                       $md-raisediconbtn-light-disabled-bg-color,
+                       $md-raisediconbtn-light-ripple-color,
+                       $md-raisediconbtn-ripple-size);
+  }
+
+  .md-raisediconbtn-dark {
+    @include md-raisediconbtn($md-raisediconbtn-dark-font-color,
+                       $md-raisediconbtn-dark-bg-color,
+                       $md-raisediconbtn-dark-focus-bg-color,
+                       $md-raisediconbtn-dark-disabled-font-color,
+                       $md-raisediconbtn-dark-disabled-bg-color,
+                       $md-raisediconbtn-dark-ripple-color,
+                       $md-raisediconbtn-ripple-size);
+  }
+}
+
+
+@mixin md-raisediconbtn($font-color, $bg-color, $focus-bg-color, $disabled-font-color, $disabled-bg-color, $ripple-color, $ripple-size) {
+  @include md-b2-font($font-color);
+  @include md-cubic-std;
+  @include md-elevation-2dp;
+  @include md-ripple-btn($ripple-color, $ripple-size, $md-raisediconbtn-ripple-duration);
+  align-items: center;
+  background-color: $bg-color;
+  border-radius: $md-btn-border-radius;
+  cursor: pointer;
+  display: inline-flex;
+  height: $md-btn-height;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 $md-raisediconbtn-pad-horizontal;
+  text-transform: uppercase;
+  width: $md-raisediconbtn-width;
+
+  .v-icon {
+    display: flex;
+  }
+
+  &:focus {
+    background-color: $focus-bg-color;
+  }
+
+  &:active {
+    @include md-elevation-8dp;
+  }
+
+  &.v-disabled {
+    background-color: $disabled-bg-color;
+    box-shadow: none;
+    color: $disabled-font-color;
+    cursor: default;
+  }
+}

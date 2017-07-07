@@ -32,6 +32,7 @@
 @import "components/labels.scss";
 @import "components/list-item.scss";
 @import "components/menus.scss";
+@import "components/progress.scss";
 @import "components/radio-buttons.scss";
 @import "components/snackbars.scss";
 @import "components/spinners.scss";
@@ -80,6 +81,7 @@ $primary-color: $md-blue-500;
   @include labels;
   @include list-item;
   @include menus;
+  @include progress;
   @include radio-buttons;
   @include snackbars;
   @include spinners;

@@ -5,6 +5,7 @@ $md-btn-border-radius: 2px;
 @import "icon-buttons.scss";
 @import "icon-toggles.scss";
 @import "raised-buttons.scss";
+@import "raised-icon-buttons.scss";
 @import "toggle-button-groups.scss";
 
 @mixin buttons {
@@ -12,5 +13,6 @@ $md-btn-border-radius: 2px;
   @include icon-buttons;
   @include icon-toggles;
   @include raised-buttons;
+  @include raised-icon-buttons;
   @include toggle-button-groups;
 }
