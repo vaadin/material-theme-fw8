@@ -1,22 +1,22 @@
+// Default styles
+$md-naviitem-color: $md-primary-dark;
+$md-naviitem-icon-color: $md-secondary-dark;
+$md-naviitem-icon-pad-right: $md-u4;
+
+// Selected styles
+$md-naviitem-selected-color: $md-blue-500;
+$md-naviitem-selected-icon-color: $md-blue-500;
+$md-naviitem-selected-bg: transparent;
+
+// Hover style
+$md-naviitem-hover-bg: transparent;
+
+// Ripple effect
+$md-naviitem-ripple-color: $md-grey-200;
+$md-naviitem-ripple-size: $md-navidrawer-width-tablet;
+
+
 @mixin navigation-drawer {
-
-  // Default styles
-  $md-naviitem-color: $md-primary-dark;
-  $md-naviitem-icon-color: $md-secondary-dark;
-  $md-naviitem-icon-pad-right: $md-u4;
-
-  // Selected styles
-  $md-naviitem-selected-color: $md-blue-500;
-  $md-naviitem-selected-icon-color: $md-blue-500;
-  $md-naviitem-selected-bg: transparent;
-
-  // Hover style
-  $md-naviitem-hover-bg: transparent;
-
-  // Ripple effect
-  $md-naviitem-ripple-color: $md-grey-200;
-  $md-naviitem-ripple-size: $md-navidrawer-width-tablet;
-
 
   .md-navidrawer {
     @include md-cubic-std;
