@@ -69,6 +69,7 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
   .#{$primaryStyleName} {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     padding-top: $md-textfield-pad-top;
     position: relative;
 

@@ -79,6 +79,7 @@ public class MDComboBox extends CssLayout {
         this.field.addValueChangeListener(event -> {
             if (this.field.getItemIconGenerator() == null) return;
             setIcon(this.field.getValue() == null ? null : (MaterialIcons) this.field.getItemIconGenerator().apply(this.field.getValue()), false);
+            updateFloatingLabelPosition(event.getValue());
         });
 
         this.helper.setPrimaryStyleName(primaryStyleName + "-helper");
@@ -165,24 +166,24 @@ public class MDComboBox extends CssLayout {
 
     public void setValue(Object value) {
         this.field.setValue(value);
+        updateFloatingLabelPosition(value);
+    }
+
+    public void setSelectedItem(Object item) {
+        this.field.setSelectedItem(item);
+        updateFloatingLabelPosition(item);
+    }
+
+    public void setItemIconGenerator(IconGenerator itemIconGenerator) {
+        this.field.setItemIconGenerator(itemIconGenerator);
+    }
+
+    private void updateFloatingLabelPosition(Object value) {
         if (value == null) {
             this.label.addStyleName("hint");
         } else {
             this.label.removeStyleName("hint");
         }
-    }
-
-    public void setSelectedItem(Object item) {
-        this.field.setSelectedItem(item);
-        if (item == null) {
-            this.label.addStyleName("hint");
-        } else {
-            this.label.removeStyleName("hint");
-        }
-    }
-
-    public void setItemIconGenerator(IconGenerator itemIconGenerator) {
-        this.field.setItemIconGenerator(itemIconGenerator);
     }
 
 }

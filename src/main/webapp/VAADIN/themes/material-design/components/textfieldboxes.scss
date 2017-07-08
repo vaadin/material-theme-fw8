@@ -98,14 +98,18 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1);
     border-radius: $md-textfieldbox-border-radius;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     position: relative;
+
     * {
       @include md-cubic-std;
       z-index: 1;
     }
+
     .v-caption {
       display: none;
     }
+
     .v-textfield {
       width: 100%;
     }

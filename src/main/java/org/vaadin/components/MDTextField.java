@@ -72,6 +72,8 @@ public class MDTextField extends CssLayout {
             }
         });
 
+        this.field.addValueChangeListener(event -> updateFloatingLabelPosition(event.getValue()));
+
         this.helper.setPrimaryStyleName(primaryStyleName + "-helper");
         this.helper.setWidthUndefined();
 
@@ -143,7 +145,10 @@ public class MDTextField extends CssLayout {
 
     public void setValue(String value) {
         this.field.setValue(value);
+        updateFloatingLabelPosition(value);
+    }
 
+    private void updateFloatingLabelPosition(String value) {
         if (value == null || value.isEmpty()) {
             this.label.addStyleName("hint");
         } else {
