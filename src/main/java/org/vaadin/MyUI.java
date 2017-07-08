@@ -84,7 +84,7 @@ public class MyUI extends UI {
         addNavItem(MaterialIcons.CHECK_BOX, "Selection controls", new SelectionControlsView());
         addNavItem(null, "Sliders", new Label("Todo implement"));
         addNavItem(MaterialIcons.DESKTOP_WINDOWS, "Snackbars & toasts", new SnackbarsToastsView());
-        addNavItem(null, "Steppers", new Label("Todo implement"));
+        addNavItem(MaterialIcons.DIRECTIONS_WALK, "Steppers", new SteppersView());
         addNavItem(null, "Subheaders", new Label("Todo implement"));
         addNavItem(MaterialIcons.TAB, "Tabs", new TabsView());
         addNavItem(MaterialIcons.TEXT_FIELDS, "Text fields", new TextFieldsView());

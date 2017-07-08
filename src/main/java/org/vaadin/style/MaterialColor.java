@@ -7,10 +7,12 @@ public enum MaterialColor {
     DARK_PRIMARY("md-primary-dark", false),
     DARK_SECONDARY("md-secondary-dark", false),
     DARK_DISABLED("md-disabled-dark", false),
+    DARK_DIVIDER("md-divider-dark", false),
 
     LIGHT_PRIMARY("md-primary-light", true),
     LIGHT_SECONDARY("md-secondary-light", true),
     LIGHT_DISABLED("md-disabled-light", true),
+    LIGHT_DIVIDER("md-divider-light", true),
 
     RED_50("red-50", true),
     RED_100("red-100", true),

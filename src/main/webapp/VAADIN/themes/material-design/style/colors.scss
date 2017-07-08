@@ -2,21 +2,21 @@
 $md-primary-dark-opacity:   0.87;
 $md-secondary-dark-opacity: 0.54;
 $md-disabled-dark-opacity:  0.38;
-$md-dividers-dark-opacity:  0.12;
+$md-divider-dark-opacity:  0.12;
 $md-primary-dark:   rgba(0, 0, 0, 0.87);
 $md-secondary-dark: rgba(0, 0, 0, 0.54);
 $md-disabled-dark:  rgba(0, 0, 0, 0.38);
-$md-dividers-dark:  rgba(0, 0, 0, 0.12);
+$md-divider-dark:  rgba(0, 0, 0, 0.12);
 
 // White text on dark backgrounds
 $md-primary-light-opacity:   1.0;
 $md-secondary-light-opacity: 0.7;
 $md-disabled-light-opacity:  0.5;
-$md-dividers-light-opacity:  0.12;
+$md-divider-light-opacity:  0.12;
 $md-primary-light:   rgba(255, 255, 255, 1.0);
 $md-secondary-light: rgba(255, 255, 255, 0.7);
 $md-disabled-light:  rgba(255, 255, 255, 0.5);
-$md-dividers-light:  rgba(255, 255, 255, 0.12);
+$md-divider-light:  rgba(255, 255, 255, 0.12);
 
 
 // Colors
@@ -401,6 +401,9 @@ $md-blue-greys: ($md-blue-grey-50, $md-blue-grey-100, $md-blue-grey-200, $md-blu
   div.md-disabled-dark-bg {
     background-color: $md-disabled-dark;
   }
+  div.md-divider-dark-bg {
+    background-color: $md-divider-dark;
+  }
 
   div.md-primary-light-bg {
     background-color: $md-primary-light;
@@ -410,5 +413,8 @@ $md-blue-greys: ($md-blue-grey-50, $md-blue-grey-100, $md-blue-grey-200, $md-blu
   }
   div.md-disabled-light-bg {
     background-color: $md-disabled-light;
+  }
+  div.md-divider-light-bg {
+    background-color: $md-divider-light;
   }
 }

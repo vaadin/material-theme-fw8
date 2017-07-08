@@ -46,4 +46,10 @@ public class Metrics {
         public static int ICON_SIZE_LARGE = 40;
         public static int ICON_SIZE_SMALL = 24;
     }
+
+    public static class Stepper {
+        public static int HEIGHT = 72;
+        public static int CIRCLE_SIZE = 24;
+        public static int CONNECTOR_HEIGHT = 1;
+    }
 }

@@ -109,7 +109,7 @@ $md-dt-checkbox-size: 18px;
   .v-grid-cell {
     @include md-table-row-font($md-primary-dark);
     align-items: center;
-    box-shadow: inset 0 -1px 0 0 $md-dividers-dark;
+    box-shadow: inset 0 -1px 0 0 $md-divider-dark;
     display: flex;
     height: $md-dt-row-height;
     padding: 0 12px;
@@ -144,7 +144,7 @@ $md-dt-checkbox-size: 18px;
     th {
       @include md-table-header-font($md-secondary-dark);
       align-items: center;
-      box-shadow: inset 0 -1px 0 0 $md-dividers-dark;
+      box-shadow: inset 0 -1px 0 0 $md-divider-dark;
       display: flex;
       height: $md-dt-header-height;
       padding: 0 12px;

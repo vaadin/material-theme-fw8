@@ -1,30 +1,30 @@
 @mixin borders {
   // Dark theme uses dividers that are "light".
   .border-top-dark {
-    box-shadow: inset 0 1px 0 0 $md-dividers-light;
+    box-shadow: inset 0 1px 0 0 $md-divider-light;
   }
   .border-right-dark {
-    box-shadow: inset -1px 0 0 0 $md-dividers-light;
+    box-shadow: inset -1px 0 0 0 $md-divider-light;
   }
   .border-bottom-dark {
-    box-shadow: inset 0 -1px 0 0 $md-dividers-light;
+    box-shadow: inset 0 -1px 0 0 $md-divider-light;
   }
   .border-left-dark {
-    box-shadow: inset 1px 0 0 0 $md-dividers-light;
+    box-shadow: inset 1px 0 0 0 $md-divider-light;
   }
 
   // Light theme uses dividers that are "dark".
   .border-top-light {
-    box-shadow: inset 0 1px 0 0 $md-dividers-dark;
+    box-shadow: inset 0 1px 0 0 $md-divider-dark;
   }
   .border-right-light {
-    box-shadow: inset -1px 0 0 0 $md-dividers-dark;
+    box-shadow: inset -1px 0 0 0 $md-divider-dark;
   }
   .border-bottom-light {
-    box-shadow: inset 0 -1px 0 0 $md-dividers-dark;
+    box-shadow: inset 0 -1px 0 0 $md-divider-dark;
   }
   .border-left-light {
-    box-shadow: inset 1px 0 0 0 $md-dividers-dark;
+    box-shadow: inset 1px 0 0 0 $md-divider-dark;
   }
 
   .border-radius-full {
