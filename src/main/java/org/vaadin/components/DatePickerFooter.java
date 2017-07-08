@@ -2,6 +2,7 @@ package org.vaadin.components;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.InlineDateField;
+import org.vaadin.layout.FlexItem;
 import org.vaadin.layout.FlexLayout;
 import org.vaadin.layout.Paddings;
 import org.vaadin.layout.Spacings;
@@ -21,6 +22,7 @@ public class DatePickerFooter extends FlexLayout {
         setJustifyContent(FlexLayout.JustifyContent.FLEX_END);
         addStyleName(Paddings.All.SMALL);
         addStyleName(Spacings.Right.SMALL);
+        addStyleName(FlexItem.FlexShrink.SHRINK_0);
 
         cancel = new Button("Cancel");
         cancel.setPrimaryStyleName(lightTheme ? Styles.Buttons.Flat.LIGHT : Styles.Buttons.Flat.DARK);

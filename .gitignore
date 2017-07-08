@@ -9,3 +9,5 @@ target
 .settings
 .classpath
 *.scss.cache
+
+*.css

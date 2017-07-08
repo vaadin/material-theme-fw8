@@ -3,6 +3,7 @@ package org.vaadin.components;
 import com.vaadin.data.HasValue;
 import com.vaadin.ui.InlineDateField;
 import com.vaadin.ui.Label;
+import org.vaadin.layout.FlexItem;
 import org.vaadin.layout.FlexLayout;
 import org.vaadin.layout.Metrics;
 import org.vaadin.layout.Paddings;
@@ -26,6 +27,7 @@ public class DatePickerHeader extends FlexLayout {
         setFlexDirection(FlexDirection.COLUMN);
         setJustifyContent(JustifyContent.CENTER);
         addStyleName(Paddings.Horizontal.LARGE);
+        addStyleName(FlexItem.FlexShrink.SHRINK_0);
 
         this.field = field;
         field.addValueChangeListener((HasValue.ValueChangeListener<LocalDate>) event -> {

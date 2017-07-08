@@ -5,6 +5,7 @@ import com.vaadin.ui.InlineDateField;
 import com.vaadin.ui.Window;
 import org.vaadin.components.DatePickerFooter;
 import org.vaadin.components.DatePickerHeader;
+import org.vaadin.layout.FlexItem;
 import org.vaadin.layout.FlexLayout;
 import org.vaadin.style.Styles;
 
@@ -27,6 +28,8 @@ public class DatePickerDialog extends Window {
 
         field = new InlineDateField();
         field.setPrimaryStyleName(lightTheme ? Styles.DatePickers.LIGHT : Styles.DatePickers.DARK);
+        field.addStyleName(FlexItem.FlexGrow.GROW_1);
+        field.addStyleName(FlexLayout.Overflow.AUTO.getStyleName());
 
         // Header
         header = new DatePickerHeader(field, lightTheme);
