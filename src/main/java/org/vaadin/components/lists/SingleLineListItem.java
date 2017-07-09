@@ -1,10 +1,9 @@
 package org.vaadin.components.lists;
 
-import com.vaadin.server.Resource;
 import com.vaadin.shared.ui.ContentMode;
-import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import org.vaadin.layout.Metrics;
+import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Typography;
 
 import static org.vaadin.layout.Metrics.List.SINGLE_LINE_HEIGHT;
@@ -35,20 +34,9 @@ public class SingleLineListItem extends ListItem {
         this(primaryText, true);
     }
 
-    public SingleLineListItem(Component component, String primaryText) {
+    public SingleLineListItem(MaterialIcons primaryIcon, String primaryText) {
         this(primaryText, true);
-    }
-
-    public SingleLineListItem(Component component, String primaryText, boolean verticalPadding) {
-        this(primaryText, verticalPadding);
-    }
-
-    public SingleLineListItem(Resource icon, String primaryText) {
-        this(primaryText, true);
-    }
-
-    public SingleLineListItem(Resource icon, String primaryText, boolean verticalPadding) {
-        this(primaryText, verticalPadding);
+        setPrimaryIcon(primaryIcon);
     }
 
     public void setTheme(boolean lightTheme) {

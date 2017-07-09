@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import static org.vaadin.layout.FlexLayout.FlexDirection.COLUMN;
 import static org.vaadin.layout.FlexLayout.FlexDirection.ROW;
 import static org.vaadin.layout.Metrics.Stepper.CIRCLE_SIZE;
-import static org.vaadin.style.MaterialColor.GREY_400;
 
 /**
  * Created by jonte on 23/03/2017.

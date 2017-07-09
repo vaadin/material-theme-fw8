@@ -1,10 +1,9 @@
 package org.vaadin.components.lists;
 
-import com.vaadin.server.Resource;
 import com.vaadin.shared.ui.ContentMode;
-import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import org.vaadin.layout.Metrics;
+import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Typography;
 
 
@@ -34,25 +33,13 @@ public class TwoLineListItem extends ListItem {
         addComponents(actionPrimary, iconSecondary);
     }
 
-
     public TwoLineListItem(String primaryText, String secondaryText) {
         this(primaryText, secondaryText, true);
     }
 
-    public TwoLineListItem(Component component, String primaryText, String secondaryText) {
+    public TwoLineListItem(MaterialIcons primaryIcon, String primaryText, String secondaryText) {
         this(primaryText, secondaryText, true);
-    }
-
-    public TwoLineListItem(Component component, String primaryText, String secondaryText, boolean verticalPadding) {
-        this(primaryText, secondaryText, verticalPadding);
-    }
-
-    public TwoLineListItem(Resource icon, String primaryText, String secondaryText) {
-        this(primaryText, secondaryText, true);
-    }
-
-    public TwoLineListItem(Resource icon, String primaryText, String secondaryText, boolean verticalPadding) {
-        this(primaryText, secondaryText, verticalPadding);
+        setPrimaryIcon(primaryIcon);
     }
 
     public void setTheme(boolean lightTheme) {

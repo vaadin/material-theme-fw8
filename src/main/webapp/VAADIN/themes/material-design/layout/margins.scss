@@ -2,11 +2,9 @@
   .margin-a-s {
     margin: $md-u1;
   }
-
   .margin-a-m {
     margin: $md-u2;
   }
-
   .margin-a-l {
     margin: $md-u3;
   }
@@ -14,13 +12,29 @@
   .margin-t-s {
     margin-top: $md-u1;
   }
-
   .margin-t-m {
     margin-top: $md-u2;
   }
-
   .margin-t-l {
     margin-top: $md-u3;
+  }
+  .margin-t-xl {
+    margin-top: $md-u4;
+  }
+  .margin-t-xxl {
+    margin-top: $md-u5;
+  }
+  .margin-t-xxxl {
+    margin-top: $md-u6;
+  }
+  .margin-t-xxxxl {
+    margin-top: $md-u7;
+  }
+  .margin-t-xxxxxl {
+    margin-top: $md-u8;
+  }
+  .margin-t-xxxxxxl {
+    margin-top: $md-u9;
   }
 
   .margin-r-s {
