@@ -20,14 +20,9 @@ import static org.vaadin.layout.Metrics.Stepper.CIRCLE_SIZE;
  */
 public class Stepper extends FlexLayout {
 
-    public static final String COMPLETE = "complete";
-    public static final String ERROR = "error";
-    public static final String SELECTED = "selected";
-
     private ArrayList<Step> steps = new ArrayList<Step>();
 
     public Stepper() {
-        addStyleName("card");
         addStyleName(Paddings.Horizontal.LARGE);
         addStyleName(Spacings.Right.SMALL);
         setHeight(Metrics.Stepper.HEIGHT, Unit.PIXELS);

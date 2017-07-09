@@ -35,6 +35,7 @@ public class SteppersView extends FlexLayout {
 
     private Stepper createStepper() {
         Stepper stepper = new Stepper();
+        stepper.addStyleName("card");
         stepper.addStep("Select campaign settings", null);
         stepper.addStep("Create an ad group", "Optional");
         stepper.addStep("Create an ad", null);
