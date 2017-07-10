@@ -1,13 +1,13 @@
-$md-iconbtn-size: 24px;
-$md-iconbtn-ripple-size: 48px;
+$md-iconbtn-size: 24px !default;
+$md-iconbtn-ripple-size: 48px !default;
 
-$md-iconbtn-light-font-color: $md-secondary-light;
-$md-iconbtn-light-disabled-font-color: $md-disabled-light;
-$md-iconbtn-light-focus-bg-color: rgba(255, 255, 255, 0.3);
+$md-iconbtn-light-font-color: $md-secondary-light !default;
+$md-iconbtn-light-disabled-font-color: $md-disabled-light !default;
+$md-iconbtn-light-focus-bg-color: rgba(255, 255, 255, 0.3) !default;
 
-$md-iconbtn-dark-font-color: $md-secondary-dark;
-$md-iconbtn-dark-disabled-font-color: $md-disabled-dark;
-$md-iconbtn-dark-focus-bg-color: $md-divider-dark;
+$md-iconbtn-dark-font-color: $md-secondary-dark !default;
+$md-iconbtn-dark-disabled-font-color: $md-disabled-dark !default;
+$md-iconbtn-dark-focus-bg-color: $md-divider-dark !default;
 
 
 @mixin icon-buttons {
@@ -28,6 +28,7 @@ $md-iconbtn-dark-focus-bg-color: $md-divider-dark;
   cursor: pointer;
   display: flex;
   height: $md-iconbtn-size;
+  justify-content: center;
   position: relative;
   width: $md-iconbtn-size;
 
