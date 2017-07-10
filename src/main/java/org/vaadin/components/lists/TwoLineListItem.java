@@ -44,6 +44,6 @@ public class TwoLineListItem extends ListItem {
 
     public void setTheme(boolean lightTheme) {
         primary.setPrimaryStyleName(lightTheme ? Typography.Dark.Subheader.PRIMARY : Typography.Light.Subheader.PRIMARY);
-        secondary.setPrimaryStyleName(lightTheme ? Typography.Dark.Body1.PRIMARY : Typography.Light.Body1.PRIMARY);
+        secondary.setPrimaryStyleName(lightTheme ? Typography.Dark.Body1.SECONDARY : Typography.Light.Body1.SECONDARY);
     }
 }
