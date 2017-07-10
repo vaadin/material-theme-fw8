@@ -11,3 +11,4 @@ target
 *.scss.cache
 
 *.css
+*.css.gz

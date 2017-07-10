@@ -1,4 +1,4 @@
-package org.vaadin;
+package org.vaadin.materialdesign;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -20,7 +20,7 @@ import org.vaadin.views.*;
 import javax.servlet.annotation.WebServlet;
 
 @Theme("material-design")
-public class MyUI extends UI {
+public class DemoUI extends UI {
 
     private CssLayout root;
     private AppBar appBar = new AppBar();
@@ -94,8 +94,8 @@ public class MyUI extends UI {
         addNavItem(null, "Widgets", new Label("Todo implement"));
     }
 
-    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
-    public static class MyUIServlet extends VaadinServlet {
+    @WebServlet(urlPatterns = "/*", name = "DemoServlet", asyncSupported = true)
+    @VaadinServletConfiguration(ui = DemoUI.class, productionMode = false)
+    public static class DemoServlet extends VaadinServlet {
     }
 }
