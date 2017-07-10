@@ -33,8 +33,6 @@
   }
 }
 
-
-
 // Font weights
 $md-font-weight-normal: 400;
 $md-font-weight-medium: 500;
@@ -94,21 +92,8 @@ $md-tab-font-size-mobile: 14px;
 $md-tab-font-weight: $md-font-weight-medium;
 $md-tab-line-height: 10px;
 
-
 // Typography
 @mixin typography {
-
-
-  
-  // Font weights
-  .font-weight-normal {
-    font-weight: $md-font-weight-normal;
-  }
-  .font-weight-medium {
-    font-weight: $md-font-weight-medium;
-  }
-
-
 
   /* DARK */
 
@@ -379,6 +364,17 @@ $md-tab-line-height: 10px;
   }
   .md-headline-disabled-light {
     @include md-headline-font($md-disabled-light);
+  }
+
+
+
+
+  /* FONT WEIGHT */
+  .font-weight-normal {
+    font-weight: $md-font-weight-normal;
+  }
+  .font-weight-medium {
+    font-weight: $md-font-weight-medium;
   }
 }
 

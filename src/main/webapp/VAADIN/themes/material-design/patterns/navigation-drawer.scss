@@ -1,19 +1,19 @@
 // Default styles
-$md-naviitem-color: $md-primary-dark;
-$md-naviitem-icon-color: $md-secondary-dark;
-$md-naviitem-icon-pad-right: $md-u4;
+$md-naviitem-color: $md-primary-dark !default;
+$md-naviitem-icon-color: $md-secondary-dark !default;
+$md-naviitem-icon-pad-right: $md-u4 !default;
 
 // Selected styles
-$md-naviitem-selected-color: $md-blue-500;
-$md-naviitem-selected-icon-color: $md-blue-500;
-$md-naviitem-selected-bg: transparent;
+$md-naviitem-selected-color: $md-blue-500 !default;
+$md-naviitem-selected-icon-color: $md-blue-500 !default;
+$md-naviitem-selected-bg: transparent !default;
 
 // Hover style
-$md-naviitem-hover-bg: transparent;
+$md-naviitem-hover-bg: transparent !default;
 
 // Ripple effect
-$md-naviitem-ripple-color: $md-grey-200;
-$md-naviitem-ripple-size: $md-navidrawer-width-tablet;
+$md-naviitem-ripple-color: $md-grey-200 !default;
+$md-naviitem-ripple-size: $md-navidrawer-width-tablet !default;
 
 
 @mixin navigation-drawer {

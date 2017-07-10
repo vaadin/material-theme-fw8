@@ -1,20 +1,20 @@
 // Common
-$md-flatbtn-pad-horizontal: 8px;
-$md-flatbtn-ripple-duration: 1.6s;
-$md-flatbtn-ripple-size: 160px;
-$md-flatbtn-width-min: 64px;
+$md-flatbtn-pad-horizontal: 8px !default;
+$md-flatbtn-ripple-duration: 1.6s !default;
+$md-flatbtn-ripple-size: 160px !default;
+$md-flatbtn-width-min: 64px !default;
 
 // Flat light
 $md-flatbtn-light-font-color: $md-blue-500 !default;
-$md-flatbtn-light-focus-bg-color: rgba(153, 153, 153, 0.2);
-$md-flatbtn-light-ripple-color: rgba(153, 153, 153, 0.4);
-$md-flatbtn-light-disabled-font-color: rgba(0, 0, 0, 0.26);
+$md-flatbtn-light-focus-bg-color: rgba(153, 153, 153, 0.2) !default;
+$md-flatbtn-light-ripple-color: rgba(153, 153, 153, 0.4) !default;
+$md-flatbtn-light-disabled-font-color: rgba(0, 0, 0, 0.26) !default;
 
 // Flat dark
-$md-flatbtn-dark-font-color: $md-primary-light;
-$md-flatbtn-dark-focus-bg-color: rgba(204, 204, 204, 0.125);
-$md-flatbtn-dark-ripple-color: rgba(204, 204, 204, 0.25);
-$md-flatbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3);
+$md-flatbtn-dark-font-color: $md-primary-light !default;
+$md-flatbtn-dark-focus-bg-color: rgba(204, 204, 204, 0.125) !default;
+$md-flatbtn-dark-ripple-color: rgba(204, 204, 204, 0.25) !default;
+$md-flatbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3) !default;
 
 
 @mixin flat-buttons {

@@ -1,24 +1,24 @@
 // Common
-$md-raisedbtn-pad-horizontal: 16px;
-$md-raisedbtn-ripple-size: 160px;
-$md-raisedbtn-ripple-duration: 1.6s;
-$md-raisedbtn-width-min: 88px;
+$md-raisedbtn-pad-horizontal: 16px !default;
+$md-raisedbtn-ripple-size: 160px !default;
+$md-raisedbtn-ripple-duration: 1.6s !default;
+$md-raisedbtn-width-min: 88px !default;
 
 // Raised light
-$md-raisedbtn-light-font-color: $md-blue-500;
-$md-raisedbtn-light-bg-color: $md-primary-light;
-$md-raisedbtn-light-focus-bg-color: $md-grey-100;
-$md-raisedbtn-light-ripple-color: $md-grey-300;
-$md-raisedbtn-light-disabled-font-color: rgba(0, 0, 0, 0.26);
-$md-raisedbtn-light-disabled-bg-color: rgba(0, 0, 0, 0.12);
+$md-raisedbtn-light-font-color: $md-blue-500 !default;
+$md-raisedbtn-light-bg-color: $md-primary-light !default;
+$md-raisedbtn-light-focus-bg-color: $md-grey-100 !default;
+$md-raisedbtn-light-ripple-color: $md-grey-300 !default;
+$md-raisedbtn-light-disabled-font-color: rgba(0, 0, 0, 0.26) !default;
+$md-raisedbtn-light-disabled-bg-color: rgba(0, 0, 0, 0.12) !default;
 
 // Raised dark
-$md-raisedbtn-dark-font-color: $md-primary-light;
-$md-raisedbtn-dark-bg-color: $md-blue-500;
-$md-raisedbtn-dark-focus-bg-color: $md-blue-600;
-$md-raisedbtn-dark-ripple-color: $md-blue-700;
-$md-raisedbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3);
-$md-raisedbtn-dark-disabled-bg-color: rgba(255, 255, 255, 0.12);
+$md-raisedbtn-dark-font-color: $md-primary-light !default;
+$md-raisedbtn-dark-bg-color: $md-blue-500 !default;
+$md-raisedbtn-dark-focus-bg-color: $md-blue-600 !default;
+$md-raisedbtn-dark-ripple-color: $md-blue-700 !default;
+$md-raisedbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3) !default;
+$md-raisedbtn-dark-disabled-bg-color: rgba(255, 255, 255, 0.12) !default;
 
 
 @mixin raised-buttons {
