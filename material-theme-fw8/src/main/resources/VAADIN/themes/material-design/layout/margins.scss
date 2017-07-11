@@ -1,5 +1,8 @@
 @mixin margins {
   // All
+  .margin-a-a {
+    margin: auto;
+  }
   .margin-a-s {
     margin: $md-u1;
   }
@@ -29,6 +32,9 @@
   }
 
   // Top
+  .margin-t-a {
+    margin-top: auto;
+  }
   .margin-t-s {
     margin-top: $md-u1;
   }
@@ -58,6 +64,9 @@
   }
 
   // Right
+  .margin-r-a {
+    margin-right: auto;
+  }
   .margin-r-s {
     margin-right: $md-u1;
   }
@@ -116,6 +125,9 @@
   }
 
   // Left
+  .margin-l-a {
+    margin-left: auto;
+  }
   .margin-l-s {
     margin-left: $md-u1;
   }
@@ -145,6 +157,10 @@
   }
 
   // Vertical
+  .margin-v-a {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
   .margin-v-s {
     margin-top: $md-u1;
     margin-bottom: $md-u1;
@@ -183,6 +199,10 @@
   }
 
   // Horizontal
+  .margin-h-a {
+    margin-right: auto;
+    margin-left: auto;
+  }
   .margin-h-s {
     margin-right: $md-u1;
     margin-left: $md-u1;
