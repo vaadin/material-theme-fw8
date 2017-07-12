@@ -1,3 +1,6 @@
+$md-card-border-radius: 2px;
+$md-card-bg-color: white;
+
 $md-elevation-1dp: 0 0   1px 0 rgba(0, 0, 0, 0.12),
                    0 1px 1px 0 rgba(0, 0, 0, 0.24);
 
@@ -76,4 +79,28 @@ $md-elevation-24dp: 0 15px 12px 0 rgba(0, 0, 0, 0.22),
 
 .md-elevation-24 {
   @include md-elevation-24dp;
+}
+
+.card, .md-card {
+  @include md-elevation-2dp;
+  background-color: $md-card-bg-color;
+  border-radius: $md-card-border-radius;
+}
+
+.md-dialog {
+  @include md-elevation-24dp;
+  background-color: $md-card-bg-color;
+  border-radius: $md-card-border-radius;
+}
+
+.md-drawer {
+  @include md-elevation-16dp;
+  background-color: $md-card-bg-color;
+  border-radius: $md-card-border-radius;
+}
+
+.md-menu {
+  @include md-elevation-8dp;
+  background-color: $md-card-bg-color;
+  border-radius: $md-card-border-radius;
 }

@@ -121,6 +121,11 @@ public class Styles {
         public static final String ELEVATION_8 = "md-elevation-8";
         public static final String ELEVATION_16 = "md-elevation-16";
         public static final String ELEVATION_24 = "md-elevation-24";
+
+        public static final String CARD = "md-card";
+        public static final String DIALOG = "md-dialog";
+        public static final String DRAWER = "md-drawer";
+        public static final String MENU = "md-menu";
     }
 
     public static class Misc {
