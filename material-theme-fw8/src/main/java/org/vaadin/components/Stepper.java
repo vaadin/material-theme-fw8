@@ -61,6 +61,14 @@ public class Stepper extends FlexLayout {
         steps.get(step).setActive();
     }
 
+    public void deselectStep(Step step) {
+        if (steps.contains(step)) step.setInactive();
+    }
+
+    public void deselectStep(int step) {
+        steps.get(step).setInactive();
+    }
+
     public void invalidateStep(Step step) {
         if (steps.contains(step)) step.setInvalid();
     }
@@ -70,6 +78,7 @@ public class Stepper extends FlexLayout {
     }
 
     public class Step extends FlexLayout {
+        int step;
         Label stepLabel;
         Label nameLabel;
         Label infoLabel;
@@ -78,6 +87,8 @@ public class Stepper extends FlexLayout {
             setFlexDirection(ROW);
             setAlignItems(AlignItems.CENTER);
             setOverflow(Overflow.HIDDEN);
+
+            this.step = step;
 
             this.stepLabel = new Label(Integer.toString(step));
             this.stepLabel.setPrimaryStyleName(Typography.Light.Caption.PRIMARY);
@@ -105,13 +116,28 @@ public class Stepper extends FlexLayout {
             }
         }
 
+        public void setInactive() {
+            this.stepLabel.setValue(Integer.toString(step));
+            this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
+            this.stepLabel.removeStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
+            this.stepLabel.addStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
+
+            this.nameLabel.removeStyleName(Typography.FontWeight.MEDIUM);
+            this.nameLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
+
+            if (infoLabel != null) this.infoLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
+        }
+
         public void setActive() {
+            this.stepLabel.setValue(Integer.toString(step));
             this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.addStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
 
             this.nameLabel.addStyleName(Typography.FontWeight.MEDIUM);
             this.nameLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
+
+            if (infoLabel != null) this.infoLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
         }
 
         public void setInvalid() {
@@ -127,13 +153,15 @@ public class Stepper extends FlexLayout {
         }
 
         public void setComplete() {
+            this.stepLabel.setValue(MaterialIcons.CHECK.getHtml(MaterialIcons.Size.SMALL));
             this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.addStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
-            this.stepLabel.setValue(MaterialIcons.CHECK.getHtml(MaterialIcons.Size.SMALL));
 
             this.nameLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.nameLabel.removeStyleName(Typography.FontWeight.MEDIUM);
+
+            if (infoLabel != null) this.infoLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
         }
     }
 }
