@@ -12,8 +12,8 @@ import org.vaadin.style.Typography;
  */
 public class TwoLineListItem extends ListItem {
 
-    private Label primary;
-    private Label secondary;
+    private final Label primary;
+    private final Label secondary;
 
     public TwoLineListItem(String primaryText, String secondaryText, boolean verticalPadding) {
         super(verticalPadding);
@@ -46,4 +46,21 @@ public class TwoLineListItem extends ListItem {
         primary.setPrimaryStyleName(lightTheme ? Typography.Dark.Subheader.PRIMARY : Typography.Light.Subheader.PRIMARY);
         secondary.setPrimaryStyleName(lightTheme ? Typography.Dark.Body1.SECONDARY : Typography.Light.Body1.SECONDARY);
     }
+
+    public void setPrimaryText(String text){
+        this.primary.setValue(text);
+    }
+
+    public String getPrimaryText(){
+        return this.primary.getValue();
+    }
+
+    public void setSecondaryText(String text){
+        this.secondary.setValue(text);
+    }
+
+    public String getSecondaryText(){
+        return this.secondary.getValue();
+    }
+
 }
