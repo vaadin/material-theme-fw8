@@ -18,7 +18,7 @@ import org.vaadin.style.Typography;
  */
 public class DataTableHeader extends FlexLayout {
 
-    private final String title;
+    private String title;
     private final Label titleLabel;
     private final Button filter;
     private final Button more;
@@ -30,8 +30,9 @@ public class DataTableHeader extends FlexLayout {
         setHeight(Metrics.Table.TITLE_HEIGHT, Unit.PIXELS);
         setWidth(100, Unit.PERCENTAGE);
 
-        this.title = title;
-        this.titleLabel = new Label(title);
+
+        this.titleLabel = new Label();
+        setTitle(title);
         this.titleLabel.addStyleName(Typography.Dark.Table.Title.PRIMARY);
         this.titleLabel.setWidth(100, Unit.PERCENTAGE);
 
@@ -43,6 +44,11 @@ public class DataTableHeader extends FlexLayout {
         delete.setVisible(false);
 
         addComponents(this.titleLabel, filter, delete, more);
+    }
+
+    public void setTitle(String title){
+        this.title = title;
+        this.titleLabel.setValue(title);
     }
 
     public void setGrid(Grid grid) {
