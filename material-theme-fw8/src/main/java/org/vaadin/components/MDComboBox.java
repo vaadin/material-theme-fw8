@@ -121,6 +121,10 @@ public class MDComboBox extends CssLayout {
         }
     }
 
+    public void setEmptySelectionAllowed(boolean allowed){
+        this.field.setEmptySelectionAllowed(false);
+    }
+
     public void setFloatingLabelEnabled(boolean enabled) {
         this.floatingLabelEnabled = enabled;
 

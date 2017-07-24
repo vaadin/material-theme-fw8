@@ -86,6 +86,7 @@ public class MenusView extends CssLayout {
             cb.setComponentError(new UserError(error));
         }
         cb.setFloatingLabelEnabled(floating);
+        cb.setEmptySelectionAllowed(false);
         return cb;
     }
 }
