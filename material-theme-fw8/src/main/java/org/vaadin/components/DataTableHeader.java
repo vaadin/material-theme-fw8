@@ -46,6 +46,18 @@ public class DataTableHeader extends FlexLayout {
         addComponents(this.titleLabel, filter, delete, more);
     }
 
+    public Button getFilterButton(){
+        return filter;
+    }
+
+    public Button getMoreButton(){
+        return more;
+    }
+
+    public Button getDeleteButton(){
+        return delete;
+    }
+
     public void setTitle(String title){
         this.title = title;
         this.titleLabel.setValue(title);
