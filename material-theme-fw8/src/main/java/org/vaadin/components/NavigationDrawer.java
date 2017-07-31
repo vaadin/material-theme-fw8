@@ -16,9 +16,15 @@ public class NavigationDrawer extends CssLayout {
     ArrayList<NavigationItem> items = new ArrayList<NavigationItem>();
 
     public NavigationDrawer() {
+        this(true);
+    }
+
+    public NavigationDrawer(boolean visible){
         super();
         setPrimaryStyleName(NAVIGATION_DRAWER);
-        addStyleName(VISIBLE);
+        if (visible){
+            show();
+        }
     }
 
     public void toggle() {
