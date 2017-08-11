@@ -26,6 +26,8 @@ public class DataTableHeader extends FlexLayout {
     private final Button more;
     private final Button delete;
 
+    private String title;
+
     public enum HeaderButton {FILTER, MORE, DELETE};
 
     private List<HeaderButton> enabledButtons;
@@ -99,7 +101,7 @@ public class DataTableHeader extends FlexLayout {
                 addStyleName(MaterialColor.BLUE_50.getBackgroundColorStyle());
             } else {
                 gridHasSelection = false;
-                titleLabel.setValue(title);
+                titleLabel.setValue(this.title);
                 titleLabel.addStyleName(Typography.Dark.Table.Title.PRIMARY);
                 titleLabel.removeStyleName(Typography.Dark.Subheader.PRIMARY + " " + MaterialColor.BLUE_500.getFontColorStyle());
 
@@ -118,6 +120,7 @@ public class DataTableHeader extends FlexLayout {
     }
 
     public void setTitle(String title){
+        this.title = title;
         this.titleLabel.setValue(title);
     }
 
