@@ -35,18 +35,25 @@ public class DataTableHeader extends FlexLayout {
     public void enableButtons(HeaderButton... enabledButtons){
         this.enabledButtons = Arrays.asList(enabledButtons);
 
-        filter.setEnabled(false);
+
+        more.setVisible(false);
         more.setEnabled(false);
-        delete.setEnabled(false);
+        delete.setVisible(false);
+        delete.setVisible(false);
+        filter.setVisible(false);
+        filter.setVisible(false);
         for (HeaderButton bs : this.enabledButtons){
             switch (bs){
                 case MORE:
+                    more.setVisible(true);
                     more.setEnabled(true);
                     break;
                 case DELETE:
+                    delete.setVisible(true);
                     delete.setEnabled(true);
                     break;
                 case FILTER:
+                    filter.setVisible(true);
                     filter.setEnabled(true);
                     break;
                 default:
@@ -76,18 +83,6 @@ public class DataTableHeader extends FlexLayout {
 
         addComponents(this.titleLabel, filter, delete, more);
     }
-
-//    public Button getFilterButton(){
-//        return filter;
-//    }
-//
-//    public Button getMoreButton(){
-//        return more;
-//    }
-//
-//    public Button getDeleteButton(){
-//        return delete;
-//    }
 
     public void setTitle(String title){
         this.title = title;
