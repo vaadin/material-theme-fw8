@@ -42,8 +42,7 @@ public class DataTablesView extends FlexLayout {
         CssLayout c1 = createCard(g1);
 
         Grid g2 = createGrid();
-        DataTableHeader h2 = new DataTableHeader("Nutrition");
-        h2.setGrid(g2);
+        DataTableHeader h2 = new DataTableHeader("Nutrition", g2);
         CssLayout c2 = createCard(h2, g2);
 
         addComponents(c1, c2);

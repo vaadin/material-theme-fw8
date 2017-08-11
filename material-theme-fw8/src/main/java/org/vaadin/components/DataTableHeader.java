@@ -13,7 +13,6 @@ import org.vaadin.style.MaterialColor;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Typography;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,7 +21,6 @@ import java.util.List;
  */
 public class DataTableHeader extends FlexLayout {
 
-    private String title;
     private final Label titleLabel;
     private final Button filter;
     private final Button more;
@@ -32,9 +30,10 @@ public class DataTableHeader extends FlexLayout {
 
     private List<HeaderButton> enabledButtons;
 
+    boolean gridHasSelection = false;
+
     public void enableButtons(HeaderButton... enabledButtons){
         this.enabledButtons = Arrays.asList(enabledButtons);
-
 
         more.setVisible(false);
         more.setEnabled(false);
@@ -49,7 +48,7 @@ public class DataTableHeader extends FlexLayout {
                     more.setEnabled(true);
                     break;
                 case DELETE:
-                    delete.setVisible(true);
+                    delete.setVisible(gridHasSelection);
                     delete.setEnabled(true);
                     break;
                 case FILTER:
@@ -62,12 +61,11 @@ public class DataTableHeader extends FlexLayout {
         }
     }
 
-    public DataTableHeader(String title) {
+    public DataTableHeader(String title, Grid grid) {
         setAlignItems(FlexLayout.AlignItems.CENTER);
         addStyleName(Paddings.Horizontal.LARGE + " " + Spacings.Right.LARGE + " " + Transitions.CubicBezier.STANDARD);
         setHeight(Metrics.Table.TITLE_HEIGHT, Unit.PIXELS);
         setWidth(100, Unit.PERCENTAGE);
-
 
         this.titleLabel = new Label();
         setTitle(title);
@@ -75,36 +73,18 @@ public class DataTableHeader extends FlexLayout {
         this.titleLabel.setWidth(100, Unit.PERCENTAGE);
 
         filter = new IconButton(MaterialIcons.FILTER_LIST, false);
-
         more = new IconButton(MaterialIcons.MORE_VERT, false);
-
         delete = new IconButton(MaterialIcons.DELETE, false);
-        delete.setVisible(false);
-
         addComponents(this.titleLabel, filter, delete, more);
-    }
+        enableButtons(HeaderButton.MORE, HeaderButton.FILTER, HeaderButton.DELETE);
 
-    public void setTitle(String title){
-        this.title = title;
-        this.titleLabel.setValue(title);
-    }
+        gridHasSelection = !grid.getSelectedItems().isEmpty();
+        delete.setVisible(gridHasSelection);
 
-    public void addFilterButtonStyleName(String styleName){
-        this.filter.addStyleName(styleName);
-    }
-
-    public void removeFilterButtonStyleName(String styleName){
-        this.filter.removeStyleName(styleName);
-    }
-
-    public void addFilterButtonClickListener(Button.ClickListener listener){
-        this.filter.addClickListener(listener);
-    }
-
-    public void setGrid(Grid grid) {
         grid.addSelectionListener((SelectionListener) selectionEvent -> {
             int size = grid.getSelectedItems().size();
             if (size > 0) {
+                gridHasSelection = true;
                 titleLabel.setValue(size + (size == 1 ? " item selected" : " items selected"));
                 titleLabel.removeStyleName(Typography.Dark.Table.Title.PRIMARY);
                 titleLabel.addStyleName(Typography.Dark.Subheader.PRIMARY + " " + MaterialColor.BLUE_500.getFontColorStyle());
@@ -118,10 +98,10 @@ public class DataTableHeader extends FlexLayout {
 
                 addStyleName(MaterialColor.BLUE_50.getBackgroundColorStyle());
             } else {
+                gridHasSelection = false;
                 titleLabel.setValue(title);
                 titleLabel.addStyleName(Typography.Dark.Table.Title.PRIMARY);
                 titleLabel.removeStyleName(Typography.Dark.Subheader.PRIMARY + " " + MaterialColor.BLUE_500.getFontColorStyle());
-
 
                 if (enabledButtons.contains(HeaderButton.FILTER)) {
                     filter.setVisible(true);
@@ -134,5 +114,42 @@ public class DataTableHeader extends FlexLayout {
                 removeStyleName(MaterialColor.BLUE_50.getBackgroundColorStyle());
             }
         });
+
     }
+
+    public void setTitle(String title){
+        this.titleLabel.setValue(title);
+    }
+
+    public void addFilterButtonStyleName(String styleName){
+        this.filter.addStyleName(styleName);
+    }
+    public void removeFilterButtonStyleName(String styleName){
+        this.filter.removeStyleName(styleName);
+    }
+
+    public void addMoreButtonStyleName(String styleName){
+        this.more.addStyleName(styleName);
+    }
+    public void removeMoreButtonStyleName(String styleName){ this.more.removeStyleName(styleName); }
+
+    public void addDeleteButtonStyleName(String styleName){
+        this.delete.addStyleName(styleName);
+    }
+    public void removeDeleteButtonStyleName(String styleName){
+        this.delete.removeStyleName(styleName);
+    }
+
+    public void addFilterButtonClickListener(Button.ClickListener listener){
+        this.filter.addClickListener(listener);
+    }
+
+    public void addMoreButtonClickListener(Button.ClickListener listener){
+        this.more.addClickListener(listener);
+    }
+
+    public void addDeleteButtonClickListener(Button.ClickListener listener){
+        this.delete.addClickListener(listener);
+    }
+
 }
