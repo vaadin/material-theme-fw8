@@ -1,38 +1,38 @@
-$md-textfield-input-height: 36px;
+$md-textfield-input-height: 36px !default;
 
 // Text field paddings
-$md-textfield-pad-bottom: 8px;
-$md-textfield-pad-top: 28px;
-$md-textfield-floatinglabel-disabled-pad-top: 8px;
+$md-textfield-pad-bottom: 8px !default;
+$md-textfield-pad-top: 28px !default;
+$md-textfield-floatinglabel-disabled-pad-top: 8px !default;
 
 // Focus colors
-$md-textfield-light-focus-color: $md-blue-a700;
-$md-textfield-dark-focus-color: $md-blue-a200;
+$md-textfield-light-focus-color: $md-blue-a700 !default;
+$md-textfield-dark-focus-color: $md-blue-a200 !default;
 
 // Error colors
-$md-textfield-light-error-color: $md-red-a400;
-$md-textfield-dark-error-color: $md-red-a400;
+$md-textfield-light-error-color: $md-red-a400 !default;
+$md-textfield-dark-error-color: $md-red-a400 !default;
 
 // Disabled colors
-$md-textfield-light-disabled-color: rgba(0, 0, 0, 0.42);
-$md-textfield-dark-disabled-color: $md-disabled-light;
+$md-textfield-light-disabled-color: rgba(0, 0, 0, 0.42) !default;
+$md-textfield-dark-disabled-color: $md-disabled-light !default;
 
 // Line colors
-$md-textfield-light-line-color: rgba(0, 0, 0, 0.42);
-$md-textfield-dark-line-color: rgba(255, 255, 255, 0.7);
+$md-textfield-light-line-color: rgba(0, 0, 0, 0.42) !default;
+$md-textfield-dark-line-color: rgba(255, 255, 255, 0.7) !default;
 
 // Floating label positions
-$md-textfield-floatinglabel-top: 16px;
-$md-textfield-restinglabel-top: $md-textfield-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2;
-$md-textfield-floatinglabel-disabled-restinglabel-top: $md-textfield-floatinglabel-disabled-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2;
+$md-textfield-floatinglabel-top: 16px !default;
+$md-textfield-restinglabel-top: $md-textfield-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2 !default;
+$md-textfield-floatinglabel-disabled-restinglabel-top: $md-textfield-floatinglabel-disabled-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2 !default;
 
 // Helper label padding
-$md-textfield-helper-pad-vertical: 6px;
+$md-textfield-helper-pad-vertical: 6px !default;
 
 // Icon
-$md-textfield-icon-pad-right: 16px;
-$md-textfield-icon-top: $md-textfield-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2;
-$md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disabled-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2;
+$md-textfield-icon-pad-right: 16px !default;
+$md-textfield-icon-top: $md-textfield-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2 !default;
+$md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disabled-pad-top + ($md-textfield-input-height - $md-subheader-line-height)/2 !default;
 
 
 @mixin textfields {
