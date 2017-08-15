@@ -23,8 +23,13 @@ $md-modalitycurtain-bg: rgba(0, 0, 0, 0.48);
   @include md-window(md-window-dark, $md-primary-light, $md-divider-light, $md-window-dark-bg-color);
   @include md-window(md-window-light, $md-primary-dark, $md-divider-dark, $md-window-light-bg-color);
 
-  .v-modalitycurtain {
+  .v-window-modalitycurtain {
     background-color: $md-modalitycurtain-bg;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   // No header style

@@ -62,6 +62,10 @@ public class ScrollableDialog extends Window {
         addComponent(component);
     }
 
+    public FlexLayout getScrollableLayout() {
+        return scrollableLayout;
+    }
+
     public void addComponent(Component component) {
         scrollableLayout.addComponent(component);
     }
