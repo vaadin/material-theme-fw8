@@ -1,18 +1,18 @@
-$md-cb-label-pad-left: $md-u4;
+$md-cb-label-pad-left: $md-u4 !default;
 
-$md-cb-min-height: 48px;
+$md-cb-min-height: 48px !default;
 
-$md-cb-light-checked-color: $md-blue-500;
-$md-cb-light-ripple-color-on: rgba($md-blue-500, 0.1);
-$md-cb-light-ripple-color-off: rgba(0, 0, 0, 0.07);
-$md-cb-light-ripple-size: $md-u6;
-$md-cb-light-disabled-opacity: 0.26;
+$md-cb-light-checked-color: $md-blue-500 !default;
+$md-cb-light-ripple-color-on: rgba($md-blue-500, 0.1) !default;
+$md-cb-light-ripple-color-off: rgba(0, 0, 0, 0.07) !default;
+$md-cb-light-ripple-size: $md-u6 !default;
+$md-cb-light-disabled-opacity: 0.26 !default;
 
-$md-cb-dark-checked-color: $md-blue-500;
-$md-cb-dark-ripple-color-on: rgba($md-blue-500, 0.09);
-$md-cb-dark-ripple-color-off: rgba(255, 255, 255, 0.1);
-$md-cb-dark-ripple-size: $md-u6;
-$md-cb-dark-disabled-opacity: 0.3;
+$md-cb-dark-checked-color: $md-blue-500 !default;
+$md-cb-dark-ripple-color-on: rgba($md-blue-500, 0.09) !default;
+$md-cb-dark-ripple-color-off: rgba(255, 255, 255, 0.1) !default;
+$md-cb-dark-ripple-size: $md-u6 !default;
+$md-cb-dark-disabled-opacity: 0.3 !default;
 
 
 @mixin checkboxes {
