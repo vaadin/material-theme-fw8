@@ -1,54 +1,54 @@
-$md-combobox-input-height: 36px;
+$md-combobox-input-height: 36px !default;
 
 // Combo box paddings
-$md-combobox-pad-bottom: 8px;
-$md-combobox-pad-top: 28px;
-$md-combobox-floatinglabel-disabled-pad-top: 8px;
+$md-combobox-pad-bottom: 8px !default;
+$md-combobox-pad-top: 28px !default;
+$md-combobox-floatinglabel-disabled-pad-top: 8px !default;
 
 // Focus colors
-$md-combobox-light-focus-color: $md-blue-a700;
-$md-combobox-dark-focus-color: $md-blue-a200;
+$md-combobox-light-focus-color: $md-blue-a700 !default;
+$md-combobox-dark-focus-color: $md-blue-a200 !default;
 
 // Error colors
-$md-combobox-light-error-color: $md-red-a400;
-$md-combobox-dark-error-color: $md-red-a400;
+$md-combobox-light-error-color: $md-red-a400 !default;
+$md-combobox-dark-error-color: $md-red-a400 !default;
 
 // Disabled colors
-$md-combobox-light-disabled-color: rgba(0, 0, 0, 0.42);
-$md-combobox-dark-disabled-color: $md-disabled-light;
+$md-combobox-light-disabled-color: rgba(0, 0, 0, 0.42) !default;
+$md-combobox-dark-disabled-color: $md-disabled-light !default;
 
 // Line colors
-$md-combobox-light-line-color: rgba(0, 0, 0, 0.42);
-$md-combobox-dark-line-color: rgba(255, 255, 255, 0.7);
+$md-combobox-light-line-color: rgba(0, 0, 0, 0.42) !default;
+$md-combobox-dark-line-color: rgba(255, 255, 255, 0.7) !default;
 
 // Floating label positions
-$md-combobox-floatinglabel-top: 16px;
-$md-combobox-restinglabel-top: $md-combobox-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2;
-$md-combobox-floatinglabel-disabled-restinglabel-top: $md-combobox-floatinglabel-disabled-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2;
+$md-combobox-floatinglabel-top: 16px !default;
+$md-combobox-restinglabel-top: $md-combobox-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2 !default;
+$md-combobox-floatinglabel-disabled-restinglabel-top: $md-combobox-floatinglabel-disabled-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2 !default;
 
 // Helper padding
-$md-combobox-helper-pad-vertical: 6px;
+$md-combobox-helper-pad-vertical: 6px !default;
 
 // Icon
-$md-combobox-icon-pad-right: 16px;
-$md-combobox-icon-top: $md-combobox-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2;
-$md-combobox-floatinglabel-disabled-icon-top: $md-combobox-floatinglabel-disabled-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2;
+$md-combobox-icon-pad-right: 16px !default;
+$md-combobox-icon-top: $md-combobox-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2 !default;
+$md-combobox-floatinglabel-disabled-icon-top: $md-combobox-floatinglabel-disabled-pad-top + ($md-combobox-input-height - $md-subheader-line-height)/2 !default;
 
 // Menu
-$md-menu-light-bg-color: white;
-$md-menuitem-light-selected-bg-color: $md-grey-200;
-$md-menu-dark-bg-color: $md-grey-800;
-$md-menuitem-dark-selected-bg-color: $md-grey-700;
+$md-menu-light-bg-color: white !default;
+$md-menuitem-light-selected-bg-color: $md-grey-200 !default;
+$md-menu-dark-bg-color: $md-grey-800 !default;
+$md-menuitem-dark-selected-bg-color: $md-grey-700 !default;
 
 // Button
-$md-combobox-button-icon: "\e5c5";
-$md-combobox-button-right: 0;
-$md-combobox-button-size: 24px;
-$md-combobox-button-top: ($md-combobox-input-height - $md-combobox-button-size)/2;
+$md-combobox-button-icon: "\e5c5" !default;
+$md-combobox-button-right: 0 !default;
+$md-combobox-button-size: 24px !default;
+$md-combobox-button-top: ($md-combobox-input-height - $md-combobox-button-size)/2 !default;
 
 // Item icon
-$md-combobox-itemicon-top: ($md-combobox-input-height - $md-icon-size)/2;
-$md-combobox-itemicon-pad-right: $md-icon-size + $md-u4;
+$md-combobox-itemicon-top: ($md-combobox-input-height - $md-icon-size)/2 !default;
+$md-combobox-itemicon-pad-right: $md-icon-size + $md-u4 !default;
 
 
 @mixin comboboxes {
