@@ -90,12 +90,15 @@ public class DataTableHeader extends FlexLayout {
             }
         };
 
-        setSelectionListener(true);
+        enableSelectionListener();
     }
 
-    public void setSelectionListener(boolean listen) {
-        if (listen) registration = this.grid.addSelectionListener(selectionListener);
-        else registration.remove();
+    public void enableSelectionListener() {
+        registration = this.grid.addSelectionListener(selectionListener);
+    }
+
+    public void disableSelectionListener() {
+        registration.remove();
     }
 
     public void enableButtons(HeaderButton... enabledButtons) {
