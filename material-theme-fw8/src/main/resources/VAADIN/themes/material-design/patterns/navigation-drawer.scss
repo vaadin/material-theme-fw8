@@ -35,6 +35,7 @@ $md-naviitem-ripple-size: $md-navidrawer-width-tablet !default;
     align-items: center;
     cursor: pointer;
     display: flex;
+    flex-shrink: 0;
     height: $md-u6;
     overflow: hidden;
     white-space: nowrap;
