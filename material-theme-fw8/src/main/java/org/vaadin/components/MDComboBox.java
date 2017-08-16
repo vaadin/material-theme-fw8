@@ -121,7 +121,7 @@ public class MDComboBox extends CssLayout {
         }
     }
 
-    public void setEmptySelectionAllowed(boolean allowed){
+    public void setEmptySelectionAllowed(boolean allowed) {
         this.field.setEmptySelectionAllowed(false);
     }
 

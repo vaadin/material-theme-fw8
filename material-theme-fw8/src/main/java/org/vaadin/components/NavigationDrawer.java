@@ -19,10 +19,10 @@ public class NavigationDrawer extends CssLayout {
         this(true);
     }
 
-    public NavigationDrawer(boolean visible){
+    public NavigationDrawer(boolean visible) {
         super();
         setPrimaryStyleName(NAVIGATION_DRAWER);
-        if (visible){
+        if (visible) {
             show();
         }
     }

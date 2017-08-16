@@ -1,6 +1,7 @@
 package org.vaadin.components;
 
 import com.vaadin.event.selection.SelectionListener;
+import com.vaadin.shared.Registration;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.Label;
@@ -25,43 +26,13 @@ public class DataTableHeader extends FlexLayout {
     private final Button filter;
     private final Button more;
     private final Button delete;
-
+    private final SelectionListener selectionListener;
+    private final Grid grid;
+    boolean gridHasSelection = false;
     private String title;
 
-    public enum HeaderButton {FILTER, MORE, DELETE};
-
     private List<HeaderButton> enabledButtons;
-
-    boolean gridHasSelection = false;
-
-    public void enableButtons(HeaderButton... enabledButtons){
-        this.enabledButtons = Arrays.asList(enabledButtons);
-
-        more.setVisible(false);
-        more.setEnabled(false);
-        delete.setVisible(false);
-        delete.setVisible(false);
-        filter.setVisible(false);
-        filter.setVisible(false);
-        for (HeaderButton bs : this.enabledButtons){
-            switch (bs){
-                case MORE:
-                    more.setVisible(true);
-                    more.setEnabled(true);
-                    break;
-                case DELETE:
-                    delete.setVisible(gridHasSelection);
-                    delete.setEnabled(true);
-                    break;
-                case FILTER:
-                    filter.setVisible(true);
-                    filter.setEnabled(true);
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+    private Registration registration;
 
     public DataTableHeader(String title, Grid grid) {
         setAlignItems(FlexLayout.AlignItems.CENTER);
@@ -74,6 +45,8 @@ public class DataTableHeader extends FlexLayout {
         this.titleLabel.addStyleName(Typography.Dark.Table.Title.PRIMARY);
         this.titleLabel.setWidth(100, Unit.PERCENTAGE);
 
+        this.grid = grid;
+
         filter = new IconButton(MaterialIcons.FILTER_LIST, false);
         more = new IconButton(MaterialIcons.MORE_VERT, false);
         delete = new IconButton(MaterialIcons.DELETE, false);
@@ -83,7 +56,7 @@ public class DataTableHeader extends FlexLayout {
         gridHasSelection = !grid.getSelectedItems().isEmpty();
         delete.setVisible(gridHasSelection);
 
-        grid.addSelectionListener((SelectionListener) selectionEvent -> {
+        selectionListener = selectionEvent -> {
             int size = grid.getSelectedItems().size();
             if (size > 0) {
                 gridHasSelection = true;
@@ -94,7 +67,7 @@ public class DataTableHeader extends FlexLayout {
                 if (enabledButtons.contains(HeaderButton.FILTER)) {
                     filter.setVisible(false);
                 }
-                if (enabledButtons.contains(HeaderButton.DELETE)){
+                if (enabledButtons.contains(HeaderButton.DELETE)) {
                     delete.setVisible(true);
                 }
 
@@ -115,44 +88,87 @@ public class DataTableHeader extends FlexLayout {
 
                 removeStyleName(MaterialColor.BLUE_50.getBackgroundColorStyle());
             }
-        });
+        };
 
+        setSelectionListener(true);
     }
 
-    public void setTitle(String title){
+    public void setSelectionListener(boolean listen) {
+        if (listen) registration = this.grid.addSelectionListener(selectionListener);
+        else registration.remove();
+    }
+
+    public void enableButtons(HeaderButton... enabledButtons) {
+        this.enabledButtons = Arrays.asList(enabledButtons);
+
+        more.setVisible(false);
+        more.setEnabled(false);
+        delete.setVisible(false);
+        delete.setVisible(false);
+        filter.setVisible(false);
+        filter.setVisible(false);
+
+        for (HeaderButton enabledButton : this.enabledButtons) {
+            switch (enabledButton) {
+                case MORE:
+                    more.setVisible(true);
+                    more.setEnabled(true);
+                    break;
+                case DELETE:
+                    delete.setVisible(gridHasSelection);
+                    delete.setEnabled(true);
+                    break;
+                case FILTER:
+                    filter.setVisible(true);
+                    filter.setEnabled(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    public void setTitle(String title) {
         this.title = title;
         this.titleLabel.setValue(title);
     }
 
-    public void addFilterButtonStyleName(String styleName){
+    public void addFilterButtonStyleName(String styleName) {
         this.filter.addStyleName(styleName);
     }
-    public void removeFilterButtonStyleName(String styleName){
+
+    public void removeFilterButtonStyleName(String styleName) {
         this.filter.removeStyleName(styleName);
     }
 
-    public void addMoreButtonStyleName(String styleName){
+    public void addMoreButtonStyleName(String styleName) {
         this.more.addStyleName(styleName);
     }
-    public void removeMoreButtonStyleName(String styleName){ this.more.removeStyleName(styleName); }
 
-    public void addDeleteButtonStyleName(String styleName){
+    public void removeMoreButtonStyleName(String styleName) {
+        this.more.removeStyleName(styleName);
+    }
+
+    public void addDeleteButtonStyleName(String styleName) {
         this.delete.addStyleName(styleName);
     }
-    public void removeDeleteButtonStyleName(String styleName){
+
+    public void removeDeleteButtonStyleName(String styleName) {
         this.delete.removeStyleName(styleName);
     }
 
-    public void addFilterButtonClickListener(Button.ClickListener listener){
+    public void addFilterButtonClickListener(Button.ClickListener listener) {
         this.filter.addClickListener(listener);
     }
 
-    public void addMoreButtonClickListener(Button.ClickListener listener){
+    public void addMoreButtonClickListener(Button.ClickListener listener) {
         this.more.addClickListener(listener);
     }
 
-    public void addDeleteButtonClickListener(Button.ClickListener listener){
+    public void addDeleteButtonClickListener(Button.ClickListener listener) {
         this.delete.addClickListener(listener);
     }
+
+    public enum HeaderButton {FILTER, MORE, DELETE}
 
 }
