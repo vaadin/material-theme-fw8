@@ -139,6 +139,12 @@ $md-dt-checkbox-size: 18px;
   }
 
 
+  // Selection mode: SINGLE
+  .v-grid.single .v-grid-row:hover {
+    cursor: pointer;
+  }
+
+
   // Header
   .v-grid-header {
     th {
