@@ -45,6 +45,10 @@ public class Stepper extends FlexLayout {
         return s;
     }
 
+    public ArrayList<Step> getSteps() {
+        return steps;
+    }
+
     public void completeStep(Step step) {
         if (steps.contains(step)) step.setComplete();
     }
@@ -106,14 +110,19 @@ public class Stepper extends FlexLayout {
             this.nameLabel = new Label(name);
             this.nameLabel.setPrimaryStyleName(Typography.Dark.Body1.PRIMARY);
 
-            if (info != null) {
-                this.infoLabel = new Label(info);
-                this.infoLabel.setPrimaryStyleName(Typography.Dark.Caption.SECONDARY);
-                FlexLayout column = new FlexLayout(COLUMN, nameLabel, infoLabel);
-                addComponents(stepLabel, column);
-            } else {
-                addComponents(stepLabel, nameLabel);
-            }
+            this.infoLabel = new Label(info);
+            this.infoLabel.setPrimaryStyleName(Typography.Dark.Caption.SECONDARY);
+
+            FlexLayout column = new FlexLayout(COLUMN, nameLabel, infoLabel);
+            addComponents(stepLabel, column);
+        }
+
+        public void setNameLabel(String value) {
+            this.nameLabel.setValue(value);
+        }
+
+        public void setInfoLabel(String value) {
+            this.infoLabel.setValue(value);
         }
 
         public void setInactive() {
