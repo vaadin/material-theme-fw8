@@ -1,16 +1,16 @@
-$md-radio-btn-label-padding-left: $md-u4;
+$md-radio-btn-label-padding-left: $md-u4 !default;
 
-$md-radio-btn-light-checked-color: $md-blue-500;
-$md-radio-btn-light-ripple-color-on: rgba($md-blue-500, 0.1);
-$md-radio-btn-light-ripple-color-off: rgba(0, 0, 0, 0.07);
-$md-radio-btn-light-ripple-size: $md-u6;
-$md-radio-btn-light-disabled-opacity: 0.26;
+$md-radio-btn-light-checked-color: $md-blue-500 !default;
+$md-radio-btn-light-ripple-color-on: rgba($md-blue-500, 0.1) !default;
+$md-radio-btn-light-ripple-color-off: rgba(0, 0, 0, 0.07) !default;
+$md-radio-btn-light-ripple-size: $md-u6 !default;
+$md-radio-btn-light-disabled-opacity: 0.26 !default;
 
-$md-radio-btn-dark-checked-color: $md-blue-500;
-$md-radio-btn-dark-ripple-color-on: rgba($md-blue-500, 0.09);
-$md-radio-btn-dark-ripple-color-off: rgba(255, 255, 255, 0.1);
-$md-radio-btn-dark-ripple-size: $md-u6;
-$md-radio-btn-dark-disabled-opacity: 0.3;
+$md-radio-btn-dark-checked-color: $md-blue-500 !default;
+$md-radio-btn-dark-ripple-color-on: rgba($md-blue-500, 0.09) !default;
+$md-radio-btn-dark-ripple-color-off: rgba(255, 255, 255, 0.1) !default;
+$md-radio-btn-dark-ripple-size: $md-u6 !default;
+$md-radio-btn-dark-disabled-opacity: 0.3 !default;
 
 @mixin radio-buttons {
   .md-optiongroup-light {
