@@ -430,12 +430,7 @@ public class ButtonsView extends FlexLayout {
     }
 
     private Component createSubheader(String text) {
-        Label lbl = new Label(text);
-        lbl.addStyleName(Typography.Dark.Body2.SECONDARY + " " + MaterialColor.BLUE_500.getFontColorStyle());
-        FlexLayout subheader = new FlexLayout(lbl);
-        subheader.setAlignItems(AlignItems.CENTER);
-        subheader.setHeight(Metrics.Subheader.HEIGHT, Unit.PIXELS);
-        return subheader;
+        return new Subheader(text, true, MaterialColor.BLUE_500);
     }
 
     private Label createInfoText(String text) {
