@@ -1,24 +1,24 @@
 // Common
-$md-raisediconbtn-pad-horizontal: 0px;
-$md-raisediconbtn-ripple-size: 160px;
-$md-raisediconbtn-ripple-duration: 1.6s;
-$md-raisediconbtn-width: 36px;
+$md-raisediconbtn-pad-horizontal: 0px !default;
+$md-raisediconbtn-ripple-size: 160px !default;
+$md-raisediconbtn-ripple-duration: 1.6s !default;
+$md-raisediconbtn-width: 36px !default;
 
 // Raised light
-$md-raisediconbtn-light-font-color: $md-blue-500;
-$md-raisediconbtn-light-bg-color: $md-primary-light;
-$md-raisediconbtn-light-focus-bg-color: $md-grey-100;
-$md-raisediconbtn-light-ripple-color: $md-grey-300;
-$md-raisediconbtn-light-disabled-font-color: rgba(0, 0, 0, 0.26);
-$md-raisediconbtn-light-disabled-bg-color: rgba(0, 0, 0, 0.12);
+$md-raisediconbtn-light-font-color: $md-blue-500 !default;
+$md-raisediconbtn-light-bg-color: $md-primary-light !default;
+$md-raisediconbtn-light-focus-bg-color: $md-grey-100 !default;
+$md-raisediconbtn-light-ripple-color: $md-grey-300 !default;
+$md-raisediconbtn-light-disabled-font-color: rgba(0, 0, 0, 0.26) !default;
+$md-raisediconbtn-light-disabled-bg-color: rgba(0, 0, 0, 0.12) !default;
 
 // Raised dark
-$md-raisediconbtn-dark-font-color: $md-primary-light;
-$md-raisediconbtn-dark-bg-color: $md-red-500;
-$md-raisediconbtn-dark-focus-bg-color: $md-red-600;
-$md-raisediconbtn-dark-ripple-color: $md-red-700;
-$md-raisediconbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3);
-$md-raisediconbtn-dark-disabled-bg-color: rgba(255, 255, 255, 0.12);
+$md-raisediconbtn-dark-font-color: $md-primary-light !default;
+$md-raisediconbtn-dark-bg-color: $md-red-500 !default;
+$md-raisediconbtn-dark-focus-bg-color: $md-red-600 !default;
+$md-raisediconbtn-dark-ripple-color: $md-red-700 !default;
+$md-raisediconbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3) !default;
+$md-raisediconbtn-dark-disabled-bg-color: rgba(255, 255, 255, 0.12) !default;
 
 
 @mixin raised-icon-buttons {
