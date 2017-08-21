@@ -25,6 +25,7 @@
 @import "components/buttons";
 @import "components/checkboxes";
 @import "components/comboboxes";
+@import "components/datefields";
 @import "components/datatable-layout";
 @import "components/datepickers";
 @import "components/grid";
@@ -61,6 +62,7 @@ $primary-color: $md-blue-500;
   @include buttons;
   @include checkboxes;
   @include comboboxes;
+  @include datefields;
   @include datatable-layout;
   @include datepickers;
   @include grid;

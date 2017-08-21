@@ -1,6 +1,7 @@
 $md-menuitem-icon-pad-right-mobile: 24px;
 $md-menuitem-icon-pad-right-tablet: 16px;
 
+
 @mixin menus {
   // Combo box popup
   [class*="input-suggestpopup"] {
@@ -18,5 +19,38 @@ $md-menuitem-icon-pad-right-tablet: 16px;
       cursor: pointer;
       display: flex;
     }
+  }
+}
+
+
+@media (max-width: 960px) {
+  [class*="input-suggestpopup"] {
+    padding: $md-menu-pad-vertical-mobile 0;
+
+    .v-icon + span {
+      padding-left: $md-menuitem-icon-pad-right-mobile;
+    }
+  }
+
+  .gwt-MenuItem {
+    @include md-subheader-font;
+    height: $md-menuitem-height-mobile;
+    padding-left: $md-menuitem-pad-left-mobile;
+  }
+}
+
+@media (min-width: 961px) {
+  [class*="input-suggestpopup"] {
+    padding: $md-menu-pad-vertical-tablet 0;
+
+    .v-icon + span {
+      padding-left: $md-menuitem-icon-pad-right-tablet;
+    }
+  }
+
+  .gwt-MenuItem {
+    @include md-menu-font;
+    height: $md-menuitem-height-tablet;
+    padding-left: $md-menuitem-pad-left-tablet;
   }
 }

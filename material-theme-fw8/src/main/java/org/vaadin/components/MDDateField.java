@@ -5,30 +5,25 @@ import com.vaadin.server.AbstractErrorMessage;
 import com.vaadin.server.ErrorMessage;
 import com.vaadin.shared.Registration;
 import com.vaadin.shared.ui.ContentMode;
-import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.IconGenerator;
-import com.vaadin.ui.Label;
+import com.vaadin.ui.*;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Styles;
 
-import java.util.Collection;
+import java.time.LocalDate;
 
 /**
  * Created by jonte on 15/03/2017.
  */
-public class MDComboBox<T> extends CssLayout {
+public class MDDateField extends CssLayout {
 
     private static final long serialVersionUID = 1L;
-
-    private MaterialIcons defaultIcon;
 
     private Label label = new Label();
     private Label icon = new Label();
     private Label helper = new Label();
     private boolean floatingLabelEnabled;
     private String helperText;
-    private ComboBox<T> field = new ComboBox<T>() {
+    private DateField field = new DateField() {
         @Override
         public void setComponentError(ErrorMessage componentError) {
             super.setComponentError(componentError);
@@ -36,12 +31,12 @@ public class MDComboBox<T> extends CssLayout {
         }
     };
 
-    public MDComboBox(String label) {
+    public MDDateField(String label) {
         this(label, true);
     }
 
-    public MDComboBox(String label, boolean light) {
-        String primaryStyleName = light ? Styles.ComboBoxes.LIGHT : Styles.ComboBoxes.DARK;
+    public MDDateField(String label, boolean light) {
+        String primaryStyleName = light ? Styles.DateFields.LIGHT : Styles.DateFields.DARK;
         setPrimaryStyleName(primaryStyleName);
         setFloatingLabelEnabled(true);
 
@@ -76,11 +71,8 @@ public class MDComboBox<T> extends CssLayout {
                 }
             }
         });
-        this.field.addValueChangeListener(event -> {
-            if (this.field.getItemIconGenerator() == null) return;
-            setIcon(this.field.getValue() == null ? null : (MaterialIcons) this.field.getItemIconGenerator().apply(this.field.getValue()), false);
-            updateFloatingLabelPosition(event.getValue());
-        });
+
+        this.field.addValueChangeListener(event -> updateFloatingLabelPosition(event.getValue()));
 
         this.helper.setPrimaryStyleName(primaryStyleName + "-helper");
         this.helper.setWidthUndefined();
@@ -88,7 +80,7 @@ public class MDComboBox<T> extends CssLayout {
         addComponents(this.label, icon, field, this.helper);
     }
 
-    public ComboBox<T> getField() {
+    public DateField getField() {
         return field;
     }
 
@@ -121,10 +113,6 @@ public class MDComboBox<T> extends CssLayout {
         }
     }
 
-    public void setEmptySelectionAllowed(boolean allowed) {
-        this.field.setEmptySelectionAllowed(false);
-    }
-
     public void setFloatingLabelEnabled(boolean enabled) {
         this.floatingLabelEnabled = enabled;
 
@@ -133,29 +121,20 @@ public class MDComboBox<T> extends CssLayout {
         } else {
             addStyleName("float-disabled");
         }
-
-        this.field.setItems();
     }
 
     public void setIcon(MaterialIcons icon) {
-        setIcon(icon, true);
-    }
-
-    public void setIcon(MaterialIcons icon, boolean def) {
-        if (def) {
-            this.defaultIcon = icon;
-        }
-        if (defaultIcon != null || icon != null) {
+        if (icon == null) {
+            this.icon.setVisible(false);
+            removeStyleName("with-icon");
+        } else {
             addStyleName("with-icon");
             this.icon.setVisible(true);
-            this.icon.setValue(icon != null ? icon.getHtml() : defaultIcon.getHtml());
-        } else {
-            removeStyleName("with-icon");
-            this.icon.setVisible(false);
+            this.icon.setValue(icon.getHtml());
         }
     }
 
-    public Registration addValueChangeListener(HasValue.ValueChangeListener<T> listener) {
+    public Registration addValueChangeListener(HasValue.ValueChangeListener<LocalDate> listener) {
         return field.addValueChangeListener(listener);
     }
 
@@ -164,25 +143,12 @@ public class MDComboBox<T> extends CssLayout {
         field.setComponentError(componentError);
     }
 
-    public void setItems(Collection<T> items) {
-        this.field.setItems(items);
-    }
-
-    public void setValue(T value) {
+    public void setValue(LocalDate value) {
         this.field.setValue(value);
         updateFloatingLabelPosition(value);
     }
 
-    public void setSelectedItem(T item) {
-        this.field.setSelectedItem(item);
-        updateFloatingLabelPosition(item);
-    }
-
-    public void setItemIconGenerator(IconGenerator itemIconGenerator) {
-        this.field.setItemIconGenerator(itemIconGenerator);
-    }
-
-    private void updateFloatingLabelPosition(T value) {
+    private void updateFloatingLabelPosition(LocalDate value) {
         if (value == null) {
             this.label.addStyleName("hint");
         } else {

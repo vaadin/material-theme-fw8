@@ -12,4 +12,19 @@
       padding-left: $md-u4;
     }
   }
+
+  .root {
+    &[width-range~="0-960px"] {
+      .md-appbar {
+        height: $md-appbar-height-mobile;
+        padding: 0 $md-gutter-mobile;
+      }
+    }
+    &[width-range~="961px-"] {
+      .md-appbar {
+        height: $md-appbar-height-tablet;
+        padding: 0 $md-gutter-tablet;
+      }
+    }
+  }
 }

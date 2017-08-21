@@ -1,8 +1,8 @@
 $md-tooltip-opacity: 0.9;
 $md-tooltip-bg-color: rgba($md-grey-700, $md-tooltip-opacity);
 
-@mixin tooltips {
 
+@mixin tooltips {
   .v-tooltip {
     align-items: center;
     background-color: $md-tooltip-bg-color;
@@ -23,5 +23,21 @@ $md-tooltip-bg-color: rgba($md-grey-700, $md-tooltip-opacity);
       margin: 0;
     }
   }
+}
 
+
+@media (max-width: 960px) {
+  .v-tooltip {
+    @include md-tooltip-font($md-primary-light, true);
+    height: $md-tooltip-height-mobile;
+    padding: 0 $md-tooltip-pad-horizontal-mobile;
+  }
+}
+
+@media (min-width: 961px) {
+  .v-tooltip {
+    @include md-tooltip-font($md-primary-light, false);
+    height: $md-tooltip-height-tablet;
+    padding: 0 $md-tooltip-pad-horizontal-tablet;
+  }
 }

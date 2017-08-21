@@ -5,14 +5,6 @@
     &[width-range~="0-960px"] {
       padding-top: $md-appbar-height-mobile;
 
-
-      // App bar
-      .md-appbar {
-        height: $md-appbar-height-mobile;
-        padding: 0 $md-gutter-mobile;
-      }
-
-
       // Navigation drawer
       .md-navidrawer {
         margin-left: -$md-navidrawer-width-mobile;
@@ -32,7 +24,6 @@
         padding-left: $md-gutter-mobile;
       }
 
-
       // Tabs
       .md-tab-light,
       .md-tab-dark,
@@ -44,19 +35,9 @@
     }
 
 
-
-
     /* TABLET & DESKTOP */
     &[width-range~="961px-"] {
       padding-top: $md-appbar-height-tablet;
-
-
-      // App bar
-      .md-appbar {
-        height: $md-appbar-height-tablet;
-        padding: 0 $md-gutter-tablet;
-      }
-
 
       // Navigation drawer
       .md-navidrawer {
@@ -77,7 +58,6 @@
         padding-left: $md-gutter-tablet;
       }
 
-
       // Tabs
       .md-tab-light,
       .md-tab-dark,
@@ -88,58 +68,4 @@
       }
     }
   }
-}
-
-
-@media (max-width: 960px) {
-  // Menus
-  [class*="input-suggestpopup"] {
-    padding: $md-menu-pad-vertical-mobile 0;
-
-    .v-icon + span {
-      padding-left: $md-menuitem-icon-pad-right-mobile;
-    }
-  }
-
-  .gwt-MenuItem {
-    // Color is set by light/dark theme.
-    @include md-subheader-font;
-    height: $md-menuitem-height-mobile;
-    padding-left: $md-menuitem-pad-left-mobile;
-  }
-
-
-  // Tooltips
-  .v-tooltip {
-    @include md-tooltip-font($md-primary-light, true);
-    height: $md-tooltip-height-mobile;
-    padding: 0 $md-tooltip-pad-horizontal-mobile;
-  }
-}
-
-@media (min-width: 961px) {
-  // Menus
-  [class*="input-suggestpopup"] {
-    padding: $md-menu-pad-vertical-tablet 0;
-
-    .v-icon + span {
-      padding-left: $md-menuitem-icon-pad-right-tablet;
-    }
-  }
-
-  .gwt-MenuItem {
-    // Color is set by light/dark theme.
-    @include md-menu-font;
-    height: $md-menuitem-height-tablet;
-    padding-left: $md-menuitem-pad-left-tablet;
-  }
-
-
-  // Tooltips
-  .v-tooltip {
-    @include md-tooltip-font($md-primary-light, false);
-    height: $md-tooltip-height-tablet;
-    padding: 0 $md-tooltip-pad-horizontal-tablet;
-  }
-
 }

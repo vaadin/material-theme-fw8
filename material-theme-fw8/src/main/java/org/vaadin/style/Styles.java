@@ -100,6 +100,11 @@ public class Styles {
         public static final String DARK = "md-combobox-dark";
     }
 
+    public static class DateFields {
+        public static final String LIGHT = "md-datefield-light";
+        public static final String DARK = "md-datefield-dark";
+    }
+
     public static class DatePickers {
         public static final String LIGHT = "md-datepicker-light";
         public static final String DARK = "md-datepicker-dark";
