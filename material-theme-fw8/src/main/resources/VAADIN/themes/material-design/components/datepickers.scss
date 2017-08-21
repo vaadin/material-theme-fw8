@@ -61,36 +61,6 @@ $md-datepicker-dark-ripple-color: $md-divider-light !default;
 
   .#{$primaryStyleName} {
     display: inline-flex;
-  }
-
-  .#{$primaryStyleName}-calendarpanel {
-    display: inline-flex;
-    padding-bottom: $md-datepicker-pad-bottom;
-    padding-left: $md-datepicker-pad-horizontal;
-    padding-right: $md-datepicker-pad-horizontal;
-  }
-
-  .#{$primaryStyleName}-calendarpanel-header {
-    align-items: center;
-    display: flex;
-    height: $md-datepicker-header-height;
-    padding-top: $md-datepicker-header-pad-top;
-  }
-
-  .#{$primaryStyleName}-calendarpanel-month {
-    @include md-b2-font($primary-color);
-    flex: 1;
-  }
-
-  // Button wrappers
-  .#{$primaryStyleName}-calendarpanel-prevyear,
-  .#{$primaryStyleName}-calendarpanel-prevmonth,
-  .#{$primaryStyleName}-calendarpanel-nextmonth,
-  .#{$primaryStyleName}-calendarpanel-nextyear {
-    width: $md-datepicker-cell-width;
-  }
-
-  .#{$primaryStyleName} {
     
     table {
       border-collapse: collapse;
@@ -169,6 +139,33 @@ $md-datepicker-dark-ripple-color: $md-divider-light !default;
         content: "S";
       }
     }
+  }
+
+  .#{$primaryStyleName}-calendarpanel {
+    display: inline-flex;
+    padding-bottom: $md-datepicker-pad-bottom;
+    padding-left: $md-datepicker-pad-horizontal;
+    padding-right: $md-datepicker-pad-horizontal;
+  }
+
+  .#{$primaryStyleName}-calendarpanel-header {
+    align-items: center;
+    display: flex;
+    height: $md-datepicker-header-height;
+    padding-top: $md-datepicker-header-pad-top;
+  }
+
+  .#{$primaryStyleName}-calendarpanel-month {
+    @include md-b2-font($primary-color);
+    flex: 1;
+  }
+
+  // Button wrappers
+  .#{$primaryStyleName}-calendarpanel-prevyear,
+  .#{$primaryStyleName}-calendarpanel-prevmonth,
+  .#{$primaryStyleName}-calendarpanel-nextmonth,
+  .#{$primaryStyleName}-calendarpanel-nextyear {
+    width: $md-datepicker-cell-width;
   }
 
   // Day cells

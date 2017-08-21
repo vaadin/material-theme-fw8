@@ -42,7 +42,7 @@ public class MenusView extends CssLayout {
         planets.add(VENUS);
         planets.add(EARTH);
 
-        addComponents(createDatePickers(true));
+        //addComponents(createDatePickers(false));
         addComponents(createFields(true));
         addComponents(createFields(false));
     }

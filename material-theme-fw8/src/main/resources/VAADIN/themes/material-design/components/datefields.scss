@@ -53,13 +53,13 @@ $md-datefield-popup-cell-selection-size: 44px !default;
 
 $md-datefield-popup-ripple-size: $md-icon-size * 2;
 
-$md-datefield-popup-light-bg-color: $md-primary-light;
+$md-datefield-popup-light-bg-color: $md-primary-light !default;
 $md-datefield-popup-light-today-color: $md-blue-500 !default;
 $md-datefield-popup-light-selection-color: $md-primary-light !default;
 $md-datefield-popup-light-selection-bg-color: $md-blue-500 !default;
 $md-datefield-popup-light-ripple-color: $md-divider-dark !default;
 
-$md-datefield-popup-dark-bg-color: $md-primary-light;
+$md-datefield-popup-dark-bg-color: $md-grey-800 !default;
 $md-datefield-popup-dark-today-color: $md-blue-200 !default;
 $md-datefield-popup-dark-selection-color: $md-primary-dark !default;
 $md-datefield-popup-dark-selection-bg-color: $md-blue-200 !default;
@@ -315,39 +315,6 @@ $md-datefield-popup-dark-ripple-color: $md-divider-light !default;
     background-color: $popup-bg-color;
     border-radius: $md-card-border-radius;
     display: inline-flex;
-  }
-
-  .v-datefield-selecteddate {
-    display: none;
-  }
-
-  .#{$primaryStyleName}-input-calendarpanel {
-    display: inline-flex;
-    padding-bottom: $md-datefield-popup-pad-bottom;
-    padding-left: $md-datefield-popup-pad-horizontal;
-    padding-right: $md-datefield-popup-pad-horizontal;
-  }
-
-  .#{$primaryStyleName}-input-calendarpanel-header {
-    align-items: center;
-    display: flex;
-    height: $md-datefield-popup-header-height;
-    padding-top: $md-datefield-popup-header-pad-top;
-  }
-
-  .#{$primaryStyleName}-input-calendarpanel-month {
-    @include md-b2-font($primary-color);
-    flex: 1;
-  }
-
-  .#{$primaryStyleName}-input-calendarpanel-prevyear,
-  .#{$primaryStyleName}-input-calendarpanel-prevmonth,
-  .#{$primaryStyleName}-input-calendarpanel-nextmonth,
-  .#{$primaryStyleName}-input-calendarpanel-nextyear {
-    width: $md-datefield-popup-cell-width;
-  }
-
-  .#{$primaryStyleName}-input-popup {
 
     table {
       border-collapse: collapse;
@@ -426,6 +393,36 @@ $md-datefield-popup-dark-ripple-color: $md-divider-light !default;
         content: "S";
       }
     }
+  }
+
+  .v-datefield-selecteddate {
+    display: none;
+  }
+
+  .#{$primaryStyleName}-input-calendarpanel {
+    display: inline-flex;
+    padding-bottom: $md-datefield-popup-pad-bottom;
+    padding-left: $md-datefield-popup-pad-horizontal;
+    padding-right: $md-datefield-popup-pad-horizontal;
+  }
+
+  .#{$primaryStyleName}-input-calendarpanel-header {
+    align-items: center;
+    display: flex;
+    height: $md-datefield-popup-header-height;
+    padding-top: $md-datefield-popup-header-pad-top;
+  }
+
+  .#{$primaryStyleName}-input-calendarpanel-month {
+    @include md-b2-font($primary-color);
+    flex: 1;
+  }
+
+  .#{$primaryStyleName}-input-calendarpanel-prevyear,
+  .#{$primaryStyleName}-input-calendarpanel-prevmonth,
+  .#{$primaryStyleName}-input-calendarpanel-nextmonth,
+  .#{$primaryStyleName}-input-calendarpanel-nextyear {
+    width: $md-datefield-popup-cell-width;
   }
 
   // Day cells
