@@ -28,13 +28,7 @@ public class MDComboBox<T> extends CssLayout {
     private Label helper = new Label();
     private boolean floatingLabelEnabled;
     private String helperText;
-    private ComboBox<T> field = new ComboBox<T>() {
-        @Override
-        public void setComponentError(ErrorMessage componentError) {
-            super.setComponentError(componentError);
-            setError(componentError == null ? null : ((AbstractErrorMessage) componentError).getMessage());
-        }
-    };
+    private ComboBox<T> field;
 
     public MDComboBox(String label) {
         this(label, true);
@@ -43,7 +37,6 @@ public class MDComboBox<T> extends CssLayout {
     public MDComboBox(String label, boolean light) {
         String primaryStyleName = light ? Styles.ComboBoxes.LIGHT : Styles.ComboBoxes.DARK;
         setPrimaryStyleName(primaryStyleName);
-        setFloatingLabelEnabled(true);
 
         this.label.setValue(label);
         this.label.setPrimaryStyleName(primaryStyleName + "-label");
@@ -54,6 +47,13 @@ public class MDComboBox<T> extends CssLayout {
         this.icon.setContentMode(ContentMode.HTML);
         this.icon.setVisible(false);
 
+        field = new ComboBox<T>() {
+            @Override
+            public void setComponentError(ErrorMessage componentError) {
+                super.setComponentError(componentError);
+                setError(componentError == null ? null : ((AbstractErrorMessage) componentError).getMessage());
+            }
+        };
         this.field.setPrimaryStyleName(primaryStyleName + "-input");
         this.field.addFocusListener(event -> {
             addStyleName("focus");
@@ -86,6 +86,8 @@ public class MDComboBox<T> extends CssLayout {
         this.helper.setWidthUndefined();
 
         addComponents(this.label, icon, field, this.helper);
+
+        setFloatingLabelEnabled(true);
     }
 
     public ComboBox<T> getField() {
@@ -121,8 +123,8 @@ public class MDComboBox<T> extends CssLayout {
         }
     }
 
-    public void setEmptySelectionAllowed(boolean allowed) {
-        this.field.setEmptySelectionAllowed(false);
+    public void setEmptySelectionAllowed(boolean emptySelectionAllowed) {
+        this.field.setEmptySelectionAllowed(emptySelectionAllowed);
     }
 
     public void setFloatingLabelEnabled(boolean enabled) {
