@@ -190,4 +190,8 @@ public class MDComboBox<T> extends CssLayout {
         }
     }
 
+    public void setTextInputAllowed(boolean textInputAllowed) {
+        this.field.setTextInputAllowed(textInputAllowed);
+    }
+
 }
