@@ -9,13 +9,17 @@ $md-datepicker-cell-width: 44px !default;
 
 $md-datepicker-cell-selection-size: 44px !default;
 
+$md-datepicker-ripple-size: $md-icon-size * 2;
+
 $md-datepicker-light-today-color: $md-blue-500 !default;
 $md-datepicker-light-selection-color: $md-primary-light !default;
 $md-datepicker-light-selection-bg-color: $md-blue-500 !default;
+$md-datepicker-light-ripple-color: $md-divider-dark !default;
 
 $md-datepicker-dark-today-color: $md-blue-200 !default;
 $md-datepicker-dark-selection-color: $md-primary-dark !default;
 $md-datepicker-dark-selection-bg-color: $md-blue-200 !default;
+$md-datepicker-dark-ripple-color: $md-divider-light !default;
 
 
 @mixin datepickers {
@@ -24,19 +28,8 @@ $md-datepicker-dark-selection-bg-color: $md-blue-200 !default;
     $md-primary-dark,
     $md-secondary-dark,
     $md-disabled-dark,
-    $md-divider-dark,
-    $md-icon-size * 2,
-    $md-datepicker-light-today-color,
-    $md-datepicker-light-selection-color,
-    $md-datepicker-light-selection-bg-color
-  );
-  @include md-datepicker(
-    md-datepicker-light-input,
-    $md-primary-dark,
-    $md-secondary-dark,
-    $md-disabled-dark,
-    $md-divider-dark,
-    $md-icon-size * 2,
+    $md-datepicker-light-ripple-color,
+    $md-datepicker-ripple-size,
     $md-datepicker-light-today-color,
     $md-datepicker-light-selection-color,
     $md-datepicker-light-selection-bg-color
@@ -46,24 +39,14 @@ $md-datepicker-dark-selection-bg-color: $md-blue-200 !default;
     $md-primary-light,
     $md-secondary-light,
     $md-disabled-light,
-    $md-divider-light,
-    $md-icon-size * 2,
-    $md-datepicker-dark-today-color,
-    $md-datepicker-dark-selection-color,
-    $md-datepicker-dark-selection-bg-color
-  );
-  @include md-datepicker(
-    md-datepicker-dark-input,
-    $md-primary-light,
-    $md-secondary-light,
-    $md-disabled-light,
-    $md-divider-light,
-    $md-icon-size * 2,
+    $md-datepicker-dark-ripple-color,
+    $md-datepicker-ripple-size,
     $md-datepicker-dark-today-color,
     $md-datepicker-dark-selection-color,
     $md-datepicker-dark-selection-bg-color
   );
 }
+
 
 @mixin md-datepicker(
   $primaryStyleName,
@@ -75,6 +58,10 @@ $md-datepicker-dark-selection-bg-color: $md-blue-200 !default;
   $today-color,
   $selection-color,
   $selection-bg) {
+
+  .#{$primaryStyleName} {
+    display: inline-flex;
+  }
 
   .#{$primaryStyleName}-calendarpanel {
     display: inline-flex;
@@ -104,8 +91,7 @@ $md-datepicker-dark-selection-bg-color: $md-blue-200 !default;
   }
 
   .#{$primaryStyleName} {
-    display: inline-flex;
-
+    
     table {
       border-collapse: collapse;
     }
@@ -115,7 +101,6 @@ $md-datepicker-dark-selection-bg-color: $md-blue-200 !default;
       text-align: center;
     }
 
-    // Buttons
     button {
       @include md-ripple-btn($ripple-color, $ripple-size);
       align-items: center;
@@ -141,15 +126,12 @@ $md-datepicker-dark-selection-bg-color: $md-blue-200 !default;
     .v-button-prevyear::before {
       content: "\e020";
     }
-
     .v-button-prevmonth::before {
       content: "\e5cb";
     }
-
     .v-button-nextmonth::before {
       content: "\e5cc";
     }
-
     .v-button-nextyear::before {
       content: "\e01f";
     }
