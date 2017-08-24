@@ -5,10 +5,7 @@ import com.vaadin.shared.Registration;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.Label;
-import org.vaadin.layout.FlexLayout;
-import org.vaadin.layout.Metrics;
-import org.vaadin.layout.Paddings;
-import org.vaadin.layout.Spacings;
+import org.vaadin.layout.*;
 import org.vaadin.motion.Transitions;
 import org.vaadin.style.MaterialColor;
 import org.vaadin.style.MaterialIcons;
@@ -36,7 +33,10 @@ public class DataTableHeader extends FlexLayout {
 
     public DataTableHeader(String title, Grid grid) {
         setAlignItems(FlexLayout.AlignItems.CENTER);
-        addStyleName(Paddings.Horizontal.LARGE + " " + Spacings.Right.LARGE + " " + Transitions.CubicBezier.STANDARD);
+        addStyleName(FlexItem.FlexShrink.SHRINK_0);
+        addStyleName(Paddings.Horizontal.LARGE);
+        addStyleName(Spacings.Right.LARGE);
+        addStyleName(Transitions.CubicBezier.STANDARD);
         setHeight(Metrics.Table.TITLE_HEIGHT, Unit.PIXELS);
         setWidth(100, Unit.PERCENTAGE);
 
