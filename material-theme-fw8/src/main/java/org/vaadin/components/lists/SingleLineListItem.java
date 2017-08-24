@@ -25,9 +25,11 @@ public class SingleLineListItem extends ListItem {
         primary.addStyleName(Typography.Dark.Subheader.PRIMARY);
 
         content.addComponent(primary);
-        actionPrimary.addComponents(iconPrimary, content);
 
-        addComponents(actionPrimary, iconSecondary);
+        actionPrimary.addComponents(iconPrimary, content);
+        actionSecondary.addComponent(iconSecondary);
+
+        addComponents(actionPrimary, actionSecondary);
     }
 
     public SingleLineListItem(String primaryText) {

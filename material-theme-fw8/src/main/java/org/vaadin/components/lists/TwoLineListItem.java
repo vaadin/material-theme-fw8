@@ -29,8 +29,9 @@ public class TwoLineListItem extends ListItem {
         content.addComponents(primary, secondary);
 
         actionPrimary.addComponents(iconPrimary, content);
+        actionSecondary.addComponent(iconSecondary);
 
-        addComponents(actionPrimary, iconSecondary);
+        addComponents(actionPrimary, actionSecondary);
     }
 
     public TwoLineListItem(String primaryText, String secondaryText) {

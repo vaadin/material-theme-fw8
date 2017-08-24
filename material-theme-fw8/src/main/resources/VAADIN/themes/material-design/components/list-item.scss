@@ -1,17 +1,23 @@
-$md-listitem-icon-small-margin-horizontal: 32px;
-$md-listitem-icon-small-size: 24px;
+$md-listitem-icon-small-margin-horizontal: 32px !default;
+$md-listitem-icon-small-size: 24px !default;
 
-$md-listitem-icon-large-margin-horizontal: 16px;
-$md-listitem-icon-large-size: 40px;
+$md-listitem-icon-large-margin-horizontal: 16px !default;
+$md-listitem-icon-large-size: 40px !default;
 
+$md-listitem-hover-bg-color: $md-grey-200 !default;
+$md-listitem-ripple-color: $md-grey-300 !default;
+$md-listitem-ripple-size: 320px !default;
+$md-listitem-ripple-duration: 1.6s !default;
 
 @mixin list-item {
   .md-listitem {
+    @include md-cubic-std;
     display: flex;
-  }
+    overflow: hidden;
 
-  .md-listitem-no-pad {
-
+    &.clickable:hover {
+      background-color: $md-listitem-hover-bg-color;
+    }
   }
 
   .md-listitem-primary {
@@ -19,6 +25,10 @@ $md-listitem-icon-large-size: 40px;
     display: flex;
     flex: 1;
     overflow: hidden;
+  }
+
+  .md-listitem-secondary {
+    display: flex;
   }
 
   .md-listitem-content {
@@ -80,29 +90,27 @@ $md-listitem-icon-large-size: 40px;
       margin-left: $md-listitem-icon-large-margin-horizontal;
     }
   }
+}
 
 
-  // Responsive
-  .root {
-    &[width-range~="0-960px"] {
-      .md-listitem:not(.no-pad) {
-        .md-listitem-primary {
-          padding-left: $md-gutter-mobile;
-        }
-        .md-listitem-icon-secondary {
-          margin-right: $md-gutter-mobile;
-        }
-      }
+@media (max-width: 960px) {
+  .md-listitem:not(.no-pad) {
+    .md-listitem-primary {
+      padding-left: $md-gutter-mobile;
     }
-    &[width-range~="961px-"] {
-      .md-listitem:not(.no-pad) {
-        .md-listitem-primary {
-          padding-left: $md-gutter-tablet;
-        }
-        .md-listitem-icon-secondary {
-          margin-right: $md-gutter-tablet;
-        }
-      }
+    .md-listitem-icon-secondary {
+      margin-right: $md-gutter-mobile;
+    }
+  }
+}
+
+@media (min-width: 961px) {
+  .md-listitem:not(.no-pad) {
+    .md-listitem-primary {
+      padding-left: $md-gutter-tablet;
+    }
+    .md-listitem-icon-secondary {
+      margin-right: $md-gutter-tablet;
     }
   }
 }

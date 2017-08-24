@@ -18,6 +18,7 @@ public abstract class ListItem extends CssLayout {
 
     protected CssLayout content = new CssLayout();
     protected CssLayout actionPrimary = new CssLayout();
+    protected CssLayout actionSecondary = new CssLayout();
     protected ListItemIcon iconPrimary = new ListItemIcon();
     protected ListItemIcon iconSecondary = new ListItemIcon();
 
@@ -39,6 +40,7 @@ public abstract class ListItem extends CssLayout {
     private void initContent() {
         content.setPrimaryStyleName("md-listitem-content");
         actionPrimary.setPrimaryStyleName("md-listitem-primary");
+        actionSecondary.setPrimaryStyleName("md-listitem-secondary");
     }
 
     private void initIconPrimary() {
@@ -136,13 +138,13 @@ public abstract class ListItem extends CssLayout {
     }
 
     public void addPrimaryActionListener(LayoutEvents.LayoutClickListener listener) {
-        actionPrimary.addStyleName("clickable");
+        addStyleName("clickable");
         actionPrimary.addLayoutClickListener(listener);
     }
 
     public void addSecondaryActionListener(LayoutEvents.LayoutClickListener listener) {
-        iconSecondary.addStyleName("clickable");
-        iconSecondary.addLayoutClickListener(listener);
+        addStyleName("clickable");
+        actionSecondary.addLayoutClickListener(listener);
     }
 
 
