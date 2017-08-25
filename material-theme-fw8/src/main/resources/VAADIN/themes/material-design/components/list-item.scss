@@ -98,8 +98,8 @@ $md-listitem-ripple-duration: 1.6s !default;
     .md-listitem-primary {
       padding-left: $md-gutter-mobile;
     }
-    .md-listitem-icon-secondary {
-      margin-right: $md-gutter-mobile;
+    .md-listitem-secondary {
+      padding-right: $md-gutter-mobile;
     }
   }
 }
@@ -109,8 +109,8 @@ $md-listitem-ripple-duration: 1.6s !default;
     .md-listitem-primary {
       padding-left: $md-gutter-tablet;
     }
-    .md-listitem-icon-secondary {
-      margin-right: $md-gutter-tablet;
+    .md-listitem-secondary {
+      padding-right: $md-gutter-tablet;
     }
   }
 }
