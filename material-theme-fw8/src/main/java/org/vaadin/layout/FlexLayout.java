@@ -16,6 +16,7 @@ public class FlexLayout extends CssLayout {
     private FlexWrap flexWrap;
     private JustifyContent justifyContent;
     private Overflow overflow;
+    private Position position;
 
     public FlexLayout(Component... components) {
         setPrimaryStyleName(FLEXLAYOUT);
@@ -110,6 +111,18 @@ public class FlexLayout extends CssLayout {
             removeStyleName(value.getStyleName());
         }
         addStyleName(this.overflow.getStyleName());
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+        for (Position value : Position.values()) {
+            removeStyleName(value.getStyleName());
+        }
+        addStyleName(this.position.getStyleName());
     }
 
     public enum AlignContent {
