@@ -236,4 +236,22 @@ public class FlexLayout extends CssLayout {
         }
     }
 
+    public enum Position {
+        STATIC("position-static"),
+        RELATIVE("position-relative"),
+        ABSOLUTE("position-absolute"),
+        FIXED("position-fixed"),
+        STICKY("position-sticky");
+
+        private final String styleName;
+
+        Position(String styleName) {
+            this.styleName = styleName;
+        }
+
+        public String getStyleName() {
+            return styleName;
+        }
+    }
+
 }
