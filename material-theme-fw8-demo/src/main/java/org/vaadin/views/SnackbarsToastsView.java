@@ -24,10 +24,10 @@ public class SnackbarsToastsView extends FlexLayout {
 
         ToggleButtonGroup tbg1 = new ToggleButtonGroup();
         tbg1.setSelectionMode(ToggleButtonGroup.SelectionMode.SINGLE);
-        tbg1.addToggleButton(MaterialIcons.FORMAT_ALIGN_LEFT).addClickListener(e -> createNotification("Align left", Position.BOTTOM_LEFT));
-        tbg1.addToggleButton(MaterialIcons.FORMAT_ALIGN_CENTER).addClickListener(e -> createNotification("Align center", Position.BOTTOM_CENTER));
-        tbg1.addToggleButton(MaterialIcons.FORMAT_ALIGN_RIGHT).addClickListener(e -> createNotification("Align right", Position.BOTTOM_RIGHT));
-        tbg1.addToggleButton(MaterialIcons.FORMAT_ALIGN_JUSTIFY).addClickListener(e -> createNotification("Align justify", Position.MIDDLE_CENTER));
+        tbg1.addToggleButton(MaterialIcons.FORMAT_ALIGN_LEFT).addClickListener(e -> createNotification("Align left", com.vaadin.shared.Position.BOTTOM_LEFT));
+        tbg1.addToggleButton(MaterialIcons.FORMAT_ALIGN_CENTER).addClickListener(e -> createNotification("Align center", com.vaadin.shared.Position.BOTTOM_CENTER));
+        tbg1.addToggleButton(MaterialIcons.FORMAT_ALIGN_RIGHT).addClickListener(e -> createNotification("Align right", com.vaadin.shared.Position.BOTTOM_RIGHT));
+        tbg1.addToggleButton(MaterialIcons.FORMAT_ALIGN_JUSTIFY).addClickListener(e -> createNotification("Align justify", com.vaadin.shared.Position.MIDDLE_CENTER));
 
         addComponent(tbg1);
 
@@ -41,10 +41,10 @@ public class SnackbarsToastsView extends FlexLayout {
         addComponent(tbg2);
     }
 
-    private void createNotification(String message, Position pos) {
+    private void createNotification(String message, com.vaadin.shared.Position position) {
         Notification notification = new Notification(message);
         notification.setDelayMsec(3000);
-        notification.setPosition(pos);
+        notification.setPosition(position);
         notification.show(getUI().getPage());
     }
 }

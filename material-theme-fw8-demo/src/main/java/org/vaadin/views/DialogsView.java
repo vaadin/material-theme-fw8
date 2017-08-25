@@ -113,7 +113,7 @@ public class DialogsView extends FlexLayout {
     private void createNotification(String message) {
         Notification notification = new Notification(message);
         notification.setDelayMsec(3000);
-        notification.setPosition(Position.BOTTOM_CENTER);
+        notification.setPosition(com.vaadin.shared.Position.BOTTOM_CENTER);
         notification.show(getUI().getPage());
     }
 }
