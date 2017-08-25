@@ -37,6 +37,30 @@ public class Typography {
             }
         }
 
+        public static class Display1 {
+            public static final String PRIMARY = new String("md-display1-dark");
+            public static final String SECONDARY = new String("md-display1-secondary-dark");
+            public static final String DISABLED = new String("md-display1-disabled-dark");
+        }
+
+        public static class Display2 {
+            public static final String PRIMARY = new String("md-display2-dark");
+            public static final String SECONDARY = new String("md-display2-secondary-dark");
+            public static final String DISABLED = new String("md-display2-disabled-dark");
+        }
+
+        public static class Display3 {
+            public static final String PRIMARY = new String("md-display3-dark");
+            public static final String SECONDARY = new String("md-display3-secondary-dark");
+            public static final String DISABLED = new String("md-display3-disabled-dark");
+        }
+
+        public static class Display4 {
+            public static final String PRIMARY = new String("md-display4-dark");
+            public static final String SECONDARY = new String("md-display4-secondary-dark");
+            public static final String DISABLED = new String("md-display4-disabled-dark");
+        }
+
         public static class Headline {
             public static final String PRIMARY = new String("md-headline-dark");
             public static final String SECONDARY = new String("md-headline-secondary-dark");
@@ -107,6 +131,30 @@ public class Typography {
                 public static final String SECONDARY = new String("md-datepicker-title-secondary-light");
                 public static final String DISABLED = new String("md-datepicker-title-disabled-light");
             }
+        }
+
+        public static class Display1 {
+            public static final String PRIMARY = new String("md-display1-light");
+            public static final String SECONDARY = new String("md-display1-secondary-light");
+            public static final String DISABLED = new String("md-display1-disabled-light");
+        }
+
+        public static class Display2 {
+            public static final String PRIMARY = new String("md-display2-light");
+            public static final String SECONDARY = new String("md-display2-secondary-light");
+            public static final String DISABLED = new String("md-display2-disabled-light");
+        }
+
+        public static class Display3 {
+            public static final String PRIMARY = new String("md-display3-light");
+            public static final String SECONDARY = new String("md-display3-secondary-light");
+            public static final String DISABLED = new String("md-display3-disabled-light");
+        }
+
+        public static class Display4 {
+            public static final String PRIMARY = new String("md-display4-light");
+            public static final String SECONDARY = new String("md-display4-secondary-light");
+            public static final String DISABLED = new String("md-display4-disabled-light");
         }
 
         public static class Headline {
