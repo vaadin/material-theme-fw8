@@ -38,15 +38,15 @@ public class Typography {
         }
 
         public static class Display1 {
-            public static final String PRIMARY = new String("md-display1-dark");
-            public static final String SECONDARY = new String("md-display1-secondary-dark");
-            public static final String DISABLED = new String("md-display1-disabled-dark");
+            public static final String PRIMARY = new String("md-d1-dark");
+            public static final String SECONDARY = new String("md-d1-secondary-dark");
+            public static final String DISABLED = new String("md-d1-disabled-dark");
         }
 
         public static class Display2 {
-            public static final String PRIMARY = new String("md-display2-dark");
-            public static final String SECONDARY = new String("md-display2-secondary-dark");
-            public static final String DISABLED = new String("md-display2-disabled-dark");
+            public static final String PRIMARY = new String("md-d2-dark");
+            public static final String SECONDARY = new String("md-d2-secondary-dark");
+            public static final String DISABLED = new String("md-d2-disabled-dark");
         }
 
         public static class Display3 {
