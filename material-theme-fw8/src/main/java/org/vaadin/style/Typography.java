@@ -50,15 +50,15 @@ public class Typography {
         }
 
         public static class Display3 {
-            public static final String PRIMARY = new String("md-display3-dark");
-            public static final String SECONDARY = new String("md-display3-secondary-dark");
-            public static final String DISABLED = new String("md-display3-disabled-dark");
+            public static final String PRIMARY = new String("md-d3-dark");
+            public static final String SECONDARY = new String("md-d3-secondary-dark");
+            public static final String DISABLED = new String("md-d3-disabled-dark");
         }
 
         public static class Display4 {
-            public static final String PRIMARY = new String("md-display4-dark");
-            public static final String SECONDARY = new String("md-display4-secondary-dark");
-            public static final String DISABLED = new String("md-display4-disabled-dark");
+            public static final String PRIMARY = new String("md-d4-dark");
+            public static final String SECONDARY = new String("md-d4-secondary-dark");
+            public static final String DISABLED = new String("md-d4-disabled-dark");
         }
 
         public static class Headline {
@@ -134,27 +134,27 @@ public class Typography {
         }
 
         public static class Display1 {
-            public static final String PRIMARY = new String("md-display1-light");
-            public static final String SECONDARY = new String("md-display1-secondary-light");
-            public static final String DISABLED = new String("md-display1-disabled-light");
+            public static final String PRIMARY = new String("md-d1-light");
+            public static final String SECONDARY = new String("md-d1-secondary-light");
+            public static final String DISABLED = new String("md-d1-disabled-light");
         }
 
         public static class Display2 {
-            public static final String PRIMARY = new String("md-display2-light");
-            public static final String SECONDARY = new String("md-display2-secondary-light");
-            public static final String DISABLED = new String("md-display2-disabled-light");
+            public static final String PRIMARY = new String("md-d2-light");
+            public static final String SECONDARY = new String("md-d2-secondary-light");
+            public static final String DISABLED = new String("md-d2-disabled-light");
         }
 
         public static class Display3 {
-            public static final String PRIMARY = new String("md-display3-light");
-            public static final String SECONDARY = new String("md-display3-secondary-light");
-            public static final String DISABLED = new String("md-display3-disabled-light");
+            public static final String PRIMARY = new String("md-d3-light");
+            public static final String SECONDARY = new String("md-d3-secondary-light");
+            public static final String DISABLED = new String("md-d3-disabled-light");
         }
 
         public static class Display4 {
-            public static final String PRIMARY = new String("md-display4-light");
-            public static final String SECONDARY = new String("md-display4-secondary-light");
-            public static final String DISABLED = new String("md-display4-disabled-light");
+            public static final String PRIMARY = new String("md-d4-light");
+            public static final String SECONDARY = new String("md-d4-secondary-light");
+            public static final String DISABLED = new String("md-d4-disabled-light");
         }
 
         public static class Headline {
