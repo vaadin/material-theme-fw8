@@ -221,7 +221,6 @@ public class FlexLayout extends CssLayout {
     public enum Overflow {
         AUTO("overflow-auto"),
         HIDDEN("overflow-hidden"),
-
         SCROLL("overflow-scroll"),
         VISIBLE("overflow-visible");
 
@@ -237,10 +236,10 @@ public class FlexLayout extends CssLayout {
     }
 
     public enum Position {
-        STATIC("position-static"),
-        RELATIVE("position-relative"),
         ABSOLUTE("position-absolute"),
         FIXED("position-fixed"),
+        RELATIVE("position-relative"),
+        STATIC("position-static"),
         STICKY("position-sticky");
 
         private final String styleName;
