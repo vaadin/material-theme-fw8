@@ -56,8 +56,9 @@ $primary-color: $md-blue-500;
   @include effects;
   @include transitions;
 
-  @include colors;
+  // This order's important; color styles need to override the typography style colors.
   @include typography;
+  @include colors;
 
   @include buttons;
   @include checkboxes;
