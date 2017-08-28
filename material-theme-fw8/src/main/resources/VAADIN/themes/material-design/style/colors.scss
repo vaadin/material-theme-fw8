@@ -326,7 +326,7 @@ $md-blue-greys: ($md-blue-grey-50, $md-blue-grey-100, $md-blue-grey-200, $md-blu
   @each $color in $colors {
     $i: 1;
     @each $shade in $shades {
-      div.#{nth($color, 1)}-#{$shade} {
+      .#{nth($color, 1)}-#{$shade} {
         color: nth(nth($color, 2), $i);
       }
       $i: $i + 1;
@@ -338,30 +338,30 @@ $md-blue-greys: ($md-blue-grey-50, $md-blue-grey-100, $md-blue-grey-200, $md-blu
   @each $color in $colors {
     $i: 1;
     @each $shade in $shades {
-      div.#{nth($color, 1)}-#{$shade} {
+      .#{nth($color, 1)}-#{$shade} {
         color: nth(nth($color, 2), $i);
       }
       $i: $i + 1;
     }
   }
 
-  div.md-primary-dark {
+  .md-primary-dark {
     color: $md-primary-dark;
   }
-  div.md-secondary-dark {
+  .md-secondary-dark {
     color: $md-secondary-dark;
   }
-  div.md-disabled-dark {
+  .md-disabled-dark {
     color: $md-disabled-dark;
   }
 
-  div.md-primary-light {
+  .md-primary-light {
     color: $md-primary-light;
   }
-  div.md-secondary-light {
+  .md-secondary-light {
     color: $md-secondary-light;
   }
-  div.md-disabled-light {
+  .md-disabled-light {
     color: $md-disabled-light;
   }
 }
@@ -373,7 +373,7 @@ $md-blue-greys: ($md-blue-grey-50, $md-blue-grey-100, $md-blue-grey-200, $md-blu
   @each $color in $colors {
     $i: 1;
     @each $shade in $shades {
-      div.#{nth($color, 1)}-#{$shade}-bg {
+      .#{nth($color, 1)}-#{$shade}-bg {
         background-color: nth(nth($color, 2), $i);
       }
       $i: $i + 1;
@@ -385,36 +385,36 @@ $md-blue-greys: ($md-blue-grey-50, $md-blue-grey-100, $md-blue-grey-200, $md-blu
   @each $color in $colors {
     $i: 1;
     @each $shade in $shades {
-      div.#{nth($color, 1)}-#{$shade}-bg {
+      .#{nth($color, 1)}-#{$shade}-bg {
         background-color: nth(nth($color, 2), $i);
       }
       $i: $i + 1;
     }
   }
 
-  div.md-primary-dark-bg {
+  .md-primary-dark-bg {
     background-color: $md-primary-dark;
   }
-  div.md-secondary-dark-bg {
+  .md-secondary-dark-bg {
     background-color: $md-secondary-dark;
   }
-  div.md-disabled-dark-bg {
+  .md-disabled-dark-bg {
     background-color: $md-disabled-dark;
   }
-  div.md-divider-dark-bg {
+  .md-divider-dark-bg {
     background-color: $md-divider-dark;
   }
 
-  div.md-primary-light-bg {
+  .md-primary-light-bg {
     background-color: $md-primary-light;
   }
-  div.md-secondary-light-bg {
+  .md-secondary-light-bg {
     background-color: $md-secondary-light;
   }
-  div.md-disabled-light-bg {
+  .md-disabled-light-bg {
     background-color: $md-disabled-light;
   }
-  div.md-divider-light-bg {
+  .md-divider-light-bg {
     background-color: $md-divider-light;
   }
 }
