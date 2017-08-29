@@ -73,6 +73,7 @@ public class SimpleDialog extends Window {
     }
 
     public void setAffirmativeActionButton(Button button) {
+        footer.replaceComponent(ok, button);
         ok = button;
     }
 
@@ -81,6 +82,7 @@ public class SimpleDialog extends Window {
     }
 
     public void setDismissiveActionButton(Button button) {
+        footer.replaceComponent(cancel, button);
         cancel = button;
     }
 

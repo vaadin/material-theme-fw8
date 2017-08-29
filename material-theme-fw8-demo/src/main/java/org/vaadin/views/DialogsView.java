@@ -2,6 +2,7 @@ package org.vaadin.views;
 
 import com.vaadin.shared.Position;
 import com.vaadin.ui.*;
+import org.vaadin.components.RaisedButton;
 import org.vaadin.components.dialogs.DatePickerDialog;
 import org.vaadin.components.dialogs.ScrollableDialog;
 import org.vaadin.components.dialogs.SimpleDialog;
