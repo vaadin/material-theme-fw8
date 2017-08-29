@@ -14,8 +14,8 @@ public class ScrollableDialog extends Window {
 
     private final FlexLayout content;
     private final FlexLayout footer;
-    private final Button cancel;
-    private final Button ok;
+    private Button cancel;
+    private Button ok;
     private FlexLayout scrollableLayout;
 
     public ScrollableDialog(String title, boolean lightTheme) {
@@ -82,8 +82,16 @@ public class ScrollableDialog extends Window {
         cancel.setCaption(caption);
     }
 
+    public void setAffirmativeActionButton(Button button) {
+        ok = button;
+    }
+
     public Button getAffirmativeActionButton() {
         return ok;
+    }
+
+    public void setDismissiveActionButton(Button button) {
+        cancel = button;
     }
 
     public Button getDismissiveActionButton() {

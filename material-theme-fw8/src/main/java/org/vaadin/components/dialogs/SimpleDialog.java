@@ -17,8 +17,8 @@ public class SimpleDialog extends Window {
 
     private final FlexLayout content;
     private final FlexLayout footer;
-    private final Button cancel;
-    private final Button ok;
+    private Button cancel;
+    private Button ok;
     private Label label;
 
     public SimpleDialog(String title, String message, boolean lightTheme) {
@@ -72,8 +72,16 @@ public class SimpleDialog extends Window {
         cancel.setCaption(caption);
     }
 
+    public void setAffirmativeActionButton(Button button) {
+        ok = button;
+    }
+
     public Button getAffirmativeActionButton() {
         return ok;
+    }
+
+    public void setDismissiveActionButton(Button button) {
+        cancel = button;
     }
 
     public Button getDismissiveActionButton() {
