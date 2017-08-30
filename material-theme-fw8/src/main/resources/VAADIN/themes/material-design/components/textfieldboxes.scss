@@ -242,6 +242,11 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1);
     }
   }
 
+  // Text area specific padding to vertically align the input
+  textarea.#{$primaryStyleName}-input {
+    padding-top: $md-textfieldbox-pad-top + (($md-textfieldbox-input-height - $md-subheader-line-height) / 2);
+  }
+
 
   // Background, ripple and line "manager"
   .#{$primaryStyleName}-ripple {

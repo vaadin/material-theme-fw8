@@ -37,6 +37,11 @@ public class Metrics {
         public static int HEIGHT = 48;
     }
 
+    public static class TextArea {
+        public static int BASE_HEIGHT = 56;
+        public static int LINE_HEIGHT = 24;
+    }
+
     public static class List {
         public static int SINGLE_LINE_HEIGHT = 48;
         public static int SINGLE_LINE_WITH_AVATAR_HEIGHT = 56;

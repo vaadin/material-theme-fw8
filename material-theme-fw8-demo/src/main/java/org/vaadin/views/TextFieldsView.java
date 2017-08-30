@@ -2,6 +2,7 @@ package org.vaadin.views;
 
 import com.vaadin.server.UserError;
 import com.vaadin.ui.CssLayout;
+import org.vaadin.components.MDTextAreaBox;
 import org.vaadin.components.MDTextField;
 import org.vaadin.components.MDTextFieldBox;
 import org.vaadin.layout.FlexLayout;
@@ -40,7 +41,10 @@ public class TextFieldsView extends CssLayout {
         tf8.setValue("Disabled");
         tf8.setEnabled(false);
 
-        FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8);
+        MDTextAreaBox tf9 = createTextAreaBox("Text area box", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, light);
+        tf9.setRows(3);
+
+        FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8, tf9);
         card.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
         card.addStyleName("card");
         card.addStyleName(Paddings.All.LARGE);
@@ -71,6 +75,23 @@ public class TextFieldsView extends CssLayout {
 
     private MDTextFieldBox createTextFieldBox(String label, String helper, String error, MaterialIcons icon, boolean light) {
         MDTextFieldBox tf = new MDTextFieldBox(label, light);
+        if (helper != null) tf.setHelper(helper);
+        if (icon != null) tf.setIcon(icon);
+        if (error != null) {
+            tf.addValueChangeListener(event -> {
+                if (event.getValue() == null || event.getValue().isEmpty()) {
+                    tf.setComponentError(new UserError(error));
+                } else {
+                    tf.setComponentError(null);
+                }
+            });
+            tf.setComponentError(new UserError(error));
+        }
+        return tf;
+    }
+
+    private MDTextAreaBox createTextAreaBox(String label, String helper, String error, MaterialIcons icon, boolean light) {
+        MDTextAreaBox tf = new MDTextAreaBox(label, light);
         if (helper != null) tf.setHelper(helper);
         if (icon != null) tf.setIcon(icon);
         if (error != null) {
