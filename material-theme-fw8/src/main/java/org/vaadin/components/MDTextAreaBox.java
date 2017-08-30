@@ -3,11 +3,13 @@ package org.vaadin.components;
 import com.vaadin.data.HasValue;
 import com.vaadin.server.AbstractErrorMessage;
 import com.vaadin.server.ErrorMessage;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.Registration;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextArea;
+import com.vaadin.ui.UI;
 import org.vaadin.layout.Metrics;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Styles;
@@ -122,6 +124,29 @@ public class MDTextAreaBox extends CssLayout {
             addStyleName("with-icon");
             this.icon.setVisible(true);
             this.icon.setValue(icon.getHtml());
+        }
+    }
+
+    public void setIcon(String html) {
+        if (html == null) {
+            this.icon.setVisible(false);
+            removeStyleName("with-icon");
+        } else {
+            addStyleName("with-icon");
+            this.icon.setVisible(true);
+            this.icon.setValue(html);
+        }
+    }
+
+    public void setIcon(ThemeResource source) {
+        if (source == null) {
+            this.icon.setVisible(false);
+            removeStyleName("with-icon");
+        } else {
+            addStyleName("with-icon");
+            this.icon.setVisible(true);
+            String path = "/VAADIN/theme/" + UI.getCurrent().getTheme() + "/" + source.getResourceId();
+            this.icon.setValue("<img src=\"" + path + "\"/>");
         }
     }
 
