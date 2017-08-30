@@ -198,9 +198,13 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4 !default;
     align-items: center;
     color: $secondary-color;
     display: flex;
+    height: $md-icon-size;
+    justify-content: center;
     left: 0;
+    overflow: hidden;
     position: absolute;
     top: $md-combobox-icon-top;
+    width: $md-icon-size;
   }
 
 

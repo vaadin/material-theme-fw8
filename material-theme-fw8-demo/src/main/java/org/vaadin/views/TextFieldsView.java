@@ -1,5 +1,6 @@
 package org.vaadin.views;
 
+import com.vaadin.server.ThemeResource;
 import com.vaadin.server.UserError;
 import com.vaadin.ui.CssLayout;
 import org.vaadin.components.MDTextAreaBox;

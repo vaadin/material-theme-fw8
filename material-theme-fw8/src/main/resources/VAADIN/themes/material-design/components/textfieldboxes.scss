@@ -210,6 +210,12 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1);
     position: absolute;
     top: $md-textfieldbox-icon-top;
     width: $md-icon-size;
+
+    div, img {
+      display: flex;
+      max-height: 100%;
+      max-width: 100%;
+    }
   }
 
 
