@@ -46,7 +46,7 @@ $md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)
 
 // Ripple color, size and duration
 $md-textfieldbox-ripple-duration: 1.2s;
-$md-textfieldbox-ripple-size: 550px;
+$md-textfieldbox-ripple-size: 560px;
 $md-textfieldbox-light-ripple-color: rgba(0, 0, 0, 0.06);
 $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1);
 
@@ -203,9 +203,13 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1);
     align-items: center;
     color: $secondary-color;
     display: flex;
+    height: $md-icon-size;
+    justify-content: center;
     left: 0;
+    overflow: hidden;
     position: absolute;
     top: $md-textfieldbox-icon-top;
+    width: $md-icon-size;
   }
 
 
@@ -245,6 +249,7 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1);
   // Text area specific padding to vertically align the input
   textarea.#{$primaryStyleName}-input {
     padding-top: $md-textfieldbox-pad-top + (($md-textfieldbox-input-height - $md-subheader-line-height) / 2);
+    resize: none;
   }
 
 
