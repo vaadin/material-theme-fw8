@@ -109,14 +109,14 @@ public abstract class ListItem extends CssLayout {
         return iconPrimary;
     }
 
-    public void setPrimaryIcon(ThemeResource image) {
-        iconPrimary.setVisible(true);
-        iconPrimary.setIcon(image);
-    }
-
     public void setPrimaryIcon(String html) {
         iconPrimary.setVisible(true);
         iconPrimary.setIcon(html);
+    }
+
+    public void setPrimaryIcon(ThemeResource image) {
+        iconPrimary.setVisible(true);
+        iconPrimary.setIcon(image);
     }
 
     public void setSecondaryIcon(MaterialIcons icon) {
@@ -138,14 +138,14 @@ public abstract class ListItem extends CssLayout {
         return iconSecondary;
     }
 
-    public void setSecondaryIcon(ThemeResource image) {
-        setSecondaryIconVisible(true);
-        iconSecondary.setIcon(image);
-    }
-
     public void setSecondaryIcon(String html) {
         setSecondaryIconVisible(true);
         iconSecondary.setIcon(html);
+    }
+
+    public void setSecondaryIcon(ThemeResource image) {
+        setSecondaryIconVisible(true);
+        iconSecondary.setIcon(image);
     }
 
     public void addPrimaryActionListener(LayoutEvents.LayoutClickListener listener) {

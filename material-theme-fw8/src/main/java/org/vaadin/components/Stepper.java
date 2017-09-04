@@ -39,10 +39,14 @@ public class Stepper extends FlexLayout {
             addComponent(connector);
         }
 
-        Step s = new Step(steps.size() + 1, name, info);
+        Step s = createStep(steps.size() + 1, name, info);
         addComponent(s);
         steps.add(s);
         return s;
+    }
+
+    protected Step createStep(int step, String name, String info) {
+        return new Step(step, name, info);
     }
 
     public ArrayList<Step> getSteps() {
@@ -50,35 +54,67 @@ public class Stepper extends FlexLayout {
     }
 
     public void completeStep(Step step) {
-        if (steps.contains(step)) step.setComplete();
+        completeStep(step, true);
+    }
+
+    public void completeStep(Step step, boolean updateIcon) {
+        if (steps.contains(step)) step.setComplete(updateIcon);
     }
 
     public void completeStep(int step) {
-        steps.get(step).setComplete();
+        completeStep(step, true);
+    }
+
+    public void completeStep(int step, boolean updateIcon) {
+        steps.get(step).setComplete(updateIcon);
     }
 
     public void selectStep(Step step) {
-        if (steps.contains(step)) step.setActive();
+        selectStep(step, true);
+    }
+
+    public void selectStep(Step step, boolean updateIcon) {
+        if (steps.contains(step)) step.setActive(updateIcon);
     }
 
     public void selectStep(int step) {
-        steps.get(step).setActive();
+        selectStep(step, true);
+    }
+
+    public void selectStep(int step, boolean updateIcon) {
+        steps.get(step).setActive(updateIcon);
     }
 
     public void deselectStep(Step step) {
-        if (steps.contains(step)) step.setInactive();
+        deselectStep(step, true);
+    }
+
+    public void deselectStep(Step step, boolean updateIcon) {
+        if (steps.contains(step)) step.setInactive(updateIcon);
     }
 
     public void deselectStep(int step) {
-        steps.get(step).setInactive();
+        deselectStep(step, true);
+    }
+
+    public void deselectStep(int step, boolean updateIcon) {
+        steps.get(step).setInactive(updateIcon);
     }
 
     public void invalidateStep(Step step) {
-        if (steps.contains(step)) step.setInvalid();
+        invalidateStep(step, true);
+    }
+
+    public void invalidateStep(Step step, boolean updateIcon) {
+        if (steps.contains(step)) step.setInvalid(updateIcon);
     }
 
     public void invalidateStep(int step) {
-        steps.get(step).setInvalid();
+        invalidateStep(step, true);
+    }
+
+    public void invalidateStep(int step, boolean updateIcon) {
+        steps.get(step).setInvalid(updateIcon);
     }
 
     public class Step extends FlexLayout {
@@ -125,8 +161,8 @@ public class Stepper extends FlexLayout {
             this.infoLabel.setValue(value);
         }
 
-        public void setInactive() {
-            this.stepLabel.setValue(Integer.toString(step));
+        public void setInactive(boolean updateIcon) {
+            if (updateIcon) this.stepLabel.setValue(Integer.toString(step));
             this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.addStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
@@ -137,8 +173,8 @@ public class Stepper extends FlexLayout {
             if (infoLabel != null) this.infoLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
         }
 
-        public void setActive() {
-            this.stepLabel.setValue(Integer.toString(step));
+        public void setActive(boolean updateIcon) {
+            if (updateIcon) this.stepLabel.setValue(Integer.toString(step));
             this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.addStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
@@ -149,8 +185,8 @@ public class Stepper extends FlexLayout {
             if (infoLabel != null) this.infoLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
         }
 
-        public void setInvalid() {
-            this.stepLabel.setValue(MaterialIcons.WARNING.getHtml());
+        public void setInvalid(boolean updateIcon) {
+            if (updateIcon) this.stepLabel.setValue(MaterialIcons.WARNING.getHtml());
             this.stepLabel.addStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
@@ -161,8 +197,8 @@ public class Stepper extends FlexLayout {
             if (infoLabel != null) this.infoLabel.addStyleName(MaterialColor.RED_500.getFontColorStyle());
         }
 
-        public void setComplete() {
-            this.stepLabel.setValue(MaterialIcons.CHECK.getHtml(MaterialIcons.Size.SMALL));
+        public void setComplete(boolean updateIcon) {
+            if (updateIcon) this.stepLabel.setValue(MaterialIcons.CHECK.getHtml(MaterialIcons.Size.SMALL));
             this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.addStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());

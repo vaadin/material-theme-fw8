@@ -6,7 +6,10 @@ import com.vaadin.server.ErrorMessage;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.Registration;
 import com.vaadin.shared.ui.ContentMode;
-import com.vaadin.ui.*;
+import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.TextArea;
 import org.vaadin.layout.Metrics;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Styles;
@@ -69,14 +72,14 @@ public class MDTextAreaBox extends CssLayout {
         addComponents(this.label, icon, field, ripple, this.helper);
     }
 
+    public int getRows() {
+        return rows;
+    }
+
     public void setRows(int rows) {
         this.rows = rows;
         this.field.setHeight(Metrics.TextArea.BASE_HEIGHT + ((rows - 1) * Metrics.TextArea.LINE_HEIGHT), Unit.PIXELS);
         this.ripple.setHeight(Metrics.TextArea.BASE_HEIGHT + ((rows - 1) * Metrics.TextArea.LINE_HEIGHT), Unit.PIXELS);
-    }
-
-    public int getRows() {
-        return rows;
     }
 
     public TextArea getField() {

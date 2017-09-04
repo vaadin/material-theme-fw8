@@ -30,12 +30,12 @@ public class Subheader extends FlexLayout {
         setFontColor(color);
     }
 
-    public void setLabel(Label label) {
-        this.label = label;
-    }
-
     public Label getLabel() {
         return this.label;
+    }
+
+    public void setLabel(Label label) {
+        this.label = label;
     }
 
     public void setFontColor(MaterialColor color) {

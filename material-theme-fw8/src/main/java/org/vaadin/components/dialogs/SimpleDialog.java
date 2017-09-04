@@ -72,22 +72,22 @@ public class SimpleDialog extends Window {
         cancel.setCaption(caption);
     }
 
+    public Button getAffirmativeActionButton() {
+        return ok;
+    }
+
     public void setAffirmativeActionButton(Button button) {
         footer.replaceComponent(ok, button);
         ok = button;
     }
 
-    public Button getAffirmativeActionButton() {
-        return ok;
+    public Button getDismissiveActionButton() {
+        return cancel;
     }
 
     public void setDismissiveActionButton(Button button) {
         footer.replaceComponent(cancel, button);
         cancel = button;
-    }
-
-    public Button getDismissiveActionButton() {
-        return cancel;
     }
 
     public void addAffirmativeActionButtonListener(Button.ClickListener listener) {
