@@ -5,6 +5,7 @@ import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.IconGenerator;
 import org.vaadin.components.MDComboBox;
 import org.vaadin.components.MDDateField;
+import org.vaadin.components.MDDateTimeField;
 import org.vaadin.layout.FlexLayout;
 import org.vaadin.layout.Paddings;
 import org.vaadin.layout.Spacings;
@@ -42,17 +43,37 @@ public class MenusView extends CssLayout {
         planets.add(VENUS);
         planets.add(EARTH);
 
-        //addComponents(createDatePickers(false));
+        // addComponents(createDateTimeFields(true));
+        // addComponents(createDateFields(false));
         addComponents(createFields(true));
         addComponents(createFields(false));
     }
 
-    private CssLayout createDatePickers(boolean light) {
-        MDDateField tf1 = createDatePicker("Floating label", null, null, null, true, light);
-        MDDateField tf2 = createDatePicker("Hint text", null, null, null, false, light);
-        MDDateField tf3 = createDatePicker("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, light);
-        MDDateField tf4 = createDatePicker("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, light);
-        MDDateField tf5 = createDatePicker("Floating label", "Helper information goes here!", "Empty value not allowed", null, true, light);
+    private CssLayout createDateTimeFields(boolean light) {
+        MDDateTimeField tf1 = createDateTimeField("Floating label", null, null, null, true, light);
+        MDDateTimeField tf2 = createDateTimeField("Hint text", null, null, null, false, light);
+        MDDateTimeField tf3 = createDateTimeField("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, light);
+        MDDateTimeField tf4 = createDateTimeField("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, light);
+        MDDateTimeField tf5 = createDateTimeField("Floating label", "Helper information goes here!", "Empty value not allowed", null, true, light);
+        tf5.setEnabled(false);
+
+        FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5);
+        card.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
+        card.addStyleName("card");
+        card.addStyleName(Paddings.All.LARGE);
+        card.addStyleName(Spacings.Bottom.LARGE);
+        if (!light) card.addStyleName(MaterialColor.GREY_900.getBackgroundColorStyle());
+        card.setWidth(100, Unit.PERCENTAGE);
+
+        return card;
+    }
+
+    private CssLayout createDateFields(boolean light) {
+        MDDateField tf1 = createDateField("Floating label", null, null, null, true, light);
+        MDDateField tf2 = createDateField("Hint text", null, null, null, false, light);
+        MDDateField tf3 = createDateField("Floating label with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, true, light);
+        MDDateField tf4 = createDateField("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, light);
+        MDDateField tf5 = createDateField("Floating label", "Helper information goes here!", "Empty value not allowed", null, true, light);
         tf5.setEnabled(false);
 
         FlexLayout card = new FlexLayout(tf1, tf2, tf3, tf4, tf5);
@@ -114,8 +135,26 @@ public class MenusView extends CssLayout {
         return cb;
     }
 
-    private MDDateField createDatePicker(String label, String helper, String error, MaterialIcons icon, boolean floating, boolean light) {
+    private MDDateField createDateField(String label, String helper, String error, MaterialIcons icon, boolean floating, boolean light) {
         MDDateField cb = new MDDateField(label, light);
+        if (helper != null) cb.setHelper(helper);
+        if (icon != null) cb.setIcon(icon);
+        if (error != null) {
+            cb.addValueChangeListener(event -> {
+                if (event.getValue() == null) {
+                    cb.setComponentError(new UserError(error));
+                } else {
+                    cb.setComponentError(null);
+                }
+            });
+            cb.setComponentError(new UserError(error));
+        }
+        cb.setFloatingLabelEnabled(floating);
+        return cb;
+    }
+
+    private MDDateTimeField createDateTimeField(String label, String helper, String error, MaterialIcons icon, boolean floating, boolean light) {
+        MDDateTimeField cb = new MDDateTimeField(label, light);
         if (helper != null) cb.setHelper(helper);
         if (icon != null) cb.setIcon(icon);
         if (error != null) {

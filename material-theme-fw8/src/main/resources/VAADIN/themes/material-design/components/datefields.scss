@@ -397,6 +397,56 @@ $md-datefield-popup-dark-ripple-color: $md-divider-light !default;
         content: "S";
       }
     }
+
+    .v-datefield-time {
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      margin-bottom: $md-u2;
+      margin-top: $md-u2;
+      position: relative;
+
+      &::after {
+        @include MaterialIcons;
+        color: $secondary-color;
+        content: $md-combobox-button-icon;
+        right: 0;
+        pointer-events: none;
+        position: absolute;
+        top: ($md-textfield-input-height - $md-icon-size) / 2;
+      }
+
+      .v-select {
+        @include md-subheader-font($primary-color);
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: inset 0 -1px 0 $line-color,
+                          0  1px 0 transparent;
+        cursor: pointer;
+        height: $md-textfield-input-height;
+        padding-right: $md-u4;
+      }
+
+      .v-label {
+        align-items: center;
+        display: flex;
+        height: $md-textfield-input-height;
+        justify-content: center;
+        position: relative;
+        width: $md-icon-size;
+
+        &::before {
+          @include MaterialIcons;
+          color: $secondary-color;
+          content: $md-combobox-button-icon;
+          left: -$md-u3;
+          pointer-events: none;
+          position: absolute;
+          top: ($md-textfield-input-height - $md-icon-size) / 2;
+        }
+      }
+    }
   }
 
   .v-datefield-selecteddate {
