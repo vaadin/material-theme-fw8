@@ -153,6 +153,8 @@ public class Stepper extends FlexLayout {
             addComponents(stepLabel, column);
         }
 
+        public void setStepLabel(String value) { this.stepLabel.setValue(value); }
+
         public void setNameLabel(String value) {
             this.nameLabel.setValue(value);
         }
@@ -162,7 +164,7 @@ public class Stepper extends FlexLayout {
         }
 
         public void setInactive(boolean updateIcon) {
-            if (updateIcon) this.stepLabel.setValue(Integer.toString(step));
+            if (updateIcon) setStepLabel(Integer.toString(step));
             this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.addStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
@@ -174,7 +176,7 @@ public class Stepper extends FlexLayout {
         }
 
         public void setActive(boolean updateIcon) {
-            if (updateIcon) this.stepLabel.setValue(Integer.toString(step));
+            if (updateIcon) setStepLabel(Integer.toString(step));
             this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.addStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
@@ -186,7 +188,7 @@ public class Stepper extends FlexLayout {
         }
 
         public void setInvalid(boolean updateIcon) {
-            if (updateIcon) this.stepLabel.setValue(MaterialIcons.WARNING.getHtml());
+            if (updateIcon) setStepLabel(MaterialIcons.WARNING.getHtml());
             this.stepLabel.addStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
@@ -198,7 +200,7 @@ public class Stepper extends FlexLayout {
         }
 
         public void setComplete(boolean updateIcon) {
-            if (updateIcon) this.stepLabel.setValue(MaterialIcons.CHECK.getHtml(MaterialIcons.Size.SMALL));
+            if (updateIcon) setStepLabel(MaterialIcons.CHECK.getHtml(MaterialIcons.Size.SMALL));
             this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.stepLabel.addStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
             this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
