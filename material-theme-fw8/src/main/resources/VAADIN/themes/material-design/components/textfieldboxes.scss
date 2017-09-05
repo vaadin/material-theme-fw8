@@ -1,54 +1,54 @@
-$md-textfieldbox-border-radius: 4px;
-$md-textfieldbox-height: 56px;
-$md-textfieldbox-input-height: 36px;
+$md-textfieldbox-border-radius: 4px !default;
+$md-textfieldbox-height: 56px !default;
+$md-textfieldbox-input-height: 36px !default;
 
 // Text field paddings
-$md-textfieldbox-pad-bottom: 8px;
-$md-textfieldbox-pad-top: $md-textfieldbox-height - $md-textfieldbox-input-height;
-$md-textfieldbox-pad-horizontal: 16px;
+$md-textfieldbox-pad-bottom: 8px !default;
+$md-textfieldbox-pad-top: $md-textfieldbox-height - $md-textfieldbox-input-height !default;
+$md-textfieldbox-pad-horizontal: 16px !default;
 
 // Background colors
-$md-textfieldbox-light-bg-color: rgba(0, 0, 0, 0.06);
-$md-textfieldbox-dark-bg-color: rgba(255, 255, 255, 0.1);
+$md-textfieldbox-light-bg-color: rgba(0, 0, 0, 0.06) !default;
+$md-textfieldbox-dark-bg-color: rgba(255, 255, 255, 0.1) !default;
 
 // Hover colors
-$md-textfieldbox-light-hover-bg-color: rgba(0, 0, 0, 0.1);
-$md-textfieldbox-dark-hover-bg-color: rgba(255, 255, 255, 0.16);
+$md-textfieldbox-light-hover-bg-color: rgba(0, 0, 0, 0.1) !default;
+$md-textfieldbox-dark-hover-bg-color: rgba(255, 255, 255, 0.16) !default;
 
 // Focus colors
-$md-textfieldbox-light-focus-color: $md-blue-a700;
-$md-textfieldbox-dark-focus-color: $md-blue-a200;
+$md-textfieldbox-light-focus-color: $md-blue-a700 !default;
+$md-textfieldbox-dark-focus-color: $md-blue-a200 !default;
 
 // Error colors
-$md-textfieldbox-light-error-color: $md-red-a400;
-$md-textfieldbox-dark-error-color: $md-red-a400;
+$md-textfieldbox-light-error-color: $md-red-a400 !default;
+$md-textfieldbox-dark-error-color: $md-red-a400 !default;
 
 // Disabled colors
-$md-textfieldbox-light-disabled-bg-color: rgba(0, 0, 0, 0.03);
-$md-textfieldbox-light-disabled-color: rgba(0, 0, 0, 0.42);
-$md-textfieldbox-dark-disabled-bg-color: rgba(255, 255, 255, 0.05);
-$md-textfieldbox-dark-disabled-color: $md-disabled-light;
+$md-textfieldbox-light-disabled-bg-color: rgba(0, 0, 0, 0.03) !default;
+$md-textfieldbox-light-disabled-color: rgba(0, 0, 0, 0.42) !default;
+$md-textfieldbox-dark-disabled-bg-color: rgba(255, 255, 255, 0.05) !default;
+$md-textfieldbox-dark-disabled-color: $md-disabled-light !default;
 
 // Line colors
-$md-textfieldbox-light-line-color: rgba(0, 0, 0, 0.42);
-$md-textfieldbox-dark-line-color: rgba(255, 255, 255, 0.7);
+$md-textfieldbox-light-line-color: rgba(0, 0, 0, 0.42) !default;
+$md-textfieldbox-dark-line-color: rgba(255, 255, 255, 0.7) !default;
 
 // Floating label positions
-$md-textfieldbox-floatinglabel-top: 8px;
-$md-textfieldbox-restinglabel-top: ($md-textfieldbox-height - $md-subheader-line-height)/2;
+$md-textfieldbox-floatinglabel-top: 8px !default;
+$md-textfieldbox-restinglabel-top: ($md-textfieldbox-height - $md-subheader-line-height)/2 !default;
 
 // Helper label padding
-$md-textfieldbox-helper-pad-vertical: 6px;
+$md-textfieldbox-helper-pad-vertical: 6px !default;
 
 // Icon
-$md-textfieldbox-icon-pad-right: 16px;
-$md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)/2;
+$md-textfieldbox-icon-pad-right: 16px !default;
+$md-textfieldbox-icon-top: ($md-textfieldbox-height - $md-subheader-line-height)/2 !default;
 
 // Ripple color, size and duration
-$md-textfieldbox-ripple-duration: 1.2s;
-$md-textfieldbox-ripple-size: 560px;
-$md-textfieldbox-light-ripple-color: rgba(0, 0, 0, 0.06);
-$md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1);
+$md-textfieldbox-ripple-duration: 1.2s !default;
+$md-textfieldbox-ripple-size: 560px !default;
+$md-textfieldbox-light-ripple-color: rgba(0, 0, 0, 0.06) !default;
+$md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1) !default;
 
 
 @mixin textfieldboxes {
