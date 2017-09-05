@@ -2,13 +2,13 @@ package org.vaadin.components.lists;
 
 import com.vaadin.event.LayoutEvents;
 import com.vaadin.server.ThemeResource;
-import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import org.vaadin.components.MDCheckbox;
 import org.vaadin.style.MaterialColor;
 import org.vaadin.style.MaterialIcons;
+import org.vaadin.style.Styles;
 
 import static com.vaadin.shared.ui.ContentMode.HTML;
 
@@ -43,6 +43,20 @@ public abstract class ListItem extends CssLayout {
         actionPrimary.setPrimaryStyleName("md-listitem-primary");
         actionSecondary.setPrimaryStyleName("md-listitem-secondary");
     }
+
+
+    public CssLayout getContentLayout() {
+        return content;
+    }
+
+    public CssLayout getPrimaryLayout() {
+        return actionPrimary;
+    }
+
+    public CssLayout getSecondaryLayout() {
+        return actionSecondary;
+    }
+
 
     private void initIconPrimary() {
         iconPrimary.setPrimaryStyleName("md-listitem-icon");
@@ -95,20 +109,6 @@ public abstract class ListItem extends CssLayout {
         iconPrimary.setIcon(icon);
     }
 
-    public void setPrimaryIconSize(IconSize size) {
-        iconPrimary.setSize(size);
-    }
-
-    public void setPrimaryCheckBox(MDCheckbox checkbox) {
-        iconPrimary.setVisible(true);
-        iconPrimary.setCheckBox(checkbox);
-        addPrimaryActionListener((LayoutEvents.LayoutClickListener) e -> checkbox.setValue(!checkbox.getValue()));
-    }
-
-    public ListItemIcon getPrimaryIcon() {
-        return iconPrimary;
-    }
-
     public void setPrimaryIcon(String html) {
         iconPrimary.setVisible(true);
         iconPrimary.setIcon(html);
@@ -119,9 +119,37 @@ public abstract class ListItem extends CssLayout {
         iconPrimary.setIcon(image);
     }
 
+    public void setPrimaryIconSize(IconSize size) {
+        iconPrimary.setSize(size);
+    }
+
+    public void setPrimaryCheckBox(MDCheckbox checkbox) {
+        iconPrimary.setVisible(true);
+        iconPrimary.setCheckBox(checkbox);
+        addPrimaryActionListener((LayoutEvents.LayoutClickListener) e -> checkbox.setValue(!checkbox.getValue()));
+    }
+
+    public void setPrimaryIconCircular(boolean circular) {
+        this.iconPrimary.setCircular(circular);
+    }
+
+    public ListItemIcon getPrimaryIcon() {
+        return iconPrimary;
+    }
+
     public void setSecondaryIcon(MaterialIcons icon) {
         setSecondaryIconVisible(true);
         iconSecondary.setIcon(icon);
+    }
+
+    public void setSecondaryIcon(String html) {
+        setSecondaryIconVisible(true);
+        iconSecondary.setIcon(html);
+    }
+
+    public void setSecondaryIcon(ThemeResource image) {
+        setSecondaryIconVisible(true);
+        iconSecondary.setIcon(image);
     }
 
     public void setSecondaryIconSize(IconSize size) {
@@ -134,19 +162,14 @@ public abstract class ListItem extends CssLayout {
         addSecondaryActionListener((LayoutEvents.LayoutClickListener) e -> checkbox.setValue(!checkbox.getValue()));
     }
 
+    public void setSecondaryIconCircular(boolean circular) {
+        this.iconSecondary.setCircular(circular);
+    }
+
     public ListItemIcon getSecondaryIcon() {
         return iconSecondary;
     }
 
-    public void setSecondaryIcon(String html) {
-        setSecondaryIconVisible(true);
-        iconSecondary.setIcon(html);
-    }
-
-    public void setSecondaryIcon(ThemeResource image) {
-        setSecondaryIconVisible(true);
-        iconSecondary.setIcon(image);
-    }
 
     public void addPrimaryActionListener(LayoutEvents.LayoutClickListener listener) {
         addStyleName("clickable");
@@ -227,6 +250,11 @@ public abstract class ListItem extends CssLayout {
             if (this.size != null) removeStyleName(this.size.getStyleName());
             this.size = size;
             addStyleName(this.size.getStyleName());
+        }
+
+        public void setCircular(boolean circular) {
+            if (circular) addStyleName(Styles.Misc.BORDER_RADIUS_FULL);
+            else removeStyleName(Styles.Misc.BORDER_RADIUS_FULL);
         }
     }
 }

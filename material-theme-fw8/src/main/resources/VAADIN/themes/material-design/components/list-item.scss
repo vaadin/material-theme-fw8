@@ -44,10 +44,10 @@ $md-listitem-ripple-duration: 1.6s !default;
   .md-listitem-icon {
     align-items: center;
     align-self: center;
-    border-radius: 100%;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
+    overflow: hidden;
 
     .v-label {
       display: flex;
@@ -56,10 +56,6 @@ $md-listitem-ripple-duration: 1.6s !default;
     .v-image {
       max-height: 100%;
       max-width: 100%;
-    }
-
-    &.image {
-      overflow: hidden;
     }
   }
 
