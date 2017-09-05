@@ -61,7 +61,7 @@ $md-datepicker-dark-ripple-color: $md-divider-light !default;
 
   .#{$primaryStyleName} {
     display: inline-flex;
-    
+
     table {
       border-collapse: collapse;
     }
@@ -114,9 +114,10 @@ $md-datepicker-dark-ripple-color: $md-divider-light !default;
       width: $md-datepicker-cell-width;
 
       strong {
-        display: none;
+      //  display: none;
       }
 
+      /* Disabled until locale fix.
       &:nth-child(2)::after {
         content: "S";
       }
@@ -138,6 +139,7 @@ $md-datepicker-dark-ripple-color: $md-divider-light !default;
       &:nth-child(8)::after {
         content: "S";
       }
+      */
     }
   }
 
