@@ -22,19 +22,6 @@ public class NavigationItem extends Button {
         this.component = component;
     }
 
-    @Override
-    public boolean equals(Object other) {
-        if (other != null && other instanceof NavigationItem) {
-            return ((NavigationItem) other).getCaption().equals(getCaption());
-        }
-        return false;
-    }
-
-    @Override
-    public int hashCode() {
-        return getCaption().hashCode();
-    }
-
     public Component getComponent() {
         return component;
     }
