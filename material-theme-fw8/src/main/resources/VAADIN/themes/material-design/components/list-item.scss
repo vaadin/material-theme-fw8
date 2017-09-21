@@ -28,6 +28,7 @@ $md-listitem-ripple-duration: 1.6s !default;
   }
 
   .md-listitem-secondary {
+    align-items: center;
     display: flex;
   }
 
@@ -43,11 +44,11 @@ $md-listitem-ripple-duration: 1.6s !default;
 
   .md-listitem-icon {
     align-items: center;
-    align-self: center;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
     overflow: hidden;
+    pointer-events: none;
 
     .v-label {
       display: flex;

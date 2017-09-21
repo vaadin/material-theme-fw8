@@ -2,6 +2,7 @@ package org.vaadin.materialdesign;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.annotations.Viewport;
 import com.vaadin.server.Resource;
 import com.vaadin.server.Responsive;
 import com.vaadin.server.VaadinRequest;
@@ -19,6 +20,7 @@ import org.vaadin.views.*;
 
 import javax.servlet.annotation.WebServlet;
 
+//@Viewport("width=device-width, initial-scale=1, user-scalable=no")
 @Theme("material-design")
 public class DemoUI extends UI {
 
