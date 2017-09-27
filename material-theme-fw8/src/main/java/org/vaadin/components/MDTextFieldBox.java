@@ -135,4 +135,10 @@ public class MDTextFieldBox extends CssLayout {
         }
     }
 
+    public void setReadOnly(boolean readOnly) {
+        setEnabled(!readOnly);
+        if (readOnly) addStyleName("v-readonly");
+        else removeStyleName("v-readonly");
+    }
+
 }

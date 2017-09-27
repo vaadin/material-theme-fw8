@@ -136,6 +136,25 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
   }
 
 
+  // Read-only
+  .#{$primaryStyleName}.v-readonly {
+    .#{$primaryStyleName}-label,
+    .#{$primaryStyleName}-icon,
+    .#{$primaryStyleName}-helper {
+      color: $secondary-color;
+    }
+    .#{$primaryStyleName}-input {
+      background-image: linear-gradient(to right, $line-color 50%, transparent 0%);
+      background-position: bottom;
+      background-repeat: repeat-x;
+      background-size: 4px 1px;
+      box-shadow: none;
+      color: $primary-color;
+      cursor: default;
+    }
+  }
+
+
   // Floating label
   .#{$primaryStyleName}-label {
     @include md-caption-font($secondary-color);
@@ -202,10 +221,6 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
     padding: 0;
     text-overflow: ellipsis;
     outline: none;
-
-    &.v-readonly {
-      box-shadow: none;
-    }
 
     &::-webkit-input-placeholder,
     &::-moz-placeholder,

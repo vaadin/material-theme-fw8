@@ -188,4 +188,10 @@ public class MDTextField extends CssLayout {
             this.label.removeStyleName("hint");
         }
     }
+
+    public void setReadOnly(boolean readOnly) {
+        setEnabled(!readOnly);
+        if (readOnly) addStyleName("v-readonly");
+        else removeStyleName("v-readonly");
+    }
 }

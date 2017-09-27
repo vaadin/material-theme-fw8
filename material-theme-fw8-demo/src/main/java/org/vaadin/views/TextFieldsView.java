@@ -38,8 +38,8 @@ public class TextFieldsView extends CssLayout {
 		MDTextFieldBox tf7 = createTextFieldBox("Text field box", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, light);
 
 		MDTextFieldBox tf8 = createTextFieldBox("Floating label", "Helper information goes here!", "Empty value not allowed", null, light);
-		tf8.setValue("Disabled");
-		tf8.setEnabled(false);
+		tf8.setValue("Read-only");
+		tf8.setReadOnly(true);
 
 		MDTextAreaBox tf9 = createTextAreaBox("Text area box", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, light);
 		tf9.setRows(3);

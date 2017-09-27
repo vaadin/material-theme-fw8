@@ -172,6 +172,26 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1) !default;
   }
 
 
+  // Disabled
+  .#{$primaryStyleName}.v-readonly {
+    .#{$primaryStyleName}-label,
+    .#{$primaryStyleName}-icon,
+    .#{$primaryStyleName}-helper {
+      color: $secondary-color;
+    }
+    .#{$primaryStyleName}-input {
+      color: $primary-color;
+    }
+    .#{$primaryStyleName}-ripple {
+      background-color: $disabled-bg-color;
+      &::before,
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+
   // Floating label
   .#{$primaryStyleName}-label {
     @include md-caption-font($secondary-color);
@@ -229,10 +249,6 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1) !default;
     padding: $md-textfieldbox-pad-top $md-textfieldbox-pad-horizontal 0 $md-textfieldbox-pad-horizontal;
     text-overflow: ellipsis;
     outline: none;
-
-    &.v-readonly {
-      box-shadow: none;
-    }
 
     &::-webkit-input-placeholder,
     &::-moz-placeholder,
