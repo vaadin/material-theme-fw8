@@ -180,6 +180,12 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
     position: absolute;
     top: $md-textfield-icon-top;
     width: $md-icon-size;
+
+    div, img {
+      display: flex;
+      max-height: 100%;
+      max-width: 100%;
+    }
   }
 
 
