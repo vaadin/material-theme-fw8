@@ -23,7 +23,7 @@ public class IconButton extends Button {
         setPrimaryStyleName(light ? Styles.Buttons.IconButtons.LIGHT : Styles.Buttons.IconButtons.DARK);
     }
 
-    private void setSize(Size size) {
+    public void setSize(Size size) {
         for (Size value : Size.values()) {
             removeStyleName(value.getStyleName());
         }
