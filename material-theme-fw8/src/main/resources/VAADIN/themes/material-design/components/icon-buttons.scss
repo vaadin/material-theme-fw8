@@ -30,7 +30,12 @@ $md-iconbtn-dark-focus-bg-color: $md-divider-dark !default;
 }
 
 
-@mixin md-iconbtn($font-color, $disabled-font-color, $focus-bg-color) {
+@mixin md-iconbtn(
+  $primaryStyleName,
+  $font-color,
+  $disabled-font-color,
+  $focus-bg-color) {
+
   .#{$primaryStyleName} {
     @include md-ripple-btn($focus-bg-color, $md-iconbtn-ripple-size);
     @include md-cubic-std;
