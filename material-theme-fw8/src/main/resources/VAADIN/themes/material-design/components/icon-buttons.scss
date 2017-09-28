@@ -15,47 +15,55 @@ $md-iconbtn-dark-focus-bg-color: $md-divider-dark !default;
 
 
 @mixin icon-buttons {
-  .md-iconbtn-light {
-    @include md-iconbtn($md-iconbtn-light-font-color, $md-iconbtn-light-disabled-font-color, $md-iconbtn-light-focus-bg-color);
-  }
-  .md-iconbtn-dark {
-    @include md-iconbtn($md-iconbtn-dark-font-color, $md-iconbtn-dark-disabled-font-color, $md-iconbtn-dark-focus-bg-color);
-  }
+  @include md-iconbtn(
+    md-iconbtn-light,
+    $md-iconbtn-light-font-color,
+    $md-iconbtn-light-disabled-font-color,
+    $md-iconbtn-light-focus-bg-color
+  );
+  @include md-iconbtn(
+    md-iconbtn-dark,
+    $md-iconbtn-dark-font-color,
+    $md-iconbtn-dark-disabled-font-color,
+    $md-iconbtn-dark-focus-bg-color
+  );
 }
 
 
 @mixin md-iconbtn($font-color, $disabled-font-color, $focus-bg-color) {
-  @include md-ripple-btn($focus-bg-color, $md-iconbtn-ripple-size);
-  @include md-cubic-std;
-  align-items: center;
-  color: $font-color;
-  cursor: pointer;
-  display: flex;
-  height: $md-iconbtn-size;
-  justify-content: center;
-  position: relative;
-  width: $md-iconbtn-size;
-
-  // Disabled style
-  &.v-disabled {
-    color: $disabled-font-color;
-    cursor: default;
-  }
-
-  * {
+  .#{$primaryStyleName} {
+    @include md-ripple-btn($focus-bg-color, $md-iconbtn-ripple-size);
+    @include md-cubic-std;
     align-items: center;
+    color: $font-color;
+    cursor: pointer;
     display: flex;
+    height: $md-iconbtn-size;
+    justify-content: center;
+    position: relative;
+    width: $md-iconbtn-size;
+
+    // Disabled style
+    &.v-disabled {
+      color: $disabled-font-color;
+      cursor: default;
+    }
+
+    * {
+      align-items: center;
+      display: flex;
+    }
   }
 
-  &.small {
+  .#{$primaryStyleName}-small .v-icon {
     font-size: $md-iconbtn-font-size-small;
   }
 
-  &.medium {
+  .#{$primaryStyleName}-medium .v-icon {
     font-size: $md-iconbtn-font-size-medium;
   }
 
-  &.large {
+  .#{$primaryStyleName}-large .v-icon {
     font-size: $md-iconbtn-font-size-large;
   }
 }

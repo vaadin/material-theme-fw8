@@ -23,23 +23,27 @@ $md-raisedbtn-dark-disabled-bg-color: rgba(255, 255, 255, 0.12) !default;
 
 @mixin raised-buttons {
   .md-raisedbtn-light {
-    @include md-raisedbtn($md-raisedbtn-light-font-color,
-                       $md-raisedbtn-light-bg-color,
-                       $md-raisedbtn-light-focus-bg-color,
-                       $md-raisedbtn-light-disabled-font-color,
-                       $md-raisedbtn-light-disabled-bg-color,
-                       $md-raisedbtn-light-ripple-color,
-                       $md-raisedbtn-ripple-size);
+    @include md-raisedbtn(
+      $md-raisedbtn-light-font-color,
+      $md-raisedbtn-light-bg-color,
+      $md-raisedbtn-light-focus-bg-color,
+      $md-raisedbtn-light-disabled-font-color,
+      $md-raisedbtn-light-disabled-bg-color,
+      $md-raisedbtn-light-ripple-color,
+      $md-raisedbtn-ripple-size
+    );
   }
 
   .md-raisedbtn-dark {
-    @include md-raisedbtn($md-raisedbtn-dark-font-color,
-                       $md-raisedbtn-dark-bg-color,
-                       $md-raisedbtn-dark-focus-bg-color,
-                       $md-raisedbtn-dark-disabled-font-color,
-                       $md-raisedbtn-dark-disabled-bg-color,
-                       $md-raisedbtn-dark-ripple-color,
-                       $md-raisedbtn-ripple-size);
+    @include md-raisedbtn(
+      $md-raisedbtn-dark-font-color,
+      $md-raisedbtn-dark-bg-color,
+      $md-raisedbtn-dark-focus-bg-color,
+      $md-raisedbtn-dark-disabled-font-color,
+      $md-raisedbtn-dark-disabled-bg-color,
+      $md-raisedbtn-dark-ripple-color,
+      $md-raisedbtn-ripple-size
+    );
   }
 }
 
