@@ -1,6 +1,10 @@
 $md-iconbtn-size: 24px !default;
 $md-iconbtn-ripple-size: 48px !default;
 
+$md-iconbtn-font-size-small: 18px !default;
+$md-iconbtn-font-size-medium: 24px !default;
+$md-iconbtn-font-size-large: 48px !default;
+
 $md-iconbtn-light-font-color: $md-secondary-light !default;
 $md-iconbtn-light-disabled-font-color: $md-disabled-light !default;
 $md-iconbtn-light-focus-bg-color: rgba(255, 255, 255, 0.3) !default;
@@ -41,5 +45,17 @@ $md-iconbtn-dark-focus-bg-color: $md-divider-dark !default;
   * {
     align-items: center;
     display: flex;
+  }
+
+  &.small {
+    font-size: $md-iconbtn-font-size-small;
+  }
+
+  &.medium {
+    font-size: $md-iconbtn-font-size-medium;
+  }
+
+  &.large {
+    font-size: $md-iconbtn-font-size-large;
   }
 }
