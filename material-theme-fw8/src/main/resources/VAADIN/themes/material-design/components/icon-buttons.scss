@@ -1,9 +1,9 @@
 $md-iconbtn-size: 24px !default;
 $md-iconbtn-ripple-size: 48px !default;
 
-$md-iconbtn-font-size-small: 18px !default;
-$md-iconbtn-font-size-medium: 24px !default;
-$md-iconbtn-font-size-large: 48px !default;
+$md-iconbtn-size-small: 18px !default;
+$md-iconbtn-size-medium: 24px !default;
+$md-iconbtn-size-large: 48px !default;
 
 $md-iconbtn-light-font-color: $md-secondary-light !default;
 $md-iconbtn-light-disabled-font-color: $md-disabled-light !default;
@@ -60,15 +60,30 @@ $md-iconbtn-dark-focus-bg-color: $md-divider-dark !default;
     }
   }
 
-  .#{$primaryStyleName}-small .v-icon {
-    font-size: $md-iconbtn-font-size-small;
+  .#{$primaryStyleName}-small {
+    height: $md-iconbtn-size-small;
+    width: $md-iconbtn-size-small;
+
+    .v-icon {
+      font-size: $md-iconbtn-size-small;
+    }
   }
 
-  .#{$primaryStyleName}-medium .v-icon {
-    font-size: $md-iconbtn-font-size-medium;
+  .#{$primaryStyleName}-medium {
+    height: $md-iconbtn-size-medium;
+    width: $md-iconbtn-size-medium;
+
+    .v-icon {
+      font-size: $md-iconbtn-size-medium;
+    }
   }
 
-  .#{$primaryStyleName}-large .v-icon {
-    font-size: $md-iconbtn-font-size-large;
+  .#{$primaryStyleName}-large {
+    height: $md-iconbtn-size-large;
+    width: $md-iconbtn-size-large;
+
+    .v-icon {
+      font-size: $md-iconbtn-size-large;
+    }
   }
 }
