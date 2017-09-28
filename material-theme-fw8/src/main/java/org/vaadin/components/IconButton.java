@@ -22,4 +22,27 @@ public class IconButton extends Button {
     private void initTheme(boolean light) {
         setPrimaryStyleName(light ? Styles.Buttons.IconButtons.LIGHT : Styles.Buttons.IconButtons.DARK);
     }
+
+    private void setSize(Size size) {
+        for (Size value : Size.values()) {
+            removeStyleName(value.getStyleName());
+        }
+        addStyleName(size.getStyleName());
+    }
+
+    public enum Size {
+        SMALL("small"),
+        MEDIUM("medium"),
+        LARGE("large");
+
+        private final String styleName;
+
+        Size(String styleName) {
+            this.styleName = styleName;
+        }
+
+        public String getStyleName() {
+            return styleName;
+        }
+    }
 }
