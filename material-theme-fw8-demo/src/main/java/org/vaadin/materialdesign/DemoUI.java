@@ -57,7 +57,7 @@ public class DemoUI extends UI {
 
     private void addNavItem(Resource icon, String caption, Component view) {
         NavigationItem item = new NavigationItem(icon, caption, view);
-        item.addClickListener(event -> {
+        item.addLayoutClickListener(event -> {
             navigationDrawer.selectNavigationItem(item);
             content.removeAllComponents();
             content.addComponent(item.getComponent());

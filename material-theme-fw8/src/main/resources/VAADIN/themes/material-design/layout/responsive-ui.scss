@@ -1,28 +1,9 @@
 @mixin responsive-ui {
   .root {
-
+    
     /* MOBILE */
     &[width-range~="0-960px"] {
       padding-top: $md-appbar-height-mobile;
-
-      // Navigation drawer
-      .md-navidrawer {
-        margin-left: -$md-navidrawer-width-mobile;
-        top: $md-appbar-height-mobile;
-        width: $md-navidrawer-width-mobile;
-
-        &.visible {
-          margin-left: 0;
-
-          + .content {
-            padding-left: $md-navidrawer-width-mobile;
-          }
-        }
-      }
-
-      .md-naviitem {
-        padding-left: $md-gutter-mobile;
-      }
 
       // Tabs
       .md-tab-light,
@@ -34,29 +15,9 @@
       }
     }
 
-
     /* TABLET & DESKTOP */
     &[width-range~="961px-"] {
       padding-top: $md-appbar-height-tablet;
-
-      // Navigation drawer
-      .md-navidrawer {
-        margin-left: -$md-navidrawer-width-tablet;
-        top: $md-appbar-height-tablet;
-        width: $md-navidrawer-width-tablet;
-
-        &.visible {
-          margin-left: 0;
-
-          + .content {
-            padding-left: $md-navidrawer-width-tablet;
-          }
-        }
-      }
-
-      .md-naviitem {
-        padding-left: $md-gutter-tablet;
-      }
 
       // Tabs
       .md-tab-light,
