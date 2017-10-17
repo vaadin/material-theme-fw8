@@ -3,6 +3,7 @@ $md-flatbtn-pad-horizontal: 8px !default;
 $md-flatbtn-ripple-duration: 1.6s !default;
 $md-flatbtn-ripple-size: 160px !default;
 $md-flatbtn-width-min: 64px !default;
+$md-flatbtn-icon-pad-right: 8px !default;
 
 // Flat light
 $md-flatbtn-light-font-color: $md-blue-500 !default;
@@ -18,51 +19,66 @@ $md-flatbtn-dark-disabled-font-color: rgba(255, 255, 255, 0.3) !default;
 
 
 @mixin flat-buttons {
-  .md-flatbtn-light {
-    @include md-flatbtn(
-      $md-flatbtn-light-font-color,
-      $md-flatbtn-light-focus-bg-color,
-      $md-flatbtn-light-disabled-font-color,
-      $md-flatbtn-light-ripple-color,
-      $md-flatbtn-ripple-size
-    );
-  }
+  @include md-flatbtn(
+    md-flatbtn-light,
+    $md-flatbtn-light-font-color,
+    $md-flatbtn-light-focus-bg-color,
+    $md-flatbtn-light-disabled-font-color,
+    $md-flatbtn-light-ripple-color,
+    $md-flatbtn-ripple-size
+  );
 
-  .md-flatbtn-dark {
-    @include md-flatbtn(
-      $md-flatbtn-dark-font-color,
-      $md-flatbtn-dark-focus-bg-color,
-      $md-flatbtn-dark-disabled-font-color,
-      $md-flatbtn-dark-ripple-color,
-      $md-flatbtn-ripple-size
-    );
-  }
+  @include md-flatbtn(
+    md-flatbtn-dark,
+    $md-flatbtn-dark-font-color,
+    $md-flatbtn-dark-focus-bg-color,
+    $md-flatbtn-dark-disabled-font-color,
+    $md-flatbtn-dark-ripple-color,
+    $md-flatbtn-ripple-size
+  );
 }
 
 
-@mixin md-flatbtn($font-color, $focus-bg-color, $disabled-font-color, $ripple-color, $ripple-size) {
-  @include md-b2-font($font-color);
-  @include md-cubic-std;
-  @include md-ripple-btn($ripple-color, $ripple-size, $md-flatbtn-ripple-duration);
-  align-items: center;
-  background: none;
-  border-radius: $md-btn-border-radius;
-  cursor: pointer;
-  display: inline-flex;
-  height: $md-btn-height;
-  justify-content: center;
-  min-width: $md-flatbtn-width-min;
-  overflow: hidden;
-  padding: 0 $md-flatbtn-pad-horizontal;
-  text-transform: uppercase;
+@mixin md-flatbtn(
+  $primaryStyleName,
+  $font-color,
+  $focus-bg-color,
+  $disabled-font-color,
+  $ripple-color,
+  $ripple-size) {
 
-  &:focus {
-    background-color: $focus-bg-color;
+  .#{$primaryStyleName} {
+    @include md-b2-font($font-color);
+    @include md-cubic-std;
+    @include md-ripple-btn($ripple-color, $ripple-size, $md-flatbtn-ripple-duration);
+    align-items: center;
+    background: none;
+    border-radius: $md-btn-border-radius;
+    cursor: pointer;
+    display: inline-flex;
+    height: $md-btn-height;
+    justify-content: center;
+    min-width: $md-flatbtn-width-min;
+    overflow: hidden;
+    padding: 0 $md-flatbtn-pad-horizontal;
+    text-transform: uppercase;
+
+    &:focus {
+      background-color: $focus-bg-color;
+    }
+
+    &.v-disabled {
+      background-color: transparent;
+      color: $disabled-font-color;
+      cursor: default;
+    }
+
+    .v-icon + .#{$primaryStyleName}-caption:not(:empty) {
+      padding-left: $md-flatbtn-icon-pad-right;
+    }
   }
 
-  &.v-disabled {
-    background-color: transparent;
-    color: $disabled-font-color;
-    cursor: default;
+  .#{$primaryStyleName}-wrap {
+    display: flex;
   }
 }
