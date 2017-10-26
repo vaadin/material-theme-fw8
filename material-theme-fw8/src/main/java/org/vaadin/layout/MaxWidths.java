@@ -4,6 +4,7 @@ package org.vaadin.layout;
  * Created by jonte on 03/04/2017.
  */
 public class MaxWidths {
+    public static final String MW_FULL = new String("max-width-full");
     public static final String MW_400 = new String("max-width-400");
     public static final String MW_720 = new String("max-width-720");
     public static final String MW_1024 = new String("max-width-1024");
