@@ -196,10 +196,13 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1) !default;
   .#{$primaryStyleName}-label {
     @include md-caption-font($secondary-color);
     margin-left: $md-textfieldbox-pad-horizontal;
+    max-width: calc(100% - ($md-textfieldbox-pad-horizontal * 2));
+    overflow: hidden;
     pointer-events: none;
     position: absolute;
+    text-overflow: ellipsis;
     top: $md-textfieldbox-floatinglabel-top;
-    white-space: nowrap;
+    white-space: normal;
   }
   .#{$primaryStyleName}-label-fade {
     opacity: 0;
@@ -207,6 +210,7 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1) !default;
   .#{$primaryStyleName}-label-hint {
     @include md-subheader-font($secondary-color);
     top: $md-textfieldbox-restinglabel-top;
+    white-space: normal;
   }
 
 
