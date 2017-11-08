@@ -202,7 +202,7 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1) !default;
     position: absolute;
     text-overflow: ellipsis;
     top: $md-textfieldbox-floatinglabel-top;
-    white-space: normal;
+    white-space: nowrap;
   }
   .#{$primaryStyleName}-label-fade {
     opacity: 0;
