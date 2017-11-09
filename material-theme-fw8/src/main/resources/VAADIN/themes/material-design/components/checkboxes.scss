@@ -16,36 +16,71 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
 
 
 @mixin checkboxes {
-  @include md-checkbox(md-checkbox-light,
-                       $md-primary-dark,
-                       $md-secondary-dark,
-                       $md-disabled-dark,
-                       $md-cb-light-disabled-opacity,
-                       $md-cb-light-checked-color,
-                       $md-cb-light-ripple-color-on,
-                       $md-cb-light-ripple-color-off,
-                       $md-cb-light-ripple-size);
-  @include md-checkbox(md-checkbox-dark,
-                       $md-primary-light,
-                       $md-secondary-light,
-                       $md-disabled-light,
-                       $md-cb-dark-disabled-opacity,
-                       $md-cb-dark-checked-color,
-                       $md-cb-dark-ripple-color-on,
-                       $md-cb-dark-ripple-color-off,
-                       $md-cb-dark-ripple-size);
+  
+  @include md-checkbox(
+    md-checkbox-light,
+    $md-primary-dark,
+    $md-secondary-dark,
+    $md-disabled-dark,
+    $md-cb-light-disabled-opacity,
+    $md-cb-light-checked-color,
+    $md-cb-light-ripple-color-on,
+    $md-cb-light-ripple-color-off,
+    $md-cb-light-ripple-size
+  );
+
+  @include md-checkbox(
+    md-checkbox-dark,
+    $md-primary-light,
+    $md-secondary-light,
+    $md-disabled-light,
+    $md-cb-dark-disabled-opacity,
+    $md-cb-dark-checked-color,
+    $md-cb-dark-ripple-color-on,
+    $md-cb-dark-ripple-color-off,
+    $md-cb-dark-ripple-size
+  );
+
+  .md-checkboxgroup-light {
+    @include md-checkbox(
+      v-checkbox,
+      $md-primary-dark,
+      $md-secondary-dark,
+      $md-disabled-dark,
+      $md-cb-light-disabled-opacity,
+      $md-cb-light-checked-color,
+      $md-cb-light-ripple-color-on,
+      $md-cb-light-ripple-color-off,
+      $md-cb-light-ripple-size
+    );
+  }
+
+  .md-checkboxgroup-dark {
+    @include md-checkbox(
+      v-checkbox,
+      $md-primary-light,
+      $md-secondary-light,
+      $md-disabled-light,
+      $md-cb-dark-disabled-opacity,
+      $md-cb-dark-checked-color,
+      $md-cb-dark-ripple-color-on,
+      $md-cb-dark-ripple-color-off,
+      $md-cb-dark-ripple-size
+    );
+  }
 }
 
 
-@mixin md-checkbox($primaryStyleName,
-                   $primary-color,
-                   $secondary-color,
-                   $disabled-color,
-                   $disabled-opacity,
-                   $checked-color,
-                   $ripple-color-on,
-                   $ripple-color-off,
-                   $ripple-size) {
+@mixin md-checkbox(
+  $primaryStyleName,
+  $primary-color,
+  $secondary-color,
+  $disabled-color,
+  $disabled-opacity,
+  $checked-color,
+  $ripple-color-on,
+  $ripple-color-off,
+  $ripple-size) {
 
   .#{$primaryStyleName} {
     align-items: flex-start;
@@ -136,11 +171,12 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
 }
 
 
-@mixin md-grid-checkbox($secondary-color,
-                        $checked-color,
-                        $ripple-color-on,
-                        $ripple-color-off,
-                        $ripple-size) {
+@mixin md-grid-checkbox(
+  $secondary-color,
+  $checked-color,
+  $ripple-color-on,
+  $ripple-color-off,
+  $ripple-size) {
 
   input {
     cursor: pointer;

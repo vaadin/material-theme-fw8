@@ -80,6 +80,11 @@ public class Styles {
         public static final String DARK = "md-checkbox-dark";
     }
 
+    public static class CheckBoxGroup {
+        public static final String LIGHT = "md-checkboxgroup-light";
+        public static final String DARK = "md-checkboxgroup-dark";
+    }
+
     public static class Switches {
         public static final String LIGHT = "md-switch-light";
         public static final String DARK = "md-switch-dark";
