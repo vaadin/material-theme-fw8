@@ -14,6 +14,7 @@ $md-listitem-ripple-duration: 1.6s !default;
     @include md-cubic-std;
     display: flex;
     overflow: hidden;
+    position: relative;
 
     &.clickable:hover {
       background-color: $md-listitem-hover-bg-color;
