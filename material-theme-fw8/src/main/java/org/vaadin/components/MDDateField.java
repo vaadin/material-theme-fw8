@@ -152,7 +152,9 @@ public class MDDateField extends CssLayout {
 
     private void updateFloatingLabelPosition(LocalDate value) {
         if (value == null) {
-            this.label.addStyleName("hint");
+            if (!getStyleName().contains("focus")) {
+                this.label.addStyleName("hint");
+            }
         } else {
             this.label.removeStyleName("hint");
         }

@@ -7,6 +7,7 @@ import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import org.vaadin.components.MDCheckbox;
+import org.vaadin.layout.FlexLayout;
 import org.vaadin.style.MaterialColor;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Styles;
@@ -115,11 +116,6 @@ public abstract class ListItem extends CssLayout {
         iconPrimary.setIcon(html);
     }
 
-    public void setPrimaryIcon(Resource image) {
-        iconPrimary.setVisible(true);
-        iconPrimary.setIcon(image);
-    }
-
     public void setPrimaryIconSize(IconSize size) {
         iconPrimary.setSize(size);
     }
@@ -138,6 +134,11 @@ public abstract class ListItem extends CssLayout {
         return iconPrimary;
     }
 
+    public void setPrimaryIcon(Resource image) {
+        iconPrimary.setVisible(true);
+        iconPrimary.setIcon(image);
+    }
+
     public void setSecondaryIcon(MaterialIcons icon) {
         setSecondaryIconVisible(true);
         iconSecondary.setIcon(icon);
@@ -146,11 +147,6 @@ public abstract class ListItem extends CssLayout {
     public void setSecondaryIcon(String html) {
         setSecondaryIconVisible(true);
         iconSecondary.setIcon(html);
-    }
-
-    public void setSecondaryIcon(ThemeResource image) {
-        setSecondaryIconVisible(true);
-        iconSecondary.setIcon(image);
     }
 
     public void setSecondaryIconSize(IconSize size) {
@@ -171,6 +167,10 @@ public abstract class ListItem extends CssLayout {
         return iconSecondary;
     }
 
+    public void setSecondaryIcon(ThemeResource image) {
+        setSecondaryIconVisible(true);
+        iconSecondary.setIcon(image);
+    }
 
     public void addPrimaryActionListener(LayoutEvents.LayoutClickListener listener) {
         addStyleName("clickable");
@@ -224,25 +224,21 @@ public abstract class ListItem extends CssLayout {
         }
 
         public void setIcon(MaterialIcons icon) {
-            removeStyleName("image");
             removeAllComponents();
             addComponent(new Label(icon.getHtml(), HTML));
         }
 
         public void setIcon(String html) {
-            removeStyleName("image");
             removeAllComponents();
             addComponent(new Label(html, HTML));
         }
 
         public void setIcon(Resource image) {
-            addStyleName("image");
             removeAllComponents();
             addComponent(new Image(null, image));
         }
 
         public void setCheckBox(MDCheckbox checkBox) {
-            removeStyleName("image");
             removeAllComponents();
             addComponent(checkBox);
         }
@@ -254,8 +250,13 @@ public abstract class ListItem extends CssLayout {
         }
 
         public void setCircular(boolean circular) {
-            if (circular) addStyleName(Styles.Misc.BORDER_RADIUS_FULL);
-            else removeStyleName(Styles.Misc.BORDER_RADIUS_FULL);
+            if (circular) {
+                addStyleName(Styles.Misc.BORDER_RADIUS_FULL);
+                addStyleName(FlexLayout.Overflow.HIDDEN.getStyleName());
+            } else {
+                removeStyleName(Styles.Misc.BORDER_RADIUS_FULL);
+                removeStyleName(FlexLayout.Overflow.HIDDEN.getStyleName());
+            }
         }
     }
 }

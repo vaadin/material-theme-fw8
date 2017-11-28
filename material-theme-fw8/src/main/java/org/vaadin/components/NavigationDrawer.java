@@ -49,13 +49,13 @@ public class NavigationDrawer extends CssLayout {
     }
 
     public void selectNavigationItem(NavigationItem item) {
-        for (NavigationItem current : items){
-            if (current.getCaption().equals(item.getCaption())){
+        for (NavigationItem current : items) {
+            if (current.getCaption().equals(item.getCaption())) {
                 item = current; // make sure we get the shown one, even when an equal item is passed in for reference.
                 break;
             }
-        }    
-    
+        }
+
         // Note that Vaadin Framework 8 assumes that 'equals'/'hashCode'
         // are not overridden in all implementations of Component.
         // Hence we do not override those in NavigationItem directly.

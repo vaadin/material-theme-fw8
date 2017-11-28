@@ -186,7 +186,9 @@ public class MDComboBox<T> extends CssLayout {
 
     private void updateFloatingLabelPosition(T value) {
         if (value == null) {
-            this.label.addStyleName("hint");
+            if (!getStyleName().contains("focus")) {
+                this.label.addStyleName("hint");
+            }
         } else {
             this.label.removeStyleName("hint");
         }

@@ -2,10 +2,11 @@ package org.vaadin.components;
 
 import com.vaadin.server.FontIcon;
 import com.vaadin.server.Resource;
-import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.ui.ContentMode;
-import com.vaadin.ui.*;
-import org.vaadin.style.MaterialIcons;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
 
 /**
  * Created by jonte on 14/03/2017.
@@ -79,12 +80,16 @@ public class NavigationItem extends CssLayout {
         }
     }
 
+    public String getCaption() {
+        return this.caption.getValue();
+    }
+
     public void setCaption(String caption) {
         this.caption.setValue(caption);
     }
 
-    public String getCaption() {
-        return this.caption.getValue();
+    public Integer getCount() {
+        return Integer.parseInt(this.count.getValue());
     }
 
     public void setCount(Integer count) {
@@ -96,15 +101,11 @@ public class NavigationItem extends CssLayout {
         }
     }
 
-    public Integer getCount() {
-        return Integer.parseInt(this.count.getValue());
+    public Component getComponent() {
+        return this.component;
     }
 
     public void setComponent(Component component) {
         this.component = component;
-    }
-
-    public Component getComponent() {
-        return this.component;
     }
 }

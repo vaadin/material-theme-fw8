@@ -6,13 +6,11 @@ import com.vaadin.server.ErrorMessage;
 import com.vaadin.shared.Registration;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.DateField;
 import com.vaadin.ui.DateTimeField;
 import com.vaadin.ui.Label;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Styles;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -154,7 +152,9 @@ public class MDDateTimeField extends CssLayout {
 
     private void updateFloatingLabelPosition(LocalDateTime value) {
         if (value == null) {
-            this.label.addStyleName("hint");
+            if (!getStyleName().contains("focus")) {
+                this.label.addStyleName("hint");
+            }
         } else {
             this.label.removeStyleName("hint");
         }

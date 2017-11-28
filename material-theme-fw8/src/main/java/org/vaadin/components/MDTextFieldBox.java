@@ -129,7 +129,9 @@ public class MDTextFieldBox extends CssLayout {
 
     private void updateFloatingLabelPosition(String value) {
         if (value == null || value.isEmpty()) {
-            this.label.addStyleName("hint");
+            if (!getStyleName().contains("focus")) {
+                this.label.addStyleName("hint");
+            }
         } else {
             this.label.removeStyleName("hint");
         }

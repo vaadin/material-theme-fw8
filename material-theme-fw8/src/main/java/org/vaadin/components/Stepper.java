@@ -153,11 +153,17 @@ public class Stepper extends FlexLayout {
             addComponents(stepLabel, column);
         }
 
-        public void setStepLabel(String value) { this.stepLabel.setValue(value); }
+        public void setStepLabel(String value) {
+            this.stepLabel.setValue(value);
+        }
 
-        public void setStepLabel(MaterialIcons icon) { setStepLabel(icon.getHtml()); }
+        public void setStepLabel(MaterialIcons icon) {
+            setStepLabel(icon.getHtml());
+        }
 
-        public void setStepLabel(MaterialIcons icon, MaterialIcons.Size size) { setStepLabel(icon.getHtml(size)); }
+        public void setStepLabel(MaterialIcons icon, MaterialIcons.Size size) {
+            setStepLabel(icon.getHtml(size));
+        }
 
         public void setNameLabel(String value) {
             this.nameLabel.setValue(value);

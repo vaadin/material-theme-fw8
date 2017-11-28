@@ -48,8 +48,6 @@ $md-listitem-ripple-duration: 1.6s !default;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
-    overflow: hidden;
-    pointer-events: none;
 
     .v-label {
       display: flex;
@@ -89,7 +87,6 @@ $md-listitem-ripple-duration: 1.6s !default;
     }
   }
 }
-
 
 @media (max-width: 960px) {
   .md-listitem:not(.no-pad) {
