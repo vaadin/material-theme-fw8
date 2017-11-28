@@ -1,6 +1,7 @@
 package org.vaadin.components.lists;
 
 import com.vaadin.event.LayoutEvents;
+import com.vaadin.server.Resource;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Image;
@@ -114,7 +115,7 @@ public abstract class ListItem extends CssLayout {
         iconPrimary.setIcon(html);
     }
 
-    public void setPrimaryIcon(ThemeResource image) {
+    public void setPrimaryIcon(Resource image) {
         iconPrimary.setVisible(true);
         iconPrimary.setIcon(image);
     }
@@ -234,7 +235,7 @@ public abstract class ListItem extends CssLayout {
             addComponent(new Label(html, HTML));
         }
 
-        public void setIcon(ThemeResource image) {
+        public void setIcon(Resource image) {
             addStyleName("image");
             removeAllComponents();
             addComponent(new Image(null, image));
