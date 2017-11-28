@@ -30,6 +30,9 @@
   .pad-a-xxxxxxl {
     padding: $md-u9;
   }
+  .pad-a-xxxxxxxl {
+    padding: $md-u10;
+  }
 
   // Top
   .pad-t-a {
@@ -61,6 +64,9 @@
   }
   .pad-t-xxxxxxl {
     padding-top: $md-u9;
+  }
+  .pad-t-xxxxxxxl {
+    padding-top: $md-u10;
   }
 
   // Right
@@ -94,6 +100,9 @@
   .pad-r-xxxxxxl {
     padding-right: $md-u9;
   }
+  .pad-r-xxxxxxxl {
+    padding-right: $md-u10;
+  }
 
   // Bottom
   .pad-b-s {
@@ -122,6 +131,9 @@
   }
   .pad-b-xxxxxxl {
     padding-bottom: $md-u9;
+  }
+  .pad-b-xxxxxxxl {
+    padding-bottom: $md-u10;
   }
 
   // Left
@@ -154,6 +166,9 @@
   }
   .pad-l-xxxxxxl {
     padding-left: $md-u9;
+  }
+  .pad-l-xxxxxxxl {
+    padding-left: $md-u10;
   }
 
   // Vertical
@@ -197,6 +212,10 @@
     padding-top: $md-u9;
     padding-bottom: $md-u9;
   }
+  .pad-v-xxxxxxxl {
+    padding-top: $md-u10;
+    padding-bottom: $md-u10;
+  }
 
   // Horizontal
   .pad-h-a {
@@ -238,6 +257,10 @@
   .pad-h-xxxxxxl {
     padding-right: $md-u9;
     padding-left: $md-u9;
+  }
+  .pad-h-xxxxxxxl {
+    padding-right: $md-u10;
+    padding-left: $md-u10;
   }
 
   // Table padding

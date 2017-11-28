@@ -3,6 +3,12 @@
   .margin-a-a {
     margin: auto;
   }
+  .margin-a-xxs {
+    margin: $md-u1 * 0.5;
+  }
+  .margin-a-xs {
+    margin: $md-u1 * 0.75;
+  }
   .margin-a-s {
     margin: $md-u1;
   }
@@ -34,6 +40,12 @@
   // Top
   .margin-t-a {
     margin-top: auto;
+  }
+  .margin-t-xxs {
+    margin-top: $md-u1 * 0.5;
+  }
+  .margin-t-xs {
+    margin-top: $md-u1 * 0.75;
   }
   .margin-t-s {
     margin-top: $md-u1;
@@ -67,6 +79,12 @@
   .margin-r-a {
     margin-right: auto;
   }
+  .margin-r-xxs {
+    margin-right: $md-u1 * 0.5;
+  }
+  .margin-r-xs {
+    margin-right: $md-u1 * 0.75;
+  }
   .margin-r-s {
     margin-right: $md-u1;
   }
@@ -96,6 +114,15 @@
   }
 
   // Bottom
+  .margin-b-a {
+    margin-bottom: auto;
+  }
+  .margin-b-xxs {
+    margin-bottom: $md-u1 * 0.5;
+  }
+  .margin-b-xs {
+    margin-bottom: $md-u1 * 0.75;
+  }
   .margin-b-s {
     margin-bottom: $md-u1;
   }
@@ -127,6 +154,12 @@
   // Left
   .margin-l-a {
     margin-left: auto;
+  }
+  .margin-l-xxs {
+    margin-left: $md-u1 * 0.5;
+  }
+  .margin-l-xs {
+    margin-left: $md-u1 * 0.75;
   }
   .margin-l-s {
     margin-left: $md-u1;
@@ -160,6 +193,14 @@
   .margin-v-a {
     margin-top: auto;
     margin-bottom: auto;
+  }
+  .margin-v-xxs {
+    margin-top: $md-u1 * 0.5;
+    margin-bottom: $md-u1 * 0.5;
+  }
+  .margin-v-xs {
+    margin-top: $md-u1 * 0.75;
+    margin-bottom: $md-u1 * 0.75;
   }
   .margin-v-s {
     margin-top: $md-u1;
@@ -202,6 +243,14 @@
   .margin-h-a {
     margin-right: auto;
     margin-left: auto;
+  }
+  .margin-h-xxs {
+    margin-right: $md-u1 * 0.5;
+    margin-left: $md-u1 * 0.5;
+  }
+  .margin-h-xs {
+    margin-right: $md-u1 * 0.75;
+    margin-left: $md-u1 * 0.75;
   }
   .margin-h-s {
     margin-right: $md-u1;

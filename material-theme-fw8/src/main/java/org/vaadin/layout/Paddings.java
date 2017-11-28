@@ -15,6 +15,7 @@ public class Paddings {
         public static final String XXXX_LARGE = new String("pad-a-xxxxl");
         public static final String XXXXX_LARGE = new String("pad-a-xxxxxl");
         public static final String XXXXXX_LARGE = new String("pad-a-xxxxxxl");
+        public static final String XXXXXXX_LARGE = new String("pad-a-xxxxxxxl");
     }
 
     public static class Horizontal {
@@ -28,6 +29,7 @@ public class Paddings {
         public static final String XXXX_LARGE = new String("pad-h-xxxxl");
         public static final String XXXXX_LARGE = new String("pad-h-xxxxxl");
         public static final String XXXXXX_LARGE = new String("pad-h-xxxxxxl");
+        public static final String XXXXXXX_LARGE = new String("pad-h-xxxxxxxl");
     }
 
     public static class Vertical {
@@ -41,6 +43,7 @@ public class Paddings {
         public static final String XXXX_LARGE = new String("pad-v-xxxxl");
         public static final String XXXXX_LARGE = new String("pad-v-xxxxxl");
         public static final String XXXXXX_LARGE = new String("pad-v-xxxxxxl");
+        public static final String XXXXXXX_LARGE = new String("pad-v-xxxxxxxl");
         public static final String TABLE = new String("pad-v-t");
     }
 
@@ -55,6 +58,7 @@ public class Paddings {
         public static final String XXXX_LARGE = new String("pad-t-xxxxl");
         public static final String XXXXX_LARGE = new String("pad-t-xxxxxl");
         public static final String XXXXXX_LARGE = new String("pad-t-xxxxxxl");
+        public static final String XXXXXXX_LARGE = new String("pad-t-xxxxxxxl");
     }
 
     public static class Right {
@@ -68,6 +72,7 @@ public class Paddings {
         public static final String XXXX_LARGE = new String("pad-r-xxxxl");
         public static final String XXXXX_LARGE = new String("pad-r-xxxxxl");
         public static final String XXXXXX_LARGE = new String("pad-r-xxxxxxl");
+        public static final String XXXXXXX_LARGE = new String("pad-r-xxxxxxxl");
     }
 
     public static class Bottom {
@@ -81,6 +86,7 @@ public class Paddings {
         public static final String XXXX_LARGE = new String("pad-b-xxxxl");
         public static final String XXXXX_LARGE = new String("pad-b-xxxxxl");
         public static final String XXXXXX_LARGE = new String("pad-b-xxxxxxl");
+        public static final String XXXXXXX_LARGE = new String("pad-b-xxxxxxxl");
     }
 
     public static class Left {
@@ -94,5 +100,6 @@ public class Paddings {
         public static final String XXXX_LARGE = new String("pad-l-xxxxl");
         public static final String XXXXX_LARGE = new String("pad-l-xxxxxl");
         public static final String XXXXXX_LARGE = new String("pad-l-xxxxxxl");
+        public static final String XXXXXXX_LARGE = new String("pad-l-xxxxxxxl");
     }
 }
