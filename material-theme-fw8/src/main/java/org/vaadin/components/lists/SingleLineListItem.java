@@ -45,6 +45,23 @@ public class SingleLineListItem extends ListItem {
         primary.setPrimaryStyleName(lightTheme ? Typography.Dark.Subheader.PRIMARY : Typography.Light.Subheader.PRIMARY);
     }
 
+    public Label getPrimaryLabel() {
+        return primary;
+    }
+
+    public void setPrimaryLabel(Label primary) {
+        content.replaceComponent(this.primary, primary);
+        this.primary = primary;
+    }
+
+    public String getPrimaryText() {
+        return this.primary.getValue();
+    }
+
+    public void setPrimaryText(String text) {
+        this.primary.setValue(text);
+    }
+
     @Override
     public void setPrimaryIconSize(IconSize size) {
         super.setPrimaryIconSize(size);

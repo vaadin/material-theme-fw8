@@ -34,7 +34,7 @@ $md-listitem-ripple-duration: 1.6s !default;
   }
 
   .md-listitem-content {
-    overflow: hidden;
+    display: flex;
 
     .v-label {
       overflow: hidden;

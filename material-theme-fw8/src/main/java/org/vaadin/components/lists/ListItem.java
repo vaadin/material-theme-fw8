@@ -19,7 +19,7 @@ import static com.vaadin.shared.ui.ContentMode.HTML;
  */
 public abstract class ListItem extends CssLayout {
 
-    protected CssLayout content = new CssLayout();
+    protected FlexLayout content = new FlexLayout();
     protected CssLayout actionPrimary = new CssLayout();
     protected CssLayout actionSecondary = new CssLayout();
     protected ListItemIcon iconPrimary = new ListItemIcon();
@@ -42,12 +42,15 @@ public abstract class ListItem extends CssLayout {
 
     private void initContent() {
         content.setPrimaryStyleName("md-listitem-content");
+        content.setFlexDirection(FlexLayout.FlexDirection.COLUMN);
+        content.setOverflow(FlexLayout.Overflow.HIDDEN);
+
         actionPrimary.setPrimaryStyleName("md-listitem-primary");
         actionSecondary.setPrimaryStyleName("md-listitem-secondary");
     }
 
 
-    public CssLayout getContentLayout() {
+    public FlexLayout getContentLayout() {
         return content;
     }
 
