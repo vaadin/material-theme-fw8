@@ -3,6 +3,12 @@
   .pad-a-a {
     padding: auto;
   }
+  .pad-a-xxs {
+    padding: $md-u1 * 0.5;
+  }
+  .pad-a-xs {
+    padding: $md-u1 * 0.75;
+  }
   .pad-a-s {
     padding: $md-u1;
   }
@@ -37,6 +43,12 @@
   // Top
   .pad-t-a {
     padding-top: auto;
+  }
+  .pad-t-xxs {
+    padding-top: $md-u1 * 0.5;
+  }
+  .pad-t-xs {
+    padding-top: $md-u1 * 0.75;
   }
   .pad-t-s {
     padding-top: $md-u1;
@@ -73,6 +85,12 @@
   .pad-r-a {
     padding-right: auto;
   }
+  .pad-r-xxs {
+    padding-right: $md-u1 * 0.5;
+  }
+  .pad-r-xs {
+    padding-right: $md-u1 * 0.75;
+  }
   .pad-r-s {
     padding-right: $md-u1;
   }
@@ -108,6 +126,12 @@
   .pad-b-s {
     padding-bottom: $md-u1;
   }
+  .pad-b-xxs {
+    padding-bottom: $md-u1 * 0.5;
+  }
+  .pad-b-xs {
+    padding-bottom: $md-u1 * 0.75;
+  }
   .pad-b-m {
     padding-bottom: $md-u2;
   }
@@ -139,6 +163,12 @@
   // Left
   .pad-l-a {
     padding-left: auto;
+  }
+  .pad-l-xxs {
+    padding-left: $md-u1 * 0.5;
+  }
+  .pad-l-xs {
+    padding-left: $md-u1 * 0.75;
   }
   .pad-l-s {
     padding-left: $md-u1;
@@ -175,6 +205,14 @@
   .pad-v-a {
     padding-top: auto;
     padding-bottom: auto;
+  }
+  .pad-v-xxs {
+    padding-top: $md-u1 * 0.5;
+    padding-bottom: $md-u1 * 0.5;
+  }
+  .pad-v-xs {
+    padding-top: $md-u1 * 0.75;
+    padding-bottom: $md-u1 * 0.75;
   }
   .pad-v-s {
     padding-top: $md-u1;
@@ -221,6 +259,14 @@
   .pad-h-a {
     padding-right: auto;
     padding-left: auto;
+  }
+  .pad-h-xxs {
+    padding-right: $md-u1 * 0.5;
+    padding-left: $md-u1 * 0.5;
+  }
+  .pad-h-xs {
+    padding-right: $md-u1 * 0.75;
+    padding-left: $md-u1 * 0.75;
   }
   .pad-h-s {
     padding-right: $md-u1;
