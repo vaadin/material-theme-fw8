@@ -15,11 +15,11 @@ import org.vaadin.style.Typography;
  */
 public class SimpleDialog extends Window {
 
-    private final FlexLayout content;
-    private final FlexLayout footer;
-    private Button cancel;
-    private Button ok;
-    private Label label;
+    protected FlexLayout content;
+    protected FlexLayout footer;
+    protected Button cancel;
+    protected Button ok;
+    protected Label label;
 
     public SimpleDialog(String title, String message, boolean lightTheme) {
         super(title);
@@ -96,5 +96,9 @@ public class SimpleDialog extends Window {
 
     public void addDismissiveActionButtonListener(Button.ClickListener listener) {
         cancel.addClickListener(listener);
+    }
+
+    public FlexLayout getFooter() {
+        return footer;
     }
 }

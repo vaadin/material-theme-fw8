@@ -12,11 +12,11 @@ import org.vaadin.style.Styles;
  */
 public class ScrollableDialog extends Window {
 
-    private final FlexLayout content;
-    private final FlexLayout footer;
-    private Button cancel;
-    private Button ok;
-    private FlexLayout scrollableLayout;
+    protected FlexLayout content;
+    protected FlexLayout footer;
+    protected Button cancel;
+    protected Button ok;
+    protected FlexLayout scrollableLayout;
 
     public ScrollableDialog(String title, boolean lightTheme) {
         super(title);
@@ -106,5 +106,9 @@ public class ScrollableDialog extends Window {
 
     public void addDismissiveActionButtonListener(Button.ClickListener listener) {
         cancel.addClickListener(listener);
+    }
+
+    public FlexLayout getFooter() {
+        return footer;
     }
 }

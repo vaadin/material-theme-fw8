@@ -16,11 +16,10 @@ import java.time.LocalDate;
  */
 public class DatePickerDialog extends Window {
 
-    private final FlexLayout content;
-
-    private DatePickerHeader header;
-    private InlineDateField field;
-    private DatePickerFooter footer;
+    protected FlexLayout content;
+    protected DatePickerHeader header;
+    protected InlineDateField field;
+    protected DatePickerFooter footer;
 
     public DatePickerDialog(boolean lightTheme) {
         setPrimaryStyleName(lightTheme ? Styles.Windows.LIGHT : Styles.Windows.DARK);
@@ -86,5 +85,11 @@ public class DatePickerDialog extends Window {
         return this.field.getValue();
     }
 
+    public DatePickerHeader getHeader() {
+        return header;
+    }
 
+    public FlexLayout getFooter() {
+        return footer;
+    }
 }
