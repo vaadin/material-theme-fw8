@@ -197,11 +197,11 @@ $md-datefield-popup-dark-ripple-color: $md-divider-light !default;
     white-space: nowrap;
   }
 
-  .#{$primaryStyleName}-label-fade {
+  .#{$primaryStyleName}-label-hide {
     opacity: 0;
   }
 
-  .#{$primaryStyleName}-label-hint {
+  .#{$primaryStyleName}-label-resting {
     @include md-subheader-font($secondary-color);
     top: $md-datefield-restinglabel-top;
   }

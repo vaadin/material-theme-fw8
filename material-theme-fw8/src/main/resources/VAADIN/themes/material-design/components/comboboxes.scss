@@ -170,11 +170,11 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4 !default;
     white-space: nowrap;
   }
 
-  .#{$primaryStyleName}-label-fade {
+  .#{$primaryStyleName}-label-hide {
     opacity: 0;
   }
 
-  .#{$primaryStyleName}-label-hint {
+  .#{$primaryStyleName}-label-resting {
     @include md-subheader-font($secondary-color);
     top: $md-combobox-restinglabel-top;
   }

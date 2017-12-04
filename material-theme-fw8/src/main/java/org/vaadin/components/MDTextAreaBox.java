@@ -14,6 +14,8 @@ import org.vaadin.layout.Metrics;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Styles;
 
+import static org.vaadin.style.Styles.TextFields.FloatingLabel.RESTING;
+
 /**
  * Created by jonte on 29/08/2017.
  */
@@ -45,7 +47,7 @@ public class MDTextAreaBox extends CssLayout {
 
         this.label.setValue(label);
         this.label.setPrimaryStyleName(primaryStyleName + "-label");
-        this.label.addStyleName("hint");
+        this.label.addStyleName(RESTING);
         this.label.setWidthUndefined();
 
         this.icon.setPrimaryStyleName(primaryStyleName + "-icon");
@@ -56,13 +58,11 @@ public class MDTextAreaBox extends CssLayout {
         this.field.setPrimaryStyleName(primaryStyleName + "-input");
         this.field.addFocusListener(event -> {
             addStyleName("focus");
-            this.label.removeStyleName("hint");
+            updateFloatingLabelPosition(this.field.getValue());
         });
         this.field.addBlurListener(event -> {
             removeStyleName("focus");
-            if (field.getValue().isEmpty()) {
-                this.label.addStyleName("hint");
-            }
+            updateFloatingLabelPosition(this.field.getValue());
         });
         this.field.addValueChangeListener(event -> updateFloatingLabelPosition(event.getValue()));
 
@@ -173,12 +173,15 @@ public class MDTextAreaBox extends CssLayout {
     }
 
     private void updateFloatingLabelPosition(String value) {
-        if (value == null || value.isEmpty()) {
-            if (!getStyleName().contains("focus")) {
-                this.label.addStyleName("hint");
-            }
-        } else {
-            this.label.removeStyleName("hint");
+        // Focused
+        if (getStyleName().contains("focus")) {
+            this.label.removeStyleName(RESTING);
+        }
+
+        // Not focused
+        else {
+            if (value == null || value.isEmpty()) this.label.addStyleName(RESTING);
+            else this.label.removeStyleName(Styles.TextFields.FloatingLabel.RESTING);
         }
     }
 

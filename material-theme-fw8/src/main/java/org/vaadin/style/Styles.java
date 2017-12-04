@@ -93,6 +93,11 @@ public class Styles {
     public static class TextFields {
         public static final String LIGHT = "md-textfield-light";
         public static final String DARK = "md-textfield-dark";
+
+        public static class FloatingLabel {
+            public static final String RESTING = "resting";
+            public static final String HIDE = "hide";
+        }
     }
 
     public static class TextFieldBoxes {

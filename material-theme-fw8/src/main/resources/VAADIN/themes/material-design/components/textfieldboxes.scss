@@ -204,10 +204,10 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1) !default;
     top: $md-textfieldbox-floatinglabel-top;
     white-space: nowrap;
   }
-  .#{$primaryStyleName}-label-fade {
+  .#{$primaryStyleName}-label-hide {
     opacity: 0;
   }
-  .#{$primaryStyleName}-label-hint {
+  .#{$primaryStyleName}-label-resting {
     @include md-subheader-font($secondary-color);
     top: $md-textfieldbox-restinglabel-top;
     white-space: normal;

@@ -14,6 +14,8 @@ import org.vaadin.style.Styles;
 
 import java.util.Collection;
 
+import static org.vaadin.style.Styles.TextFields.FloatingLabel.RESTING;
+
 /**
  * Created by jonte on 15/03/2017.
  */
@@ -40,7 +42,7 @@ public class MDComboBox<T> extends CssLayout {
 
         this.label.setValue(label);
         this.label.setPrimaryStyleName(primaryStyleName + "-label");
-        this.label.addStyleName("hint");
+        this.label.addStyleName(RESTING);
         this.label.setWidthUndefined();
 
         this.icon.setPrimaryStyleName(primaryStyleName + "-icon");
@@ -57,24 +59,12 @@ public class MDComboBox<T> extends CssLayout {
         this.field.setPrimaryStyleName(primaryStyleName + "-input");
         this.field.addFocusListener(event -> {
             addStyleName("focus");
-            if (floatingLabelEnabled) {
-                this.label.removeStyleName("hint");
-            } else {
-                this.label.addStyleName("fade");
-            }
+            updateFloatingLabelPosition(this.field.getValue());
 
         });
         this.field.addBlurListener(event -> {
             removeStyleName("focus");
-            if (floatingLabelEnabled) {
-                if (field.getValue() == null) {
-                    this.label.addStyleName("hint");
-                }
-            } else {
-                if (field.getValue() == null) {
-                    this.label.removeStyleName("fade");
-                }
-            }
+            updateFloatingLabelPosition(this.field.getValue());
         });
         this.field.addValueChangeListener(event -> {
             if (this.field.getItemIconGenerator() == null) return;
@@ -185,12 +175,30 @@ public class MDComboBox<T> extends CssLayout {
     }
 
     private void updateFloatingLabelPosition(T value) {
-        if (value == null) {
-            if (!getStyleName().contains("focus")) {
-                this.label.addStyleName("hint");
+        // Focused
+        if (getStyleName().contains("focus")) {
+
+            // Floating
+            if (floatingLabelEnabled) this.label.removeStyleName(Styles.TextFields.FloatingLabel.RESTING);
+
+                // Non-floating
+            else this.label.addStyleName(Styles.TextFields.FloatingLabel.HIDE);
+        }
+
+        // Not focused
+        else {
+
+            // Floating
+            if (floatingLabelEnabled) {
+                if (value == null) this.label.addStyleName(Styles.TextFields.FloatingLabel.RESTING);
+                else this.label.removeStyleName(Styles.TextFields.FloatingLabel.RESTING);
             }
-        } else {
-            this.label.removeStyleName("hint");
+
+            // Non-floating
+            else {
+                if (value == null) this.label.removeStyleName(Styles.TextFields.FloatingLabel.HIDE);
+                else this.label.addStyleName(Styles.TextFields.FloatingLabel.HIDE);
+            }
         }
     }
 

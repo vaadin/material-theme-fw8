@@ -164,11 +164,11 @@ $md-textfield-floatinglabel-disabled-icon-top: $md-textfield-floatinglabel-disab
     white-space: nowrap;
   }
 
-  .#{$primaryStyleName}-label-fade {
+  .#{$primaryStyleName}-label-hide {
     opacity: 0;
   }
 
-  .#{$primaryStyleName}-label-hint {
+  .#{$primaryStyleName}-label-resting {
     @include md-subheader-font($secondary-color);
     top: $md-textfield-restinglabel-top;
   }
