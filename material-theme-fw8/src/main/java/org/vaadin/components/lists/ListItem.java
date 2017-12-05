@@ -6,6 +6,7 @@ import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
+import org.vaadin.components.IconButton;
 import org.vaadin.components.MDCheckbox;
 import org.vaadin.layout.FlexLayout;
 import org.vaadin.style.MaterialColor;
@@ -110,12 +111,12 @@ public abstract class ListItem extends CssLayout {
 
 
     public void setPrimaryIcon(MaterialIcons icon) {
-        iconPrimary.setVisible(true);
+        setPrimaryIconVisible(true);
         iconPrimary.setIcon(icon);
     }
 
     public void setPrimaryIcon(String html) {
-        iconPrimary.setVisible(true);
+        setPrimaryIconVisible(true);
         iconPrimary.setIcon(html);
     }
 
@@ -124,9 +125,14 @@ public abstract class ListItem extends CssLayout {
     }
 
     public void setPrimaryCheckBox(MDCheckbox checkbox) {
-        iconPrimary.setVisible(true);
+        setPrimaryIconVisible(true);
         iconPrimary.setCheckBox(checkbox);
         addPrimaryActionListener((LayoutEvents.LayoutClickListener) e -> checkbox.setValue(!checkbox.getValue()));
+    }
+
+    public void setPrimaryIconButton(IconButton button) {
+        setPrimaryIconVisible(true);
+        iconPrimary.setIconButton(button);
     }
 
     public void setPrimaryIconCircular(boolean circular) {
@@ -138,7 +144,7 @@ public abstract class ListItem extends CssLayout {
     }
 
     public void setPrimaryIcon(Resource image) {
-        iconPrimary.setVisible(true);
+        setPrimaryIconVisible(true);
         iconPrimary.setIcon(image);
     }
 
@@ -160,6 +166,11 @@ public abstract class ListItem extends CssLayout {
         setSecondaryIconVisible(true);
         iconSecondary.setCheckBox(checkbox);
         addSecondaryActionListener((LayoutEvents.LayoutClickListener) e -> checkbox.setValue(!checkbox.getValue()));
+    }
+
+    public void setSecondaryIconButton(IconButton button) {
+        setSecondaryIconVisible(true);
+        iconSecondary.setIconButton(button);
     }
 
     public void setSecondaryIconCircular(boolean circular) {
@@ -244,6 +255,11 @@ public abstract class ListItem extends CssLayout {
         public void setCheckBox(MDCheckbox checkBox) {
             removeAllComponents();
             addComponent(checkBox);
+        }
+        
+        public void setIconButton(IconButton iconButton) {
+            removeAllComponents();
+            addComponent(iconButton);
         }
 
         public void setSize(IconSize size) {
