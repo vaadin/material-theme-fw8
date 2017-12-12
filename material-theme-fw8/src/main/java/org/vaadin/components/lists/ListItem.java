@@ -23,6 +23,7 @@ public abstract class ListItem extends CssLayout {
     protected FlexLayout content = new FlexLayout();
     protected CssLayout actionPrimary = new CssLayout();
     protected CssLayout actionSecondary = new CssLayout();
+    protected CssLayout divider = new CssLayout();
     protected ListItemIcon iconPrimary = new ListItemIcon();
     protected ListItemIcon iconSecondary = new ListItemIcon();
 
@@ -48,6 +49,9 @@ public abstract class ListItem extends CssLayout {
 
         actionPrimary.setPrimaryStyleName("md-listitem-primary");
         actionSecondary.setPrimaryStyleName("md-listitem-secondary");
+
+        divider.setPrimaryStyleName("md-listitem-divider");
+        divider.addStyleName(MaterialColor.DARK_DIVIDER.getBackgroundColorStyle());
     }
 
 
@@ -63,6 +67,10 @@ public abstract class ListItem extends CssLayout {
         return actionSecondary;
     }
 
+
+    public void enableInsetDivider(boolean visible) {
+        divider.setVisible(visible);
+    }
 
     private void initIconPrimary() {
         iconPrimary.setPrimaryStyleName("md-listitem-icon");
@@ -197,7 +205,10 @@ public abstract class ListItem extends CssLayout {
     }
 
 
-    public abstract void setTheme(boolean lightTheme);
+    public void setTheme(boolean lightTheme) {
+        divider.removeStyleName(lightTheme ? MaterialColor.LIGHT_DIVIDER.getBackgroundColorStyle() : MaterialColor.DARK_DIVIDER.getBackgroundColorStyle());
+        divider.addStyleName(lightTheme ? MaterialColor.DARK_DIVIDER.getBackgroundColorStyle() : MaterialColor.LIGHT_DIVIDER.getBackgroundColorStyle());
+    }
 
 
     public enum IconSize {

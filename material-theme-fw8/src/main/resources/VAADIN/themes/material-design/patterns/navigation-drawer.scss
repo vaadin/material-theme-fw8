@@ -8,14 +8,10 @@ $md-naviitem-pad-right: $md-u1 !default;
 // Selected styles
 $md-naviitem-selected-color: $md-blue-500 !default;
 $md-naviitem-selected-icon-color: $md-blue-500 !default;
-$md-naviitem-selected-bg: $md-grey-50 !default;
+$md-naviitem-selected-bg: $md-grey-100 !default;
 
 // Hover style
-$md-naviitem-hover-bg: $md-grey-100 !default;
-
-// Ripple effect
-$md-naviitem-ripple-color: $md-grey-200 !default;
-$md-naviitem-ripple-size: $md-navidrawer-width-tablet !default;
+$md-naviitem-hover-bg: $md-grey-200 !default;
 
 // Count or badge
 $md-naviitem-count-bg-color: $md-red-500 !default;
@@ -39,7 +35,6 @@ $md-naviitem-count-pad-horizontal: $md-u1 * 1.5 !default;
   }
 
   .md-naviitem {
-    @include md-ripple-btn($md-naviitem-ripple-color, $md-naviitem-ripple-size);
     align-items: center;
     cursor: pointer;
     display: flex;

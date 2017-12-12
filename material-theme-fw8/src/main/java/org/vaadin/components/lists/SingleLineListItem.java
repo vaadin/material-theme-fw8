@@ -29,7 +29,7 @@ public class SingleLineListItem extends ListItem {
         actionPrimary.addComponents(iconPrimary, content);
         actionSecondary.addComponent(iconSecondary);
 
-        addComponents(actionPrimary, actionSecondary);
+        addComponents(actionPrimary, actionSecondary, divider);
     }
 
     public SingleLineListItem(String primaryText) {
@@ -42,6 +42,7 @@ public class SingleLineListItem extends ListItem {
     }
 
     public void setTheme(boolean lightTheme) {
+        super.setTheme(lightTheme);
         primary.setPrimaryStyleName(lightTheme ? Typography.Dark.Subheader.PRIMARY : Typography.Light.Subheader.PRIMARY);
     }
 

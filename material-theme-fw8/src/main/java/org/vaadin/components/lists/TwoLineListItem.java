@@ -31,7 +31,7 @@ public class TwoLineListItem extends ListItem {
         actionPrimary.addComponents(iconPrimary, content);
         actionSecondary.addComponent(iconSecondary);
 
-        addComponents(actionPrimary, actionSecondary);
+        addComponents(actionPrimary, actionSecondary, divider);
     }
 
     public TwoLineListItem(String primaryText, String secondaryText) {
@@ -44,6 +44,7 @@ public class TwoLineListItem extends ListItem {
     }
 
     public void setTheme(boolean lightTheme) {
+        super.setTheme(lightTheme);
         primary.setPrimaryStyleName(lightTheme ? Typography.Dark.Subheader.PRIMARY : Typography.Light.Subheader.PRIMARY);
         secondary.setPrimaryStyleName(lightTheme ? Typography.Dark.Body1.SECONDARY : Typography.Light.Body1.SECONDARY);
     }
