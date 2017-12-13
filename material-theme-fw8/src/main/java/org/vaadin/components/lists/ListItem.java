@@ -52,6 +52,7 @@ public abstract class ListItem extends CssLayout {
 
         divider.setPrimaryStyleName("md-listitem-divider");
         divider.addStyleName(MaterialColor.DARK_DIVIDER.getBackgroundColorStyle());
+        divider.setVisible(false);
     }
 
 
@@ -68,7 +69,7 @@ public abstract class ListItem extends CssLayout {
     }
 
 
-    public void enableInsetDivider(boolean visible) {
+    public void setInsetDividerVisible(boolean visible) {
         divider.setVisible(visible);
     }
 
