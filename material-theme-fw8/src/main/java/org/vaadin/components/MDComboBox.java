@@ -3,12 +3,10 @@ package org.vaadin.components;
 import com.vaadin.data.HasValue;
 import com.vaadin.server.AbstractErrorMessage;
 import com.vaadin.server.ErrorMessage;
+import com.vaadin.server.Resource;
 import com.vaadin.shared.Registration;
 import com.vaadin.shared.ui.ContentMode;
-import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.IconGenerator;
-import com.vaadin.ui.Label;
+import com.vaadin.ui.*;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Styles;
 
@@ -26,11 +24,17 @@ public class MDComboBox<T> extends CssLayout {
     private MaterialIcons defaultIcon;
 
     private Label label = new Label();
-    private Label icon = new Label();
+    private CssLayout icon = new CssLayout();
     private Label helper = new Label();
     private boolean floatingLabelEnabled;
     private String helperText;
-    private ComboBox<T> field;
+    private ComboBox<T> field = new ComboBox<T>() {
+        @Override
+        public void setComponentError(ErrorMessage componentError) {
+            super.setComponentError(componentError);
+            setError(componentError == null ? null : ((AbstractErrorMessage) componentError).getMessage());
+        }
+    };
 
     public MDComboBox(String label) {
         this(label, true);
@@ -46,29 +50,22 @@ public class MDComboBox<T> extends CssLayout {
         this.label.setWidthUndefined();
 
         this.icon.setPrimaryStyleName(primaryStyleName + "-icon");
-        this.icon.setContentMode(ContentMode.HTML);
-        this.icon.setVisible(false);
 
-        field = new ComboBox<T>() {
-            @Override
-            public void setComponentError(ErrorMessage componentError) {
-                super.setComponentError(componentError);
-                setError(componentError == null ? null : ((AbstractErrorMessage) componentError).getMessage());
-            }
-        };
         this.field.setPrimaryStyleName(primaryStyleName + "-input");
         this.field.addFocusListener(event -> {
             addStyleName("focus");
             updateFloatingLabelPosition(this.field.getValue());
-
         });
         this.field.addBlurListener(event -> {
             removeStyleName("focus");
             updateFloatingLabelPosition(this.field.getValue());
         });
         this.field.addValueChangeListener(event -> {
-            if (this.field.getItemIconGenerator() == null) return;
-            setIcon(this.field.getValue() == null ? null : (MaterialIcons) this.field.getItemIconGenerator().apply(this.field.getValue()), false);
+            if (this.field.getItemIconGenerator() != null) {
+                Resource itemIcon = this.field.getItemIconGenerator().apply(event.getValue());
+                if (itemIcon instanceof MaterialIcons) setIcon((MaterialIcons) itemIcon);
+                else setIcon(itemIcon);
+            }
             updateFloatingLabelPosition(event.getValue());
         });
 
@@ -129,22 +126,52 @@ public class MDComboBox<T> extends CssLayout {
         this.field.setItems();
     }
 
-    public void setIcon(MaterialIcons icon) {
-        setIcon(icon, true);
+    public void setDefaultIcon(MaterialIcons icon) {
+        this.defaultIcon = icon;
     }
 
-    public void setIcon(MaterialIcons icon, boolean def) {
-        if (def) {
-            this.defaultIcon = icon;
+    public void setIcon(MaterialIcons icon) {
+        if (icon == null) {
+            hideIcon();
+        } else {
+            showIcon(icon.getHtml());
         }
-        if (defaultIcon != null || icon != null) {
-            addStyleName("with-icon");
-            this.icon.setVisible(true);
-            this.icon.setValue(icon != null ? icon.getHtml() : defaultIcon.getHtml());
+    }
+
+    public void setIcon(String html) {
+        if (html == null) {
+            hideIcon();
+        } else {
+            showIcon(html);
+        }
+    }
+
+    public void setIcon(Resource source) {
+        if (source == null) {
+            hideIcon();
+        } else {
+            showImg(source);
+        }
+    }
+
+    private void hideIcon() {
+        if (defaultIcon != null) {
+            showIcon(defaultIcon.getHtml());
         } else {
             removeStyleName("with-icon");
-            this.icon.setVisible(false);
         }
+    }
+
+    private void showIcon(String html) {
+        addStyleName("with-icon");
+        this.icon.removeAllComponents();
+        this.icon.addComponent(new Label(html, ContentMode.HTML));
+    }
+
+    private void showImg(Resource source) {
+        addStyleName("with-icon");
+        this.icon.removeAllComponents();
+        this.icon.addComponent(new Image(null, source));
     }
 
     public Registration addValueChangeListener(HasValue.ValueChangeListener<T> listener) {

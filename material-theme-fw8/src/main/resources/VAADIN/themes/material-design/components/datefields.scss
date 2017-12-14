@@ -219,12 +219,16 @@ $md-datefield-popup-dark-ripple-color: $md-divider-light !default;
   // Icon style
   .#{$primaryStyleName}-with-icon {
     padding-left: $md-icon-size + $md-datefield-icon-pad-right;
+
+    .#{$primaryStyleName}-icon {
+      display: flex;
+    }
   }
 
   .#{$primaryStyleName}-icon {
     align-items: center;
     color: $secondary-color;
-    display: flex;
+    display: none;
     height: $md-icon-size;
     justify-content: center;
     left: 0;

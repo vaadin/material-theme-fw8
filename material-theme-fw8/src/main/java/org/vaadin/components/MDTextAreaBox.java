@@ -3,6 +3,7 @@ package org.vaadin.components;
 import com.vaadin.data.HasValue;
 import com.vaadin.server.AbstractErrorMessage;
 import com.vaadin.server.ErrorMessage;
+import com.vaadin.server.Resource;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.Registration;
 import com.vaadin.shared.ui.ContentMode;
@@ -51,7 +52,6 @@ public class MDTextAreaBox extends CssLayout {
         this.label.setWidthUndefined();
 
         this.icon.setPrimaryStyleName(primaryStyleName + "-icon");
-        this.icon.setVisible(false);
 
         this.ripple.setPrimaryStyleName(primaryStyleName + "-ripple");
 
@@ -131,7 +131,7 @@ public class MDTextAreaBox extends CssLayout {
         }
     }
 
-    public void setIcon(ThemeResource source) {
+    public void setIcon(Resource source) {
         if (source == null) {
             hideIcon();
         } else {
@@ -140,20 +140,17 @@ public class MDTextAreaBox extends CssLayout {
     }
 
     private void hideIcon() {
-        this.icon.setVisible(false);
         removeStyleName("with-icon");
     }
 
     private void showIcon(String html) {
         addStyleName("with-icon");
-        this.icon.setVisible(true);
         this.icon.removeAllComponents();
         this.icon.addComponent(new Label(html, ContentMode.HTML));
     }
 
-    private void showImg(ThemeResource source) {
+    private void showImg(Resource source) {
         addStyleName("with-icon");
-        this.icon.setVisible(true);
         this.icon.removeAllComponents();
         this.icon.addComponent(new Image(null, source));
     }

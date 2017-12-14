@@ -3,9 +3,11 @@ package org.vaadin.components;
 import com.vaadin.data.HasValue;
 import com.vaadin.server.AbstractErrorMessage;
 import com.vaadin.server.ErrorMessage;
+import com.vaadin.server.Resource;
 import com.vaadin.shared.Registration;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import org.vaadin.style.MaterialIcons;
@@ -21,7 +23,7 @@ public class MDTextFieldBox extends CssLayout {
     private static final long serialVersionUID = 1L;
 
     private Label label = new Label();
-    private Label icon = new Label();
+    private CssLayout icon = new CssLayout();
     private CssLayout ripple = new CssLayout();
     private Label helper = new Label();
     private String helperText;
@@ -47,8 +49,6 @@ public class MDTextFieldBox extends CssLayout {
         this.label.setWidthUndefined();
 
         this.icon.setPrimaryStyleName(primaryStyleName + "-icon");
-        this.icon.setContentMode(ContentMode.HTML);
-        this.icon.setVisible(false);
 
         this.ripple.setPrimaryStyleName(primaryStyleName + "-ripple");
 
@@ -102,15 +102,45 @@ public class MDTextFieldBox extends CssLayout {
         }
     }
 
+
     public void setIcon(MaterialIcons icon) {
         if (icon == null) {
-            this.icon.setVisible(false);
-            removeStyleName("with-icon");
+            hideIcon();
         } else {
-            addStyleName("with-icon");
-            this.icon.setVisible(true);
-            this.icon.setValue(icon.getHtml());
+            showIcon(icon.getHtml());
         }
+    }
+
+    public void setIcon(String html) {
+        if (html == null) {
+            hideIcon();
+        } else {
+            showIcon(html);
+        }
+    }
+
+    public void setIcon(Resource source) {
+        if (source == null) {
+            hideIcon();
+        } else {
+            showImg(source);
+        }
+    }
+
+    private void hideIcon() {
+        removeStyleName("with-icon");
+    }
+
+    private void showIcon(String html) {
+        addStyleName("with-icon");
+        this.icon.removeAllComponents();
+        this.icon.addComponent(new Label(html, ContentMode.HTML));
+    }
+
+    private void showImg(Resource source) {
+        addStyleName("with-icon");
+        this.icon.removeAllComponents();
+        this.icon.addComponent(new Image(null, source));
     }
 
     public Registration addValueChangeListener(HasValue.ValueChangeListener<String> listener) {

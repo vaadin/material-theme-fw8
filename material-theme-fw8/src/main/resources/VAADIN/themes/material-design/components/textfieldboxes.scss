@@ -221,12 +221,16 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1) !default;
     .#{$primaryStyleName}-ripple {
       left: $md-icon-size + $md-textfieldbox-icon-pad-right;
     }
+
+    .#{$primaryStyleName}-icon {
+      display: flex;
+    }
   }
 
   .#{$primaryStyleName}-icon {
     align-items: center;
     color: $secondary-color;
-    display: flex;
+    display: none;
     height: $md-icon-size;
     justify-content: center;
     left: 0;
