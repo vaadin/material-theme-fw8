@@ -189,7 +189,7 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4 !default;
   }
 
 
-  // Icon style
+  // Icon style// Icon style
   .#{$primaryStyleName}-with-icon {
     padding-left: $md-icon-size + $md-combobox-icon-pad-right;
 
@@ -209,6 +209,12 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4 !default;
     position: absolute;
     top: $md-combobox-icon-top;
     width: $md-icon-size;
+
+    div, img {
+      display: flex;
+      max-height: 100%;
+      max-width: 100%;
+    }
   }
 
 
