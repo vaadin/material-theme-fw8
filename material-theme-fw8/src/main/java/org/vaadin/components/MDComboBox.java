@@ -21,7 +21,7 @@ public class MDComboBox<T> extends CssLayout {
 
     private static final long serialVersionUID = 1L;
 
-    private MaterialIcons defaultIcon;
+    private Resource defaultIcon;
 
     private Label label = new Label();
     private CssLayout icon = new CssLayout();
@@ -126,8 +126,13 @@ public class MDComboBox<T> extends CssLayout {
         this.field.setItems();
     }
 
-    public void setDefaultIcon(MaterialIcons icon) {
+    public void setDefaultIcon(Resource icon) {
         this.defaultIcon = icon;
+        if (icon instanceof MaterialIcons) {
+            setIcon((MaterialIcons) icon);
+        } else {
+            setIcon(icon);
+        }
     }
 
     public void setIcon(MaterialIcons icon) {
@@ -156,7 +161,11 @@ public class MDComboBox<T> extends CssLayout {
 
     private void hideIcon() {
         if (defaultIcon != null) {
-            showIcon(defaultIcon.getHtml());
+            if (defaultIcon instanceof MaterialIcons) {
+                setIcon((MaterialIcons) defaultIcon);
+            } else {
+                setIcon(defaultIcon);
+            }
         } else {
             removeStyleName("with-icon");
         }

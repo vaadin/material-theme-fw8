@@ -100,6 +100,9 @@ public class MenusView extends CssLayout {
             cb.setItemIconGenerator(generator);
         }
 
+        tf3.setDefaultIcon(MaterialIcons.INPUT);
+        tf4.setDefaultIcon(MaterialIcons.INPUT);
+
         tf5.setValue(MERCURY);
         tf5.setEnabled(false);
 

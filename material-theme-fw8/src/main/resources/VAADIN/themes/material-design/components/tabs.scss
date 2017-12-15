@@ -8,16 +8,16 @@ $md-tab-width-min: 72px;
 $md-tab-ripple-size: $md-tab-width-min * 2;
 
 // Light
-$md-tab-light-inactive-color: $md-secondary-dark;
-$md-tab-light-active-color: $md-blue-500;
-$md-tab-light-indicator-color: $md-blue-500;
-$md-tab-light-ripple-color: rgba($md-blue-500, 0.26);
+$md-tab-light-inactive-color: $md-secondary-dark !default;
+$md-tab-light-active-color: $md-blue-500 !default;
+$md-tab-light-indicator-color: $md-blue-500 !default;
+$md-tab-light-ripple-color: rgba($md-blue-500, 0.26) !default;
 
 // Dark
-$md-tab-dark-inactive-color: $md-secondary-light;
-$md-tab-dark-active-color: $md-primary-light;
-$md-tab-dark-indicator-color: white;
-$md-tab-dark-ripple-color: rgba(255, 255, 255, 0.3);
+$md-tab-dark-inactive-color: $md-secondary-light !default;
+$md-tab-dark-active-color: $md-primary-light !default;
+$md-tab-dark-indicator-color: white !default;
+$md-tab-dark-ripple-color: rgba(255, 255, 255, 0.3) !default;
 
 
 @mixin tabs {
