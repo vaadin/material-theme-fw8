@@ -95,10 +95,13 @@ public class MenusView extends CssLayout {
         MDComboBox tf4 = createComboBox("Hint text with icon and helper", "Helper information goes here!", "Empty value not allowed", MaterialIcons.INPUT, false, light);
         MDComboBox tf5 = createComboBox("Floating label", "Helper information goes here!", "Empty value not allowed", null, true, light);
 
-        for (MDComboBox cb : new MDComboBox[]{tf1, tf2, tf3, tf4, tf5}) {
+        for (MDComboBox cb : new MDComboBox[]{tf2, tf3, tf4, tf5}) {
             cb.setItems(planets);
             cb.setItemIconGenerator(generator);
         }
+
+        tf1.setItems(planets);
+        tf1.setIcon(MaterialIcons.ACCESSIBILITY);
 
         tf3.setDefaultIcon(MaterialIcons.INPUT);
         tf4.setDefaultIcon(MaterialIcons.INPUT);

@@ -23,6 +23,8 @@ public class MDComboBox<T> extends CssLayout {
 
     private Resource defaultIcon;
 
+    private IconGenerator<T> generator;
+
     private Label label = new Label();
     private CssLayout icon = new CssLayout();
     private Label helper = new Label();
@@ -61,8 +63,8 @@ public class MDComboBox<T> extends CssLayout {
             updateFloatingLabelPosition(this.field.getValue());
         });
         this.field.addValueChangeListener(event -> {
-            if (this.field.getItemIconGenerator() != null) {
-                Resource itemIcon = this.field.getItemIconGenerator().apply(event.getValue());
+            if (generator != null) {
+                Resource itemIcon = generator.apply(event.getValue());
                 if (itemIcon instanceof MaterialIcons) setIcon((MaterialIcons) itemIcon);
                 else setIcon(itemIcon);
             }
@@ -206,8 +208,9 @@ public class MDComboBox<T> extends CssLayout {
         updateFloatingLabelPosition(item);
     }
 
-    public void setItemIconGenerator(IconGenerator itemIconGenerator) {
-        this.field.setItemIconGenerator(itemIconGenerator);
+    public void setItemIconGenerator(IconGenerator generator) {
+        this.generator = generator;
+        this.field.setItemIconGenerator(generator);
     }
 
     private void updateFloatingLabelPosition(T value) {
