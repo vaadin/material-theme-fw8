@@ -29,7 +29,6 @@
 @import "components/datatable-layout";
 @import "components/datepickers";
 @import "components/grid";
-@import "components/labels";
 @import "components/list-item";
 @import "components/menus";
 @import "components/progress";
@@ -65,7 +64,6 @@ $primary-color: $md-blue-500;
   @include datatable-layout;
   @include datepickers;
   @include grid;
-  @include labels;
   @include list-item;
   @include menus;
   @include progress;
@@ -120,4 +118,5 @@ $primary-color: $md-blue-500;
   .clickable {
     cursor: pointer;
   }
+
 }
