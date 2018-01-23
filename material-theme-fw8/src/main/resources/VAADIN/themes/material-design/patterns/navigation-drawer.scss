@@ -101,7 +101,7 @@ $md-naviitem-count-pad-horizontal: $md-u1 * 1.5 !default;
       .md-navidrawer-visible {
         margin-left: 0;
 
-        + .content {
+        ~ .content {
           padding-left: $md-navidrawer-width-mobile;
         }
       }
@@ -121,7 +121,7 @@ $md-naviitem-count-pad-horizontal: $md-u1 * 1.5 !default;
       .md-navidrawer-visible {
         margin-left: 0;
 
-        + .content {
+        ~ .content {
           padding-left: $md-navidrawer-width-tablet;
         }
       }
