@@ -96,33 +96,36 @@ $md-naviitem-count-pad-horizontal: $md-u1 * 1.5 !default;
         margin-left: -$md-navidrawer-width-mobile;
         top: $md-appbar-height-mobile;
         width: $md-navidrawer-width-mobile;
+      }
 
-        &.visible {
-          margin-left: 0;
+      .md-navidrawer-visible {
+        margin-left: 0;
 
-          ~ .content {
-            padding-left: $md-navidrawer-width-mobile;
-          }
+        + .content {
+          padding-left: $md-navidrawer-width-mobile;
         }
       }
+
       .md-naviitem {
         padding-left: $md-gutter-mobile;
       }
     }
+
     &[width-range~="961px-"] {
       .md-navidrawer {
         margin-left: -$md-navidrawer-width-tablet;
         top: $md-appbar-height-tablet;
         width: $md-navidrawer-width-tablet;
+      }
 
-        &.visible {
-          margin-left: 0;
+      .md-navidrawer-visible {
+        margin-left: 0;
 
-          ~ .content {
-            padding-left: $md-navidrawer-width-tablet;
-          }
+        + .content {
+          padding-left: $md-navidrawer-width-tablet;
         }
       }
+
       .md-naviitem {
         padding-left: $md-gutter-tablet;
       }
