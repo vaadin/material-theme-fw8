@@ -21,10 +21,10 @@ public class TwoLineListItem extends ListItem {
         setHeight(Metrics.List.TWO_LINE_HEIGHT, Unit.PIXELS);
 
         primary = new Label(primaryText, ContentMode.HTML);
-        primary.addStyleName(Typography.Dark.Subheader.PRIMARY);
+        primary.setPrimaryStyleName(Typography.Dark.Subheader.PRIMARY);
 
         secondary = new Label(secondaryText, ContentMode.HTML);
-        secondary.addStyleName(Typography.Dark.Body1.SECONDARY);
+        secondary.setPrimaryStyleName(Typography.Dark.Body1.SECONDARY);
 
         content.addComponents(primary, secondary);
 

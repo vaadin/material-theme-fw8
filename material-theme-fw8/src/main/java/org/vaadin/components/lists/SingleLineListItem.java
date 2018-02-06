@@ -22,7 +22,7 @@ public class SingleLineListItem extends ListItem {
         setHeight(Metrics.List.SINGLE_LINE_HEIGHT, Unit.PIXELS);
 
         primary = new Label(primaryText, ContentMode.HTML);
-        primary.addStyleName(Typography.Dark.Subheader.PRIMARY);
+        primary.setPrimaryStyleName(Typography.Dark.Subheader.PRIMARY);
 
         content.addComponent(primary);
 
