@@ -4,6 +4,8 @@ $md-listitem-icon-small-size: 24px !default;
 $md-listitem-icon-large-margin-horizontal: 16px !default;
 $md-listitem-icon-large-size: 40px !default;
 
+$md-listitem-hover-bg-color: $md-grey-200 !default;
+
 $md-listitem-divider-height: 1px !default;
 $md-listitem-divider-left-no-pad: 56px !default;
 $md-listitem-divider-left-mobile: 72px !default;
@@ -15,6 +17,10 @@ $md-listitem-divider-left-tablet: 80px !default;
     display: flex;
     overflow: hidden;
     position: relative;
+
+    &.clickable:hover {
+      background-color: $md-listitem-hover-bg-color;
+    }
   }
 
   .md-listitem-primary {
