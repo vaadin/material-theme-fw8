@@ -1,5 +1,4 @@
-$md-cb-label-pad-left: $md-u4 !default;
-
+$md-cb-label-pad-left: $md-content-margin-left-tablet - $md-gutter-tablet !default;
 $md-cb-min-height: 48px !default;
 
 $md-cb-light-checked-color: $md-blue-500 !default;
@@ -16,7 +15,7 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
 
 
 @mixin checkboxes {
-  
+
   @include md-checkbox(
     md-checkbox-light,
     $md-primary-dark,
@@ -114,7 +113,7 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
       position: relative;
 
       &:not(:empty) {
-        padding-left: $md-icon-size + $md-cb-label-pad-left;
+        padding-left: $md-cb-label-pad-left;
       }
 
       // Ripple

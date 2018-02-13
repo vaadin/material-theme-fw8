@@ -9,7 +9,7 @@
     z-index: 200;
 
     div[role="button"] + div[class*=title] {
-      padding-left: $md-u4;
+      padding-left: $md-content-margin-left-tablet - $md-gutter-tablet - $md-icon-size;
     }
   }
 

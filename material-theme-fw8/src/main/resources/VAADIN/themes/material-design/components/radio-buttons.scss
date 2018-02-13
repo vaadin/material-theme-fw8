@@ -1,4 +1,5 @@
-$md-radio-btn-label-pad-left: $md-u4 !default;
+$md-radio-btn-label-pad-left: $md-content-margin-left-tablet - $md-gutter-tablet !default;
+$md-radio-btn-min-height: 48px !default;
 
 $md-radio-btn-light-checked-color: $md-blue-500 !default;
 $md-radio-btn-light-ripple-color-on: rgba($md-blue-500, 0.1) !default;
@@ -57,13 +58,13 @@ $md-radio-btn-dark-disabled-opacity: 0.3 !default;
   .v-radiobutton {
     align-items: flex-start;
     display: flex;
-    padding: 12px 0;
+    padding: ($md-radio-btn-min-height - $md-icon-size)/2 0;
     position: relative;
 
     label {
       @include md-subheader-font($primary-color);
       display: inline-block;
-      padding-left: $md-icon-size + $md-radio-btn-label-pad-left;
+      padding-left: $md-radio-btn-label-pad-left;
       position: relative;
 
       &::after {

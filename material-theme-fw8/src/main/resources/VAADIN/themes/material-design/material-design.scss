@@ -5,9 +5,6 @@
 @import "motion/effects";
 @import "motion/transitions";
 
-@import "style/colors";
-@import "style/typography";
-
 @import "layout/app-bar";
 @import "layout/borders";
 @import "layout/flex-item";
@@ -21,6 +18,9 @@
 @import "layout/spacings";
 @import "layout/units";
 @import "layout/widths";
+
+@import "style/colors";
+@import "style/typography";
 
 @import "components/buttons";
 @import "components/checkboxes";
@@ -118,5 +118,5 @@ $primary-color: $md-blue-500;
   .clickable {
     cursor: pointer;
   }
-  
+
 }

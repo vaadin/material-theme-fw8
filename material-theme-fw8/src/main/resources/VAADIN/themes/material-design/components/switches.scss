@@ -1,94 +1,102 @@
-$md-switch-label-padding-left: $md-u4;
-$md-switch-width: 40px;
-$md-switch-transition-duration: 0.2s;
+$md-switch-label-pad-left: $md-content-margin-left-tablet - $md-gutter-tablet !default;
+$md-switch-min-height: 48px !default;
+$md-switch-width: 40px !default;
+$md-switch-transition-duration: 0.2s !default;
 
 // Thumb
-$md-switch-thumb-size: 20px;
-$md-switch-thumb-top: ($md-subheader-line-height - $md-switch-thumb-size) / 2;
+$md-switch-thumb-size: 20px !default;
+$md-switch-thumb-top: ($md-subheader-line-height - $md-switch-thumb-size) / 2 !default;
 
 // Track
-$md-switch-track-height: 14px;
-$md-switch-track-width: 34px;
-$md-switch-track-top: ($md-subheader-line-height - $md-switch-track-height) / 2;
-$md-switch-track-left: ($md-switch-width - $md-switch-track-width) / 2;
+$md-switch-track-height: 14px !default;
+$md-switch-track-width: 34px !default;
+$md-switch-track-top: ($md-subheader-line-height - $md-switch-track-height) / 2 !default;
+$md-switch-track-left: ($md-switch-width - $md-switch-track-width) / 2 !default;
 
 // Light
-$md-switch-light-checked-color: $md-blue-500;
-$md-switch-light-ripple-color-on: rgba($md-blue-500, 0.1);
-$md-switch-light-ripple-color-off: rgba(0, 0, 0, 0.07);
-$md-switch-light-ripple-size: $md-u6;
-$md-switch-light-thumb-on: $md-blue-500;
-$md-switch-light-thumb-off: $md-grey-50;
-$md-switch-light-thumb-disabled: $md-grey-400;
-$md-switch-light-thumb-disabled-shadow: $md-elevation-1dp;
-$md-switch-light-track-on: rgba($md-blue-500, 0.5);
-$md-switch-light-track-off: $md-disabled-dark;
-$md-switch-light-track-disabled: $md-divider-dark;
+$md-switch-light-checked-color: $md-blue-500 !default;
+$md-switch-light-ripple-color-on: rgba($md-blue-500, 0.1) !default;
+$md-switch-light-ripple-color-off: rgba(0, 0, 0, 0.07) !default;
+$md-switch-light-ripple-size: $md-u6 !default;
+$md-switch-light-thumb-on: $md-blue-500 !default;
+$md-switch-light-thumb-off: $md-grey-50 !default;
+$md-switch-light-thumb-disabled: $md-grey-400 !default;
+$md-switch-light-thumb-disabled-shadow: $md-elevation-1dp !default;
+$md-switch-light-track-on: rgba($md-blue-500, 0.5) !default;
+$md-switch-light-track-off: $md-disabled-dark !default;
+$md-switch-light-track-disabled: $md-divider-dark !default;
 
 // Dark
-$md-switch-dark-checked-color: $md-blue-500;
-$md-switch-dark-ripple-color-on: rgba($md-blue-500, 0.1);
-$md-switch-dark-ripple-color-off: rgba(255, 255, 255, 0.1);
-$md-switch-dark-ripple-size: $md-u6;
-$md-switch-dark-thumb-on: $md-blue-200;
-$md-switch-dark-thumb-off: $md-grey-400;
-$md-switch-dark-thumb-disabled: $md-grey-800;
-$md-switch-dark-thumb-disabled-shadow: $md-elevation-1dp, inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
-$md-switch-dark-track-on: rgba($md-blue-200, 0.5);
-$md-switch-dark-track-off: rgba(255, 255, 255, 0.3);
-$md-switch-dark-track-disabled: rgba(255, 255, 255, 0.1);
+$md-switch-dark-checked-color: $md-blue-500 !default;
+$md-switch-dark-ripple-color-on: rgba($md-blue-500, 0.1) !default;
+$md-switch-dark-ripple-color-off: rgba(255, 255, 255, 0.1) !default;
+$md-switch-dark-ripple-size: $md-u6 !default;
+$md-switch-dark-thumb-on: $md-blue-200 !default;
+$md-switch-dark-thumb-off: $md-grey-400 !default;
+$md-switch-dark-thumb-disabled: $md-grey-800 !default;
+$md-switch-dark-thumb-disabled-shadow: $md-elevation-1dp, inset 0 1px 0 0 rgba(255, 255, 255, 0.07) !default;
+$md-switch-dark-track-on: rgba($md-blue-200, 0.5) !default;
+$md-switch-dark-track-off: rgba(255, 255, 255, 0.3) !default;
+$md-switch-dark-track-disabled: rgba(255, 255, 255, 0.1) !default;
+
 
 @mixin switches {
-  @include switch(md-switch-light,
-                  $md-primary-dark,
-                  $md-secondary-dark,
-                  $md-disabled-dark,
-                  $md-switch-light-thumb-on,
-                  $md-switch-light-thumb-off,
-                  $md-switch-light-thumb-disabled,
-                  $md-switch-light-thumb-disabled-shadow,
-                  $md-switch-light-track-on,
-                  $md-switch-light-track-off,
-                  $md-switch-light-track-disabled,
-                  $md-switch-light-ripple-color-on,
-                  $md-switch-light-ripple-color-off,
-                  $md-switch-light-ripple-size);
-  @include switch(md-switch-dark,
-                  $md-primary-light,
-                  $md-secondary-light,
-                  $md-disabled-light,
-                  $md-switch-dark-thumb-on,
-                  $md-switch-dark-thumb-off,
-                  $md-switch-dark-thumb-disabled,
-                  $md-switch-dark-thumb-disabled-shadow,
-                  $md-switch-dark-track-on,
-                  $md-switch-dark-track-off,
-                  $md-switch-dark-track-disabled,
-                  $md-switch-dark-ripple-color-on,
-                  $md-switch-dark-ripple-color-off,
-                  $md-switch-dark-ripple-size);
 
+  @include switch(
+    md-switch-light,
+    $md-primary-dark,
+    $md-secondary-dark,
+    $md-disabled-dark,
+    $md-switch-light-thumb-on,
+    $md-switch-light-thumb-off,
+    $md-switch-light-thumb-disabled,
+    $md-switch-light-thumb-disabled-shadow,
+    $md-switch-light-track-on,
+    $md-switch-light-track-off,
+    $md-switch-light-track-disabled,
+    $md-switch-light-ripple-color-on,
+    $md-switch-light-ripple-color-off,
+    $md-switch-light-ripple-size
+  );
+
+  @include switch(
+    md-switch-dark,
+    $md-primary-light,
+    $md-secondary-light,
+    $md-disabled-light,
+    $md-switch-dark-thumb-on,
+    $md-switch-dark-thumb-off,
+    $md-switch-dark-thumb-disabled,
+    $md-switch-dark-thumb-disabled-shadow,
+    $md-switch-dark-track-on,
+    $md-switch-dark-track-off,
+    $md-switch-dark-track-disabled,
+    $md-switch-dark-ripple-color-on,
+    $md-switch-dark-ripple-color-off,
+    $md-switch-dark-ripple-size
+  );
 }
 
-@mixin switch($primaryStyleName,
-              $primary-color,
-              $secondary-color,
-              $disabled-color,
-              $thumb-on,
-              $thumb-off,
-              $thumb-disabled,
-              $thumb-disabled-shadow,
-              $track-on,
-              $track-off,
-              $track-disabled,
-              $ripple-color-on,
-              $ripple-color-off,
-              $ripple-size) {
+@mixin switch(
+  $primaryStyleName,
+  $primary-color,
+  $secondary-color,
+  $disabled-color,
+  $thumb-on,
+  $thumb-off,
+  $thumb-disabled,
+  $thumb-disabled-shadow,
+  $track-on,
+  $track-off,
+  $track-disabled,
+  $ripple-color-on,
+  $ripple-color-off,
+  $ripple-size) {
 
   .#{$primaryStyleName} {
     align-items: flex-start;
     display: flex;
-    padding: 12px 0;
+    padding: ($md-switch-min-height - $md-icon-size)/2 0;
     position: relative;
 
     * {
@@ -112,7 +120,7 @@ $md-switch-dark-track-disabled: rgba(255, 255, 255, 0.1);
     label {
       @include md-subheader-font($primary-color);
       display: inline-block;
-      padding-left: $md-icon-size + $md-switch-label-padding-left;
+      padding-left: $md-switch-label-pad-left;
       position: relative;
 
       &::after {

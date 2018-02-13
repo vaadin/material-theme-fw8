@@ -1,8 +1,8 @@
-$md-listitem-icon-small-margin-horizontal: 32px !default;
-$md-listitem-icon-small-size: 24px !default;
+$md-listitem-icon-small-size: $md-icon-size !default;
+$md-listitem-icon-small-margin-horizontal: $md-content-margin-left-tablet - $md-gutter-tablet - $md-listitem-icon-small-size !default;
 
-$md-listitem-icon-large-margin-horizontal: 16px !default;
 $md-listitem-icon-large-size: 40px !default;
+$md-listitem-icon-large-margin-horizontal: $md-content-margin-left-tablet - $md-gutter-tablet - $md-listitem-icon-large-size !default;
 
 $md-listitem-hover-bg-color: $md-grey-200 !default;
 

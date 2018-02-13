@@ -1,4 +1,7 @@
+// Icon size
+$md-icon-size-small: 18px;
 $md-icon-size: 24px;
+$md-icon-size-large: 48px;
 
 
 // App bar
@@ -9,6 +12,11 @@ $md-appbar-height-tablet: 64px;
 // Gutters
 $md-gutter-mobile: 16px;
 $md-gutter-tablet: 24px;
+
+
+// Content margins (including gutters)
+$md-content-margin-left-mobile: 72px;
+$md-content-margin-left-tablet: 80px;
 
 
 // Navigation drawer
