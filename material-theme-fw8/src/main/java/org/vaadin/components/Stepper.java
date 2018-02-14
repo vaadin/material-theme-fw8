@@ -21,11 +21,10 @@ import static org.vaadin.layout.Metrics.Stepper.CIRCLE_SIZE;
 public class Stepper extends FlexLayout {
 
     private ArrayList<Step> steps = new ArrayList<Step>();
-
-    MaterialColor active = MaterialColor.BLUE_500;
-    MaterialColor inactive = MaterialColor.DARK_DISABLED;
-    MaterialColor invalid = MaterialColor.RED_500;
-    MaterialColor complete = MaterialColor.BLUE_500;
+    private MaterialColor active = MaterialColor.BLUE_500;
+    private MaterialColor inactive = MaterialColor.DARK_DISABLED;
+    private MaterialColor invalid = MaterialColor.RED_500;
+    private MaterialColor complete = MaterialColor.BLUE_500;
 
     public Stepper() {
         addStyleName(Paddings.Horizontal.LARGE);
@@ -52,17 +51,13 @@ public class Stepper extends FlexLayout {
             addComponent(connector);
         }
 
-        Step s = createStep(steps.size() + 1, name, info, active, inactive, invalid, complete);
+        Step s = createStep(steps.size() + 1, name, info);
         addComponent(s);
         steps.add(s);
         return s;
     }
 
     protected Step createStep(int step, String name, String info) {
-        return new Step(step, name, info, active, inactive, invalid, complete);
-    }
-
-    protected Step createStep(int step, String name, String info, MaterialColor active, MaterialColor inactive, MaterialColor invalid, MaterialColor complete) {
         return new Step(step, name, info, active, inactive, invalid, complete);
     }
 
@@ -140,18 +135,14 @@ public class Stepper extends FlexLayout {
 
 
     public class Step extends FlexLayout {
-        int step;
-        Label stepLabel;
-        Label nameLabel;
-        Label infoLabel;
-        MaterialColor active;
-        MaterialColor inactive;
-        MaterialColor invalid;
-        MaterialColor complete;
-
-        public Step(int step, String name, String info) {
-            this(step, name, info, MaterialColor.BLUE_500, MaterialColor.DARK_DISABLED, MaterialColor.RED_500, MaterialColor.BLUE_500);
-        }
+        private int step;
+        private Label stepLabel;
+        private Label nameLabel;
+        private Label infoLabel;
+        private MaterialColor active;
+        private MaterialColor inactive;
+        private MaterialColor invalid;
+        private MaterialColor complete;
 
         public Step(int step, String name, String info, MaterialColor active, MaterialColor inactive, MaterialColor invalid, MaterialColor complete) {
             setAlignItems(AlignItems.CENTER);
