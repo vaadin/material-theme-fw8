@@ -22,36 +22,54 @@ public class Stepper extends FlexLayout {
 
     private ArrayList<Step> steps = new ArrayList<Step>();
 
+    MaterialColor active = MaterialColor.BLUE_500;
+    MaterialColor inactive = MaterialColor.DARK_DISABLED;
+    MaterialColor invalid = MaterialColor.RED_500;
+    MaterialColor complete = MaterialColor.BLUE_500;
+
     public Stepper() {
         addStyleName(Paddings.Horizontal.LARGE);
         addStyleName(Spacings.Right.SMALL);
+        setAlignItems(AlignItems.CENTER);
         setHeight(Metrics.Stepper.HEIGHT, Unit.PIXELS);
         setJustifyContent(JustifyContent.SPACE_BETWEEN);
-        setAlignItems(AlignItems.CENTER);
+    }
+
+    public Stepper(MaterialColor active, MaterialColor inactive, MaterialColor invalid, MaterialColor complete) {
+        this();
+        this.active = active;
+        this.inactive = inactive;
+        this.invalid = invalid;
+        this.complete = complete;
     }
 
     public Step addStep(String name, String info) {
         if (steps.size() > 0) {
             CssLayout connector = new CssLayout();
-            connector.setHeight(Metrics.Stepper.CONNECTOR_HEIGHT, Unit.PIXELS);
-            connector.addStyleName(MaterialColor.DARK_DIVIDER.getBackgroundColorStyle());
             connector.addStyleName(FlexItem.FlexGrow.GROW_1);
+            connector.addStyleName(MaterialColor.DARK_DIVIDER.getBackgroundColorStyle());
+            connector.setHeight(Metrics.Stepper.CONNECTOR_HEIGHT, Unit.PIXELS);
             addComponent(connector);
         }
 
-        Step s = createStep(steps.size() + 1, name, info);
+        Step s = createStep(steps.size() + 1, name, info, active, inactive, invalid, complete);
         addComponent(s);
         steps.add(s);
         return s;
     }
 
     protected Step createStep(int step, String name, String info) {
-        return new Step(step, name, info);
+        return new Step(step, name, info, active, inactive, invalid, complete);
+    }
+
+    protected Step createStep(int step, String name, String info, MaterialColor active, MaterialColor inactive, MaterialColor invalid, MaterialColor complete) {
+        return new Step(step, name, info, active, inactive, invalid, complete);
     }
 
     public ArrayList<Step> getSteps() {
         return steps;
     }
+
 
     public void completeStep(Step step) {
         completeStep(step, true);
@@ -69,6 +87,7 @@ public class Stepper extends FlexLayout {
         steps.get(step).setComplete(updateIcon);
     }
 
+
     public void selectStep(Step step) {
         selectStep(step, true);
     }
@@ -84,6 +103,7 @@ public class Stepper extends FlexLayout {
     public void selectStep(int step, boolean updateIcon) {
         steps.get(step).setActive(updateIcon);
     }
+
 
     public void deselectStep(Step step) {
         deselectStep(step, true);
@@ -101,6 +121,7 @@ public class Stepper extends FlexLayout {
         steps.get(step).setInactive(updateIcon);
     }
 
+
     public void invalidateStep(Step step) {
         invalidateStep(step, true);
     }
@@ -117,15 +138,24 @@ public class Stepper extends FlexLayout {
         steps.get(step).setInvalid(updateIcon);
     }
 
+
     public class Step extends FlexLayout {
         int step;
         Label stepLabel;
         Label nameLabel;
         Label infoLabel;
+        MaterialColor active;
+        MaterialColor inactive;
+        MaterialColor invalid;
+        MaterialColor complete;
 
         public Step(int step, String name, String info) {
-            setFlexDirection(ROW);
+            this(step, name, info, MaterialColor.BLUE_500, MaterialColor.DARK_DISABLED, MaterialColor.RED_500, MaterialColor.BLUE_500);
+        }
+
+        public Step(int step, String name, String info, MaterialColor active, MaterialColor inactive, MaterialColor invalid, MaterialColor complete) {
             setAlignItems(AlignItems.CENTER);
+            setFlexDirection(ROW);
             setOverflow(Overflow.HIDDEN);
 
             this.step = step;
@@ -134,11 +164,11 @@ public class Stepper extends FlexLayout {
             this.stepLabel.setPrimaryStyleName(Typography.Light.Caption.PRIMARY);
             this.stepLabel.addStyleName(FLEXLAYOUT);
             this.stepLabel.addStyleName(AlignItems.CENTER.getStyleName());
-            this.stepLabel.addStyleName(JustifyContent.CENTER.getStyleName());
-            this.stepLabel.addStyleName(Styles.Misc.BORDER_RADIUS_FULL);
-            this.stepLabel.addStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
             this.stepLabel.addStyleName(FlexItem.FlexShrink.SHRINK_0);
+            this.stepLabel.addStyleName(JustifyContent.CENTER.getStyleName());
             this.stepLabel.addStyleName(Margins.Right.SMALL);
+            this.stepLabel.addStyleName(inactive.getBackgroundColorStyle());
+            this.stepLabel.addStyleName(Styles.Misc.BORDER_RADIUS_FULL);
             this.stepLabel.setContentMode(ContentMode.HTML);
             this.stepLabel.setHeight(CIRCLE_SIZE, Unit.PIXELS);
             this.stepLabel.setWidth(CIRCLE_SIZE, Unit.PIXELS);
@@ -151,6 +181,11 @@ public class Stepper extends FlexLayout {
 
             FlexLayout column = new FlexLayout(COLUMN, nameLabel, infoLabel);
             addComponents(stepLabel, column);
+
+            this.active = active;
+            this.inactive = inactive;
+            this.invalid = invalid;
+            this.complete = complete;
         }
 
         public void setStepLabel(String value) {
@@ -175,50 +210,54 @@ public class Stepper extends FlexLayout {
 
         public void setInactive(boolean updateIcon) {
             if (updateIcon) setStepLabel(Integer.toString(step));
-            this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
-            this.stepLabel.removeStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
-            this.stepLabel.addStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(active.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(complete.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(invalid.getFontColorStyle());
+            this.stepLabel.addStyleName(inactive.getBackgroundColorStyle());
 
             this.nameLabel.removeStyleName(Typography.FontWeight.MEDIUM);
-            this.nameLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
+            this.nameLabel.removeStyleName(invalid.getFontColorStyle());
 
-            if (infoLabel != null) this.infoLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
+            if (infoLabel != null) this.infoLabel.removeStyleName(invalid.getFontColorStyle());
         }
 
         public void setActive(boolean updateIcon) {
             if (updateIcon) setStepLabel(Integer.toString(step));
-            this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
-            this.stepLabel.addStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
-            this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(complete.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(inactive.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(invalid.getFontColorStyle());
+            this.stepLabel.addStyleName(active.getBackgroundColorStyle());
 
             this.nameLabel.addStyleName(Typography.FontWeight.MEDIUM);
-            this.nameLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
+            this.nameLabel.removeStyleName(invalid.getFontColorStyle());
 
-            if (infoLabel != null) this.infoLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
+            if (infoLabel != null) this.infoLabel.removeStyleName(invalid.getFontColorStyle());
         }
 
         public void setInvalid(boolean updateIcon) {
             if (updateIcon) setStepLabel(MaterialIcons.WARNING);
-            this.stepLabel.addStyleName(MaterialColor.RED_500.getFontColorStyle());
-            this.stepLabel.removeStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
-            this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(active.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(complete.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(inactive.getBackgroundColorStyle());
+            this.stepLabel.addStyleName(invalid.getFontColorStyle());
 
             this.nameLabel.removeStyleName(Typography.FontWeight.MEDIUM);
-            this.nameLabel.addStyleName(MaterialColor.RED_500.getFontColorStyle());
+            this.nameLabel.addStyleName(invalid.getFontColorStyle());
 
-            if (infoLabel != null) this.infoLabel.addStyleName(MaterialColor.RED_500.getFontColorStyle());
+            if (infoLabel != null) this.infoLabel.addStyleName(invalid.getFontColorStyle());
         }
 
         public void setComplete(boolean updateIcon) {
             if (updateIcon) setStepLabel(MaterialIcons.CHECK, MaterialIcons.Size.SMALL);
-            this.stepLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
-            this.stepLabel.addStyleName(MaterialColor.BLUE_500.getBackgroundColorStyle());
-            this.stepLabel.removeStyleName(MaterialColor.DARK_DISABLED.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(active.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(inactive.getBackgroundColorStyle());
+            this.stepLabel.removeStyleName(invalid.getFontColorStyle());
+            this.stepLabel.addStyleName(complete.getBackgroundColorStyle());
 
-            this.nameLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
             this.nameLabel.removeStyleName(Typography.FontWeight.MEDIUM);
+            this.nameLabel.removeStyleName(invalid.getFontColorStyle());
 
-            if (infoLabel != null) this.infoLabel.removeStyleName(MaterialColor.RED_500.getFontColorStyle());
+            if (infoLabel != null) this.infoLabel.removeStyleName(invalid.getFontColorStyle());
         }
     }
 }
