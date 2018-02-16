@@ -179,6 +179,8 @@ public class Stepper extends FlexLayout {
             this.complete = complete;
         }
 
+        public String getStepLabel() { return this.stepLabel.getValue(); }
+
         public void setStepLabel(String value) {
             this.stepLabel.setValue(value);
         }
@@ -191,9 +193,13 @@ public class Stepper extends FlexLayout {
             setStepLabel(icon.getHtml(size));
         }
 
+        public String getNameLabel() { return this.nameLabel.getValue(); }
+
         public void setNameLabel(String value) {
             this.nameLabel.setValue(value);
         }
+
+        public String getInfoLabel() { return this.infoLabel.getValue(); }
 
         public void setInfoLabel(String value) {
             this.infoLabel.setValue(value);
