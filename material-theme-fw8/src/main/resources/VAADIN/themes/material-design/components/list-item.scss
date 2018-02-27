@@ -38,10 +38,16 @@ $md-listitem-divider-left-tablet: 80px !default;
   .md-listitem-content {
     display: flex;
 
-    .v-label {
+    * {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+  }
+
+  .md-listitem-content-wrap {
+    * {
+      white-space: normal;
     }
   }
 

@@ -3,6 +3,7 @@ package org.vaadin.components.lists;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Label;
 import org.vaadin.layout.Metrics;
+import org.vaadin.layout.Paddings;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Typography;
 
@@ -44,6 +45,23 @@ public class SingleLineListItem extends ListItem {
     public void setTheme(boolean lightTheme) {
         super.setTheme(lightTheme);
         primary.setPrimaryStyleName(lightTheme ? Typography.Dark.Subheader.PRIMARY : Typography.Light.Subheader.PRIMARY);
+    }
+
+    public void enableWrap(boolean horizontalPadding) {
+        super.enableWrap(horizontalPadding);
+        if (horizontalPadding) {
+            addStyleName(getPrimaryIcon().getSize().equals(IconSize.LARGE) || getSecondaryIcon().getSize().equals(IconSize.LARGE) ?
+                    Paddings.Vertical.ListItem.SINGLE_LINE_WITH_AVATAR : Paddings.Vertical.ListItem.SINGLE_LINE);
+        }
+    }
+
+    public void disableWrap() {
+        super.disableWrap();
+        setHeight(getPrimaryIcon().getSize().equals(IconSize.LARGE) || getSecondaryIcon().getSize().equals(IconSize.LARGE) ?
+                Metrics.List.SINGLE_LINE_WITH_AVATAR_HEIGHT : Metrics.List.SINGLE_LINE_HEIGHT, Unit.PIXELS);
+
+        removeStyleName(Paddings.Vertical.ListItem.SINGLE_LINE);
+        removeStyleName(Paddings.Vertical.ListItem.SINGLE_LINE_WITH_AVATAR);
     }
 
     public Label getPrimaryLabel() {

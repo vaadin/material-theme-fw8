@@ -9,6 +9,8 @@ import com.vaadin.ui.Label;
 import org.vaadin.components.IconButton;
 import org.vaadin.components.MDCheckbox;
 import org.vaadin.layout.FlexLayout;
+import org.vaadin.layout.Metrics;
+import org.vaadin.layout.Paddings;
 import org.vaadin.style.MaterialColor;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Styles;
@@ -68,6 +70,14 @@ public abstract class ListItem extends CssLayout {
         return actionSecondary;
     }
 
+    public void enableWrap(boolean horizontalPadding) {
+        setHeightUndefined();
+        content.addStyleName("wrap");
+    };
+
+    public void disableWrap() {
+        content.removeStyleName("wrap");
+    };
 
     public void setInsetDividerVisible(boolean visible) {
         divider.setVisible(visible);
@@ -227,7 +237,7 @@ public abstract class ListItem extends CssLayout {
         }
     }
 
-    private class ListItemIcon extends CssLayout {
+    public class ListItemIcon extends CssLayout {
 
         protected MaterialColor fontColor;
         protected MaterialColor backgroundColor;
@@ -278,6 +288,10 @@ public abstract class ListItem extends CssLayout {
             if (this.size != null) removeStyleName(this.size.getStyleName());
             this.size = size;
             addStyleName(this.size.getStyleName());
+        }
+
+        public IconSize getSize() {
+            return size;
         }
 
         public void setCircular(boolean circular) {

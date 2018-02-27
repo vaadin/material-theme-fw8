@@ -3,6 +3,7 @@ package org.vaadin.components.lists;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Label;
 import org.vaadin.layout.Metrics;
+import org.vaadin.layout.Paddings;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Typography;
 
@@ -47,6 +48,17 @@ public class TwoLineListItem extends ListItem {
         super.setTheme(lightTheme);
         primary.setPrimaryStyleName(lightTheme ? Typography.Dark.Subheader.PRIMARY : Typography.Light.Subheader.PRIMARY);
         secondary.setPrimaryStyleName(lightTheme ? Typography.Dark.Body1.SECONDARY : Typography.Light.Body1.SECONDARY);
+    }
+
+    public void enableWrap(boolean horizontalPadding) {
+        super.enableWrap(horizontalPadding);
+        if (horizontalPadding) addStyleName(Paddings.Vertical.ListItem.TWO_LINE);
+    }
+
+    public void disableWrap() {
+        super.disableWrap();
+        setHeight(Metrics.List.TWO_LINE_HEIGHT, Unit.PIXELS);
+        removeStyleName(Paddings.Vertical.ListItem.TWO_LINE);
     }
 
     public Label getPrimaryLabel() {

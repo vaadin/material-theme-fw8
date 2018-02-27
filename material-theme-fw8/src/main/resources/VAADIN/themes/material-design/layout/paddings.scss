@@ -314,4 +314,20 @@
     padding-bottom: ($md-dt-row-height - $md-table-row-line-height) / 2;
     padding-top: ($md-dt-row-height - $md-table-row-line-height) / 2;
   }
+
+  // List item paddings
+  .pad-v-sl {
+    padding-bottom: $md-u1 * 1.5;
+    padding-top: $md-u1 * 1.5;
+  }
+
+  .pad-v-slwa {
+    padding-bottom: $md-u1;
+    padding-top: $md-u1;
+  }
+
+  .pad-v-tl {
+    padding-bottom: $md-u1 * 1.75;
+    padding-top: $md-u1 * 1.75;
+  }
 }

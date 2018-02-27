@@ -51,6 +51,13 @@ public class Paddings {
         public static final String XXXXXX_LARGE = new String("pad-v-xxxxxxl");
         public static final String XXXXXXX_LARGE = new String("pad-v-xxxxxxxl");
         public static final String TABLE = new String("pad-v-t");
+
+        public static class ListItem {
+            public static final String SINGLE_LINE= new String("pad-v-sl");
+            public static final String SINGLE_LINE_WITH_AVATAR= new String("pad-v-slwa");
+            public static final String TWO_LINE = new String("pad-v-tl");
+        }
+
     }
 
     public static class Top {
