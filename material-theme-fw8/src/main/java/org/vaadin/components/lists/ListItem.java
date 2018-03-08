@@ -9,8 +9,6 @@ import com.vaadin.ui.Label;
 import org.vaadin.components.IconButton;
 import org.vaadin.components.MDCheckbox;
 import org.vaadin.layout.FlexLayout;
-import org.vaadin.layout.Metrics;
-import org.vaadin.layout.Paddings;
 import org.vaadin.style.MaterialColor;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Styles;

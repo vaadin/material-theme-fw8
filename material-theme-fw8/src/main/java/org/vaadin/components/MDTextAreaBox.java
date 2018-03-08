@@ -4,7 +4,6 @@ import com.vaadin.data.HasValue;
 import com.vaadin.server.AbstractErrorMessage;
 import com.vaadin.server.ErrorMessage;
 import com.vaadin.server.Resource;
-import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.Registration;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.CssLayout;

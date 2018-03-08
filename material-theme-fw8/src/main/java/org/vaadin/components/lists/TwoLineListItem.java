@@ -1,6 +1,5 @@
 package org.vaadin.components.lists;
 
-import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Label;
 import org.vaadin.layout.Metrics;
 import org.vaadin.layout.Paddings;
@@ -21,10 +20,10 @@ public class TwoLineListItem extends ListItem {
         addStyleName("two-line");
         setHeight(Metrics.List.TWO_LINE_HEIGHT, Unit.PIXELS);
 
-        primary = new Label(primaryText, ContentMode.HTML);
+        primary = new Label(primaryText);
         primary.setPrimaryStyleName(Typography.Dark.Subheader.PRIMARY);
 
-        secondary = new Label(secondaryText, ContentMode.HTML);
+        secondary = new Label(secondaryText);
         secondary.setPrimaryStyleName(Typography.Dark.Body1.SECONDARY);
 
         content.addComponents(primary, secondary);

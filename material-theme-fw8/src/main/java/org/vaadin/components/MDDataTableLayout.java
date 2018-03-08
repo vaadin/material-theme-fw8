@@ -1,6 +1,5 @@
 package org.vaadin.components;
 
-import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Label;
@@ -35,7 +34,6 @@ public class MDDataTableLayout extends FlexLayout {
     public void setHeaders(String... headers) {
         for (String header : headers) {
             Label lbl = new Label(header);
-            lbl.setContentMode(ContentMode.HTML);
             lbl.setPrimaryStyleName(Typography.Dark.Table.Header.SECONDARY);
             this.headers.addComponent(lbl);
         }
@@ -49,7 +47,6 @@ public class MDDataTableLayout extends FlexLayout {
         for (Object value : values) {
             if (value instanceof String) {
                 Label lbl = new Label((String) value);
-                lbl.setContentMode(ContentMode.HTML);
                 lbl.setPrimaryStyleName(Typography.Dark.Table.Row.PRIMARY);
                 item.addComponent(lbl);
             } else if (value instanceof Component) {

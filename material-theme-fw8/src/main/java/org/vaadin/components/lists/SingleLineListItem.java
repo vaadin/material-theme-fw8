@@ -1,6 +1,5 @@
 package org.vaadin.components.lists;
 
-import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Label;
 import org.vaadin.layout.Metrics;
 import org.vaadin.layout.Paddings;
@@ -22,7 +21,7 @@ public class SingleLineListItem extends ListItem {
         addStyleName("single-line");
         setHeight(Metrics.List.SINGLE_LINE_HEIGHT, Unit.PIXELS);
 
-        primary = new Label(primaryText, ContentMode.HTML);
+        primary = new Label(primaryText);
         primary.setPrimaryStyleName(Typography.Dark.Subheader.PRIMARY);
 
         content.addComponent(primary);
