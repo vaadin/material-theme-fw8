@@ -5,13 +5,13 @@
     <groupId>org.vaadin</groupId>
     <artifactId>material-theme-fw8</artifactId>
     <packaging>jar</packaging>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
     <name>material-theme-fw8</name>
 
     <parent>
         <groupId>org.vaadin</groupId>
         <artifactId>material-theme-fw8-root</artifactId>
-        <version>1.1.1-SNAPSHOT</version>
+        <version>1.1.1</version>
     </parent>
 
     <prerequisites>
