@@ -4,7 +4,7 @@
     <groupId>org.vaadin</groupId>
     <artifactId>material-theme-fw8-root</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.8-SNAPSHOT</version>
+    <version>1.1.7</version>
     <name>material-theme-fw8 root</name>
 
     <properties>
@@ -13,7 +13,7 @@
 
     <scm>
         <developerConnection>scm:git:[fetch=]https://github.com/vaadin/material-theme-fw8.git[push=]ssh://git@github.com/vaadin/material-theme-fw8.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>material-theme-fw8-root-1.1.7</tag>
   </scm>
 
     <modules>
