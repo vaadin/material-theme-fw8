@@ -70,3 +70,24 @@ $md-tab-dark-ripple-color: rgba(255, 255, 255, 0.3) !default;
     flex-direction: column;
   }
 }
+
+
+@media (max-width: 960px) {
+  .md-tab-light,
+  .md-tab-dark,
+  .md-tab-icontext-light,
+  .md-tab-icontext-dark {
+    @include md-tab-font(null, true);
+    padding: 0 $md-tab-pad-horizontal-mobile;
+  }
+}
+
+@media (min-width: 961px) {
+  .md-tab-light,
+  .md-tab-dark,
+  .md-tab-icontext-light,
+  .md-tab-icontext-dark {
+    @include md-tab-font(null, false);
+    padding: 0 $md-tab-pad-horizontal-tablet;
+  }
+}

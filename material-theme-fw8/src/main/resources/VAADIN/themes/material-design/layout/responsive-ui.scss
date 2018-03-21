@@ -1,32 +1,14 @@
 @mixin responsive-ui {
   .root {
-    
+
     /* MOBILE */
     &[width-range~="0-960px"] {
       padding-top: $md-appbar-height-mobile;
-
-      // Tabs
-      .md-tab-light,
-      .md-tab-dark,
-      .md-tab-icontext-light,
-      .md-tab-icontext-dark {
-        @include md-tab-font(null, true);
-        padding: 0 $md-tab-pad-horizontal-mobile;
-      }
     }
 
     /* TABLET & DESKTOP */
     &[width-range~="961px-"] {
       padding-top: $md-appbar-height-tablet;
-
-      // Tabs
-      .md-tab-light,
-      .md-tab-dark,
-      .md-tab-icontext-light,
-      .md-tab-icontext-dark {
-        @include md-tab-font(null, false);
-        padding: 0 $md-tab-pad-horizontal-tablet;
-      }
     }
   }
 }
