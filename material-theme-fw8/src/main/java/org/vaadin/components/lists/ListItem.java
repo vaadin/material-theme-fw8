@@ -222,6 +222,7 @@ public abstract class ListItem extends CssLayout {
 
     public enum IconSize {
         SMALL("small"),
+        MEDIUM("medium"),
         LARGE("large");
 
         private String styleName;

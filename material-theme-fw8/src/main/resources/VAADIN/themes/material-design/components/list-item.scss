@@ -1,6 +1,9 @@
 $md-listitem-icon-small-size: $md-icon-size !default;
 $md-listitem-icon-small-margin-horizontal: $md-content-margin-left-tablet - $md-gutter-tablet - $md-listitem-icon-small-size !default;
 
+$md-listitem-icon-medium-size: $md-u4 !default;
+$md-listitem-icon-medium-margin-horizontal: $md-content-margin-left-tablet - $md-gutter-tablet - $md-listitem-icon-medium-size !default;
+
 $md-listitem-icon-large-size: 40px !default;
 $md-listitem-icon-large-margin-horizontal: $md-content-margin-left-tablet - $md-gutter-tablet - $md-listitem-icon-large-size !default;
 
@@ -80,6 +83,11 @@ $md-listitem-divider-left-tablet: 80px !default;
     width: $md-listitem-icon-large-size;
   }
 
+  .md-listitem-icon-medium {
+    height: $md-listitem-icon-medium-size;
+    width: $md-listitem-icon-medium-size;
+  }
+
   .md-listitem-icon-small {
     height: $md-listitem-icon-small-size;
     width: $md-listitem-icon-small-size;
@@ -89,6 +97,9 @@ $md-listitem-divider-left-tablet: 80px !default;
     &.small {
       margin-right: $md-listitem-icon-small-margin-horizontal;
     }
+    &.medium {
+      margin-right: $md-listitem-icon-medium-margin-horizontal;
+    }
     &.large {
       margin-right: $md-listitem-icon-large-margin-horizontal;
     }
@@ -97,6 +108,9 @@ $md-listitem-divider-left-tablet: 80px !default;
   .md-listitem-icon-secondary {
     &.small {
       margin-left: $md-listitem-icon-small-margin-horizontal;
+    }
+    &.medium {
+      margin-left: $md-listitem-icon-medium-margin-horizontal;
     }
     &.large {
       margin-left: $md-listitem-icon-large-margin-horizontal;
