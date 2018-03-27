@@ -96,8 +96,8 @@ $md-switch-dark-track-disabled: rgba(255, 255, 255, 0.1) !default;
   .#{$primaryStyleName} {
     align-items: flex-start;
     display: flex;
-    padding-bottom: ($md-switch-min-height - $md-icon-size)/2 0;
-    padding-top: ($md-switch-min-height - $md-icon-size)/2 0;
+    padding-bottom: ($md-switch-min-height - $md-icon-size)/2;
+    padding-top: ($md-switch-min-height - $md-icon-size)/2;
     position: relative;
 
     * {
