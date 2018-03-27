@@ -58,7 +58,8 @@ $md-radio-btn-dark-disabled-opacity: 0.3 !default;
   .v-radiobutton {
     align-items: flex-start;
     display: flex;
-    padding: ($md-radio-btn-min-height - $md-icon-size)/2 0;
+    padding-bottom: ($md-radio-btn-min-height - $md-icon-size)/2 0;
+    padding-top: ($md-radio-btn-min-height - $md-icon-size)/2 0;
     position: relative;
 
     label {

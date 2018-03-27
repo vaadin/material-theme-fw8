@@ -86,7 +86,8 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
     display: flex;
     min-height: $md-cb-min-height;
     min-width: $md-icon-size;
-    padding: ($md-cb-min-height - $md-icon-size)/2 0;
+    padding-bottom: ($md-cb-min-height - $md-icon-size)/2 0;
+    padding-top: ($md-cb-min-height - $md-icon-size)/2 0;
     position: relative;
 
     * {
