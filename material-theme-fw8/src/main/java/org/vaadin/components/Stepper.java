@@ -143,7 +143,7 @@ public class Stepper extends FlexLayout {
         private MaterialColor inactive;
         private MaterialColor invalid;
         private MaterialColor complete;
-        private String ACTIVE = "active";
+        private String ACTIVE = "step-active";
 
         public Step(int step, String name, String info, MaterialColor active, MaterialColor inactive, MaterialColor invalid, MaterialColor complete) {
             setAlignItems(AlignItems.CENTER);
