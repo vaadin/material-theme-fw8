@@ -143,6 +143,7 @@ public class Stepper extends FlexLayout {
         private MaterialColor inactive;
         private MaterialColor invalid;
         private MaterialColor complete;
+        private String ACTIVE = "active";
 
         public Step(int step, String name, String info, MaterialColor active, MaterialColor inactive, MaterialColor invalid, MaterialColor complete) {
             setAlignItems(AlignItems.CENTER);
@@ -216,6 +217,8 @@ public class Stepper extends FlexLayout {
             this.nameLabel.removeStyleName(invalid.getFontColorStyle());
 
             if (infoLabel != null) this.infoLabel.removeStyleName(invalid.getFontColorStyle());
+
+            removeStyleName(ACTIVE);
         }
 
         public void setActive(boolean updateIcon) {
@@ -229,6 +232,8 @@ public class Stepper extends FlexLayout {
             this.nameLabel.removeStyleName(invalid.getFontColorStyle());
 
             if (infoLabel != null) this.infoLabel.removeStyleName(invalid.getFontColorStyle());
+
+            addStyleName(ACTIVE);
         }
 
         public void setInvalid(boolean updateIcon) {
@@ -242,6 +247,8 @@ public class Stepper extends FlexLayout {
             this.nameLabel.addStyleName(invalid.getFontColorStyle());
 
             if (infoLabel != null) this.infoLabel.addStyleName(invalid.getFontColorStyle());
+
+            removeStyleName(ACTIVE);
         }
 
         public void setComplete(boolean updateIcon) {
@@ -255,6 +262,8 @@ public class Stepper extends FlexLayout {
             this.nameLabel.removeStyleName(invalid.getFontColorStyle());
 
             if (infoLabel != null) this.infoLabel.removeStyleName(invalid.getFontColorStyle());
+
+            removeStyleName(ACTIVE);
         }
     }
 }
