@@ -1,73 +1,82 @@
-$md-radio-btn-label-pad-left: $md-content-margin-left-tablet - $md-gutter-tablet !default;
-$md-radio-btn-min-height: 48px !default;
+$md-radiobtn-label-pad-left: $md-content-margin-left-tablet - $md-gutter-tablet !default;
+$md-radiobtn-min-height: 48px !default;
 
-$md-radio-btn-light-checked-color: $md-blue-500 !default;
-$md-radio-btn-light-ripple-color-on: rgba($md-blue-500, 0.1) !default;
-$md-radio-btn-light-ripple-color-off: rgba(0, 0, 0, 0.07) !default;
-$md-radio-btn-light-ripple-size: $md-u6 !default;
-$md-radio-btn-light-disabled-opacity: 0.26 !default;
+$md-radiobtn-light-default-color: $md-secondary-dark !default;
+$md-radiobtn-light-checked-color: $md-blue-500 !default;
+$md-radiobtn-light-disabled-color: rgba(0, 0, 0, 0.26) !default;
+$md-radiobtn-light-ripple-color-on: rgba($md-blue-500, 0.1) !default;
+$md-radiobtn-light-ripple-color-off: rgba(0, 0, 0, 0.07) !default;
+$md-radiobtn-light-ripple-size: $md-u6 !default;
 
-$md-radio-btn-dark-checked-color: $md-blue-500 !default;
-$md-radio-btn-dark-ripple-color-on: rgba($md-blue-500, 0.09) !default;
-$md-radio-btn-dark-ripple-color-off: rgba(255, 255, 255, 0.1) !default;
-$md-radio-btn-dark-ripple-size: $md-u6 !default;
-$md-radio-btn-dark-disabled-opacity: 0.3 !default;
+$md-radiobtn-dark-default-color: $md-secondary-light !default;
+$md-radiobtn-dark-checked-color: $md-blue-500 !default;
+$md-radiobtn-dark-disabled-color: rgba(255, 255, 255, 0.3) !default;
+$md-radiobtn-dark-ripple-color-on: rgba($md-blue-500, 0.09) !default;
+$md-radiobtn-dark-ripple-color-off: rgba(255, 255, 255, 0.1) !default;
+$md-radiobtn-dark-ripple-size: $md-u6 !default;
 
 @mixin radio-buttons {
   .md-optiongroup-light {
-    @include md-radio-btn(
+    @include md-radiobtn(
       $md-primary-dark,
       $md-secondary-dark,
-      $md-disabled-dark,
-      $md-radio-btn-light-disabled-opacity,
-      $md-radio-btn-light-checked-color,
-      $md-radio-btn-light-ripple-color-on,
-      $md-radio-btn-light-ripple-color-off,
-      $md-radio-btn-light-ripple-size
+      $md-radiobtn-light-default-color,
+      $md-radiobtn-light-checked-color,
+      $md-radiobtn-light-disabled-color,
+      $md-radiobtn-light-ripple-color-on,
+      $md-radiobtn-light-ripple-color-off,
+      $md-radiobtn-light-ripple-size
     );
   }
 
   .md-optiongroup-dark {
-    @include md-radio-btn(
+    @include md-radiobtn(
       $md-primary-light,
-      $md-secondary-light,
       $md-disabled-light,
-      $md-radio-btn-dark-disabled-opacity,
-      $md-radio-btn-dark-checked-color,
-      $md-radio-btn-dark-ripple-color-on,
-      $md-radio-btn-dark-ripple-color-off,
-      $md-radio-btn-dark-ripple-size
+      $md-radiobtn-dark-default-color,
+      $md-radiobtn-dark-checked-color,
+      $md-radiobtn-dark-disabled-color,
+      $md-radiobtn-dark-ripple-color-on,
+      $md-radiobtn-dark-ripple-color-off,
+      $md-radiobtn-dark-ripple-size
     );
   }
 }
 
-@mixin md-radio-btn(
-  $primary-color,
-  $secondary-color,
-  $disabled-color,
-  $disabled-opacity,
-  $checked-color,
+
+@mixin md-radiobtn(
+  $font-primary-color,
+  $font-disabled-color,
+  $icon-default-color,
+  $icon-checked-color,
+  $icon-disabled-color,
   $ripple-color-on,
   $ripple-color-off,
   $ripple-size) {
 
-  * {
-    cursor: pointer;
-  }
-
   .v-radiobutton {
     align-items: flex-start;
     display: flex;
-    padding-bottom: ($md-radio-btn-min-height - $md-icon-size)/2;
-    padding-top: ($md-radio-btn-min-height - $md-icon-size)/2;
+    min-height: $md-radiobtn-min-height;
+    min-width: $md-icon-size;
+    padding-bottom: ($md-radiobtn-min-height - $md-icon-size)/2;
+    padding-top: ($md-radiobtn-min-height - $md-icon-size)/2;
     position: relative;
 
+    * {
+      cursor: pointer;
+    }
+
     label {
-      @include md-subheader-font($primary-color);
+      @include md-subheader-font($font-primary-color);
       display: inline-block;
-      padding-left: $md-radio-btn-label-pad-left;
       position: relative;
 
+      &:not(:empty) {
+        padding-left: $md-radiobtn-label-pad-left;
+      }
+
+      // Ripple
       &::after {
         animation: md-ripple 0.8s ease-out;
         background-color: $ripple-color-off;
@@ -83,7 +92,6 @@ $md-radio-btn-dark-disabled-opacity: 0.3 !default;
         transform: scale(0);
         visibility: hidden;
         width: $ripple-size;
-        z-index: 0;
       }
     }
 
@@ -96,19 +104,29 @@ $md-radio-btn-dark-disabled-opacity: 0.3 !default;
 
       &::after {
         @include MaterialIcons;
-        color: $secondary-color;
+        color: $icon-default-color;
         content: "\e836";
       }
 
       &:checked {
         &::after {
-          color: $checked-color;
+          color: $icon-checked-color;
           content: "\e837";
         }
 
         + label::after {
           animation-name: md-ripple-copy;
           background-color: $ripple-color-on;
+        }
+      }
+
+      &:disabled {
+        &::after {
+          color: $icon-disabled-color;
+        }
+
+        + label {
+          color: $font-disabled-color;
         }
       }
 
@@ -123,14 +141,6 @@ $md-radio-btn-dark-disabled-opacity: 0.3 !default;
   &.v-disabled {
     * {
       cursor: default;
-    }
-
-    label {
-      color: $disabled-color;
-    }
-
-    input::after {
-      opacity: $disabled-opacity;
     }
   }
 }

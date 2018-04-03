@@ -27,11 +27,13 @@ $md-dt-checkbox-size: 18px;
   // Selection checkboxes
   .v-grid-select-all-checkbox,
   .v-grid-selection-checkbox {
-    @include md-grid-checkbox($md-secondary-dark,
-                              $md-cb-light-checked-color,
-                              $md-cb-light-ripple-color-on,
-                              $md-cb-light-ripple-color-off,
-                              $md-cb-light-ripple-size);
+    @include md-grid-checkbox(
+      $md-cb-light-default-color,
+      $md-cb-light-checked-color,
+      $md-cb-light-ripple-color-on,
+      $md-cb-light-ripple-color-off,
+      $md-cb-light-ripple-size
+    );
     display: flex;
     justify-content: center;
     width: $md-dt-checkbox-size;

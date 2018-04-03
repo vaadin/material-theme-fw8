@@ -1,17 +1,19 @@
 $md-cb-label-pad-left: $md-content-margin-left-tablet - $md-gutter-tablet !default;
 $md-cb-min-height: 48px !default;
 
+$md-cb-light-default-color: $md-secondary-dark !default;
 $md-cb-light-checked-color: $md-blue-500 !default;
+$md-cb-light-disabled-color: rgba(0, 0, 0, 0.26) !default;
 $md-cb-light-ripple-color-on: rgba($md-blue-500, 0.1) !default;
 $md-cb-light-ripple-color-off: rgba(0, 0, 0, 0.07) !default;
 $md-cb-light-ripple-size: $md-u6 !default;
-$md-cb-light-disabled-opacity: 0.26 !default;
 
+$md-cb-dark-default-color: $md-secondary-light !default;
 $md-cb-dark-checked-color: $md-blue-500 !default;
+$md-cb-dark-disabled-color: rgba(255, 255, 255, 0.3) !default;
 $md-cb-dark-ripple-color-on: rgba($md-blue-500, 0.09) !default;
 $md-cb-dark-ripple-color-off: rgba(255, 255, 255, 0.1) !default;
 $md-cb-dark-ripple-size: $md-u6 !default;
-$md-cb-dark-disabled-opacity: 0.3 !default;
 
 
 @mixin checkboxes {
@@ -20,9 +22,9 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
     md-checkbox-light,
     $md-primary-dark,
     $md-secondary-dark,
-    $md-disabled-dark,
-    $md-cb-light-disabled-opacity,
+    $md-cb-light-default-color,
     $md-cb-light-checked-color,
+    $md-cb-light-disabled-color,
     $md-cb-light-ripple-color-on,
     $md-cb-light-ripple-color-off,
     $md-cb-light-ripple-size
@@ -32,9 +34,9 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
     md-checkbox-dark,
     $md-primary-light,
     $md-secondary-light,
-    $md-disabled-light,
-    $md-cb-dark-disabled-opacity,
+    $md-cb-dark-default-color,
     $md-cb-dark-checked-color,
+    $md-cb-dark-disabled-color,
     $md-cb-dark-ripple-color-on,
     $md-cb-dark-ripple-color-off,
     $md-cb-dark-ripple-size
@@ -45,9 +47,9 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
       v-checkbox,
       $md-primary-dark,
       $md-secondary-dark,
-      $md-disabled-dark,
-      $md-cb-light-disabled-opacity,
+      $md-cb-light-default-color,
       $md-cb-light-checked-color,
+      $md-cb-light-disabled-color,
       $md-cb-light-ripple-color-on,
       $md-cb-light-ripple-color-off,
       $md-cb-light-ripple-size
@@ -58,10 +60,10 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
     @include md-checkbox(
       v-checkbox,
       $md-primary-light,
-      $md-secondary-light,
       $md-disabled-light,
-      $md-cb-dark-disabled-opacity,
+      $md-cb-dark-default-color,
       $md-cb-dark-checked-color,
+      $md-cb-dark-disabled-color,
       $md-cb-dark-ripple-color-on,
       $md-cb-dark-ripple-color-off,
       $md-cb-dark-ripple-size
@@ -72,11 +74,11 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
 
 @mixin md-checkbox(
   $primaryStyleName,
-  $primary-color,
-  $secondary-color,
-  $disabled-color,
-  $disabled-opacity,
-  $checked-color,
+  $font-primary-color,
+  $font-disabled-color,
+  $icon-default-color,
+  $icon-checked-color,
+  $icon-disabled-color,
   $ripple-color-on,
   $ripple-color-off,
   $ripple-size) {
@@ -98,18 +100,10 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
       * {
         cursor: default;
       }
-
-      label {
-        color: $disabled-color;
-      }
-
-      input::after {
-        opacity: $disabled-opacity;
-      }
     }
 
     label {
-      @include md-subheader-font($primary-color);
+      @include md-subheader-font($font-primary-color);
       display: inline-block;
       position: relative;
 
@@ -145,19 +139,29 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
 
       &::after {
         @include MaterialIcons;
-        color: $secondary-color;
+        color: $icon-default-color;
         content: "\e835";
       }
 
       &:checked {
         &::after {
-          color: $checked-color;
+          color: $icon-checked-color;
           content: "\e834";
         }
 
         + label::after {
           animation-name: md-ripple-copy;
           background-color: $ripple-color-on;
+        }
+      }
+
+      &:disabled {
+        &::after {
+          color: $icon-disabled-color;
+        }
+
+        + label {
+          color: $font-disabled-color;
         }
       }
 
@@ -172,8 +176,8 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
 
 
 @mixin md-grid-checkbox(
-  $secondary-color,
-  $checked-color,
+  $icon-default-color,
+  $icon-checked-color,
   $ripple-color-on,
   $ripple-color-off,
   $ripple-size) {
@@ -204,7 +208,7 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
 
     &::after {
       @include MaterialIcons;
-      color: $secondary-color;
+      color: $icon-default-color;
       content: "\e835";
     }
 
@@ -215,7 +219,7 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
       }
 
       &::after {
-        color: $checked-color;
+        color: $icon-checked-color;
         content: "\e834";
       }
     }
@@ -225,5 +229,9 @@ $md-cb-dark-disabled-opacity: 0.3 !default;
         visibility: visible;
       }
     }
+  }
+
+  label {
+    display: none;
   }
 }
