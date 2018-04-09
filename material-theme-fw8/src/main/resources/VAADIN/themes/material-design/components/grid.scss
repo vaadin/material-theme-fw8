@@ -114,15 +114,18 @@ $md-dt-checkbox-size: 18px;
     box-shadow: inset 0 -1px 0 0 $md-divider-dark;
     display: flex;
     height: $md-dt-row-height;
-    padding: 0 12px;
+    padding-bottom: 0;
+    padding-left: $md-u3 * 0.5;
+    padding-right: $md-u3 * 0.5;
+    padding-top: 0;
     text-overflow: ellipsis;
 
     &:first-child {
-      padding-left: 24px;
+      padding-left: $md-u3;
     }
 
     &:last-child {
-      padding-right: 24px;
+      padding-right: $md-u3;
     }
   }
 
@@ -155,7 +158,10 @@ $md-dt-checkbox-size: 18px;
       box-shadow: inset 0 -1px 0 0 $md-divider-dark;
       display: flex;
       height: $md-dt-header-height;
-      padding: 0 12px;
+      padding-bottom: 0;
+      padding-left: $md-u3 * 0.5;
+      padding-right: $md-u3 * 0.5;
+      padding-top: 0;
       position: relative;
       text-align: left;
 
@@ -164,7 +170,7 @@ $md-dt-checkbox-size: 18px;
       }
 
       &:last-child {
-        padding-right: $md-u4;
+        padding-right: $md-u3;
       }
 
     }
