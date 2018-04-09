@@ -48,7 +48,6 @@ public class DataTableHeader extends FlexLayout {
         setWidth(100, Unit.PERCENTAGE);
         addStyleName(FlexItem.FlexShrink.SHRINK_0);
         addStyleName(Paddings.Horizontal.LARGE);
-        addStyleName(Spacings.Right.LARGE);
         addStyleName(Transitions.CubicBezier.STANDARD);
 
         this.title = title;
