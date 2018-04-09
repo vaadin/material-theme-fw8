@@ -5,10 +5,12 @@ import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Grid;
 import org.vaadin.Dessert;
 import org.vaadin.components.DataTableHeader;
+import org.vaadin.components.IconButton;
 import org.vaadin.layout.FlexLayout;
 import org.vaadin.layout.Margins;
 import org.vaadin.layout.Metrics;
 import org.vaadin.layout.Spacings;
+import org.vaadin.style.MaterialIcons;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,6 +45,8 @@ public class DataTablesView extends FlexLayout {
 
         Grid g2 = createGrid();
         DataTableHeader h2 = new DataTableHeader("Nutrition", g2);
+        h2.addPersistentActions(new IconButton(MaterialIcons.FILTER_LIST, false), new IconButton(MaterialIcons.MORE_VERT, false));
+        h2.addContextualActions(new IconButton(MaterialIcons.DELETE, false), new IconButton(MaterialIcons.MORE_VERT, false));
         CssLayout c2 = createCard(h2, g2);
 
         addComponents(c1, c2);

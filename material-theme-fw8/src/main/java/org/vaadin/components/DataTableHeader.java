@@ -5,12 +5,14 @@ import com.vaadin.shared.Registration;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Layout;
 import org.vaadin.layout.*;
 import org.vaadin.motion.Transitions;
 import org.vaadin.style.MaterialColor;
 import org.vaadin.style.MaterialIcons;
 import org.vaadin.style.Typography;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,78 +21,89 @@ import java.util.List;
  */
 public class DataTableHeader extends FlexLayout {
 
-    private final Label titleLabel;
-    private final Button filter;
-    private final Button more;
-    private final Button delete;
-    private final SelectionListener selectionListener;
-    private final Grid grid;
-    boolean gridHasSelection = false;
     private String title;
+    private final Label titleLabel;
 
-    private List<HeaderButton> enabledButtons;
+    private FlexLayout actionButtonLayout;
+
+    private ArrayList<Button> persistentActions = new ArrayList<>();
+    private ArrayList<Button> contextualActions = new ArrayList<>();
+    private MaterialColor selectedFontColor = MaterialColor.BLUE_500;
+    private MaterialColor selectedBackgroundColor = MaterialColor.BLUE_50;
+
+    private final Grid grid;
+    private final SelectionListener selectionListener;
     private Registration registration;
+
+    public DataTableHeader(String title, Grid grid, MaterialColor selectedFontColor, MaterialColor selectedBackgroundColor) {
+        this(title, grid);
+        setSelectedFontColor(selectedFontColor);
+        setSelectedBackgroundColor(selectedBackgroundColor);
+    }
 
     public DataTableHeader(String title, Grid grid) {
         setAlignItems(FlexLayout.AlignItems.CENTER);
+        setFlexDirection(FlexDirection.ROW);
+        setHeight(Metrics.Table.TITLE_HEIGHT, Unit.PIXELS);
+        setWidth(100, Unit.PERCENTAGE);
         addStyleName(FlexItem.FlexShrink.SHRINK_0);
         addStyleName(Paddings.Horizontal.LARGE);
         addStyleName(Spacings.Right.LARGE);
         addStyleName(Transitions.CubicBezier.STANDARD);
-        setHeight(Metrics.Table.TITLE_HEIGHT, Unit.PIXELS);
-        setWidth(100, Unit.PERCENTAGE);
 
-        this.titleLabel = new Label();
-        setTitle(title);
-        this.titleLabel.addStyleName(Typography.Dark.Table.Title.PRIMARY);
+        this.title = title;
+        this.titleLabel = new Label(title);
+        this.titleLabel.setPrimaryStyleName(Typography.Dark.Table.Title.PRIMARY);
         this.titleLabel.setWidth(100, Unit.PERCENTAGE);
+        addComponent(this.titleLabel);
+
+        actionButtonLayout = new FlexLayout(FlexDirection.ROW);
+        actionButtonLayout.setAlignItems(AlignItems.CENTER);
+        actionButtonLayout.addStyleName(Spacings.Right.LARGE);
+        addComponent(actionButtonLayout);
 
         this.grid = grid;
-
-        filter = new IconButton(MaterialIcons.FILTER_LIST, false);
-        more = new IconButton(MaterialIcons.MORE_VERT, false);
-        delete = new IconButton(MaterialIcons.DELETE, false);
-        addComponents(this.titleLabel, filter, delete, more);
-        enableButtons(HeaderButton.MORE, HeaderButton.FILTER, HeaderButton.DELETE);
-
-        gridHasSelection = !grid.getSelectedItems().isEmpty();
-        delete.setVisible(gridHasSelection);
 
         selectionListener = selectionEvent -> {
             int size = grid.getSelectedItems().size();
             if (size > 0) {
-                gridHasSelection = true;
                 titleLabel.setValue(size + (size == 1 ? " item selected" : " items selected"));
-                titleLabel.removeStyleName(Typography.Dark.Table.Title.PRIMARY);
-                titleLabel.addStyleName(Typography.Dark.Subheader.PRIMARY + " " + MaterialColor.BLUE_500.getFontColorStyle());
-
-                if (enabledButtons.contains(HeaderButton.FILTER)) {
-                    filter.setVisible(false);
-                }
-                if (enabledButtons.contains(HeaderButton.DELETE)) {
-                    delete.setVisible(true);
-                }
-
-                addStyleName(MaterialColor.BLUE_50.getBackgroundColorStyle());
+                titleLabel.setPrimaryStyleName(Typography.Dark.Subheader.PRIMARY);
+                titleLabel.addStyleName(selectedFontColor.getFontColorStyle());
+                addStyleName(selectedBackgroundColor.getBackgroundColorStyle());
+                persistentActions.forEach(button -> button.setVisible(false));
+                contextualActions.forEach(button -> button.setVisible(true));
             } else {
-                gridHasSelection = false;
                 titleLabel.setValue(this.title);
-                titleLabel.addStyleName(Typography.Dark.Table.Title.PRIMARY);
-                titleLabel.removeStyleName(Typography.Dark.Subheader.PRIMARY + " " + MaterialColor.BLUE_500.getFontColorStyle());
-
-                if (enabledButtons.contains(HeaderButton.FILTER)) {
-                    filter.setVisible(true);
-                }
-
-                if (enabledButtons.contains(HeaderButton.DELETE)) {
-                    delete.setVisible(false);
-                }
-
-                removeStyleName(MaterialColor.BLUE_50.getBackgroundColorStyle());
+                titleLabel.setPrimaryStyleName(Typography.Dark.Table.Title.PRIMARY);
+                titleLabel.removeStyleName(selectedFontColor.getFontColorStyle());
+                removeStyleName(selectedBackgroundColor.getBackgroundColorStyle());
+                persistentActions.forEach(button -> button.setVisible(true));
+                contextualActions.forEach(button -> button.setVisible(false));
             }
         };
 
         enableSelectionListener();
+    }
+
+    public Layout getActionButtonLayout() {
+        return actionButtonLayout;
+    }
+
+    public void addPersistentActions(Button... buttons) {
+        actionButtonLayout.addComponents(buttons);
+        for (Button button : buttons) {
+            persistentActions.add(button);
+            button.setVisible(grid.getSelectedItems().isEmpty());
+        }
+    }
+
+    public void addContextualActions(Button... buttons) {
+        actionButtonLayout.addComponents(buttons);
+        for (Button button : buttons) {
+            contextualActions.add(button);
+            button.setVisible(!grid.getSelectedItems().isEmpty());
+        }
     }
 
     public void enableSelectionListener() {
@@ -101,77 +114,24 @@ public class DataTableHeader extends FlexLayout {
         registration.remove();
     }
 
-    public void enableButtons(HeaderButton... enabledButtons) {
-        this.enabledButtons = Arrays.asList(enabledButtons);
-
-        more.setVisible(false);
-        more.setEnabled(false);
-        delete.setVisible(false);
-        delete.setVisible(false);
-        filter.setVisible(false);
-        filter.setVisible(false);
-
-        for (HeaderButton enabledButton : this.enabledButtons) {
-            switch (enabledButton) {
-                case MORE:
-                    more.setVisible(true);
-                    more.setEnabled(true);
-                    break;
-                case DELETE:
-                    delete.setVisible(gridHasSelection);
-                    delete.setEnabled(true);
-                    break;
-                case FILTER:
-                    filter.setVisible(true);
-                    filter.setEnabled(true);
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-
     public void setTitle(String title) {
         this.title = title;
         this.titleLabel.setValue(title);
     }
 
-    public void addFilterButtonStyleName(String styleName) {
-        this.filter.addStyleName(styleName);
+    public void setSelectedFontColor(MaterialColor selectedFontColor) {
+        this.selectedFontColor = selectedFontColor;
     }
 
-    public void removeFilterButtonStyleName(String styleName) {
-        this.filter.removeStyleName(styleName);
+    public MaterialColor getSelectedFontColor() {
+        return selectedFontColor;
     }
 
-    public void addMoreButtonStyleName(String styleName) {
-        this.more.addStyleName(styleName);
+    public void setSelectedBackgroundColor(MaterialColor selectedBackgroundColor) {
+        this.selectedBackgroundColor = selectedBackgroundColor;
     }
 
-    public void removeMoreButtonStyleName(String styleName) {
-        this.more.removeStyleName(styleName);
+    public MaterialColor getSelectedBackgroundColor() {
+        return selectedBackgroundColor;
     }
-
-    public void addDeleteButtonStyleName(String styleName) {
-        this.delete.addStyleName(styleName);
-    }
-
-    public void removeDeleteButtonStyleName(String styleName) {
-        this.delete.removeStyleName(styleName);
-    }
-
-    public void addFilterButtonClickListener(Button.ClickListener listener) {
-        this.filter.addClickListener(listener);
-    }
-
-    public void addMoreButtonClickListener(Button.ClickListener listener) {
-        this.more.addClickListener(listener);
-    }
-
-    public void addDeleteButtonClickListener(Button.ClickListener listener) {
-        this.delete.addClickListener(listener);
-    }
-
-    public enum HeaderButton {FILTER, MORE, DELETE}
-
 }
