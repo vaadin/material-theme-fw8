@@ -34,8 +34,7 @@ $md-menuitem-icon-pad-right-tablet: 16px;
 
   .gwt-MenuItem {
     @include md-subheader-font;
-    height: $md-menuitem-height-mobile;
-    padding-left: $md-menuitem-pad-left-mobile;
+    padding: ($md-menuitem-height-mobile - $md-subheader-line-height) / 2 $md-gutter-mobile;
   }
 }
 
@@ -50,7 +49,6 @@ $md-menuitem-icon-pad-right-tablet: 16px;
 
   .gwt-MenuItem {
     @include md-menu-font;
-    height: $md-menuitem-height-tablet;
-    padding-left: $md-menuitem-pad-left-tablet;
+    padding: ($md-menuitem-height-tablet - $md-menu-line-height) / 2 $md-gutter-tablet;
   }
 }

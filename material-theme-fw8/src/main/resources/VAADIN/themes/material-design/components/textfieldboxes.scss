@@ -254,6 +254,7 @@ $md-textfieldbox-dark-ripple-color: rgba(255, 255, 255, 0.1) !default;
     border: none;
     cursor: pointer;
     height: $md-textfieldbox-height;
+    margin: 0;
     padding: $md-textfieldbox-pad-top $md-textfieldbox-pad-horizontal 0 $md-textfieldbox-pad-horizontal;
     text-overflow: ellipsis;
     outline: none;

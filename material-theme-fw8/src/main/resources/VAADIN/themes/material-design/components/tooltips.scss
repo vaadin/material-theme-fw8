@@ -29,15 +29,13 @@ $md-tooltip-bg-color: rgba($md-grey-700, $md-tooltip-opacity);
 @media (max-width: 960px) {
   .v-tooltip {
     @include md-tooltip-font($md-primary-light, true);
-    height: $md-tooltip-height-mobile;
-    padding: 0 $md-tooltip-pad-horizontal-mobile;
+    padding: ($md-tooltip-height-mobile - $md-tooltip-line-height-mobile) / 2 $md-tooltip-pad-horizontal-mobile;
   }
 }
 
 @media (min-width: 961px) {
   .v-tooltip {
     @include md-tooltip-font($md-primary-light, false);
-    height: $md-tooltip-height-tablet;
-    padding: 0 $md-tooltip-pad-horizontal-tablet;
+    padding: ($md-tooltip-height-tablet - $md-tooltip-line-height-tablet) / 2 $md-tooltip-pad-horizontal-tablet;
   }
 }
