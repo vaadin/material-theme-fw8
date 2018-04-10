@@ -58,6 +58,7 @@ public class DataTableHeader extends FlexLayout {
 
         actionButtonLayout = new FlexLayout(FlexDirection.ROW);
         actionButtonLayout.setAlignItems(AlignItems.CENTER);
+        actionButtonLayout.addStyleName(FlexItem.FlexShrink.SHRINK_0);
         actionButtonLayout.addStyleName(Spacings.Right.LARGE);
         addComponent(actionButtonLayout);
 
