@@ -239,9 +239,12 @@ $md-combobox-itemicon-pad-right: $md-icon-size + $md-u4 !default;
     cursor: pointer;
     height: $md-combobox-input-height;
     margin: 0;
-    padding: 0;
-    text-overflow: ellipsis;
     outline: none;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: $md-combobox-button-size;
+    padding-top: 0;
+    text-overflow: ellipsis;
     width: 100% !important;
 
     &.v-readonly {

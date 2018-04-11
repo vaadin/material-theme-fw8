@@ -266,9 +266,12 @@ $md-datefield-popup-dark-ripple-color: $md-divider-light !default;
     cursor: pointer;
     height: $md-datefield-input-height;
     margin: 0;
-    padding: 0;
-    text-overflow: ellipsis;
     outline: none;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: $md-datefield-button-size;
+    padding-top: 0;
+    text-overflow: ellipsis;
     width: 100% !important;
 
     &.v-readonly {
