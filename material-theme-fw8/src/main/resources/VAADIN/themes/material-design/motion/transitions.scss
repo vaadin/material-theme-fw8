@@ -13,18 +13,18 @@
   }
 }
 
-@mixin md-cubic-std {
-  transition: all 150ms cubic-bezier(0.4, 0.0, 0.2, 1);
+@mixin md-cubic-std($duration: 200ms) {
+  transition: all $duration cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-@mixin md-cubic-deceleration {
-  transition: all 150ms cubic-bezier(0.0, 0.0, 0.2, 1);
+@mixin md-cubic-deceleration($duration: 200ms) {
+  transition: all $duration cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-@mixin md-cubic-acceleration {
-  transition: all 150ms cubic-bezier(0.4, 0.0, 1, 1);
+@mixin md-cubic-acceleration($duration: 200ms) {
+  transition: all $duration cubic-bezier(0.4, 0.0, 1, 1);
 }
 
-@mixin md-cubic-sharp {
-  transition: all 150ms cubic-bezier(0.4, 0.0, 0.6, 1);
+@mixin md-cubic-sharp($duration: 200ms) {
+  transition: all $duration cubic-bezier(0.4, 0.0, 0.6, 1);
 }

@@ -1,0 +1,95 @@
+$md-loading-indicator-height: 4px !default;
+
+$md-loading-indicator-color: $md-blue-500 !default;
+$md-loading-indicator-background-color: $md-blue-50 !default;
+
+$md-loading-indicator-wait-color: $md-deep-purple-500 !default;
+$md-loading-indicator-wait-background-color: $md-deep-purple-50 !default;
+
+$md-loading-indicator-delay-color: $md-red-500 !default;
+$md-loading-indicator-delay-background-color: $md-red-50 !default;
+
+
+@mixin loading-indicator {
+  .v-loading-indicator {
+    @include md-cubic-std;
+    background-color: $md-loading-indicator-background-color;
+    display: block !important;
+    height: $md-loading-indicator-height;
+    left: 0;
+    opacity: 1;
+    position: fixed !important;
+    right: 0;
+    top: 0;
+    z-index: 999;
+
+    // Chrome issue with display: none.
+    &[style*="none"] {
+      opacity: 0;
+    }
+
+    &::before,
+    &::after {
+      @include md-cubic-std;
+      background-color: $md-loading-indicator-color;
+      bottom: 0;
+      content: "";
+      position: absolute;
+      top: 0;
+    }
+
+    &::before {
+      animation: loading-indicator-primary 2.4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+    }
+
+    &::after {
+      animation: loading-indicator-secondary 2.4s cubic-bezier(0.0, 0.0, 0.2, 1) infinite;
+      animation-delay: 1.2s;
+    }
+  }
+
+  .v-loading-indicator-wait {
+    background-color: $md-loading-indicator-wait-background-color;
+
+    &::before,
+    &::after {
+      background-color: $md-loading-indicator-wait-color;
+    }
+  }
+
+  .v-loading-indicator-delay {
+    background-color: $md-loading-indicator-delay-background-color;
+
+    &::before,
+    &::after {
+      background-color: $md-loading-indicator-delay-color;
+    }
+  }
+
+}
+
+@keyframes loading-indicator-primary {
+  0% {
+    left: -40%;
+    right: 100%;
+  } 56% {
+    left: 100%;
+    right: -100%;
+  } 100% {
+    left: 100%;
+    right: -100%;
+  }
+}
+
+@keyframes loading-indicator-secondary {
+  0% {
+    left: -200%;
+    right: 100%;
+  } 56% {
+    left: 100%;
+    right: -10%;
+  } 100% {
+    left: 100%;
+    right: -10%;
+  }
+}

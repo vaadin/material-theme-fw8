@@ -30,8 +30,8 @@
 @import "components/datepickers";
 @import "components/grid";
 @import "components/list-item";
+@import "components/loading-indicator";
 @import "components/menus";
-@import "components/progress";
 @import "components/radio-buttons";
 @import "components/snackbars";
 @import "components/spinners";
@@ -65,8 +65,9 @@ $primary-color: $md-blue-500;
   @include datepickers;
   @include grid;
   @include list-item;
+  @include loading-indicator;
   @include menus;
-  @include progress;
+
   @include radio-buttons;
   @include snackbars;
   @include spinners;
