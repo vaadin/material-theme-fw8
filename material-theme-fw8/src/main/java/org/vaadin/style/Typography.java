@@ -6,6 +6,7 @@ package org.vaadin.style;
 public class Typography {
 
     public static class FontWeight {
+        public static final String LIGHT = new String("font-weight-light");
         public static final String NORMAL = new String("font-weight-normal");
         public static final String MEDIUM = new String("font-weight-medium");
     }
