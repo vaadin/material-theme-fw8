@@ -1,8 +1,8 @@
 package org.vaadin.components;
 
+import com.vaadin.event.LayoutEvents;
 import com.vaadin.shared.ui.ContentMode;
-import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.Label;
+import com.vaadin.ui.*;
 import org.vaadin.layout.*;
 import org.vaadin.style.MaterialColor;
 import org.vaadin.style.MaterialIcons;
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import static org.vaadin.layout.FlexLayout.FlexDirection.COLUMN;
 import static org.vaadin.layout.FlexLayout.FlexDirection.ROW;
 import static org.vaadin.layout.Metrics.Stepper.CIRCLE_SIZE;
+import static org.vaadin.style.Styles.Misc.CLICKABLE;
 
 /**
  * Created by jonte on 23/03/2017.
@@ -27,8 +28,6 @@ public class Stepper extends FlexLayout {
     private MaterialColor complete = MaterialColor.BLUE_500;
 
     public Stepper() {
-        addStyleName(Paddings.Horizontal.LARGE);
-        addStyleName(Spacings.Right.SMALL);
         setAlignItems(AlignItems.CENTER);
         setHeight(Metrics.Stepper.HEIGHT, Unit.PIXELS);
         setJustifyContent(JustifyContent.SPACE_BETWEEN);
@@ -45,6 +44,7 @@ public class Stepper extends FlexLayout {
     public Step addStep(String name, String info) {
         if (steps.size() > 0) {
             CssLayout connector = new CssLayout();
+            connector.addStyleName("step-connector");
             connector.addStyleName(FlexItem.FlexGrow.GROW_1);
             connector.addStyleName(MaterialColor.DARK_DIVIDER.getBackgroundColorStyle());
             connector.setHeight(Metrics.Stepper.CONNECTOR_HEIGHT, Unit.PIXELS);
@@ -144,11 +144,16 @@ public class Stepper extends FlexLayout {
         private MaterialColor invalid;
         private MaterialColor complete;
         private String ACTIVE = "step-active";
+        private CssLayout ripple;
 
         public Step(int step, String name, String info, MaterialColor active, MaterialColor inactive, MaterialColor invalid, MaterialColor complete) {
             setAlignItems(AlignItems.CENTER);
             setFlexDirection(ROW);
+            setHeight(100, Unit.PERCENTAGE);
             setOverflow(Overflow.HIDDEN);
+            setPosition(Position.RELATIVE);
+            addStyleName("step");
+            addStyleName(Paddings.Horizontal.LARGE);
 
             this.step = step;
 
@@ -178,6 +183,23 @@ public class Stepper extends FlexLayout {
             this.inactive = inactive;
             this.invalid = invalid;
             this.complete = complete;
+        }
+
+        public void addClickListener(LayoutEvents.LayoutClickListener listener) {
+            addStyleName(CLICKABLE);
+            addLayoutClickListener(listener);
+            addLayoutClickListener(event -> {
+                if (ripple == null) {
+                    ripple = new CssLayout();
+                    ripple.setPrimaryStyleName("step-ripple");
+                    addComponent(ripple, 0);
+                } else {
+                    CssLayout newRipple = new CssLayout();
+                    newRipple.setPrimaryStyleName("step-ripple");
+                    replaceComponent(ripple, newRipple);
+                    ripple = newRipple;
+                }
+            });
         }
 
         public String getStepLabel() { return this.stepLabel.getValue(); }

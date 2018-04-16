@@ -145,6 +145,7 @@ public class Styles {
 
     public static class Misc {
         public static final String BORDER_RADIUS_FULL = "border-radius-full";
+        public static final String CLICKABLE = "clickable";
     }
 
 

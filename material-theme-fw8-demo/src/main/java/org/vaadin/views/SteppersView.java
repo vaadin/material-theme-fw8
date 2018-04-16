@@ -1,6 +1,7 @@
 package org.vaadin.views;
 
 import com.vaadin.server.Sizeable;
+import com.vaadin.ui.Notification;
 import org.vaadin.components.Stepper;
 import org.vaadin.layout.FlexLayout;
 import org.vaadin.layout.Paddings;

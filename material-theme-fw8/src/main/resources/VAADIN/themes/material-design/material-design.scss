@@ -34,6 +34,7 @@
 @import "components/menus";
 @import "components/radio-buttons";
 @import "components/snackbars";
+@import "components/steppers";
 @import "components/spinners";
 @import "components/switches";
 @import "components/tabs";
@@ -67,10 +68,10 @@ $primary-color: $md-blue-500;
   @include list-item;
   @include loading-indicator;
   @include menus;
-
   @include radio-buttons;
   @include snackbars;
   @include spinners;
+  @include steppers;
   @include switches;
   @include tabs;
   @include tabsheet;
