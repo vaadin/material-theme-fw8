@@ -4,13 +4,13 @@
     <groupId>org.vaadin</groupId>
     <artifactId>material-theme-fw8-demo</artifactId>
     <packaging>war</packaging>
-    <version>1.22.0</version>
+    <version>1.22.1-SNAPSHOT</version>
     <name>material-theme-fw8 demo</name>
 
     <parent>
         <groupId>org.vaadin</groupId>
         <artifactId>material-theme-fw8-root</artifactId>
-        <version>1.22.0</version>
+        <version>1.22.1-SNAPSHOT</version>
     </parent>
 
     <properties>
