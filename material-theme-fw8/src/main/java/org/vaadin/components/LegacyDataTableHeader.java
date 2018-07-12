@@ -173,6 +173,18 @@ public class LegacyDataTableHeader extends FlexLayout {
         this.delete.addClickListener(listener);
     }
 
+    public void setFilterButtonId(String id){
+        this.filter.setId(id);
+    }
+
+    public void setMoreButtonId(String id){
+        this.more.setId(id);
+    }
+
+    public void setDeleteButtonId(String id){
+        this.delete.setId(id);
+    }
+
     public enum HeaderButton {FILTER, MORE, DELETE}
 
 }
