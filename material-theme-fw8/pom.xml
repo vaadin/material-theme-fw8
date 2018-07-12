@@ -5,13 +5,13 @@
     <groupId>org.vaadin</groupId>
     <artifactId>material-theme-fw8</artifactId>
     <packaging>jar</packaging>
-    <version>1.23.0</version>
+    <version>1.23.1-SNAPSHOT</version>
     <name>material-theme-fw8</name>
 
     <parent>
         <groupId>org.vaadin</groupId>
         <artifactId>material-theme-fw8-root</artifactId>
-        <version>1.23.0</version>
+        <version>1.23.1-SNAPSHOT</version>
     </parent>
 
     <prerequisites>
@@ -219,8 +219,4 @@
             </pluginRepositories>
         </profile>
     </profiles>
-
-  <scm>
-    <tag>material-theme-fw8-root-1.23.0</tag>
-  </scm>
 </project>
